@@ -1,0 +1,42 @@
+{
+	"luaClass": {
+		"prefix": ["luaScene"],
+	 	"body": [
+			"local Scene = require \"models.scenes.Scene\"",
+			"",
+			"---@class ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}",
+			"${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/} = {}",
+			"",
+			"---@param name string",
+			"---@param order number",
+			"${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}.new = function(name, order --[[optional]])",
+			"\torder = order or 0",
+			"\tlocal ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/} = Scene:new(name, order)",
+			"\t",
+			"\tsetmetatable(${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}, ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/})",
+			"\t${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}.__index = ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}",
+			"\t",
+			"\t-- Classe Properties",
+			"\t",
+			"\t-- Classe functions",
+			"\t",
+			"\tfunction ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}:load()",
+			"\tend",
+			"\t",
+			"\tfunction ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}:update(dt)",
+			"\tend",
+			"\t",
+			"\tfunction ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}:draw()",
+			"\tend",
+			"\t",
+			"\tfunction ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}:unload()",
+			"\tend",
+			"\t",
+			"\treturn ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}",
+			"end",
+			"",
+			"return ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}"
+		],
+		"description": "Creation du squelette d'une scene"
+	}
+}
