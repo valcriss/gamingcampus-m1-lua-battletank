@@ -30,14 +30,14 @@ SecondScene.new = function(name, order --[[optional]])
     end
 
     function secondScene:update(dt)
-        rotation = rotation + (10 * dt)
+        rotation = rotation - (30 * dt)
     end
 
     function secondScene:draw()
         image:draw(screenManager.calculateCenterPointX(), screenManager.calculateCenterPointY(), rotation)
-        sceneName:draw(20, 15, "Second Scene")
-        helperText:draw(20, 720, "Press X to go to the next scene")
-        quitText:draw(20, 740, "Press Escape to quit the game")
+        sceneName:draw(10, 10, "Second Scene")
+        helperText:draw(10, 720, "Press X to go to the next scene")
+        quitText:draw(10, 740, "Press Escape to quit the game")
     end
 
     function secondScene:unload()
@@ -47,7 +47,7 @@ SecondScene.new = function(name, order --[[optional]])
         quitText:unload()
     end
 
-    function love.keypressed(key, scancode, isrepeat)
+    function love.keypressed(key, _, _)
         if key == "x" then
             scenesManager:removeScene(secondScene)
             scenesManager:addScene(FirstScene.new("firstScene", 0))
