@@ -22,7 +22,7 @@ ScreenManager.new = function()
     function screenManager:init(width, height)
         screenManager.windowWidth = width
         screenManager.windowHeight = height
-        love.window.setMode(width, height, { resizable = true, vsync = 0, minwidth = 800, minheight = 600 })
+        love.window.setMode(width, height, {resizable = true, vsync = 0, minwidth = 800, minheight = 600})
         screenManager.calculateScale()
     end
 
@@ -77,6 +77,10 @@ ScreenManager.new = function()
     ---@public
     function screenManager:ScaleValueY(y)
         return y * screenManager.scaleY
+    end
+
+    function screenManager:clear(r, g, b)
+        love.graphics.clear(r / 255, g / 255, b / 255, 1)
     end
 
     return screenManager

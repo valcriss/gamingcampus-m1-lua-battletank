@@ -3,6 +3,7 @@ local ScreenManager = require "models.screen.ScreenManager"
 local ScenesManager = require "models.scenes.ScenesManager"
 FirstScene = require "scenes.FirstScene"
 SecondScene = require "scenes.SecondScene"
+SplashScreen = require "scenes.SplashScreen"
 
 if pcall(require, "lldebugger") then
     require("lldebugger").start()
@@ -16,11 +17,12 @@ scenesManager = ScenesManager:new()
 
 -- Déclaration des variables locales
 local firstScene = FirstScene.new("firstScene", 0)
+local splashScreen = SplashScreen.new("splashScreen", 0)
 
 -- Functions
 function love.load()
     screenManager:init(1366, 768)
-    scenesManager:addScene(firstScene)
+    scenesManager:addScene(splashScreen)
 end
 
 function love.update(dt)
