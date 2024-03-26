@@ -47,7 +47,6 @@ BitmapText.new = function(bmfFontData)
         alignment = alignment or "left"
         originX = 0
         originY = 0
-        print("alignment", alignment)
         bitmapText.text:set(content)
 
         if alignmentX == "center" then
@@ -62,7 +61,6 @@ BitmapText.new = function(bmfFontData)
         if alignmentY == "right" then
             originY = bitmapText.getHeight()
         end
-        print("originX", originX, "originY", originY)
         love.graphics.draw(bitmapText.text, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), screenManager:getScaleX(), screenManager:getScaleY(), originX, originY)
     end
 
