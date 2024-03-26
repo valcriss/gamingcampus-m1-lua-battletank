@@ -30,8 +30,8 @@ SplashScreen.new = function(name, order --[[optional]])
 
     function splashScreen:draw()
         screenManager:clear(128, 180, 255)
-        logo:draw(screenManager.calculateCenterPointX(), screenManager.calculateCenterPointY())
-        title:draw(screenManager.calculateCenterPointX(), 650, "Mind Limits", 0, "center", "center")
+        logo:draw(screenManager.calculateCenterPointX(), 300)
+        title:draw(screenManager.calculateCenterPointX(), 600, "Mind Limits", 0, "center", "center")
     end
 
     function splashScreen:unload()
