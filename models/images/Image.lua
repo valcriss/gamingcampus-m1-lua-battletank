@@ -11,27 +11,28 @@ Image.new = function(assetPath)
     setmetatable(image, Image)
     Image.__index = Image
 
-    -- Classe Properties
-
-    -- Classe functions
-
+    ---@public
     function image:load()
         image.image = love.graphics.newImage(image.assetPath)
     end
 
+    ---@public
     function image:unload()
         image.image:release()
         image.image = nil
     end
 
+    ---@public
     function image:getWidth()
         return image.image:getWidth()
     end
 
+    ---@public
     function image:getHeight()
         return image.image:getHeight()
     end
 
+    ---@public
     ---@param x number
     ---@param y number
     ---@param rotation number

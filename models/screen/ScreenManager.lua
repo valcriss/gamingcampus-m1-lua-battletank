@@ -16,21 +16,22 @@ ScreenManager.new = function()
     setmetatable(screenManager, ScreenManager)
     ScreenManager.__index = ScreenManager
 
-    -- Classe Properties
-
-    -- Classe functions
-
+    ---@public
+    ---@param width number
+    ---@param height number
     function screenManager:init(width, height)
         screenManager.windowWidth = width
         screenManager.windowHeight = height
-        love.window.setMode(width, height, {resizable = true, vsync = 0, minwidth = 800, minheight = 600})
+        love.window.setMode(width, height, { resizable = true, vsync = 0, minwidth = 800, minheight = 600 })
         screenManager.calculateScale()
     end
 
+    ---@public
     function screenManager:resize()
         screenManager.calculateScale()
     end
 
+    ---@private
     function screenManager:calculateScale()
         width = love.graphics.getWidth()
         height = love.graphics.getHeight()
@@ -48,26 +49,32 @@ ScreenManager.new = function()
         return screenManager.windowHeight / 2
     end
 
+    ---@public
     function screenManager:getWindowWidth()
         return screenManager.windowWidth
     end
 
+    ---@public
     function screenManager:getWindowHeight()
         return screenManager.windowHeight
     end
 
+    ---@public
     function screenManager:getScaleX()
         return screenManager.scaleX
     end
 
+    ---@public
     function screenManager:getScaleY()
         return screenManager.scaleY
     end
 
+    ---@public
     function screenManager:ScaleValueX(x)
         return x * screenManager.scaleX
     end
 
+    ---@public
     function screenManager:ScaleValueY(y)
         return y * screenManager.scaleY
     end

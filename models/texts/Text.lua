@@ -10,24 +10,29 @@ Text.new = function()
     setmetatable(text, Text)
     Text.__index = Text
 
+    ---@public
     function text:load()
         text.font = love.graphics.getFont()
         text.text = love.graphics.newText(text.font, "")
     end
 
+    ---@public
     function text:unload()
         text.text:release()
         text.text = nil
     end
 
+    ---@public
     function text:getWidth()
         return text.text:getWidth()
     end
 
+    ---@public
     function text:getHeight()
         return text.text:getHeight()
     end
 
+    ---@public
     ---@param x number
     ---@param y number
     ---@param content string

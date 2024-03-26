@@ -16,18 +16,21 @@ Scene.new = function(name, order --[[optional]])
     setmetatable(scene, Scene)
     Scene.__index = Scene
 
+    ---@public
     function scene:load()
         Error("load() must be override")
     end
 
-    function scene:update(dt)
+    ---@public
+    function scene:update(_)
     end
 
+    ---@public
     function scene:draw()
     end
 
+    ---@public
     function scene:unload()
-        Error("unload() must be override")
     end
 
     return scene

@@ -8,6 +8,7 @@ ScenesManager.new = function()
     setmetatable(sceneManager, ScenesManager)
     ScenesManager.__index = ScenesManager
 
+    ---@public
     ---@param scene Scene
     function sceneManager:addScene(scene)
         table.insert(sceneManager.scenes, scene)
@@ -15,6 +16,7 @@ ScenesManager.new = function()
         sceneManager:sortScenes()
     end
 
+    ---@public
     ---@param scene Scene
     function sceneManager:removeScene(scene)
         local index = sceneManager:getSceneIndex(scene)
@@ -26,6 +28,7 @@ ScenesManager.new = function()
         sceneManager:sortScenes()
     end
 
+    ---@private
     ---@param scene Scene
     function sceneManager:getSceneIndex(scene)
         for i = 1, #sceneManager.scenes do
@@ -36,10 +39,7 @@ ScenesManager.new = function()
         return nil
     end
 
-    function sceneManager:getScenes()
-        return sceneManager.scenes
-    end
-
+    ---@private
     function sceneManager:sortScenes()
         table.sort(
             sceneManager.scenes,
@@ -49,12 +49,14 @@ ScenesManager.new = function()
         )
     end
 
+    ---@public
     function sceneManager:draw()
         for i = 1, #sceneManager.scenes do
             sceneManager.scenes[i]:draw()
         end
     end
 
+    ---@public
     function sceneManager:update(dt)
         for i = 1, #sceneManager.scenes do
             sceneManager.scenes[i]:update(dt)
