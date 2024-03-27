@@ -18,7 +18,7 @@ MainMenu.new = function()
     local tank = SpriteSheetImage.new("assets/mainmenu/tank.png", 16, 80)
     local mainMenuTitle = BitmapText.new("assets/mainmenu/mainmenu-title.fnt")
     local backgroundMusic = SoundEffect.new("assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
-    local mainMenuFrame = MainMenuFrame.new("Menu Principal", 75, 270, 300, 300)
+    local mainMenuFrame = MainMenuFrame.new("Menu Principal", 75, 270, 220, 260)
 
     function mainMenu:load()
         mainMenuParallax:load()
@@ -32,6 +32,7 @@ MainMenu.new = function()
         mainMenuParallax:update(dt)
         tank:update(dt)
         backgroundMusic:update(dt)
+        mainMenuFrame:update(dt)
     end
 
     function mainMenu:draw()
