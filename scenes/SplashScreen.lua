@@ -1,42 +1,51 @@
 local Scene = require "models.scenes.Scene"
-local Image = require "models.images.Image"
+local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local BitmapText = require "models.texts.BitmapText"
 
 ---@class SplashScreen
 SplashScreen = {}
 
----@param name string
----@param order number
-SplashScreen.new = function(name, order --[[optional]])
-    order = order or 0
-    local splashScreen = Scene:new(name, order)
+SplashScreen.new = function(splashScreenDuration)
+    splashScreenDuration = splashScreenDuration or 5
+    local splashScreen = Scene:new("SplashScreen", 0)
 
     setmetatable(splashScreen, SplashScreen)
     SplashScreen.__index = SplashScreen
 
     -- Classe Properties
-    local logo = Image.new("assets/logo-brainlimits.png")
-    local title = BitmapText.new("assets/title-font.fnt")
+    local logo = SpriteSheetImage.new("assets/splashscreen/logo.png", 33)
+    local title = BitmapText.new("assets/splashscreen/title-font.fnt")
+    local subTitle = BitmapText.new("assets/splashscreen/subtitle-font.fnt")
+    local elapsedTime = 0
 
     -- Classe functions
 
     function splashScreen:load()
         logo:load()
         title:load()
+        subTitle:load()
     end
 
     function splashScreen:update(dt)
+        logo:update(dt)
+        elapsedTime = elapsedTime + dt
+        if (elapsedTime > splashScreenDuration) then
+            scenesManager:addScene(MainMenu.new())
+            scenesManager:removeScene(splashScreen)
+        end
     end
 
     function splashScreen:draw()
         screenManager:clear(128, 180, 255)
-        logo:draw(screenManager.calculateCenterPointX(), 300)
-        title:draw(screenManager.calculateCenterPointX(), 600, "Mind Limits", 0, "center", "center")
+        logo:draw(screenManager.calculateCenterPointX(), 300, 0, 0.5)
+        title:draw(screenManager.calculateCenterPointX(), 600, "Daniel SILVESTRE", 0, "center", "center")
+        subTitle:draw(screenManager.calculateCenterPointX(), 700, "Programmation fondamentale LUA et Love2", 0, "center", "center")
     end
 
     function splashScreen:unload()
         logo:unload()
         title:unload()
+        subTitle:unload()
     end
 
     return splashScreen

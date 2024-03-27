@@ -1,9 +1,8 @@
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"
 local ScenesManager = require "models.scenes.ScenesManager"
-FirstScene = require "scenes.FirstScene"
-SecondScene = require "scenes.SecondScene"
 SplashScreen = require "scenes.SplashScreen"
+MainMenu = require "scenes.MainMenu"
 
 if pcall(require, "lldebugger") then
     require("lldebugger").start()
@@ -16,8 +15,7 @@ screenManager = ScreenManager:new()
 scenesManager = ScenesManager:new()
 
 -- Déclaration des variables locales
-local firstScene = FirstScene.new("firstScene", 0)
-local splashScreen = SplashScreen.new("splashScreen", 0)
+local splashScreen = SplashScreen.new()
 
 -- Functions
 function love.load()

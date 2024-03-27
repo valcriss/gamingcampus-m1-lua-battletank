@@ -21,7 +21,7 @@ ScenesManager.new = function()
     function sceneManager:removeScene(scene)
         local index = sceneManager:getSceneIndex(scene)
         if (index == nil) then
-            print("Scene not found")
+            Error("Scene not found")
         end
         scene:unload()
         table.remove(sceneManager.scenes, index)
