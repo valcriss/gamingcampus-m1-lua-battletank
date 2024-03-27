@@ -27,7 +27,7 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
     ---@public
     function spriteSheetImage:load()
         spriteSheetImage.sourceImage = love.graphics.newImage(imagePath)
-        spriteSheetImage.itemWidth = spriteSheetImage.sourceImage:getWidth() / spriteSheetImage.columns
+        spriteSheetImage.itemWidth = math.floor(spriteSheetImage.sourceImage:getWidth() / spriteSheetImage.columns)
         spriteSheetImage.itemHeight = spriteSheetImage.sourceImage:getHeight()
         spriteSheetImage:loadDefinition()
     end
@@ -92,7 +92,7 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
         local y = 0
         for _ = 1, spriteSheetImage.columns do
             table.insert(spriteSheetImage.quads, love.graphics.newQuad(x, y, spriteSheetImage.itemWidth, spriteSheetImage.itemHeight, spriteSheetImage.sourceImage))
-            x = x + spriteSheetImage.itemWidth
+            x = math.floor(x + spriteSheetImage.itemWidth)
         end
     end
 
