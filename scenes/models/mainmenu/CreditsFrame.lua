@@ -17,7 +17,7 @@ CreditsFrame.new = function(title, x, y, width, height, moveSpeed)
         animation = "none",
         graphicAssetsList = "- tanks by kenney (https://kenney.nl/)\n- ui-pack by kenney (https://kenney.nl/)",
         fontAssetsList = "- Bouncy by Mans Greback (https://www.mansgreback.com/)\n- Hey Comic by Khurasan (https://www.dafont.com/fr/hey-comic.font)\n- Komika Axis by Vigilante Typeface Corporation (https://www.dafont.com/fr/komika-axis.font)\n- Roboto by Google Android Design (https://m3.material.io/styles/typography/overview)",
-        soundAssetsList = "- Game music – retro, arcade melody with electro drums and synth elements by zapsplat (https://www.zapsplat.com/)\n- boing effect by pixabay (https://pixabay.com/users/pixabay-1/)"
+        soundAssetsList = "- Game music – retro, arcade melody with electro drums and synth elements by zapsplat (https://www.zapsplat.com/)\n- Boing effect by pixabay (https://pixabay.com/users/pixabay-1/)\n- Button pressed effect in ui-pack by kenney (https://kenney.nl/)"
     }
 
     setmetatable(creditsFrame, CreditsFrame)

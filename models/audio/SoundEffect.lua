@@ -3,8 +3,12 @@ SoundEffect = {}
 
 SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional]], playOnStart --[[optional]], volume --[[optional]], pitch --[[optional]])
     loadType = loadType or "static"
-    loop = loop or false
-    playOnStart = playOnStart or true
+    if loop == nil then
+        loop = false
+    end
+    if playOnStart == nil then
+        playOnStart = true
+    end
     volume = volume or 1
     pitch = pitch or 1
     local soundEffect = {
@@ -25,13 +29,15 @@ SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional
         soundEffect.sound = love.audio.newSource(soundEffect.assetPath, soundEffect.loadType)
         if (soundEffect.playOnStart) then
             soundEffect:play()
+        else
+            soundEffect:stop()
         end
     end
 
     ---@public
     function soundEffect:update(_)
         if soundEffect.sound then
-            if not soundEffect.sound:isPlaying() and soundEffect.loop then
+            if not soundEffect.sound:isPlaying() and soundEffect.loop == true then
                 soundEffect:play()
             end
         end

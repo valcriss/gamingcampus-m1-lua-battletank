@@ -1,5 +1,6 @@
 local Image = require "models.images.Image"
 local BitmapText = require "models.texts.BitmapText"
+local SoundEffect = require "models.audio.SoundEffect"
 ---@class Button
 Button = {}
 
@@ -25,12 +26,14 @@ Button.new = function(assetPath, assetOverPath, assetPressedPath, x, y, text, ac
     local buttonImage = Image.new(button.assetPath)
     local buttonOverImage = Image.new(button.assetOverPath)
     local buttonPressedImage = Image.new(button.assetPressedPath)
+    local soundEffect = SoundEffect.new("assets/ui/switch2.ogg", "static", false, false)
 
     function button:load()
         buttonText:load()
         buttonImage:load()
         buttonOverImage:load()
         buttonPressedImage:load()
+        soundEffect:load()
     end
 
     function button:update(dt)
@@ -53,6 +56,7 @@ Button.new = function(assetPath, assetOverPath, assetPressedPath, x, y, text, ac
             return
         end
         if button.mouseIsOver and wasPressed then
+            soundEffect:play()
             button.action()
         end
     end
@@ -74,6 +78,7 @@ Button.new = function(assetPath, assetOverPath, assetPressedPath, x, y, text, ac
         buttonImage:unload()
         buttonOverImage:unload()
         buttonPressedImage:unload()
+        soundEffect:unload()
     end
 
     return button
