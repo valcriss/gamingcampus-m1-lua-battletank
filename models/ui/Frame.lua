@@ -72,6 +72,11 @@ Frame.new = function(assetPath, border, x, y, width, height)
         end
     end
 
+    function frame:setPosition(x, y)
+        frame.x = x
+        frame.y = y
+    end
+
     return frame
 end
 

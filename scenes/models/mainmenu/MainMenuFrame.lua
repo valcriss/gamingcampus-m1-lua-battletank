@@ -5,13 +5,14 @@ local Button = require "models.ui.Button"
 ---@class MainMenuFrame
 MainMenuFrame = {}
 
-MainMenuFrame.new = function(title, x, y, width, height)
+MainMenuFrame.new = function(title, x, y, width, height, action)
     local mainMenuFrame = {
         title = title,
         x = x,
         y = y,
         width = width,
-        height = height
+        height = height,
+        action = action
     }
 
     setmetatable(mainMenuFrame, MainMenuFrame)
@@ -20,18 +21,52 @@ MainMenuFrame.new = function(title, x, y, width, height)
     local frame = Frame.new("assets/ui/grey_panel.png", 10, mainMenuFrame.x, mainMenuFrame.y, mainMenuFrame.width, mainMenuFrame.height)
     local blueFrame = Frame.new("assets/ui/blue_panel.png", 10, mainMenuFrame.x, mainMenuFrame.y - 30, mainMenuFrame.width, 50)
     local frameTitle = BitmapText.new("assets/ui/ui-18.fnt")
-    local startGameButton = Button.new("assets/ui/green_button00.png", "assets/ui/green_button04.png", mainMenuFrame.x + 20, mainMenuFrame.y + 20, "Lancer le jeu")
-    local creditGameButton = Button.new("assets/ui/yellow_button00.png", "assets/ui/yellow_button04.png", mainMenuFrame.x + 20, mainMenuFrame.y + 80, "Credits")
-    local parametersGameButton = Button.new("assets/ui/red_button11.png", "assets/ui/red_button01.png", mainMenuFrame.x + 20, mainMenuFrame.y + 140, "Parametres")
+    local startGameButton =
+        Button.new(
+        "assets/ui/green_button00.png",
+        "assets/ui/green_button04.png",
+        "assets/ui/green_button03.png",
+        mainMenuFrame.x + 20,
+        mainMenuFrame.y + 20,
+        "Lancer le jeu",
+        function()
+            mainMenuFrame.action("start")
+        end
+    )
+    local creditGameButton =
+        Button.new(
+        "assets/ui/yellow_button00.png",
+        "assets/ui/yellow_button04.png",
+        "assets/ui/yellow_button03.png",
+        mainMenuFrame.x + 20,
+        mainMenuFrame.y + 80,
+        "Credits",
+        function()
+            mainMenuFrame.action("credits")
+        end
+    )
+    local parametersGameButton =
+        Button.new(
+        "assets/ui/red_button11.png",
+        "assets/ui/red_button01.png",
+        "assets/ui/red_button02.png",
+        mainMenuFrame.x + 20,
+        mainMenuFrame.y + 140,
+        "Parametres",
+        function()
+            mainMenuFrame.action("parameters")
+        end
+    )
     local quitGameButton =
         Button.new(
         "assets/ui/blue_button13.png",
         "assets/ui/red_button10.png",
+        "assets/ui/red_button02.png",
         mainMenuFrame.x + 20,
         mainMenuFrame.y + 200,
         "Quitter le jeu",
         function()
-            mainMenuFrame:quitGame()
+            mainMenuFrame.action("quit")
         end
     )
 
@@ -70,10 +105,6 @@ MainMenuFrame.new = function(title, x, y, width, height)
         creditGameButton:unload()
         parametersGameButton:unload()
         quitGameButton:unload()
-    end
-
-    function mainMenuFrame:quitGame()
-        love.event.quit()
     end
 
     return mainMenuFrame
