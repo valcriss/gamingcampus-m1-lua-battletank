@@ -1,10 +1,14 @@
 ---@class Frame
 Frame = {}
 
-Frame.new = function(assetPath, border)
+Frame.new = function(assetPath, border, x, y, width, height)
     local frame = {
         assetPath = assetPath,
         border = border,
+        x = x,
+        y = y,
+        width = width,
+        height = height,
         sourceImage = nil,
         topLeft = nil,
         top = nil,
@@ -41,31 +45,28 @@ Frame.new = function(assetPath, border)
     end
 
     ---@public
-    ---@param x number
-    ---@param y number
-    ---@param rotation number
-    function frame:draw(x, y, width, height)
+    function frame:draw()
         -- Top Left
-        love.graphics.draw(frame.sourceImage, frame.topLeft, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.topLeft, screenManager:ScaleValueX(frame.x), screenManager:ScaleValueY(frame.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Top Right
-        love.graphics.draw(frame.sourceImage, frame.topRight, screenManager:ScaleValueX(x + width), screenManager:ScaleValueY(y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.topRight, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(frame.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Bottom Left
-        love.graphics.draw(frame.sourceImage, frame.bottomLeft, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y + height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.bottomLeft, screenManager:ScaleValueX(frame.x), screenManager:ScaleValueY(frame.y + frame.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Bottom Right
-        love.graphics.draw(frame.sourceImage, frame.bottomRight, screenManager:ScaleValueX(x + width), screenManager:ScaleValueY(y + height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.bottomRight, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(frame.y + frame.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Horizontal Borders
-        for xBorder = x + frame.border, x + width - frame.border do
-            love.graphics.draw(frame.sourceImage, frame.top, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-            love.graphics.draw(frame.sourceImage, frame.bottom, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(y + height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        for xBorder = frame.x + frame.border, frame.x + frame.width - frame.border do
+            love.graphics.draw(frame.sourceImage, frame.top, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(frame.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+            love.graphics.draw(frame.sourceImage, frame.bottom, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(frame.y + frame.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         end
         -- Vertical Borders
-        for yBorder = y + frame.border, y + height - frame.border do
-            love.graphics.draw(frame.sourceImage, frame.left, screenManager:ScaleValueX(x), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-            love.graphics.draw(frame.sourceImage, frame.right, screenManager:ScaleValueX(x + width), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        for yBorder = frame.y + frame.border, y + frame.height - frame.border do
+            love.graphics.draw(frame.sourceImage, frame.left, screenManager:ScaleValueX(frame.x), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+            love.graphics.draw(frame.sourceImage, frame.right, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         end
         -- Center
-        for xCenter = x + frame.border, x + width - frame.border do
-            for yCenter = y + frame.border, y + height - frame.border do
+        for xCenter = frame.x + frame.border, frame.x + frame.width - frame.border do
+            for yCenter = frame.y + frame.border, frame.y + frame.height - frame.border do
                 love.graphics.draw(frame.sourceImage, frame.center, screenManager:ScaleValueX(xCenter), screenManager:ScaleValueY(yCenter), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
             end
         end
