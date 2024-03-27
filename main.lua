@@ -15,7 +15,7 @@ screenManager = ScreenManager:new()
 scenesManager = ScenesManager:new()
 
 -- Déclaration des variables locales
-local splashScreen = SplashScreen.new()
+local splashScreen = SplashScreen.new(2)
 
 -- Functions
 function love.load()
