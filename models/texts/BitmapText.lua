@@ -11,9 +11,6 @@ BitmapText.new = function(bmfFontData)
     setmetatable(bitmapText, BitmapText)
     BitmapText.__index = BitmapText
 
-    -- Classe Properties
-
-    -- Classe functions
     ---@public
     function bitmapText:load()
         bitmapText.font = love.graphics.newFont(bmfFontData)
@@ -41,7 +38,8 @@ BitmapText.new = function(bmfFontData)
     ---@param y number
     ---@param content string
     ---@param rotation number
-    ---@param alignment string
+    ---@param alignmentX string
+    ---@param alignmentY string
     function bitmapText:draw(x, y, content, rotation --[[optional]], alignmentX --[[optional]], alignmentY --[[optional]])
         rotation = rotation or 0
         alignment = alignment or "left"

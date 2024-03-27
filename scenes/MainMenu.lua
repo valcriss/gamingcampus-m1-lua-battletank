@@ -9,10 +9,6 @@ MainMenu.new = function()
     setmetatable(mainMenu, MainMenu)
     MainMenu.__index = MainMenu
 
-    -- Classe Properties
-
-    -- Classe functions
-
     function mainMenu:load()
     end
 

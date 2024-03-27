@@ -29,7 +29,7 @@ SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional
     end
 
     ---@public
-    function soundEffect:update(dt)
+    function soundEffect:update(_)
         if soundEffect.sound then
             if not soundEffect.sound:isPlaying() and soundEffect.loop then
                 soundEffect:play()

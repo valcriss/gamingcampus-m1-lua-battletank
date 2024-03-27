@@ -13,25 +13,22 @@ SplashScreen.new = function(splashScreenDuration)
     setmetatable(splashScreen, SplashScreen)
     SplashScreen.__index = SplashScreen
 
-    -- Classe Properties
     local logo = SpriteSheetImage.new("assets/splashscreen/logo.png", 33)
     local title = BitmapText.new("assets/splashscreen/title-font.fnt")
     local subTitle = BitmapText.new("assets/splashscreen/subtitle-font.fnt")
-    local SoundEffect = SoundEffect.new("assets/splashscreen/logo.mp3", nil, true, true, 0.05)
+    local soundEffect = SoundEffect.new("assets/splashscreen/logo.mp3", nil, true, true, 0.05)
     local elapsedTime = 0
-
-    -- Classe functions
 
     function splashScreen:load()
         logo:load()
         title:load()
         subTitle:load()
-        SoundEffect:load()
+        soundEffect:load()
     end
 
     function splashScreen:update(dt)
         logo:update(dt)
-        SoundEffect:update(dt)
+        soundEffect:update(dt)
         elapsedTime = elapsedTime + dt
         if (elapsedTime > splashScreenDuration) then
             scenesManager:addScene(MainMenu.new())
@@ -50,7 +47,7 @@ SplashScreen.new = function(splashScreenDuration)
         logo:unload()
         title:unload()
         subTitle:unload()
-        SoundEffect:unload()
+        soundEffect:unload()
     end
 
     return splashScreen

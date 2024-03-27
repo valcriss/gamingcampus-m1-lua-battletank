@@ -90,7 +90,7 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
         spriteSheetImage.quads = {}
         local x = 0
         local y = 0
-        for i = 1, spriteSheetImage.columns do
+        for _ = 1, spriteSheetImage.columns do
             table.insert(spriteSheetImage.quads, love.graphics.newQuad(x, y, spriteSheetImage.itemWidth, spriteSheetImage.itemHeight, spriteSheetImage.sourceImage))
             x = x + spriteSheetImage.itemWidth
         end
