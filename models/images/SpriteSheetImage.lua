@@ -37,7 +37,7 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
         if (spriteSheetImage.running == false) then
             return
         end
-        spriteSheetImage:updateSpriteSheet()
+        spriteSheetImage:updateSpriteSheet(dt)
     end
 
     ---@public
@@ -62,7 +62,7 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
     Fonction qui permet de mettre a jour la frame actuellement affichée
     --]]
     ---@private
-    function spriteSheetImage:updateSpriteSheet()
+    function spriteSheetImage:updateSpriteSheet(dt)
         spriteSheetImage.elapsedTime = spriteSheetImage.elapsedTime + dt
         if (spriteSheetImage.elapsedTime < spriteSheetImage.speed) then
             return
