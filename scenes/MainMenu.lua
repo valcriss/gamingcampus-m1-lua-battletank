@@ -34,7 +34,7 @@ MainMenu.new = function()
     function mainMenu:draw()
         screenManager:clear(0, 0, 0)
         mainMenuParallax:draw()
-        tank:draw(900, 500, 0, 0.7)
+        tank:draw(900, 550, 0, 0.7)
         mainMenuTitle:draw(screenManager:calculateCenterPointX(), 100, "Battle Tank", 0, "center", "center")
     end
 
