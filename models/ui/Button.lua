@@ -31,8 +31,15 @@ Button.new = function(assetPath, assetOverPath, x, y, text, action)
 
     function button:update(dt)
         local x, y = love.mouse.getPosition()
+        if (x == nil or y == nil) then
+            return
+        end
         local isDown = love.mouse.isDown(1)
-        button.mouseIsOver = (x >= button.x and x <= button.x + button.width and y >= button.y and y <= button.y + button.height)
+        local scaledX = screenManager:ScaleValueX(button.x)
+        local scaledWidth = screenManager:ScaleValueX(button.width)
+        local scaledY = screenManager:ScaleValueY(button.y)
+        local scaledHeight = screenManager:ScaleValueY(button.height)
+        button.mouseIsOver = (x >= scaledX and x <= scaledX + scaledWidth and y >= scaledY and y <= scaledY + scaledHeight)
         if (button.action == nil) then
             return
         end
