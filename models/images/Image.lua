@@ -36,9 +36,10 @@ Image.new = function(assetPath)
     ---@param x number
     ---@param y number
     ---@param rotation number
-    function image:draw(x, y, rotation --[[optional]])
+    function image:draw(x, y, rotation --[[optional]], scale --[[optional]])
         rotation = rotation or 0
-        love.graphics.draw(image.image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), screenManager:getScaleX(), screenManager:getScaleY(), image.image:getWidth() / 2, image.image:getHeight() / 2)
+        scale = scale or 1
+        love.graphics.draw(image.image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), scale * screenManager:getScaleX(), scale * screenManager:getScaleY(), image.image:getWidth() / 2, image.image:getHeight() / 2)
     end
 
     return image

@@ -1,6 +1,6 @@
-local SpriteSheetDefinition = require("models.images.SpriteSheetDefinition")
-local JsonAsset = require("models.tools.JsonAsset")
-local Trace = require "models.tools.Trace"
+--[[
+Classe qui permet d'afficher une image animée à partir d'un sprite sheet
+--]]
 ---@class SpriteSheetImage
 SpriteSheetImage = {}
 
@@ -10,74 +10,90 @@ SpriteSheetImage.new = function(imagePath, columns, speed --[[optional]], loop -
     local spriteSheetImage = {
         imagePath = imagePath,
         columns = columns,
-        definition = nil,
         sourceImage = nil,
-        images = nil,
+        quads = nil,
         index = 1,
         running = true,
         loop = loop,
         elapsedTime = 0,
-        speed = speed / 1000
+        speed = speed / 1000,
+        itemWidth = nil,
+        itemHeight = nil
     }
 
     setmetatable(spriteSheetImage, SpriteSheetImage)
     SpriteSheetImage.__index = SpriteSheetImage
 
-    -- Classe Properties
-
-    -- Classe functions
     ---@public
     function spriteSheetImage:load()
         spriteSheetImage.sourceImage = love.graphics.newImage(imagePath)
+        spriteSheetImage.itemWidth = spriteSheetImage.sourceImage:getWidth() / spriteSheetImage.columns
+        spriteSheetImage.itemHeight = spriteSheetImage.sourceImage:getHeight()
         spriteSheetImage:loadDefinition()
     end
 
+    ---@public
     function spriteSheetImage:update(dt)
         if (spriteSheetImage.running == false) then
             return
         end
-        spriteSheetImage.elapsedTime = spriteSheetImage.elapsedTime + dt
-        if (spriteSheetImage.elapsedTime > spriteSheetImage.speed) then
-            spriteSheetImage.index = spriteSheetImage.index + 1
-            spriteSheetImage.elapsedTime = 0
-            if (spriteSheetImage.index > #spriteSheetImage.images) then
-                if (spriteSheetImage.loop == true) then
-                    spriteSheetImage.index = 1
-                else
-                    spriteSheetImage.index = #spriteSheetImage.images
-                    spriteSheetImage.running = false
-                end
-            end
-        end
+        spriteSheetImage:updateSpriteSheet()
     end
 
     ---@public
     ---@param x number
     ---@param y number
     ---@param rotation number
-    function spriteSheetImage:draw(x, y, rotation --[[optional]], scale)
+    function spriteSheetImage:draw(x, y, rotation --[[optional]], scale --[[optional]])
         scale = scale or 1
         rotation = rotation or 0
-        local quad = spriteSheetImage.images[spriteSheetImage.index]
-        sw = spriteSheetImage.definition.itemWidth
-        sh = spriteSheetImage.definition.itemHeight
-
-        love.graphics.draw(spriteSheetImage.sourceImage, quad, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), scale * screenManager:getScaleX(), scale * screenManager:getScaleY(), sw / 2, sh / 2)
+        local quad = spriteSheetImage.quads[spriteSheetImage.index]
+        love.graphics.draw(spriteSheetImage.sourceImage, quad, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), scale * screenManager:getScaleX(), scale * screenManager:getScaleY(), spriteSheetImage.itemWidth / 2, spriteSheetImage.itemHeight / 2)
     end
 
     ---@public
     function spriteSheetImage:unload()
-        spriteSheetImage.definition:unload()
-        spriteSheetImage.definition = nil
         spriteSheetImage.sourceImage:release()
         spriteSheetImage.sourceImage = nil
-        spriteSheetImage.images = nil
+        spriteSheetImage.quads = nil
     end
 
+    --[[
+    Fonction qui permet de mettre a jour la frame actuellement affichée
+    --]]
+    ---@private
+    function spriteSheetImage:updateSpriteSheet()
+        spriteSheetImage.elapsedTime = spriteSheetImage.elapsedTime + dt
+        if (spriteSheetImage.elapsedTime < spriteSheetImage.speed) then
+            return
+        end
+
+        spriteSheetImage.index = spriteSheetImage.index + 1
+        spriteSheetImage.elapsedTime = 0
+        if (spriteSheetImage.index < #spriteSheetImage.quads) then
+            return
+        end
+
+        if (spriteSheetImage.loop == true) then
+            spriteSheetImage.index = 1
+        else
+            spriteSheetImage.index = #spriteSheetImage.quads
+            spriteSheetImage.running = false
+        end
+    end
+
+    --[[
+    Fonction qui charge les quads de differents frames a partir de l'image principale
+    --]]
     ---@private
     function spriteSheetImage:loadDefinition()
-        spriteSheetImage.definition = SpriteSheetDefinition.new(spriteSheetImage.sourceImage, spriteSheetImage.columns)
-        spriteSheetImage.images = spriteSheetImage.definition:extractImages(spriteSheetImage.sourceImage)
+        spriteSheetImage.quads = {}
+        local x = 0
+        local y = 0
+        for i = 1, spriteSheetImage.columns do
+            table.insert(spriteSheetImage.quads, love.graphics.newQuad(x, y, spriteSheetImage.itemWidth, spriteSheetImage.itemHeight, spriteSheetImage.sourceImage))
+            x = x + spriteSheetImage.itemWidth
+        end
     end
 
     return spriteSheetImage
