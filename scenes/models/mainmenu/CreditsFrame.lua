@@ -4,7 +4,7 @@ local BitmapText = require "models.texts.BitmapText"
 CreditsFrame = {}
 
 CreditsFrame.new = function(title, x, y, width, height, moveSpeed)
-    moveSpeed = moveSpeed or 1300
+    moveSpeed = moveSpeed or 1700
     local creditsFrame = {
         title = title,
         x = x,
@@ -47,7 +47,7 @@ CreditsFrame.new = function(title, x, y, width, height, moveSpeed)
     end
 
     function creditsFrame:update(dt)
-        if not creditsFrame.visible then
+        if not creditsFrame.visible or creditsFrame.animation == "none" then
             return
         end
 

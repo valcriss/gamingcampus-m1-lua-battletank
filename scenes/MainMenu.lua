@@ -6,6 +6,7 @@ local BitmapText = require "models.texts.BitmapText"
 local SoundEffect = require "models.audio.SoundEffect"
 local CreditsFrame = require "scenes.models.mainmenu.CreditsFrame"
 local ParametersFrame = require "scenes.models.mainmenu.ParametersFrame"
+local Fps = require "models.tools.Fps"
 
 ---@class MainMenu
 MainMenu = {}
@@ -15,7 +16,7 @@ MainMenu.new = function()
 
     setmetatable(mainMenu, MainMenu)
     MainMenu.__index = MainMenu
-
+    local fps = Fps.new({r = 1, g = 0, b = 0, a = 1})
     local mainMenuParallax = MainMenuParallax.new()
     local tank = SpriteSheetImage.new("assets/mainmenu/tank.png", 34, 65)
     local mainMenuTitle = BitmapText.new("assets/mainmenu/mainmenu-title.fnt")
@@ -35,6 +36,7 @@ MainMenu.new = function()
     local parametersFrame = ParametersFrame.new("Parametres", 350, 200, 950, 500)
 
     function mainMenu:load()
+        fps:load()
         mainMenuParallax:load()
         tank:load()
         mainMenuTitle:load()
@@ -45,6 +47,7 @@ MainMenu.new = function()
     end
 
     function mainMenu:update(dt)
+        fps:update(dt)
         mainMenuParallax:update(dt)
         tank:update(dt)
         backgroundMusic:update(dt)
@@ -61,6 +64,7 @@ MainMenu.new = function()
         mainMenuFrame:draw()
         creditsFrame:draw()
         parametersFrame:draw()
+        fps:draw()
     end
 
     function mainMenu:unload()
@@ -71,6 +75,7 @@ MainMenu.new = function()
         mainMenuFrame:unload()
         creditsFrame:unload()
         parametersFrame:unload()
+        fps:unload()
     end
 
     function mainMenu:OnButtonClicked(button)
@@ -100,6 +105,12 @@ MainMenu.new = function()
             else
                 parametersFrame:show()
             end
+        end
+    end
+
+    function love.keypressed(key)
+        if key == "f1" then
+            fps.toogle()
         end
     end
 

@@ -4,7 +4,7 @@ local BitmapText = require "models.texts.BitmapText"
 ParametersFrame = {}
 
 ParametersFrame.new = function(title, x, y, width, height, moveSpeed)
-    moveSpeed = moveSpeed or 1300
+    moveSpeed = moveSpeed or 1700
     local parametersFrame = {
         title = title,
         x = x,

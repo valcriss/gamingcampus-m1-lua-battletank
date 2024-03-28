@@ -55,21 +55,17 @@ Frame.new = function(assetPath, border, x, y, width, height)
         -- Bottom Right
         love.graphics.draw(frame.sourceImage, frame.bottomRight, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(frame.y + frame.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Horizontal Borders
-        for xBorder = frame.x + frame.border, frame.x + frame.width - frame.border do
-            love.graphics.draw(frame.sourceImage, frame.top, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(frame.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-            love.graphics.draw(frame.sourceImage, frame.bottom, screenManager:ScaleValueX(xBorder), screenManager:ScaleValueY(frame.y + frame.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-        end
+        local horizontalScale = math.ceil(((frame.x + frame.width) - (frame.x + frame.border)) / frame.border)
+        love.graphics.draw(frame.sourceImage, frame.top, screenManager:ScaleValueX(frame.x + frame.border), screenManager:ScaleValueY(frame.y), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.bottom, screenManager:ScaleValueX(frame.x + frame.border), screenManager:ScaleValueY(frame.y + frame.height), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Vertical Borders
-        for yBorder = frame.y + frame.border, y + frame.height - frame.border do
-            love.graphics.draw(frame.sourceImage, frame.left, screenManager:ScaleValueX(frame.x), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-            love.graphics.draw(frame.sourceImage, frame.right, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(yBorder), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-        end
+        local verticalScale = math.ceil(((frame.y + frame.height) - (frame.y + frame.border)) / frame.border)
+        love.graphics.draw(frame.sourceImage, frame.left, screenManager:ScaleValueX(frame.x), screenManager:ScaleValueY(frame.y + frame.border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(frame.sourceImage, frame.right, screenManager:ScaleValueX(frame.x + frame.width), screenManager:ScaleValueY(frame.y + frame.border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
         -- Center
-        for xCenter = frame.x + frame.border, frame.x + frame.width - frame.border do
-            for yCenter = frame.y + frame.border, frame.y + frame.height - frame.border do
-                love.graphics.draw(frame.sourceImage, frame.center, screenManager:ScaleValueX(xCenter), screenManager:ScaleValueY(yCenter), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-            end
-        end
+        local centerScaleX = math.ceil(((frame.x + frame.width) - (frame.x + frame.border)) / frame.border)
+        local centerScaleY = math.ceil(((frame.y + frame.height) - (frame.y + frame.border)) / frame.border)
+        love.graphics.draw(frame.sourceImage, frame.center, screenManager:ScaleValueX(frame.x + frame.border), screenManager:ScaleValueY(frame.y + frame.border), 0, centerScaleX * screenManager:getScaleX(), centerScaleY * screenManager:getScaleY(), 0, 0)
     end
 
     function frame:setPosition(x, y)

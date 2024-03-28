@@ -5,7 +5,8 @@ BitmapText.new = function(bmfFontData)
     local bitmapText = {
         font = nil,
         fontData = bmfFontData,
-        text = nil
+        text = nil,
+        content = nil
     }
 
     setmetatable(bitmapText, BitmapText)
@@ -45,18 +46,19 @@ BitmapText.new = function(bmfFontData)
         alignment = alignment or "left"
         originX = 0
         originY = 0
-        bitmapText.text:set(content)
+        if bitmapText.content ~= content then
+            bitmapText.content = content
+            bitmapText.text:set(content)
+        end
 
         if alignmentX == "center" then
             originX = bitmapText.getWidth() / 2
+        elseif alignmentX == "right" then
+            originX = bitmapText.getWidth()
         end
         if alignmentY == "center" then
             originY = bitmapText.getHeight() / 2
-        end
-        if alignmentX == "right" then
-            originX = bitmapText.getWidth()
-        end
-        if alignmentY == "right" then
+        elseif alignmentY == "right" then
             originY = bitmapText.getHeight()
         end
         love.graphics.draw(bitmapText.text, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), screenManager:getScaleX(), screenManager:getScaleY(), originX, originY)
