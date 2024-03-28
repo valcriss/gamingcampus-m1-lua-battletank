@@ -6,6 +6,7 @@ local BitmapText = require "models.texts.BitmapText"
 local SoundEffect = require "models.audio.SoundEffect"
 local CreditsFrame = require "scenes.models.mainmenu.CreditsFrame"
 local ParametersFrame = require "scenes.models.mainmenu.ParametersFrame"
+local ConfirmationFrame = require "scenes.models.mainmenu.ConfirmationFrame"
 local Fps = require "models.tools.Fps"
 
 ---@class MainMenu
@@ -16,7 +17,8 @@ MainMenu.new = function()
 
     setmetatable(mainMenu, MainMenu)
     MainMenu.__index = MainMenu
-
+    local confirmationWith = 500
+    local confirmationHeight = 200
     local fps = Fps.new("fps").disable().hide()
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
@@ -24,6 +26,7 @@ MainMenu.new = function()
     local mainMenuParallax = MainMenuParallax.new()
     local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 350, 200, 950, 500).hide().disable()
     local parametersFrame = ParametersFrame.new("parametersFrame", "Parametres", 350, 200, 950, 500).hide().disable()
+    local confirmationFrame = ConfirmationFrame.new("confirmationFrame", "Confirmation", screenManager:calculateCenterPointX() - confirmationWith/2, screenManager:calculateCenterPointY() - confirmationHeight/2, confirmationWith, confirmationHeight,nil,function(result) mainMenu.quitConfirm(result) end).hide().disable()
     local mainMenuFrame = MainMenuFrame.new(
             "mainMenuFrame",
             "Menu Principal",
@@ -36,38 +39,57 @@ MainMenu.new = function()
             end
     )
 
-    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(fps).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame)
+    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(fps).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame)
 
     function mainMenu.OnButtonClicked(button)
-        if button == "quit" then
-            love.event.quit()
-        elseif button == "credits" or button == "parameters" then
-            mainMenu.showFrame(button)
-        end
+        mainMenu.showFrame(button)
     end
 
     function mainMenu.showFrame(name)
         if name == "credits" then
             if parametersFrame.isVisible() then
-                print("parametersFrame.disappear()")
                 parametersFrame.disappear()
             end
+            if confirmationFrame.isVisible() then
+                confirmationFrame.disappear()
+            end
             if creditsFrame.isVisible() then
-                print("creditsFrame.disappear()")
                 creditsFrame.disappear()
             else
-                print("creditsFrame.appear()")
                 creditsFrame.appear()
             end
         elseif name == "parameters" then
             if creditsFrame.isVisible() then
                 creditsFrame.disappear()
             end
+            if confirmationFrame.isVisible() then
+                confirmationFrame.disappear()
+            end
             if parametersFrame.isVisible() then
                 parametersFrame.disappear()
             else
                 parametersFrame.appear()
             end
+        elseif name == "quit" then
+            if creditsFrame.isVisible() then
+                creditsFrame.disappear()
+            end
+            if parametersFrame.isVisible() then
+                parametersFrame.disappear()
+            end
+            if confirmationFrame.isVisible() then
+                confirmationFrame.disappear()
+            else
+                confirmationFrame.appear()
+            end
+        end
+    end
+
+    function mainMenu.quitConfirm(result)
+        if result then
+            love.event.quit()
+        else
+            confirmationFrame.disappear()
         end
     end
 

@@ -11,7 +11,6 @@ ParametersFrame = {}
 ---@param height number
 ---@param moveSpeed number
 ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed)
-    moveSpeed = moveSpeed or 1700
     local parametersFrame = MenuFrame.new(name, title, x, y, width, height, moveSpeed, "assets/ui/red_panel.png")
 
     setmetatable(parametersFrame, ParametersFrame)

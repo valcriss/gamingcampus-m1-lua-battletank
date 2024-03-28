@@ -12,16 +12,23 @@ MenuFrame = {}
 ---@param width number
 ---@param height number
 ---@param moveSpeed number
-MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAssetPath, data)
-    moveSpeed = moveSpeed or 1700
+---@param headerAssetPath string
+---@param data table
+---@param stillUpdate boolean
+MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAssetPath, data, stillUpdate)
+    moveSpeed = moveSpeed or 2600
     data = data or {}
+    if stillUpdate == nil then
+        stillUpdate = false
+    end
     local extraData = Tables.merge(
             {
                 title = title,
                 offsetX = 0,
                 moveSpeed = moveSpeed,
                 headerAssetPath = headerAssetPath,
-                animation = "none"
+                animation = "none",
+                stillUpdate = stillUpdate,
             },
             data
     )
@@ -39,7 +46,6 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
     menuFrame.addComponent(frameTitle)
 
     function menuFrame.updateAnimation(dt)
-        -- print("Bounds X: " .. menuFrame.bounds.x .. " Y: " .. menuFrame.bounds.y, "Offset X: " .. menuFrame.data.offsetX, "Animation: " .. menuFrame.data.animation)
         menuFrame.animationShow(dt)
         menuFrame.animationHide(dt)
         frame.setPosition(menuFrame.bounds.x + menuFrame.data.offsetX, menuFrame.bounds.y)
@@ -53,7 +59,7 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
             if menuFrame.data.offsetX <= 0 then
                 menuFrame.data.offsetX = 0
                 menuFrame.data.animation = "none"
-                menuFrame.disable()
+                if not menuFrame.data.stillUpdate then menuFrame.disable() end
             end
         end
     end
@@ -78,7 +84,6 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
     end
 
     function menuFrame.appear()
-        print("menuFrame.appear()")
         menuFrame.show()
         menuFrame.enable()
         menuFrame.data.offsetX = screenManager.getWindowWidth()

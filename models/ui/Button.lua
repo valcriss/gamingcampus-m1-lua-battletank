@@ -39,6 +39,12 @@ Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, te
     button.addComponent(soundEffect)
 
     function button.update(_)
+
+        buttonImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+        buttonOverImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+        buttonPressedImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+        buttonText.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+
         local mouseX, mouseY = love.mouse.getPosition()
         if (mouseX == nil or mouseY == nil) then
             return
@@ -47,7 +53,6 @@ Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, te
         local wasPressed = not isDown and button.data.mouseIsPressed
         button.data.mouseIsPressed = isDown
         button.data.mouseIsOver = button.bounds.containsPoint(mouseX, mouseY)
-
         if not button.data.mouseIsOver then
             button.data.mouseIsPressed = false
         end

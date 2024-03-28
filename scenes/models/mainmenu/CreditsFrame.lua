@@ -11,7 +11,6 @@ CreditsFrame = {}
 ---@param height number
 ---@param moveSpeed number
 CreditsFrame.new = function(name, title, x, y, width, height, moveSpeed)
-    moveSpeed = moveSpeed or 1700
     local creditsFrame = MenuFrame.new(
             name,
             title,
