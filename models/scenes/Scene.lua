@@ -1,3 +1,4 @@
+local Component = require "models.scenes.Component"
 ---@class Scene
 local Scene = {}
 
@@ -10,15 +11,53 @@ Scene.new = function(name, order --[[optional]])
         ---@type string
         name = name,
         ---@type number
-        order = order
+        order = order,
+        ---@type Component[]
+        components = {}
     }
 
     setmetatable(scene, Scene)
     Scene.__index = Scene
 
+    -- Inner functions
+    ---@public
+    function scene:innerLoad()
+        print("Scene:innerLoad()")
+        scene:load()
+        print("Scene sub components: " .. #scene.components)
+        for _, subComponent in ipairs(scene.components) do
+            subComponent:innerLoad()
+        end
+    end
+
+    ---@public
+    function scene:innerUpdate(dt)
+        scene:update(dt)
+        for _, subComponent in ipairs(scene.components) do
+            subComponent:innerUpdate(dt)
+        end
+    end
+
+    ---@public
+    function scene:innerDraw()
+        scene:draw()
+        for _, subComponent in ipairs(scene.components) do
+            subComponent:innerDraw()
+        end
+    end
+
+    ---@public
+    function scene:innerUnload()
+        for _, subComponent in ipairs(scene.components) do
+            subComponent:innerUnload()
+        end
+        scene:unload()
+    end
+
+    -- Protected Functions
     ---@public
     function scene:load()
-        Error("load() must be override")
+        print("No load function implemented")
     end
 
     ---@public
@@ -31,6 +70,11 @@ Scene.new = function(name, order --[[optional]])
 
     ---@public
     function scene:unload()
+    end
+
+    -- Public Functions
+    function scene:addComponent(component)
+        table.insert(scene.components, component)
     end
 
     return scene
