@@ -7,7 +7,6 @@ local SoundEffect = require "models.audio.SoundEffect"
 local CreditsFrame = require "scenes.models.mainmenu.CreditsFrame"
 local ParametersFrame = require "scenes.models.mainmenu.ParametersFrame"
 local ConfirmationFrame = require "scenes.models.mainmenu.ConfirmationFrame"
-local Fps = require "models.tools.Fps"
 
 ---@class MainMenu
 MainMenu = {}
@@ -19,7 +18,6 @@ MainMenu.new = function()
     MainMenu.__index = MainMenu
     local confirmationWith = 500
     local confirmationHeight = 150
-    local fps = Fps.new("fps").disable().hide()
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
@@ -37,7 +35,7 @@ MainMenu.new = function()
             function(result)
                 mainMenu.quitConfirm(result)
             end
-    )                                          .hide().disable()
+    ).hide().disable()
     local mainMenuFrame = MainMenuFrame.new(
             "mainMenuFrame",
             "Menu Principal",
@@ -50,7 +48,7 @@ MainMenu.new = function()
             end
     )
 
-    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(fps).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame)
+    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame)
 
     function mainMenu.OnButtonClicked(button)
         mainMenu.showFrame(button)
@@ -58,41 +56,53 @@ MainMenu.new = function()
 
     function mainMenu.showFrame(name)
         if name == "credits" then
-            if parametersFrame.isVisible() then
-                parametersFrame.disappear()
-            end
-            if confirmationFrame.isVisible() then
-                confirmationFrame.disappear()
-            end
-            if creditsFrame.isVisible() then
-                creditsFrame.disappear()
-            else
-                creditsFrame.appear()
-            end
+            mainMenu.showFrameCredits()
         elseif name == "parameters" then
-            if creditsFrame.isVisible() then
-                creditsFrame.disappear()
-            end
-            if confirmationFrame.isVisible() then
-                confirmationFrame.disappear()
-            end
-            if parametersFrame.isVisible() then
-                parametersFrame.disappear()
-            else
-                parametersFrame.appear()
-            end
+            mainMenu.showFrameParameters()
         elseif name == "quit" then
-            if creditsFrame.isVisible() then
-                creditsFrame.disappear()
-            end
-            if parametersFrame.isVisible() then
-                parametersFrame.disappear()
-            end
-            if confirmationFrame.isVisible() then
-                confirmationFrame.disappear()
-            else
-                confirmationFrame.appear()
-            end
+            mainMenu.showFrameQuit()
+        end
+    end
+
+    function mainMenu.showFrameCredits()
+        if parametersFrame.isVisible() then
+            parametersFrame.disappear()
+        end
+        if confirmationFrame.isVisible() then
+            confirmationFrame.disappear()
+        end
+        if creditsFrame.isVisible() then
+            creditsFrame.disappear()
+        else
+            creditsFrame.appear()
+        end
+    end
+
+    function mainMenu.showFrameParameters()
+        if creditsFrame.isVisible() then
+            creditsFrame.disappear()
+        end
+        if confirmationFrame.isVisible() then
+            confirmationFrame.disappear()
+        end
+        if parametersFrame.isVisible() then
+            parametersFrame.disappear()
+        else
+            parametersFrame.appear()
+        end
+    end
+
+    function mainMenu.showFrameQuit()
+        if creditsFrame.isVisible() then
+            creditsFrame.disappear()
+        end
+        if parametersFrame.isVisible() then
+            parametersFrame.disappear()
+        end
+        if confirmationFrame.isVisible() then
+            confirmationFrame.disappear()
+        else
+            confirmationFrame.appear()
         end
     end
 
@@ -101,13 +111,6 @@ MainMenu.new = function()
             love.event.quit()
         else
             confirmationFrame.disappear()
-        end
-    end
-
-    function love.keypressed(key)
-        if key == "f1" then
-            fps.toggleVisibility()
-            fps.toggleEnabled()
         end
     end
 
