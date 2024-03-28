@@ -4,14 +4,17 @@ local Scene = {}
 
 ---@param name string
 ---@param order number
-Scene.new = function(name, order --[[optional]])
+---@param backgroundColor table
+Scene.new = function(name, order --[[optional]], backgroundColor --[[optional]])
     order = order or 0
-
+    backgroundColor = backgroundColor or {r = 0, g = 0, b = 0}
     scene = {
         ---@type string
         name = name,
         ---@type number
         order = order,
+        ---@type table
+        backgroundColor = backgroundColor,
         ---@type Component[]
         components = {}
     }
@@ -21,60 +24,73 @@ Scene.new = function(name, order --[[optional]])
 
     -- Inner functions
     ---@public
-    function scene:innerLoad()
-        print("Scene:innerLoad()")
-        scene:load()
-        print("Scene sub components: " .. #scene.components)
+    function scene.innerLoad()
+        print("Loading scene : " .. scene.name)
+        scene.load()
         for _, subComponent in ipairs(scene.components) do
-            subComponent:innerLoad()
+            subComponent.innerLoad()
         end
     end
 
     ---@public
-    function scene:innerUpdate(dt)
-        scene:update(dt)
+    function scene.innerUpdate(dt)
+        scene.update(dt)
         for _, subComponent in ipairs(scene.components) do
-            subComponent:innerUpdate(dt)
+            if subComponent.enabled then
+                subComponent.innerUpdate(dt)
+            end
         end
     end
 
     ---@public
-    function scene:innerDraw()
-        scene:draw()
+    function scene.innerDraw()
+        screenManager:clear(scene.backgroundColor.r, scene.backgroundColor.g, scene.backgroundColor.b)
+        scene.draw()
         for _, subComponent in ipairs(scene.components) do
-            subComponent:innerDraw()
+            if subComponent.visible then
+                subComponent.innerDraw()
+            end
         end
     end
 
     ---@public
-    function scene:innerUnload()
+    function scene.innerUnload()
+        print("Unloading scene : " .. scene.name)
         for _, subComponent in ipairs(scene.components) do
-            subComponent:innerUnload()
+            subComponent.innerUnload()
         end
-        scene:unload()
+        scene.unload()
     end
 
     -- Protected Functions
     ---@public
-    function scene:load()
-        print("No load function implemented")
+    function scene.load()
     end
 
     ---@public
-    function scene:update(_)
+    function scene.update(_)
     end
 
     ---@public
-    function scene:draw()
+    function scene.draw()
     end
 
     ---@public
-    function scene:unload()
+    function scene.unload()
     end
 
     -- Public Functions
-    function scene:addComponent(component)
+    ---@public
+    ---@param component Component
+    ---@return Scene
+    function scene.addComponent(component)
         table.insert(scene.components, component)
+        return scene
+    end
+
+    function scene.switchToScene(oldScene, newScene)
+        scenesManager:removeScene(oldScene)
+        scenesManager:addScene(newScene)
     end
 
     return scene

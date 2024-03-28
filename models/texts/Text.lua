@@ -1,67 +1,92 @@
+local Component = require "models.scenes.Component"
 ---@class Text
 Text = {}
 
-Text.new = function(color --[[optional]])
-    color = color or {r = 1, g = 1, b = 1, a = 1}
-    local text = {
-        font = nil,
-        text = nil,
-        color = color
-    }
+---@param name string
+---@param content string
+---@param alignmentX string
+---@param alignmentY string
+---@param x number
+---@param y number
+---@param width number
+---@param height number
+---@param rotation number
+---@param scale number
+---@param color table
+Text.new = function(name, content, alignmentX --[[optional]], alignmentY --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]])
+    alignmentX = alignmentX or "left"
+    alignmentY = alignmentY or "top"
+    content = content or ""
+    x = x or 10
+    y = y or 10
+    local text = Component.new(
+            name,
+            {
+                color = color,
+                alignmentX = alignmentX,
+                alignmentY = alignmentY,
+                content = content,
+                font = nil,
+                textObject = nil
+            },
+            x,
+            y,
+            width,
+            height,
+            rotation,
+            scale,
+            color
+    )
 
     setmetatable(text, Text)
     Text.__index = Text
 
     ---@public
-    function text:load()
-        text.font = love.graphics.getFont()
-        text.text = love.graphics.newText(text.font, "")
+    function text.load()
+        text.data.font = love.graphics.getFont()
+        text.data.textObject = love.graphics.newText(text.data.font, text.data.content)
     end
 
     ---@public
-    function text:unload()
-        text.text:release()
-        text.text = nil
+    function text.unload()
+        text.data.font:release()
+        text.data.font = nil
+        text.data.textObject:release()
+        text.data.textObject = nil
     end
 
     ---@public
-    function text:getWidth()
-        return text.text:getWidth()
+    function text.getWidth()
+        return text.data.textObject:getWidth()
     end
 
     ---@public
-    function text:getHeight()
-        return text.text:getHeight()
+    function text.getHeight()
+        return text.data.textObject:getHeight()
     end
 
     ---@public
-    ---@param x number
-    ---@param y number
-    ---@param content string
-    ---@param rotation number
-    ---@param alignment string
-    function text:draw(x, y, content, rotation --[[optional]], alignment --[[optional]])
-        rotation = rotation or 0
-        alignment = alignment or "left"
-        originX = 0
-        originY = 0
+    function text.draw()
+        local originX = 0
+        local originY = 0
 
-        if alignmentX == "center" then
+        if text.data.alignmentX == "center" then
             originX = 0.5
         end
-        if alignmentY == "center" then
+        if text.data.alignmentY == "center" then
             originY = 0.5
         end
-        if alignmentX == "right" then
+        if text.data.alignmentX == "right" then
             originX = 1
         end
-        if alignmentY == "right" then
+        if text.data.alignmentY == "bottom" then
             originY = 1
         end
-        love.graphics.setColor(text.color.r, text.color.g, text.color.b, text.color.a)
-        text.text:set(content)
-        love.graphics.draw(text.text, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), screenManager:getScaleX(), screenManager:getScaleY(), originX, originY)
-        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(text.data.textObject, screenManager:ScaleValueX(text.bounds.x), screenManager:ScaleValueY(text.bounds.y), math.rad(text.rotation), text.scale * screenManager:getScaleX(), text.scale * screenManager:getScaleY(), originX, originY)
+    end
+
+    function text:setContent(value)
+        text.data.textObject:set(value)
     end
 
     return text

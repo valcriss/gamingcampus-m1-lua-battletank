@@ -12,81 +12,46 @@ local Fps = require "models.tools.Fps"
 MainMenu = {}
 
 MainMenu.new = function()
-    local mainMenu = Scene:new("MainMenu", 0)
+    local mainMenu = Scene.new("MainMenu", 0)
 
     setmetatable(mainMenu, MainMenu)
     MainMenu.__index = MainMenu
-    local fps = Fps.new({r = 1, g = 0, b = 0, a = 1})
-    local mainMenuParallax = MainMenuParallax.new()
-    local tank = SpriteSheetImage.new("assets/mainmenu/tank.png", 34, 65)
-    local mainMenuTitle = BitmapText.new("assets/mainmenu/mainmenu-title.fnt")
-    local backgroundMusic = SoundEffect.new("assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
-    local mainMenuFrame =
-        MainMenuFrame.new(
-        "Menu Principal",
-        75,
-        270,
-        220,
-        260,
-        function(button)
-            mainMenu:OnButtonClicked(button)
-        end
-    )
-    local creditsFrame = CreditsFrame.new("Credits", 350, 200, 950, 500)
-    local parametersFrame = ParametersFrame.new("Parametres", 350, 200, 950, 500)
 
-    function mainMenu:load()
-        fps:load()
-        mainMenuParallax:load()
-        tank:load()
-        mainMenuTitle:load()
-        backgroundMusic:load()
-        mainMenuFrame:load()
-        creditsFrame:load()
-        parametersFrame:load()
-    end
+    local fps = Fps.new("fps").disable().hide()
+    local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
+    local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
+    local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
 
-    function mainMenu:update(dt)
-        fps:update(dt)
-        mainMenuParallax:update(dt)
-        tank:update(dt)
-        backgroundMusic:update(dt)
-        mainMenuFrame:update(dt)
-        creditsFrame:update(dt)
-        parametersFrame:update(dt)
-    end
+    mainMenu.addComponent(fps)
+            .addComponent(tank)
+            .addComponent(backgroundMusic)
+            .addComponent(mainMenuTitle)
+    -- local mainMenuParallax = MainMenuParallax.new()
+    --
+    --
+    -- local mainMenuFrame =
+    --     MainMenuFrame.new(
+    --     "Menu Principal",
+    --     75,
+    --     270,
+    --     220,
+    --     260,
+    --     function(button)
+    --         mainMenu:OnButtonClicked(button)
+    --     end
+    -- )
+    -- local creditsFrame = CreditsFrame.new("Credits", 350, 200, 950, 500)
+    -- local parametersFrame = ParametersFrame.new("Parametres", 350, 200, 950, 500)
 
-    function mainMenu:draw()
-        screenManager:clear(0, 0, 0)
-        mainMenuParallax:draw()
-        tank:draw(750, 600, 0, 0.5)
-        mainMenuTitle:draw(screenManager:calculateCenterPointX(), 100, "Battle Tank", 0, "center", "center")
-        mainMenuFrame:draw()
-        creditsFrame:draw()
-        parametersFrame:draw()
-        fps:draw()
-    end
-
-    function mainMenu:unload()
-        mainMenuParallax:unload()
-        tank:unload()
-        mainMenuTitle:unload()
-        backgroundMusic:unload()
-        mainMenuFrame:unload()
-        creditsFrame:unload()
-        parametersFrame:unload()
-        fps:unload()
-    end
-
-    function mainMenu:OnButtonClicked(button)
+    function mainMenu.OnButtonClicked(button)
         if button == "quit" then
             love.event.quit()
         elseif button == "credits" or button == "parameters" then
-            mainMenu:showFrame(button)
+            mainMenu.showFrame(button)
         end
     end
 
-    function mainMenu:showFrame(name)
+    function mainMenu.showFrame(name)
         if name == "credits" then
             if parametersFrame:isVisible() then
                 parametersFrame:hide()
@@ -110,7 +75,8 @@ MainMenu.new = function()
 
     function love.keypressed(key)
         if key == "f1" then
-            fps.toogle()
+            fps.toggleVisibility()
+            fps.toggleEnabled()
         end
     end
 

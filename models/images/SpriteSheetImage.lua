@@ -2,6 +2,18 @@ local Component = require "models.scenes.Component"
 ---@class SpriteSheetImage
 SpriteSheetImage = {}
 
+---@param name string
+---@param imagePath string
+---@param columns number
+---@param speed number
+---@param loop boolean
+---@param x number
+---@param y number
+---@param width number
+---@param height number
+---@param rotation number
+---@param scale number
+---@param color table
 SpriteSheetImage.new = function(name, imagePath, columns, speed --[[optional]], loop --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]])
     speed = speed or 30
     loop = loop or true
@@ -35,29 +47,28 @@ SpriteSheetImage.new = function(name, imagePath, columns, speed --[[optional]], 
     SpriteSheetImage.__index = SpriteSheetImage
 
     ---@public
-    function spriteSheetImage:load()
+    function spriteSheetImage.load()
         spriteSheetImage.data.sourceImage = love.graphics.newImage(imagePath)
         spriteSheetImage.data.itemWidth = math.floor(spriteSheetImage.data.sourceImage:getWidth() / spriteSheetImage.data.columns)
         spriteSheetImage.data.itemHeight = spriteSheetImage.data.sourceImage:getHeight()
-        spriteSheetImage:loadDefinition()
+        spriteSheetImage.loadDefinition()
     end
 
     ---@public
-    function spriteSheetImage:update(dt)
+    function spriteSheetImage.update(dt)
         if (spriteSheetImage.data.running == false) then
             return
         end
-        spriteSheetImage:updateSpriteSheet(dt)
+        spriteSheetImage.updateSpriteSheet(dt)
     end
 
-    function spriteSheetImage:draw()
-        print(spriteSheetImage.bounds.x)
+    function spriteSheetImage.draw()
         local quad = spriteSheetImage.data.quads[spriteSheetImage.data.index]
         love.graphics.draw(spriteSheetImage.data.sourceImage, quad, screenManager:ScaleValueX(spriteSheetImage.bounds.x), screenManager:ScaleValueY(spriteSheetImage.bounds.y), math.rad(spriteSheetImage.rotation), spriteSheetImage.scale * screenManager:getScaleX(), spriteSheetImage.scale * screenManager:getScaleY(), spriteSheetImage.data.itemWidth / 2, spriteSheetImage.data.itemHeight / 2)
     end
 
     ---@public
-    function spriteSheetImage:unload()
+    function spriteSheetImage.unload()
         spriteSheetImage.data.sourceImage:release()
         spriteSheetImage.data.sourceImage = nil
         spriteSheetImage.data.quads = nil
@@ -67,7 +78,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, speed --[[optional]], 
     Fonction qui permet de mettre a jour la frame actuellement affichée
     --]]
     ---@private
-    function spriteSheetImage:updateSpriteSheet(dt)
+    function spriteSheetImage.updateSpriteSheet(dt)
         spriteSheetImage.data.elapsedTime = spriteSheetImage.data.elapsedTime + dt
         if (spriteSheetImage.data.elapsedTime < spriteSheetImage.data.speed) then
             return
@@ -91,7 +102,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, speed --[[optional]], 
     Fonction qui charge les quads de differents frames a partir de l'image principale
     --]]
     ---@private
-    function spriteSheetImage:loadDefinition()
+    function spriteSheetImage.loadDefinition()
         spriteSheetImage.data.quads = {}
         local x = 0
         local y = 0

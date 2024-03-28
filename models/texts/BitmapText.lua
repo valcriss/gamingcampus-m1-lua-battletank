@@ -1,67 +1,69 @@
+local Component = require "models.scenes.Component"
 ---@class BitmapText
 BitmapText = {}
 
-BitmapText.new = function(bmfFontData)
-    local bitmapText = {
-        font = nil,
-        fontData = bmfFontData,
-        text = nil,
-        content = nil
-    }
+BitmapText.new = function(name, bmfFontData, content, alignmentX --[[optional]], alignmentY --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]])
+    alignmentX = alignmentX or "left"
+    alignmentY = alignmentY or "top"
+    local bitmapText = Component.new(name,
+            {
+                fontData = bmfFontData,
+                alignmentX = alignmentX,
+                alignmentY = alignmentY,
+                content = content,
+                font = nil,
+                text = nil,
+            },
+            x,
+            y,
+            width,
+            height,
+            rotation,
+            scale,
+            color)
 
     setmetatable(bitmapText, BitmapText)
     BitmapText.__index = BitmapText
 
     ---@public
-    function bitmapText:load()
-        bitmapText.font = love.graphics.newFont(bmfFontData)
-        bitmapText.text = love.graphics.newText(bitmapText.font, "")
+    function bitmapText.load()
+        bitmapText.data.font = love.graphics.newFont(bitmapText.data.fontData)
+        bitmapText.data.text = love.graphics.newText(bitmapText.data.font, bitmapText.data.content)
     end
 
     ---@public
-    function bitmapText:unload()
-        bitmapText.text:release()
-        bitmapText.text = nil
+    function bitmapText.unload()
+        bitmapText.data.text:release()
+        bitmapText.data.text = nil
     end
 
     ---@public
-    function bitmapText:getWidth()
-        return bitmapText.text:getWidth()
+    function bitmapText.getWidth()
+        return bitmapText.data.text:getWidth()
     end
 
     ---@public
-    function bitmapText:getHeight()
-        return bitmapText.text:getHeight()
+    function bitmapText.getHeight()
+        return bitmapText.data.text:getHeight()
     end
 
     ---@public
-    ---@param x number
-    ---@param y number
-    ---@param content string
-    ---@param rotation number
-    ---@param alignmentX string
-    ---@param alignmentY string
-    function bitmapText:draw(x, y, content, rotation --[[optional]], alignmentX --[[optional]], alignmentY --[[optional]])
-        rotation = rotation or 0
-        alignment = alignment or "left"
-        originX = 0
-        originY = 0
-        if bitmapText.content ~= content then
-            bitmapText.content = content
-            bitmapText.text:set(content)
+    function bitmapText.draw()
+        local originX = 0
+        local originY = 0
+
+        if bitmapText.data.alignmentX == "center" then
+            originX = bitmapText:getWidth() / 2
+        elseif bitmapText.data.alignmentX == "right" then
+            originX = bitmapText:getWidth()
+        end
+        if bitmapText.data.alignmentY == "center" then
+            originY = bitmapText:getHeight() / 2
+        elseif bitmapText.data.alignmentY == "bottom" then
+            originY = bitmapText:getHeight()
         end
 
-        if alignmentX == "center" then
-            originX = bitmapText.getWidth() / 2
-        elseif alignmentX == "right" then
-            originX = bitmapText.getWidth()
-        end
-        if alignmentY == "center" then
-            originY = bitmapText.getHeight() / 2
-        elseif alignmentY == "right" then
-            originY = bitmapText.getHeight()
-        end
-        love.graphics.draw(bitmapText.text, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), math.rad(rotation), screenManager:getScaleX(), screenManager:getScaleY(), originX, originY)
+        love.graphics.draw(bitmapText.data.text, screenManager:ScaleValueX(bitmapText.bounds.x), screenManager:ScaleValueY(bitmapText.bounds.y), math.rad(bitmapText.rotation), bitmapText.scale * screenManager:getScaleX(), bitmapText.scale * screenManager:getScaleY(), originX, originY)
     end
 
     return bitmapText

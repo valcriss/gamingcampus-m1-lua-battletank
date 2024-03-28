@@ -11,7 +11,7 @@
 			"---@param order number",
 			"${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}.new = function(name, order --[[optional]])",
 			"\t order = order or 0",
-			"\t local ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/} = Scene:new(name, order)",
+			"\t local ${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/} = Scene.new(name, order)",
 			"\t",
 			"\t setmetatable(${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}, ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/})",
 			"\t${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}.__index = ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}",

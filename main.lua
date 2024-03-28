@@ -20,7 +20,7 @@ local splashScreen = nil
 -- Functions
 function love.load()
     screenManager:init(1366, 768)
-    splashScreen = SplashScreen.new(10)
+    splashScreen = SplashScreen.new(1)
     scenesManager:addScene(splashScreen)
 end
 

@@ -12,7 +12,7 @@ ScenesManager.new = function()
     ---@param scene Scene
     function sceneManager:addScene(scene)
         table.insert(sceneManager.scenes, scene)
-        scene:innerLoad()
+        scene.innerLoad()
         sceneManager:sortScenes()
     end
 
@@ -21,9 +21,10 @@ ScenesManager.new = function()
     function sceneManager:removeScene(scene)
         local index = sceneManager:getSceneIndex(scene)
         if (index == nil) then
-            Error("Scene not found")
+            print("Scene not found")
         end
-        scene:innerUnload()
+
+        scene.innerUnload()
         table.remove(sceneManager.scenes, index)
         sceneManager:sortScenes()
     end
@@ -31,8 +32,8 @@ ScenesManager.new = function()
     ---@private
     ---@param scene Scene
     function sceneManager:getSceneIndex(scene)
-        for i = 1, #sceneManager.scenes do
-            if sceneManager.scenes[i] == scene then
+        for i, sc in ipairs(sceneManager.scenes) do
+            if sc.name == scene.name then
                 return i
             end
         end
@@ -52,14 +53,14 @@ ScenesManager.new = function()
     ---@public
     function sceneManager:draw()
         for i = 1, #sceneManager.scenes do
-            sceneManager.scenes[i]:innerDraw()
+            sceneManager.scenes[i].innerDraw()
         end
     end
 
     ---@public
     function sceneManager:update(dt)
         for i = 1, #sceneManager.scenes do
-            sceneManager.scenes[i]:innerUpdate(dt)
+            sceneManager.scenes[i].innerUpdate(dt)
         end
     end
 

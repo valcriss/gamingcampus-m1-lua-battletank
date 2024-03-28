@@ -1,7 +1,15 @@
+local Component = require "models.scenes.Component"
 ---@class SoundEffect
 SoundEffect = {}
 
-SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional]], playOnStart --[[optional]], volume --[[optional]], pitch --[[optional]])
+---@param name string
+---@param assetPath string
+---@param loadType string
+---@param loop boolean
+---@param playOnStart boolean
+---@param volume number
+---@param pitch number
+SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[optional]], playOnStart --[[optional]], volume --[[optional]], pitch --[[optional]])
     loadType = loadType or "static"
     if loop == nil then
         loop = false
@@ -11,7 +19,7 @@ SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional
     end
     volume = volume or 1
     pitch = pitch or 1
-    local soundEffect = {
+    local soundEffect = Component.new(name,{
         assetPath = assetPath,
         loadType = loadType,
         loop = loop,
@@ -19,58 +27,58 @@ SoundEffect.new = function(assetPath, loadType --[[optional]], loop --[[optional
         volume = volume,
         pitch = pitch,
         sound = nil
-    }
+    })
 
     setmetatable(soundEffect, SoundEffect)
     SoundEffect.__index = SoundEffect
 
     ---@public
-    function soundEffect:load()
-        soundEffect.sound = love.audio.newSource(soundEffect.assetPath, soundEffect.loadType)
-        if (soundEffect.playOnStart) then
-            soundEffect:play()
+    function soundEffect.load()
+        soundEffect.data.sound = love.audio.newSource(soundEffect.data.assetPath, soundEffect.data.loadType)
+        if (soundEffect.data.playOnStart) then
+            soundEffect.play()
         else
-            soundEffect:stop()
+            soundEffect.stop()
         end
     end
 
     ---@public
-    function soundEffect:update(_)
-        if soundEffect.sound then
-            if not soundEffect.sound:isPlaying() and soundEffect.loop == true then
-                soundEffect:play()
+    function soundEffect.update(_)
+        if soundEffect.data.sound then
+            if not soundEffect.data.sound:isPlaying() and soundEffect.data.loop == true then
+                soundEffect.play()
             end
         end
     end
 
     ---@public
-    function soundEffect:play()
-        if soundEffect.sound then
-            soundEffect.sound:setVolume(soundEffect.volume)
-            soundEffect.sound:setPitch(soundEffect.pitch)
-            soundEffect.sound:play()
+    function soundEffect.play()
+        if soundEffect.data.sound then
+            soundEffect.data.sound:setVolume(soundEffect.data.volume)
+            soundEffect.data.sound:setPitch(soundEffect.data.pitch)
+            soundEffect.data.sound:play()
         end
     end
 
     ---@public
-    function soundEffect:stop()
-        if soundEffect.sound then
-            soundEffect.sound:stop()
+    function soundEffect.stop()
+        if soundEffect.data.sound then
+            soundEffect.data.sound:stop()
         end
     end
 
     ---@public
-    function soundEffect:pause()
-        if soundEffect.sound then
-            soundEffect.sound:pause()
+    function soundEffect.pause()
+        if soundEffect.data.sound then
+            soundEffect.data.sound:pause()
         end
     end
 
     ---@public
-    function soundEffect:unload()
-        soundEffect:stop()
-        soundEffect.sound:release()
-        soundEffect.sound = nil
+    function soundEffect.unload()
+        soundEffect.stop()
+        soundEffect.data.sound:release()
+        soundEffect.data.sound = nil
     end
 
     return soundEffect
