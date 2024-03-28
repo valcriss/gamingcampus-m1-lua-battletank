@@ -5,14 +5,14 @@ function Trace.printObject(object)
     print("-------------------------------------------------")
     print("Values of", object.properties.name)
     print("-------------------------------------------------")
-    for key, value in pairs(object.values.keys) do
+    for _, value in pairs(object.values.keys) do
         print(value, "=", object.values[value])
     end
 
     print("-------------------------------------------------")
     print("Properties of", object.properties.name)
     print("-------------------------------------------------")
-    for key, value in pairs(object.properties.keys) do
+    for _, value in pairs(object.properties.keys) do
         if value ~= "script" then
             print(value, "=", object.properties[value])
         end
@@ -21,6 +21,7 @@ function Trace.printObject(object)
 end
 
 function Trace.printTable(data)
+    print("-------------------------------------------------")
     if type(data) == "table" then
         for key, value in pairs(data) do
             print(key .. ":")
@@ -29,6 +30,7 @@ function Trace.printTable(data)
     else
         print(data)
     end
+    print("-------------------------------------------------")
 end
 
 return Trace

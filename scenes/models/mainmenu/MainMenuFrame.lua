@@ -1,3 +1,4 @@
+local Component = require "models.scenes.Component"
 local Frame = require "models.ui.Frame"
 local BitmapText = require "models.texts.BitmapText"
 local Button = require "models.ui.Button"
@@ -5,107 +6,80 @@ local Button = require "models.ui.Button"
 ---@class MainMenuFrame
 MainMenuFrame = {}
 
-MainMenuFrame.new = function(title, x, y, width, height, action)
-    local mainMenuFrame = {
-        title = title,
-        x = x,
-        y = y,
-        width = width,
-        height = height,
-        action = action
-    }
+MainMenuFrame.new = function(name, title, x, y, width, height, action)
+    local mainMenuFrame = Component.new(
+            name,
+            {
+                title = title,
+                action = action
+            },
+            x,
+            y,
+            width,
+            height
+    )
 
     setmetatable(mainMenuFrame, MainMenuFrame)
     MainMenuFrame.__index = MainMenuFrame
 
-    local frame = Frame.new("assets/ui/grey_panel.png", 10, mainMenuFrame.x, mainMenuFrame.y, mainMenuFrame.width, mainMenuFrame.height)
-    local blueFrame = Frame.new("assets/ui/blue_panel.png", 10, mainMenuFrame.x, mainMenuFrame.y - 30, mainMenuFrame.width, 50)
-    local frameTitle = BitmapText.new("assets/ui/ui-18.fnt")
-    local startGameButton =
-        Button.new(
-        "assets/ui/green_button00.png",
-        "assets/ui/green_button04.png",
-        "assets/ui/green_button03.png",
-        mainMenuFrame.x + 20,
-        mainMenuFrame.y + 20,
-        "Lancer le jeu",
-        function()
-            mainMenuFrame.action("start")
-        end
+    local frame = Frame.new(mainMenuFrame.name .. "_frame", "assets/ui/grey_panel.png", 10, mainMenuFrame.bounds.x, mainMenuFrame.bounds.y, mainMenuFrame.bounds.width, mainMenuFrame.bounds.height)
+    local blueFrame = Frame.new(mainMenuFrame.name .. "_blueFrame", "assets/ui/blue_panel.png", 10, mainMenuFrame.bounds.x, mainMenuFrame.bounds.y - 30, mainMenuFrame.bounds.width, 50)
+    local frameTitle = BitmapText.new(mainMenuFrame.name .. "_frameTitle", "assets/ui/ui-18.fnt", mainMenuFrame.data.title, "center", "center", mainMenuFrame.bounds.x + (mainMenuFrame.bounds.width / 2) + 7, mainMenuFrame.bounds.y - 13)
+    local startGameButton = Button.new(
+            mainMenuFrame.name .. "_startGameButton",
+            "assets/ui/green_button00.png",
+            "assets/ui/green_button04.png",
+            "assets/ui/green_button03.png",
+            mainMenuFrame.bounds.x + 20,
+            mainMenuFrame.bounds.y + 20,
+            "Lancer le jeu",
+            function()
+                mainMenuFrame.data.action("start")
+            end
     )
-    local creditGameButton =
-        Button.new(
-        "assets/ui/yellow_button00.png",
-        "assets/ui/yellow_button04.png",
-        "assets/ui/yellow_button03.png",
-        mainMenuFrame.x + 20,
-        mainMenuFrame.y + 80,
-        "Credits",
-        function()
-            mainMenuFrame.action("credits")
-        end
+    local creditGameButton = Button.new(
+            mainMenuFrame.name .. "_creditGameButton",
+            "assets/ui/yellow_button00.png",
+            "assets/ui/yellow_button04.png",
+            "assets/ui/yellow_button03.png",
+            mainMenuFrame.bounds.x + 20,
+            mainMenuFrame.bounds.y + 80,
+            "Credits",
+            function()
+                mainMenuFrame.data.action("credits")
+            end
     )
-    local parametersGameButton =
-        Button.new(
-        "assets/ui/red_button11.png",
-        "assets/ui/red_button01.png",
-        "assets/ui/red_button02.png",
-        mainMenuFrame.x + 20,
-        mainMenuFrame.y + 140,
-        "Parametres",
-        function()
-            mainMenuFrame.action("parameters")
-        end
+    local parametersGameButton = Button.new(
+            mainMenuFrame.name .. "_parametersGameButton",
+            "assets/ui/red_button11.png",
+            "assets/ui/red_button01.png",
+            "assets/ui/red_button02.png",
+            mainMenuFrame.bounds.x + 20,
+            mainMenuFrame.bounds.y + 140,
+            "Parametres",
+            function()
+                mainMenuFrame.data.action("parameters")
+            end
     )
-    local quitGameButton =
-        Button.new(
-        "assets/ui/blue_button13.png",
-        "assets/ui/red_button10.png",
-        "assets/ui/red_button02.png",
-        mainMenuFrame.x + 20,
-        mainMenuFrame.y + 200,
-        "Quitter le jeu",
-        function()
-            mainMenuFrame.action("quit")
-        end
+    local quitGameButton = Button.new(
+            mainMenuFrame.name .. "_quitGameButton",
+            "assets/ui/blue_button13.png",
+            "assets/ui/red_button10.png",
+            "assets/ui/red_button02.png",
+            mainMenuFrame.bounds.x + 20,
+            mainMenuFrame.bounds.y + 200,
+            "Quitter le jeu",
+            function()
+                mainMenuFrame.data.action("quit")
+            end
     )
-
-    function mainMenuFrame:load()
-        frameTitle:load()
-        blueFrame:load()
-        frame:load()
-        startGameButton:load()
-        creditGameButton:load()
-        parametersGameButton:load()
-        quitGameButton:load()
-    end
-
-    function mainMenuFrame:update(dt)
-        startGameButton:update(dt)
-        creditGameButton:update(dt)
-        parametersGameButton:update(dt)
-        quitGameButton:update(dt)
-    end
-
-    function mainMenuFrame:draw()
-        blueFrame:draw()
-        frame:draw()
-        frameTitle:draw(mainMenuFrame.x + (mainMenuFrame.width / 2) + 7, mainMenuFrame.y - 13, mainMenuFrame.title, 0, "center", "center")
-        startGameButton:draw()
-        creditGameButton:draw()
-        parametersGameButton:draw()
-        quitGameButton:draw()
-    end
-
-    function mainMenuFrame:unload()
-        frameTitle:unload()
-        blueFrame:unload()
-        frame:unload()
-        startGameButton:unload()
-        creditGameButton:unload()
-        parametersGameButton:unload()
-        quitGameButton:unload()
-    end
+    mainMenuFrame.addComponent(blueFrame)
+    mainMenuFrame.addComponent(frame)
+    mainMenuFrame.addComponent(frameTitle)
+    mainMenuFrame.addComponent(startGameButton)
+    mainMenuFrame.addComponent(creditGameButton)
+    mainMenuFrame.addComponent(parametersGameButton)
+    mainMenuFrame.addComponent(quitGameButton)
 
     return mainMenuFrame
 end

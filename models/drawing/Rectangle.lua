@@ -17,6 +17,13 @@ Rectangle.new = function(x, y, width, height)
     setmetatable(rectangle, Rectangle)
     Rectangle.__index = Rectangle
 
+    ---@public
+    ---@param pointX number
+    ---@param pointY number
+    function rectangle.containsPoint(pointX, pointY)
+        return pointX >= screenManager:ScaleValueX(rectangle.x) and pointX <= screenManager:ScaleValueX(rectangle.x + rectangle.width) and pointY >= screenManager:ScaleValueY(rectangle.y) and pointY <= screenManager:ScaleValueY(rectangle.y + rectangle.height)
+    end
+
     return rectangle
 end
 

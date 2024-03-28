@@ -21,27 +21,22 @@ MainMenu.new = function()
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
+    local mainMenuParallax = MainMenuParallax.new()
+    local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 350, 200, 950, 500).hide().disable()
+    local parametersFrame = ParametersFrame.new("parametersFrame", "Parametres", 350, 200, 950, 500).hide().disable()
+    local mainMenuFrame = MainMenuFrame.new(
+            "mainMenuFrame",
+            "Menu Principal",
+            75,
+            270,
+            220,
+            260,
+            function(button)
+                mainMenu.OnButtonClicked(button)
+            end
+    )
 
-    mainMenu.addComponent(fps)
-            .addComponent(tank)
-            .addComponent(backgroundMusic)
-            .addComponent(mainMenuTitle)
-    -- local mainMenuParallax = MainMenuParallax.new()
-    --
-    --
-    -- local mainMenuFrame =
-    --     MainMenuFrame.new(
-    --     "Menu Principal",
-    --     75,
-    --     270,
-    --     220,
-    --     260,
-    --     function(button)
-    --         mainMenu:OnButtonClicked(button)
-    --     end
-    -- )
-    -- local creditsFrame = CreditsFrame.new("Credits", 350, 200, 950, 500)
-    -- local parametersFrame = ParametersFrame.new("Parametres", 350, 200, 950, 500)
+    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(fps).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame)
 
     function mainMenu.OnButtonClicked(button)
         if button == "quit" then
@@ -53,22 +48,25 @@ MainMenu.new = function()
 
     function mainMenu.showFrame(name)
         if name == "credits" then
-            if parametersFrame:isVisible() then
-                parametersFrame:hide()
+            if parametersFrame.isVisible() then
+                print("parametersFrame.disappear()")
+                parametersFrame.disappear()
             end
-            if creditsFrame:isVisible() then
-                creditsFrame:hide()
+            if creditsFrame.isVisible() then
+                print("creditsFrame.disappear()")
+                creditsFrame.disappear()
             else
-                creditsFrame:show()
+                print("creditsFrame.appear()")
+                creditsFrame.appear()
             end
         elseif name == "parameters" then
-            if creditsFrame:isVisible() then
-                creditsFrame:hide()
+            if creditsFrame.isVisible() then
+                creditsFrame.disappear()
             end
-            if parametersFrame:isVisible() then
-                parametersFrame:hide()
+            if parametersFrame.isVisible() then
+                parametersFrame.disappear()
             else
-                parametersFrame:show()
+                parametersFrame.appear()
             end
         end
     end

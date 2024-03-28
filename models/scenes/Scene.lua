@@ -1,4 +1,3 @@
-local Component = require "models.scenes.Component"
 ---@class Scene
 local Scene = {}
 

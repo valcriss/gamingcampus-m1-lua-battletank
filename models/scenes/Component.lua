@@ -100,6 +100,14 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
         table.insert(component.components, subComponent)
     end
 
+    function component.isVisible()
+        return component.visible
+    end
+
+    function component.isEnabled()
+        return component.enabled
+    end
+
     function component.show()
         component.visible = true
         return component
@@ -136,6 +144,14 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
             component.enable()
         end
         return component
+    end
+
+    ---@public
+    ---@param x number
+    ---@param y number
+    function component.setPosition(newPositionX, newPositionY)
+        component.bounds.x = newPositionX
+        component.bounds.y = newPositionY
     end
 
     return component

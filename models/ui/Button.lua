@@ -1,84 +1,78 @@
+local Component = require "models.scenes.Component"
 local Image = require "models.images.Image"
 local BitmapText = require "models.texts.BitmapText"
 local SoundEffect = require "models.audio.SoundEffect"
 ---@class Button
 Button = {}
 
-Button.new = function(assetPath, assetOverPath, assetPressedPath, x, y, text, action)
-    local button = {
-        assetPath = assetPath,
-        assetOverPath = assetOverPath,
-        assetPressedPath = assetPressedPath,
-        x = x,
-        y = y,
-        text = text,
-        action = action,
-        width = 190,
-        height = 49,
-        mouseIsOver = false,
-        mouseIsPressed = false
-    }
+Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, text, action)
+    local button = Component.new(
+            name,
+            {
+                assetPath = assetPath,
+                assetOverPath = assetOverPath,
+                assetPressedPath = assetPressedPath,
+                text = text,
+                action = action,
+                mouseIsOver = false,
+                mouseIsPressed = false
+            },
+            x,
+            y,
+            190,
+            49
+    )
 
     setmetatable(button, Button)
     Button.__index = Button
 
-    local buttonText = BitmapText.new("assets/ui/ui-18.fnt")
-    local buttonImage = Image.new(button.assetPath)
-    local buttonOverImage = Image.new(button.assetOverPath)
-    local buttonPressedImage = Image.new(button.assetPressedPath)
-    local soundEffect = SoundEffect.new("assets/ui/switch2.ogg", "static", false, false)
+    local buttonText = BitmapText.new(button.name .. "_buttonText", "assets/ui/ui-18.fnt", button.data.text, "center", "center", button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+    local buttonImage = Image.new(button.name .. "_buttonImage", button.data.assetPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+    local buttonOverImage = Image.new(button.name .. "_buttonOverImage", button.data.assetOverPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+    local buttonPressedImage = Image.new(button.name .. "_buttonPressedImage", button.data.assetPressedPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
+    local soundEffect = SoundEffect.new(button.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false)
 
-    function button:load()
-        buttonText:load()
-        buttonImage:load()
-        buttonOverImage:load()
-        buttonPressedImage:load()
-        soundEffect:load()
-    end
+    button.addComponent(buttonImage)
+    button.addComponent(buttonOverImage)
+    button.addComponent(buttonPressedImage)
+    button.addComponent(buttonText)
+    button.addComponent(soundEffect)
 
-    function button:update(dt)
-        local x, y = love.mouse.getPosition()
-        if (x == nil or y == nil) then
+    function button.update(_)
+        local mouseX, mouseY = love.mouse.getPosition()
+        if (mouseX == nil or mouseY == nil) then
             return
         end
         local isDown = love.mouse.isDown(1)
-        local wasPressed = not isDown and button.mouseIsPressed
-        button.mouseIsPressed = isDown
-        local scaledX = screenManager:ScaleValueX(button.x)
-        local scaledWidth = screenManager:ScaleValueX(button.width)
-        local scaledY = screenManager:ScaleValueY(button.y)
-        local scaledHeight = screenManager:ScaleValueY(button.height)
-        button.mouseIsOver = (x >= scaledX and x <= scaledX + scaledWidth and y >= scaledY and y <= scaledY + scaledHeight)
-        if not button.mouseIsOver then
-            button.mouseIsPressed = false
+        local wasPressed = not isDown and button.data.mouseIsPressed
+        button.data.mouseIsPressed = isDown
+        button.data.mouseIsOver = button.bounds.containsPoint(mouseX, mouseY)
+
+        if not button.data.mouseIsOver then
+            button.data.mouseIsPressed = false
         end
-        if (button.action == nil) then
+
+        if not button.data.mouseIsOver then
+            buttonImage.show()
+            buttonOverImage.hide()
+            buttonPressedImage.hide()
+        elseif button.data.mouseIsOver and not isDown then
+            buttonImage.hide()
+            buttonOverImage.show()
+            buttonPressedImage.hide()
+        elseif button.data.mouseIsOver and isDown then
+            buttonImage.hide()
+            buttonOverImage.hide()
+            buttonPressedImage.show()
+        end
+
+        if (button.data.action == nil) then
             return
         end
-        if button.mouseIsOver and wasPressed then
-            soundEffect:play()
-            button.action()
+        if button.data.mouseIsOver and wasPressed then
+            soundEffect.play()
+            button.data.action()
         end
-    end
-
-    function button:draw()
-        if button.mouseIsPressed then
-            buttonPressedImage:draw(button.x + (button.width / 2), button.y + (button.height / 2))
-        elseif button.mouseIsOver then
-            buttonOverImage:draw(button.x + (button.width / 2), button.y + (button.height / 2))
-        else
-            buttonImage:draw(button.x + (button.width / 2), button.y + (button.height / 2))
-        end
-
-        buttonText:draw(button.x + (button.width / 2), button.y + (button.height / 2), button.text, 0, "center", "center")
-    end
-
-    function button:unload()
-        buttonText:unload()
-        buttonImage:unload()
-        buttonOverImage:unload()
-        buttonPressedImage:unload()
-        soundEffect:unload()
     end
 
     return button
