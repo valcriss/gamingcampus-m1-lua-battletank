@@ -22,7 +22,7 @@ ScreenManager.new = function()
     function screenManager:init(width, height)
         screenManager.windowWidth = width
         screenManager.windowHeight = height
-        love.window.setMode(width, height, {resizable = true, vsync = 0, minwidth = 800, minheight = 600})
+        love.window.setMode(width, height, {fullscreen = configuration:isFullscreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512})
         screenManager.calculateScale()
     end
 

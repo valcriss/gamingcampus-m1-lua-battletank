@@ -1,6 +1,7 @@
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"
 local ScenesManager = require "models.scenes.ScenesManager"
+local Configuration = require "models.configuration.Configuration"
 SplashScreen = require "scenes.SplashScreen"
 MainMenu = require "scenes.MainMenu"
 
@@ -11,6 +12,7 @@ end
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
 -- Déclaration des variables globales
+configuration = Configuration:new()
 screenManager = ScreenManager:new()
 scenesManager = ScenesManager:new()
 
@@ -19,6 +21,7 @@ local splashScreen = nil
 
 -- Functions
 function love.load()
+    configuration:load()
     screenManager:init(1366, 768)
     splashScreen = SplashScreen.new(1)
     scenesManager:addScene(splashScreen)
