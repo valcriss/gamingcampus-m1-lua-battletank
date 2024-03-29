@@ -58,6 +58,9 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     ---@public
     function soundEffect.play()
         if soundEffect.data.sound then
+            if soundEffect.data.sound:isPlaying() then
+                soundEffect.stop()
+            end
             soundEffect.data.sound:setVolume(soundEffect.data.volume)
             soundEffect.data.sound:setPitch(soundEffect.data.pitch)
             soundEffect.data.sound:play()

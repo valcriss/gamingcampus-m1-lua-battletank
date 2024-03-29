@@ -13,6 +13,7 @@ Configuration.new = function()
             soundVolume = 1,
             difficulty = 0.5,
             maximized = false,
+            level = 1
         }
     }
 
@@ -80,6 +81,15 @@ Configuration.new = function()
 
     function configuration:setMaximized(value)
         configuration.data.maximized = value
+        configuration:save()
+    end
+
+    function configuration:getLevel()
+        return configuration.data.level
+    end
+
+    function configuration:setLevel(value)
+        configuration.data.level = value
         configuration:save()
     end
 

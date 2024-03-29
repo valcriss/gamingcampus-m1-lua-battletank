@@ -11,21 +11,22 @@ CreditsFrame = {}
 ---@param height number
 ---@param moveSpeed number
 CreditsFrame.new = function(name, title, x, y, width, height, moveSpeed)
-    local creditsFrame = MenuFrame.new(
-            name,
-            title,
-            x,
-            y,
-            width,
-            height,
-            moveSpeed,
-            "assets/ui/yellow_panel.png",
-            {
-                graphicAssetsList = "- Tanks by kenney (https://kenney.nl/)\n- UI Pack by kenney (https://kenney.nl/)\n- Top-down Tanks Redux by kenney (https://kenney.nl/)\n- Map Pack by kenney (https://kenney.nl/)",
-                fontAssetsList = "- Bouncy by Mans Greback (https://www.mansgreback.com/)\n- Hey Comic by Khurasan (https://www.dafont.com/fr/hey-comic.font)\n- Komika Axis by Vigilante Typeface Corporation (https://www.dafont.com/fr/komika-axis.font)\n- Roboto by Google Android Design (https://m3.material.io/styles/typography/overview)",
-                soundAssetsList = "- Game music – retro, arcade melody with electro drums and synth elements by zapsplat (https://www.zapsplat.com/)\n- Boing effect by pixabay (https://pixabay.com/users/pixabay-1/)\n- Button pressed effect in ui-pack by kenney (https://kenney.nl/)",
-                devAssetsList = "- json.lua by rxi (https://github.com/rxi/json.lua)"
-            }
+    local creditsFrame =
+        MenuFrame.new(
+        name,
+        title,
+        x,
+        y,
+        width,
+        height,
+        moveSpeed,
+        "assets/ui/yellow_panel.png",
+        {
+            graphicAssetsList = "- Tanks by kenney (https://kenney.nl/)\n- UI Pack by kenney (https://kenney.nl/)\n- Top-down Tanks Redux by kenney (https://kenney.nl/)\n- Map Pack by kenney (https://kenney.nl/)",
+            fontAssetsList = "- Bouncy by Mans Greback (https://www.mansgreback.com/)\n- Hey Comic by Khurasan (https://www.dafont.com/fr/hey-comic.font)\n- Komika Axis by Vigilante Typeface Corporation (https://www.dafont.com/fr/komika-axis.font)\n- Roboto by Google Android Design (https://m3.material.io/styles/typography/overview)",
+            soundAssetsList = "- Game music – retro, arcade melody with electro drums and synth elements by zapsplat (https://www.zapsplat.com/)\n- Digital retro arcade game tone, ascending blips 1 by zapsplat (https://www.zapsplat.com/)\n- Boing effect by pixabay (https://pixabay.com/users/pixabay-1/)\n- Wrong effect by pixabay (https://pixabay.com/users/pixabay-1/)\n- Movement Swipe Whoosh 3 by floraphonic (https://pixabay.com/users/floraphonic-38928062/)\n- Button pressed effect in ui-pack by kenney (https://kenney.nl/)",
+            devAssetsList = "- json.lua by rxi (https://github.com/rxi/json.lua)\n- Spriter Pro by brashmonkey (https://brashmonkey.com/spriter-pro/)\n- GIMP (https://www.gimp.org/)"
+        }
     )
 
     setmetatable(creditsFrame, CreditsFrame)

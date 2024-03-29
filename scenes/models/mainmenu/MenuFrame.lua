@@ -2,6 +2,7 @@ local Component = require "models.scenes.Component"
 local Frame = require "models.ui.Frame"
 local BitmapText = require "models.texts.BitmapText"
 local Tables = require "models.tools.Tables"
+local SoundEffect = require "models.audio.SoundEffect"
 ---@class MenuFrame
 MenuFrame = {}
 
@@ -40,10 +41,12 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
     local frame = Frame.new(menuFrame.name .. "_frame", "assets/ui/grey_panel.png", 10, 0, 0, menuFrame.bounds.width, menuFrame.bounds.height)
     local titleFrame = Frame.new(menuFrame.name .. "_titleFrame", menuFrame.data.headerAssetPath, 10, 0, 0, menuFrame.bounds.width, 50)
     local frameTitle = BitmapText.new(menuFrame.name .. "_frameTitle", "assets/ui/ui-18.fnt", menuFrame.data.title, "center", "center")
+    menuFrame.data.soundEffect = SoundEffect.new("soundEffect", "assets/ui/swipe.mp3", "static", false, false, configuration:getSoundVolume())
 
     menuFrame.addComponent(titleFrame)
     menuFrame.addComponent(frame)
     menuFrame.addComponent(frameTitle)
+    menuFrame.addComponent(menuFrame.data.soundEffect)
 
     function menuFrame.updateAnimation(dt)
         menuFrame.animationShow(dt)
@@ -81,6 +84,7 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
         menuFrame.data.offsetX = 0
         menuFrame.show()
         menuFrame.enable()
+        menuFrame.data.soundEffect.play()
     end
 
     function menuFrame.appear()
@@ -88,6 +92,7 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
         menuFrame.enable()
         menuFrame.data.offsetX = screenManager.getWindowWidth()
         menuFrame.data.animation = "show"
+        menuFrame.data.soundEffect.play()
     end
 
     return menuFrame

@@ -22,11 +22,30 @@ MainMenu.new = function()
     local confirmationHeight = 150
     local fps = Fps.new("fps", 10, 10, {r = 1, g = 0, b = 0, a = 1}).hide()
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, nil, 65, true, 750, 600, nil, nil, nil, 0.5)
-    local transition = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 100, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01,nil,function()  mainMenu.startGame() end).hide().disable()
+    local transition =
+        SpriteSheetImage.new(
+        "transition",
+        "assets/mainmenu/transition-100.png",
+        3,
+        8,
+        30,
+        false,
+        screenManager:calculateCenterPointX(),
+        screenManager:calculateCenterPointY(),
+        nil,
+        nil,
+        nil,
+        1.01,
+        nil,
+        function()
+            mainMenu.startGame()
+        end
+    ).hide().disable()
+    local transitionEffect = SoundEffect.new("transitionEffect", "assets/ui/ascending.mp3", "static", false, false, configuration:getSoundVolume())
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, configuration:getMusicVolume())
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuParallax = MainMenuParallax.new()
-    local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 430, 250, 810, 500).hide().disable()
+    local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 430, 200, 810, 500).hide().disable()
     local parametersFrame =
         ParametersFrame.new(
         "parametersFrame",
@@ -66,7 +85,7 @@ MainMenu.new = function()
         end
     )
 
-    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame).addComponent(fps).addComponent(transition)
+    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame).addComponent(fps).addComponent(transition).addComponent(transitionEffect)
 
     function mainMenu.OnButtonClicked(button)
         if button == "credits" then
@@ -77,6 +96,7 @@ MainMenu.new = function()
             mainMenu.showFrameQuit()
         elseif button == "start" then
             transition.show()
+            transitionEffect.play()
             transition.enable()
         end
     end

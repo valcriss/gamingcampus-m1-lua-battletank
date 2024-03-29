@@ -49,6 +49,7 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
                     soundVolume = soundSlider.getValue(),
                     difficulty = difficultySlider.getValue(),
                     maximized = love.window.isMaximized(),
+                    level = configuration:getLevel(),
                 })
             end
     )
