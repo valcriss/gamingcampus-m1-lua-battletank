@@ -23,7 +23,19 @@ MainMenu.new = function()
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuParallax = MainMenuParallax.new()
     local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 350, 200, 950, 500).hide().disable()
-    local parametersFrame = ParametersFrame.new("parametersFrame", "Parametres", 350, 200, 950, 500).hide().disable()
+    local parametersFrame =
+        ParametersFrame.new(
+        "parametersFrame",
+        "Parametres",
+        450,
+        200,
+        450,
+        400,
+        nil,
+        function(data)
+            mainMenu.saveParameters(data)
+        end
+    ).hide().disable()
     local confirmationFrame =
         ConfirmationFrame.new(
         "confirmationFrame",
@@ -114,6 +126,17 @@ MainMenu.new = function()
         else
             confirmationFrame.disappear()
         end
+    end
+
+    function mainMenu.saveParameters(data)
+        if data ~= nil then
+            local needReload = configuration:setConfiguration(data)
+            if needReload then
+                screenManager:reload()
+            end
+            backgroundMusic.setVolume(configuration:getMusicVolume())
+        end
+        parametersFrame.disappear()
     end
 
     return mainMenu

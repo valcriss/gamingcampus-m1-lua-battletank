@@ -85,6 +85,13 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
         soundEffect.data.sound = nil
     end
 
+    function soundEffect.setVolume(value)
+        soundEffect.data.volume = value
+        if soundEffect.data.sound then
+            soundEffect.data.sound:setVolume(soundEffect.data.volume)
+        end
+    end
+
     return soundEffect
 end
 

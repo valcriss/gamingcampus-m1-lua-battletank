@@ -66,6 +66,11 @@ BitmapText.new = function(name, bmfFontData, content, alignmentX --[[optional]],
         love.graphics.draw(bitmapText.data.text, screenManager:ScaleValueX(bitmapText.bounds.x), screenManager:ScaleValueY(bitmapText.bounds.y), math.rad(bitmapText.rotation), bitmapText.scale * screenManager:getScaleX(), bitmapText.scale * screenManager:getScaleY(), originX, originY)
     end
 
+    function bitmapText.setContent(newContent)
+        bitmapText.data.content = newContent
+        bitmapText.data.text:set(bitmapText.data.content)
+    end
+
     return bitmapText
 end
 

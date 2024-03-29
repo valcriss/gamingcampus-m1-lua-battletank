@@ -1,4 +1,4 @@
--- Configuration sauvegardé dans le fichier : %appdata%\Roaming\LOVE\gamingcampus-m1-lua-battletank\configuration.json
+-- Configuration sauvegardé dans le fichier : %appdata%\LOVE\gamingcampus-m1-lua-battletank\configuration.json
 local json = require "libs.json"
 ---@class Configuration
 Configuration = {}
@@ -9,9 +9,9 @@ Configuration.new = function()
         defaultConfiguration = {
             fullscreen = false,
             vsync = false,
-            musicVolume = 0.5,
+            musicVolume = 1,
             soundVolume = 1,
-            difficulty = 2
+            difficulty = 0.5
         }
     }
 
@@ -64,16 +64,33 @@ Configuration.new = function()
         configuration:save()
     end
 
+    function configuration:getDifficulty()
+        return configuration.data.difficulty
+    end
+
+    function configuration:setDifficulty(value)
+        configuration.data.difficulty = value
+        configuration:save()
+    end
+
+    function configuration:setConfiguration(data)
+        local needReload = configuration.data.fullscreen ~= data.fullscreen or configuration.data.vsync ~= data.vsync
+        configuration.data = data
+        configuration:save()
+        return needReload
+    end
+
     --[[
         Fonctions de sauvegarde et chargement
     --]]
     function configuration:load()
         local filename = configuration:getFileName()
-        print(filename)
-        if love.filesystem.getInfo(filename) == nil then
+        if love.filesystem.getInfo(filename) ~= nil then
+            print("Creating new configuration file : " .. filename)
             configuration.data = configuration.defaultConfiguration
             configuration:save()
         else
+            print("Loading configuration file : " .. filename)
             local file = io.open(filename, "r")
             local contents = file:read("*a")
             file:close()
@@ -83,6 +100,7 @@ Configuration.new = function()
 
     function configuration:save()
         local filename = configuration:getFileName()
+        print("Saving configuration file : " .. filename)
         local file = io.open(filename, "w")
         file:write(json.encode(configuration.data))
         file:close()
@@ -93,7 +111,11 @@ Configuration.new = function()
         if love.filesystem.getInfo(saveDirectory) == nil then
             love.filesystem.createDirectory(saveDirectory)
         end
-        return love.filesystem.getSaveDirectory() .. "/configuration.json"
+        local path = love.filesystem.getSaveDirectory() .. "/configuration.json"
+        if love.system.getOS() == "Windows" then
+            path = path:gsub("/", "\\")
+        end
+        return path
     end
 
     return configuration

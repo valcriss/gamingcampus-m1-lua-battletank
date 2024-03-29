@@ -61,7 +61,7 @@ CheckBox.new = function(name, assetPath, assetCheckedPath, x, y)
         end
     end
 
-    function isChecked()
+    function checkBox.isChecked()
         return checkBox.data.checked
     end
 
