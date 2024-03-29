@@ -14,7 +14,7 @@ SplashScreen.new = function(splashScreenDuration)
     setmetatable(splashScreen, SplashScreen)
     SplashScreen.__index = SplashScreen
 
-    local logo = SpriteSheetImage.new("logo", "assets/splashscreen/logo.png", 33, nil, true, screenManager.calculateCenterPointX(), 300, nil, nil, 0, 0.5)
+    local logo = SpriteSheetImage.new("logo", "assets/splashscreen/logo.png", 33, nil, nil, true, screenManager.calculateCenterPointX(), 300, nil, nil, 0, 0.5)
     local title = BitmapText.new("title", "assets/splashscreen/title-font.fnt", "Daniel SILVESTRE", "center", "center", screenManager.calculateCenterPointX(), 600)
     local subTitle = BitmapText.new("subTitle", "assets/splashscreen/subtitle-font.fnt", "Programmation fondamentale LUA et Love2", "center", "center", screenManager.calculateCenterPointX(), 700)
     local soundEffect = SoundEffect.new("logo-sound", "assets/splashscreen/logo.mp3", nil, true, true, configuration:getSoundVolume())
