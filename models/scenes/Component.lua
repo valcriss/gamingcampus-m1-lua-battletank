@@ -19,7 +19,7 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
     height = height or 0
     rotation = rotation or 0
     scale = scale or 1
-    color = color or {r = 1, g = 1, b = 1, a = 1}
+    color = color or { r = 1, g = 1, b = 1, a = 1 }
     local component = {
         visible = true,
         enabled = true,
@@ -147,11 +147,31 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
     end
 
     ---@public
-    ---@param x number
-    ---@param y number
+    ---@param newPositionX number
+    ---@param newPositionY number
     function component.setPosition(newPositionX, newPositionY)
         component.bounds.x = newPositionX
         component.bounds.y = newPositionY
+    end
+
+    ---@public
+    ---@param newWidth number
+    ---@param newHeight number
+    function component.setSize(newWidth, newHeight)
+        component.bounds.width = newWidth
+        component.bounds.height = newHeight
+    end
+
+    ---@public
+    ---@param newPositionX number
+    ---@param newPositionY number
+    ---@param newWidth number
+    ---@param newHeight number
+    function component.setBounds(newPositionX, newPositionY, newWidth, newHeight)
+        component.bounds.x = newPositionX
+        component.bounds.y = newPositionY
+        component.bounds.width = newWidth
+        component.bounds.height = newHeight
     end
 
     return component

@@ -48,7 +48,7 @@ MenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAsse
     function menuFrame.updateAnimation(dt)
         menuFrame.animationShow(dt)
         menuFrame.animationHide(dt)
-        frame.setPosition(menuFrame.bounds.x + menuFrame.data.offsetX, menuFrame.bounds.y)
+        frame.setBounds(menuFrame.bounds.x + menuFrame.data.offsetX, menuFrame.bounds.y, menuFrame.bounds.width, menuFrame.bounds.height)
         titleFrame.setPosition(menuFrame.bounds.x + menuFrame.data.offsetX, menuFrame.bounds.y - 30)
         frameTitle.setPosition(menuFrame.bounds.x + menuFrame.data.offsetX + (menuFrame.bounds.width / 2) + 7, menuFrame.bounds.y - 13)
     end
