@@ -19,7 +19,7 @@ MainMenu.new = function()
     MainMenu.__index = MainMenu
     local confirmationWith = 500
     local confirmationHeight = 150
-    local fps = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 })
+    local fps = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 }).hide()
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, configuration:getMusicVolume())
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
