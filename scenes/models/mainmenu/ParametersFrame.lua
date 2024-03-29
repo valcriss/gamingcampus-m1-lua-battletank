@@ -41,12 +41,18 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
             parametersFrame.bounds.y + parametersFrame.bounds.height - 60,
             "Sauvegarder",
             function()
+                windowX, windowY, displayIndex = love.window.getPosition()
                 parametersFrame.data.action({
-                    fullscreen = fullScreenCheckbox.isChecked(),
+                    fullScreen = fullScreenCheckbox.isChecked(),
                     vsync = vsyncCheckbox.isChecked(),
                     musicVolume = musicSlider.getValue(),
                     soundVolume = soundSlider.getValue(),
-                    difficulty = difficultySlider.getValue()
+                    difficulty = difficultySlider.getValue(),
+                    maximized = love.window.isMaximized(),
+                    windowX = windowX,
+                    windowY = windowY,
+                    windowWidth = love.graphics.getWidth(),
+                    windowHeight = love.graphics.getHeight()
                 })
             end
     )

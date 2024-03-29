@@ -22,12 +22,28 @@ ScreenManager.new = function()
     function screenManager:init(width, height)
         screenManager.windowWidth = width
         screenManager.windowHeight = height
-        love.window.setMode(width, height, {fullscreen = configuration:isFullscreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512})
+
+        local w = configuration:getWindowWidth() or width
+        local h = configuration:getWindowHeight() or height
+
+        love.window.setMode(w, h, { fullscreen = configuration:isFullScreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512 })
+        if not configuration:isFullScreen() and configuration:isMaximized() then
+            love.window.maximize()
+        end
+        if not configuration:isFullScreen() and configuration:getWindowX() ~= nil and configuration:getWindowY() ~= nil then
+            love.window.setPosition(configuration:getWindowX(), configuration:getWindowY())
+        end
         screenManager.calculateScale()
     end
 
     function screenManager:reload()
-        love.window.setMode(screenManager.windowWidth, screenManager.windowHeight, {fullscreen = configuration:isFullscreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512})
+        love.window.setMode(configuration:getWindowWidth(), configuration:getWindowHeight(), { fullscreen = configuration:isFullScreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512 })
+        if not configuration:isFullScreen() and configuration:isMaximized() then
+            love.window.maximize()
+        end
+        if not configuration:isFullScreen() and configuration:getWindowX() ~= nil and configuration:getWindowY() ~= nil then
+            love.window.setPosition(configuration:getWindowX(), configuration:getWindowY())
+        end
         screenManager.calculateScale()
     end
 

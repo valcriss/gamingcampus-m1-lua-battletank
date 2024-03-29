@@ -7,11 +7,16 @@ Configuration.new = function()
     local configuration = {
         data = {},
         defaultConfiguration = {
-            fullscreen = false,
+            fullScreen = false,
             vsync = false,
             musicVolume = 1,
             soundVolume = 1,
-            difficulty = 0.5
+            difficulty = 0.5,
+            maximized = false,
+            windowX = nil,
+            windowY = nil,
+            windowWidth = nil,
+            windowHeight = nil
         }
     }
 
@@ -20,11 +25,11 @@ Configuration.new = function()
     --[[
         Getter et Setters
     --]]
-    function configuration:isFullscreen()
+    function configuration:isFullScreen()
         return configuration.data.fullscreen
     end
 
-    function configuration:setFullscreen(value)
+    function configuration:setFullScreen(value)
         configuration.data.fullscreen = value
         configuration:save()
     end
@@ -73,11 +78,58 @@ Configuration.new = function()
         configuration:save()
     end
 
+    function configuration:isMaximized()
+        return configuration.data.maximized
+    end
+
+    function configuration:setMaximized(value)
+        configuration.data.maximized = value
+        configuration:save()
+    end
+
+    function configuration:getWindowX()
+        return configuration.data.windowX
+    end
+
+    function configuration:getWindowY()
+        return configuration.data.windowY
+    end
+
+    function configuration:setWindowPosition(x, y)
+        configuration.data.windowX = x
+        configuration.data.windowY = y
+        configuration:save()
+    end
+
+    function configuration:getWindowWidth()
+        return configuration.data.windowWidth
+    end
+
+    function configuration:getWindowHeight()
+        return configuration.data.windowHeight
+    end
+
+    function configuration:setWindowDimensions(width, height)
+        configuration.data.windowWidth = width
+        configuration.data.windowHeight = height
+        configuration:save()
+    end
+
     function configuration:setConfiguration(data)
         local needReload = configuration.data.fullscreen ~= data.fullscreen or configuration.data.vsync ~= data.vsync
         configuration.data = data
         configuration:save()
         return needReload
+    end
+
+    function configuration:storeWindowConfiguration()
+        windowX, windowY, displayIndex = love.window.getPosition()
+        configuration.data.maximized = love.window.isMaximized()
+        configuration.data.windowX = windowX
+        configuration.data.windowY = windowY
+        configuration.data.windowWidth = love.graphics.getWidth()
+        configuration.data.windowHeight = love.graphics.getHeight()
+        configuration:save()
     end
 
     --[[

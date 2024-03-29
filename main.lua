@@ -17,7 +17,7 @@ screenManager = ScreenManager:new()
 scenesManager = ScenesManager:new()
 
 -- Déclaration des variables locales
-local splashScreen = nil
+local splashScreen
 
 -- Functions
 function love.load()
@@ -36,5 +36,6 @@ function love.draw()
 end
 
 function love.resize(_, _)
+    configuration:storeWindowConfiguration()
     screenManager:resize()
 end
