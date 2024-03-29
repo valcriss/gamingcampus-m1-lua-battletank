@@ -13,10 +13,6 @@ Configuration.new = function()
             soundVolume = 1,
             difficulty = 0.5,
             maximized = false,
-            windowX = nil,
-            windowY = nil,
-            windowWidth = nil,
-            windowHeight = nil
         }
     }
 
@@ -26,11 +22,11 @@ Configuration.new = function()
         Getter et Setters
     --]]
     function configuration:isFullScreen()
-        return configuration.data.fullscreen
+        return configuration.data.fullScreen
     end
 
     function configuration:setFullScreen(value)
-        configuration.data.fullscreen = value
+        configuration.data.fullScreen = value
         configuration:save()
     end
 
@@ -87,49 +83,11 @@ Configuration.new = function()
         configuration:save()
     end
 
-    function configuration:getWindowX()
-        return configuration.data.windowX
-    end
-
-    function configuration:getWindowY()
-        return configuration.data.windowY
-    end
-
-    function configuration:setWindowPosition(x, y)
-        configuration.data.windowX = x
-        configuration.data.windowY = y
-        configuration:save()
-    end
-
-    function configuration:getWindowWidth()
-        return configuration.data.windowWidth
-    end
-
-    function configuration:getWindowHeight()
-        return configuration.data.windowHeight
-    end
-
-    function configuration:setWindowDimensions(width, height)
-        configuration.data.windowWidth = width
-        configuration.data.windowHeight = height
-        configuration:save()
-    end
-
     function configuration:setConfiguration(data)
-        local needReload = configuration.data.fullscreen ~= data.fullscreen or configuration.data.vsync ~= data.vsync
+        local needReload = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
         configuration.data = data
         configuration:save()
         return needReload
-    end
-
-    function configuration:storeWindowConfiguration()
-        windowX, windowY, displayIndex = love.window.getPosition()
-        configuration.data.maximized = love.window.isMaximized()
-        configuration.data.windowX = windowX
-        configuration.data.windowY = windowY
-        configuration.data.windowWidth = love.graphics.getWidth()
-        configuration.data.windowHeight = love.graphics.getHeight()
-        configuration:save()
     end
 
     --[[

@@ -26,8 +26,8 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
     local soundLabel = BitmapText.new(parametersFrame.name .. "_soundLabel", "assets/ui/roboto-bold-black.fnt", "Volume Effets", "left")
     local difficultyLabel = BitmapText.new(parametersFrame.name .. "_difficultyLabel", "assets/ui/roboto-bold-black.fnt", "Difficulté", "left")
 
-    local fullScreenCheckbox = CheckBox.new(parametersFrame.name .. "_fullScreenCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0)
-    local vsyncCheckbox = CheckBox.new(parametersFrame.name .. "_vsyncCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0)
+    local fullScreenCheckbox = CheckBox.new(parametersFrame.name .. "_fullScreenCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0, configuration:isFullScreen())
+    local vsyncCheckbox = CheckBox.new(parametersFrame.name .. "_vsyncCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0, configuration:getVsync())
 
     local musicSlider = Slider.new(parametersFrame.name .. "_musicSlider", 0, 0, configuration:getMusicVolume())
     local soundSlider = Slider.new(parametersFrame.name .. "_soundSlider", 0, 0, configuration:getSoundVolume())
@@ -49,10 +49,6 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
                     soundVolume = soundSlider.getValue(),
                     difficulty = difficultySlider.getValue(),
                     maximized = love.window.isMaximized(),
-                    windowX = windowX,
-                    windowY = windowY,
-                    windowWidth = love.graphics.getWidth(),
-                    windowHeight = love.graphics.getHeight()
                 })
             end
     )

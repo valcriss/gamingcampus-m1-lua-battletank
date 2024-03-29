@@ -7,6 +7,7 @@ local SoundEffect = require "models.audio.SoundEffect"
 local CreditsFrame = require "scenes.models.mainmenu.CreditsFrame"
 local ParametersFrame = require "scenes.models.mainmenu.ParametersFrame"
 local ConfirmationFrame = require "scenes.models.mainmenu.ConfirmationFrame"
+local Fps = require "models.tools.Fps"
 
 ---@class MainMenu
 MainMenu = {}
@@ -18,51 +19,49 @@ MainMenu.new = function()
     MainMenu.__index = MainMenu
     local confirmationWith = 500
     local confirmationHeight = 150
+    local fps = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 })
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, configuration:getMusicVolume())
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuParallax = MainMenuParallax.new()
     local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 430, 250, 810, 500).hide().disable()
-    local parametersFrame =
-        ParametersFrame.new(
-        "parametersFrame",
-        "Parametres",
-        600,
-        250,
-        450,
-        400,
-        nil,
-        function(data)
-            mainMenu.saveParameters(data)
-        end
-    ).hide().disable()
-    local confirmationFrame =
-        ConfirmationFrame.new(
-        "confirmationFrame",
-        "Confirmation",
-        screenManager:calculateCenterPointX() - confirmationWith / 2 + 125,
-        screenManager:calculateCenterPointY() - confirmationHeight / 2,
-        confirmationWith,
-        confirmationHeight,
-        nil,
-        function(result)
-            mainMenu.quitConfirm(result)
-        end
-    ).hide().disable()
-    local mainMenuFrame =
-        MainMenuFrame.new(
-        "mainMenuFrame",
-        "Menu Principal",
-        75,
-        270,
-        220,
-        260,
-        function(button)
-            mainMenu.OnButtonClicked(button)
-        end
+    local parametersFrame = ParametersFrame.new(
+            "parametersFrame",
+            "Parametres",
+            600,
+            250,
+            450,
+            400,
+            nil,
+            function(data)
+                mainMenu.saveParameters(data)
+            end
+    )                                      .hide().disable()
+    local confirmationFrame = ConfirmationFrame.new(
+            "confirmationFrame",
+            "Confirmation",
+            screenManager:calculateCenterPointX() - confirmationWith / 2 + 125,
+            screenManager:calculateCenterPointY() - confirmationHeight / 2,
+            confirmationWith,
+            confirmationHeight,
+            nil,
+            function(result)
+                mainMenu.quitConfirm(result)
+            end
+    )                                          .hide().disable()
+    local mainMenuFrame = MainMenuFrame.new(
+            "mainMenuFrame",
+            "Menu Principal",
+            75,
+            270,
+            220,
+            260,
+            function(button)
+                mainMenu.OnButtonClicked(button)
+            end
     )
 
-    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame)
+    mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame).addComponent(fps)
 
     function mainMenu.OnButtonClicked(button)
         mainMenu.showFrame(button)

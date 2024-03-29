@@ -49,7 +49,7 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
     function component.innerUpdate(dt)
         component.update(dt)
         for _, subComponent in ipairs(component.components) do
-            if subComponent.enabled then
+            if subComponent.enabled and subComponent.visible then
                 subComponent.innerUpdate(dt)
             end
         end

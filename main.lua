@@ -36,6 +36,5 @@ function love.draw()
 end
 
 function love.resize(_, _)
-    configuration:storeWindowConfiguration()
     screenManager:resize()
 end

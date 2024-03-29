@@ -35,7 +35,7 @@ Scene.new = function(name, order --[[optional]], backgroundColor --[[optional]])
     function scene.innerUpdate(dt)
         scene.update(dt)
         for _, subComponent in ipairs(scene.components) do
-            if subComponent.enabled then
+            if subComponent.enabled and subComponent.visible then
                 subComponent.innerUpdate(dt)
             end
         end

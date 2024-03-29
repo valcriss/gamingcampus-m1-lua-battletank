@@ -4,20 +4,21 @@ local SoundEffect = require "models.audio.SoundEffect"
 ---@class CheckBox
 CheckBox = {}
 
-CheckBox.new = function(name, assetPath, assetCheckedPath, x, y)
-    local checkBox =
-        Component.new(
-        name,
-        {
-            assetPath = assetPath,
-            assetCheckedPath = assetCheckedPath,
-            mouseIsOver = false,
-            mouseIsPressed = false
-        },
-        x,
-        y,
-        38,
-        36
+CheckBox.new = function(name, assetPath, assetCheckedPath, x, y, checked)
+    checked = checked or false
+    local checkBox = Component.new(
+            name,
+            {
+                assetPath = assetPath,
+                assetCheckedPath = assetCheckedPath,
+                mouseIsOver = false,
+                mouseIsPressed = false,
+                checked = checked
+            },
+            x,
+            y,
+            38,
+            36
     )
 
     setmetatable(checkBox, CheckBox)
