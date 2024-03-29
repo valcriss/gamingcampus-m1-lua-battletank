@@ -21,7 +21,7 @@ CreditsFrame.new = function(name, title, x, y, width, height, moveSpeed)
             moveSpeed,
             "assets/ui/yellow_panel.png",
             {
-                graphicAssetsList = "- tanks by kenney (https://kenney.nl/)\n- ui-pack by kenney (https://kenney.nl/)",
+                graphicAssetsList = "- Tanks by kenney (https://kenney.nl/)\n- UI Pack by kenney (https://kenney.nl/)\n- Top-down Tanks Redux by kenney (https://kenney.nl/)\n- Map Pack by kenney (https://kenney.nl/)",
                 fontAssetsList = "- Bouncy by Mans Greback (https://www.mansgreback.com/)\n- Hey Comic by Khurasan (https://www.dafont.com/fr/hey-comic.font)\n- Komika Axis by Vigilante Typeface Corporation (https://www.dafont.com/fr/komika-axis.font)\n- Roboto by Google Android Design (https://m3.material.io/styles/typography/overview)",
                 soundAssetsList = "- Game music – retro, arcade melody with electro drums and synth elements by zapsplat (https://www.zapsplat.com/)\n- Boing effect by pixabay (https://pixabay.com/users/pixabay-1/)\n- Button pressed effect in ui-pack by kenney (https://kenney.nl/)"
             }
@@ -48,8 +48,8 @@ CreditsFrame.new = function(name, title, x, y, width, height, moveSpeed)
         creditsFrame.updateAnimation(dt)
 
         local graphicsTop = 20
-        local fontsTop = 100
-        local soundTop = 220
+        local fontsTop = graphicsTop + 150
+        local soundTop = fontsTop + 150
 
         graphicAssetsFont.setPosition(creditsFrame.bounds.x + creditsFrame.data.offsetX + 20, creditsFrame.bounds.y + graphicsTop)
         graphicAssetsList.setPosition(creditsFrame.bounds.x + creditsFrame.data.offsetX + 35, creditsFrame.bounds.y + graphicsTop + 20)
