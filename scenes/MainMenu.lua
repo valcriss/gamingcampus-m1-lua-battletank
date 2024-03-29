@@ -19,33 +19,35 @@ MainMenu.new = function()
     local confirmationWith = 500
     local confirmationHeight = 150
     local tank = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, 65, true, 750, 600, nil, nil, nil, 0.5)
-    local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, 0.02)
+    local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, configuration:getMusicVolume())
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuParallax = MainMenuParallax.new()
     local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 350, 200, 950, 500).hide().disable()
     local parametersFrame = ParametersFrame.new("parametersFrame", "Parametres", 350, 200, 950, 500).hide().disable()
-    local confirmationFrame = ConfirmationFrame.new(
-            "confirmationFrame",
-            "Confirmation",
-            screenManager:calculateCenterPointX() - confirmationWith / 2,
-            screenManager:calculateCenterPointY() - confirmationHeight / 2,
-            confirmationWith,
-            confirmationHeight,
-            nil,
-            function(result)
-                mainMenu.quitConfirm(result)
-            end
+    local confirmationFrame =
+        ConfirmationFrame.new(
+        "confirmationFrame",
+        "Confirmation",
+        screenManager:calculateCenterPointX() - confirmationWith / 2,
+        screenManager:calculateCenterPointY() - confirmationHeight / 2,
+        confirmationWith,
+        confirmationHeight,
+        nil,
+        function(result)
+            mainMenu.quitConfirm(result)
+        end
     ).hide().disable()
-    local mainMenuFrame = MainMenuFrame.new(
-            "mainMenuFrame",
-            "Menu Principal",
-            75,
-            270,
-            220,
-            260,
-            function(button)
-                mainMenu.OnButtonClicked(button)
-            end
+    local mainMenuFrame =
+        MainMenuFrame.new(
+        "mainMenuFrame",
+        "Menu Principal",
+        75,
+        270,
+        220,
+        260,
+        function(button)
+            mainMenu.OnButtonClicked(button)
+        end
     )
 
     mainMenu.addComponent(mainMenuParallax).addComponent(mainMenuFrame).addComponent(tank).addComponent(backgroundMusic).addComponent(mainMenuTitle).addComponent(creditsFrame).addComponent(parametersFrame).addComponent(confirmationFrame)

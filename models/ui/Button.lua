@@ -6,21 +6,22 @@ local SoundEffect = require "models.audio.SoundEffect"
 Button = {}
 
 Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, text, action)
-    local button = Component.new(
-            name,
-            {
-                assetPath = assetPath,
-                assetOverPath = assetOverPath,
-                assetPressedPath = assetPressedPath,
-                text = text,
-                action = action,
-                mouseIsOver = false,
-                mouseIsPressed = false
-            },
-            x,
-            y,
-            190,
-            49
+    local button =
+        Component.new(
+        name,
+        {
+            assetPath = assetPath,
+            assetOverPath = assetOverPath,
+            assetPressedPath = assetPressedPath,
+            text = text,
+            action = action,
+            mouseIsOver = false,
+            mouseIsPressed = false
+        },
+        x,
+        y,
+        190,
+        49
     )
 
     setmetatable(button, Button)
@@ -30,7 +31,7 @@ Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, te
     local buttonImage = Image.new(button.name .. "_buttonImage", button.data.assetPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
     local buttonOverImage = Image.new(button.name .. "_buttonOverImage", button.data.assetOverPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
     local buttonPressedImage = Image.new(button.name .. "_buttonPressedImage", button.data.assetPressedPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
-    local soundEffect = SoundEffect.new(button.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false)
+    local soundEffect = SoundEffect.new(button.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
 
     button.addComponent(buttonImage)
     button.addComponent(buttonOverImage)
@@ -39,7 +40,6 @@ Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, te
     button.addComponent(soundEffect)
 
     function button.update(_)
-
         buttonImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
         buttonOverImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
         buttonPressedImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))

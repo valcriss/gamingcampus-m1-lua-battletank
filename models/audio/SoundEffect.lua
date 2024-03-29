@@ -19,15 +19,19 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
     volume = volume or 1
     pitch = pitch or 1
-    local soundEffect = Component.new(name,{
-        assetPath = assetPath,
-        loadType = loadType,
-        loop = loop,
-        playOnStart = playOnStart,
-        volume = volume,
-        pitch = pitch,
-        sound = nil
-    })
+    local soundEffect =
+        Component.new(
+        name,
+        {
+            assetPath = assetPath,
+            loadType = loadType,
+            loop = loop,
+            playOnStart = playOnStart,
+            volume = volume,
+            pitch = pitch,
+            sound = nil
+        }
+    )
 
     setmetatable(soundEffect, SoundEffect)
     SoundEffect.__index = SoundEffect
