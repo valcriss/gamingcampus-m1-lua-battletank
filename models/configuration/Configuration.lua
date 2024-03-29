@@ -85,13 +85,13 @@ Configuration.new = function()
     --]]
     function configuration:load()
         local filename = configuration:getFileName()
-        if love.filesystem.getInfo(filename) ~= nil then
+        local file = io.open(filename, "r")
+        if file == nil then
             print("Creating new configuration file : " .. filename)
             configuration.data = configuration.defaultConfiguration
             configuration:save()
         else
             print("Loading configuration file : " .. filename)
-            local file = io.open(filename, "r")
             local contents = file:read("*a")
             file:close()
             configuration.data = json.decode(contents)

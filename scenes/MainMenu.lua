@@ -22,13 +22,13 @@ MainMenu.new = function()
     local backgroundMusic = SoundEffect.new("backgroundMusic", "assets/mainmenu/mainmenu.mp3", "stream", true, true, configuration:getMusicVolume())
     local mainMenuTitle = BitmapText.new("mainMenuTitle", "assets/mainmenu/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuParallax = MainMenuParallax.new()
-    local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 350, 200, 950, 500).hide().disable()
+    local creditsFrame = CreditsFrame.new("creditsFrame", "Credits", 430, 250, 810, 500).hide().disable()
     local parametersFrame =
         ParametersFrame.new(
         "parametersFrame",
         "Parametres",
-        450,
-        200,
+        600,
+        250,
         450,
         400,
         nil,
@@ -40,7 +40,7 @@ MainMenu.new = function()
         ConfirmationFrame.new(
         "confirmationFrame",
         "Confirmation",
-        screenManager:calculateCenterPointX() - confirmationWith / 2,
+        screenManager:calculateCenterPointX() - confirmationWith / 2 + 125,
         screenManager:calculateCenterPointY() - confirmationHeight / 2,
         confirmationWith,
         confirmationHeight,

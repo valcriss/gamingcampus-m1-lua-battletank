@@ -40,6 +40,7 @@ Button.new = function(name, assetPath, assetOverPath, assetPressedPath, x, y, te
     button.addComponent(soundEffect)
 
     function button.update(_)
+        soundEffect.setVolume(configuration:getSoundVolume())
         buttonImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
         buttonOverImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
         buttonPressedImage.setPosition(button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))

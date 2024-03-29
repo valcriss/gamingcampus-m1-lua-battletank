@@ -30,6 +30,7 @@ SliderButton.new = function(name, assetPath, x, y, action)
     sliderButton.addComponent(soundEffect)
 
     function sliderButton.update(_)
+        soundEffect.setVolume(configuration:getSoundVolume())
         sliderButtonImage.setPosition(sliderButton.bounds.x + (sliderButton.bounds.width / 2), sliderButton.bounds.y + (sliderButton.bounds.height / 2))
 
         local mouseX, mouseY = love.mouse.getPosition()

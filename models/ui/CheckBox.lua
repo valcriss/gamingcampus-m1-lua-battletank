@@ -32,6 +32,7 @@ CheckBox.new = function(name, assetPath, assetCheckedPath, x, y)
     checkBox.addComponent(soundEffect)
 
     function checkBox.update(_)
+        soundEffect.setVolume(configuration:getSoundVolume())
         checkboxImage.setPosition(checkBox.bounds.x + (checkBox.bounds.width / 2), checkBox.bounds.y + (checkBox.bounds.height / 2))
         checkBoxCheckedImage.setPosition(checkBox.bounds.x + (checkBox.bounds.width / 2), checkBox.bounds.y + (checkBox.bounds.height / 2))
 
