@@ -45,12 +45,10 @@ LevelButton.new   = function(name, enableAssetPath, disableAssetPath, hoverAsset
     levelButton.addComponent(forbiddenEffect)
 
     if tonumber(configuration:getLevel()) >= tonumber(levelButton.data.level) then
-        print(levelButton.name .. " level is enabled")
         levelEnabled.show()
         levelDisabled.hide()
         levelButton.data.active = true
     else
-        print(levelButton.name .. " level is disabled")
         levelEnabled.hide()
         levelDisabled.show()
         levelButton.data.active = false

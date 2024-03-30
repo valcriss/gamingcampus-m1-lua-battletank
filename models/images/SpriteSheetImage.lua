@@ -122,7 +122,6 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
             definitionY = math.floor(definitionY + spriteSheetImage.data.itemHeight)
             definitionX = 0
         end
-        print(spriteSheetImage.name .. " found quads " .. #spriteSheetImage.data.quads)
     end
 
     return spriteSheetImage
