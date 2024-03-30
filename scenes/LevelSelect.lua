@@ -5,6 +5,7 @@ local Button           = require "models.ui.Button"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local InformationFrame = require "scenes.models.levelselect.InformationFrame"
 local SoundEffect      = require "models.audio.SoundEffect"
+local MapTank          = require "scenes.models.levelselect.MapTank"
 
 ---@class LevelSelect
 LevelSelect            = {}
@@ -28,6 +29,7 @@ LevelSelect.new        = function()
         transitionEffect.play()
     end)
     local information      = InformationFrame.new("LevelSelect_information", "Information", 30, 80, 500, 50, 3000).hide()
+    local mapTank          = MapTank.new("LevelSelect_mapTank", ((64 * 2)+32), 543, 0, 0.7)
     local informationText  = ""
 
     levelSelect.addComponent(map)
@@ -39,6 +41,7 @@ LevelSelect.new        = function()
     levelSelect.addComponent(information)
     levelSelect.addComponent(transitionEffect)
     levelSelect.addComponent(backgroundMusic)
+    levelSelect.addComponent(mapTank)
 
     function levelSelect.update(_)
         information.setContent(informationText)
