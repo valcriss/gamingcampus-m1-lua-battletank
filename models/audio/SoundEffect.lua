@@ -28,7 +28,8 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
                 playOnStart = playOnStart,
                 volume      = volume,
                 pitch       = pitch,
-                sound       = nil
+                sound       = nil,
+                started     = false
             }
     )
 
@@ -40,6 +41,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
         soundEffect.data.sound = love.audio.newSource(soundEffect.data.assetPath, soundEffect.data.loadType)
         if (soundEffect.data.playOnStart) then
             soundEffect.play()
+            soundEffect.data.started = true
         else
             soundEffect.stop()
         end
@@ -48,7 +50,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     ---@public
     function soundEffect.update(_)
         if soundEffect.data.sound then
-            if not soundEffect.data.sound:isPlaying() and soundEffect.data.loop == true then
+            if not soundEffect.data.sound:isPlaying() and soundEffect.data.started and soundEffect.data.loop == true then
                 soundEffect.play()
             end
         end
@@ -63,13 +65,22 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
             soundEffect.data.sound:setVolume(soundEffect.data.volume)
             soundEffect.data.sound:setPitch(soundEffect.data.pitch)
             soundEffect.data.sound:play()
+            soundEffect.data.started = true
         end
+    end
+
+    function soundEffect.isPlaying()
+        if soundEffect.data.sound then
+            return soundEffect.data.sound:isPlaying()
+        end
+        return false
     end
 
     ---@public
     function soundEffect.stop()
         if soundEffect.data.sound then
             soundEffect.data.sound:stop()
+            soundEffect.data.started = false
         end
     end
 
@@ -77,6 +88,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     function soundEffect.pause()
         if soundEffect.data.sound then
             soundEffect.data.sound:pause()
+            soundEffect.data.started = false
         end
     end
 
