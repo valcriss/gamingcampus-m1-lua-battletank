@@ -4,6 +4,7 @@ local LevelButton      = require "scenes.models.levelselect.LevelButton"
 local Button           = require "models.ui.Button"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local InformationFrame = require "scenes.models.levelselect.InformationFrame"
+local SoundEffect      = require "models.audio.SoundEffect"
 
 ---@class LevelSelect
 LevelSelect            = {}
@@ -21,7 +22,7 @@ LevelSelect.new        = function()
     local level3           = LevelButton.new("LevelSelect_level3", "assets/levelselect/map-3.png", "assets/levelselect/map-3-disabled.png", "assets/levelselect/map-3-hover.png", "assets/levelselect/map-3-locked.png", 1120 - 32, 159 - 32, 3, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
     local transition       = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() levelSelect.backToMainMenu() end)                                                       .hide().disable()
     local transitionEffect = SoundEffect.new("transitionEffect", "assets/ui/ascending.mp3", "static", false, false, configuration:getSoundVolume())
-
+    local backgroundMusic  = SoundEffect.new("backgroundMusic", "assets/levelselect/levelselect.mp3", "stream", true, true, configuration:getMusicVolume())
     local returnButton     = Button.new("LevelSelect_returnButton", "assets/ui/yellow_button00.png", "assets/ui/yellow_button04.png", "assets/ui/yellow_button03.png", screenManager:getWindowWidth() - 220, screenManager:getWindowHeight() - 72, "Menu Principal", function()
         transition.enable().show()
         transitionEffect.play()
@@ -37,6 +38,7 @@ LevelSelect.new        = function()
     levelSelect.addComponent(transition)
     levelSelect.addComponent(information)
     levelSelect.addComponent(transitionEffect)
+    levelSelect.addComponent(backgroundMusic)
 
     function levelSelect.update(_)
         information.setContent(informationText)
