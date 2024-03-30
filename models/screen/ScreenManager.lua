@@ -1,16 +1,16 @@
 ---@class ScreenManager
-ScreenManager = {}
+ScreenManager     = {}
 
 ScreenManager.new = function()
     local screenManager = {
         ---@type number
-        windowWidth = 0,
+        windowWidth  = 0,
         ---@type number
         windowHeight = 0,
         ---@type number
-        scaleX = 1,
+        scaleX       = 1,
         ---@type number
-        scaleY = 1
+        scaleY       = 1
     }
 
     setmetatable(screenManager, ScreenManager)
@@ -20,7 +20,7 @@ ScreenManager.new = function()
     ---@param width number
     ---@param height number
     function screenManager:init(width, height)
-        screenManager.windowWidth = width
+        screenManager.windowWidth  = width
         screenManager.windowHeight = height
 
         love.window.setMode(width, height, { fullscreen = configuration:isFullScreen(), fullscreentype = "desktop", resizable = true, vsync = configuration:getVsyncAsInteger(), stencil = true, msaa = 0, minwidth = 910, minheight = 512 })
@@ -45,8 +45,8 @@ ScreenManager.new = function()
 
     ---@private
     function screenManager:calculateScale()
-        width = love.graphics.getWidth()
-        height = love.graphics.getHeight()
+        width                = love.graphics.getWidth()
+        height               = love.graphics.getHeight()
         screenManager.scaleX = width / screenManager.windowWidth
         screenManager.scaleY = height / screenManager.windowHeight
     end

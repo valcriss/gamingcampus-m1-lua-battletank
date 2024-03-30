@@ -4,18 +4,18 @@ local Scene = {}
 ---@param name string
 ---@param order number
 ---@param backgroundColor table
-Scene.new = function(name, order --[[optional]], backgroundColor --[[optional]])
-    order = order or 0
-    backgroundColor = backgroundColor or {r = 0, g = 0, b = 0}
-    scene = {
+Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]])
+    order           = order or 0
+    backgroundColor = backgroundColor or { r = 0, g = 0, b = 0 }
+    scene           = {
         ---@type string
-        name = name,
+        name            = name,
         ---@type number
-        order = order,
+        order           = order,
         ---@type table
         backgroundColor = backgroundColor,
         ---@type Component[]
-        components = {}
+        components      = {}
     }
 
     setmetatable(scene, Scene)

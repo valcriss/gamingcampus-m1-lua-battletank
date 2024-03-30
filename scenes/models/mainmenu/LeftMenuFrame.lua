@@ -1,7 +1,7 @@
-local MenuFrame = require "scenes.models.mainmenu.MenuFrame"
+local MenuFrame   = require "scenes.models.mainmenu.MenuFrame"
 
 ---@class LeftMenuFrame
-LeftMenuFrame = {}
+LeftMenuFrame     = {}
 
 ---@param name string
 ---@param title string
@@ -23,7 +23,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         if leftMenuFrame.data.animation == "show" then
             leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX + (leftMenuFrame.data.moveSpeed * dt)
             if leftMenuFrame.data.offsetX >= leftMenuFrame.bounds.x then
-                leftMenuFrame.data.offsetX = leftMenuFrame.bounds.x
+                leftMenuFrame.data.offsetX   = leftMenuFrame.bounds.x
                 leftMenuFrame.data.animation = "none"
                 if not leftMenuFrame.data.stillUpdate then leftMenuFrame.disable() end
             end
@@ -34,7 +34,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         if leftMenuFrame.data.animation == "hide" then
             leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX - (leftMenuFrame.data.moveSpeed * dt)
             if leftMenuFrame.data.offsetX < -leftMenuFrame.bounds.width then
-                leftMenuFrame.data.offsetX = -leftMenuFrame.bounds.width
+                leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
                 leftMenuFrame.data.animation = "none"
                 leftMenuFrame.hide()
                 leftMenuFrame.disable()
@@ -44,7 +44,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
 
     function leftMenuFrame.disappear()
         leftMenuFrame.data.animation = "hide"
-        leftMenuFrame.data.offsetX = leftMenuFrame.bounds.x
+        leftMenuFrame.data.offsetX   = leftMenuFrame.bounds.x
         leftMenuFrame.show()
         leftMenuFrame.enable()
         leftMenuFrame.data.soundEffect.play()
@@ -53,7 +53,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     function leftMenuFrame.appear()
         leftMenuFrame.show()
         leftMenuFrame.enable()
-        leftMenuFrame.data.offsetX = -leftMenuFrame.bounds.width
+        leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
         leftMenuFrame.data.animation = "show"
         leftMenuFrame.data.soundEffect.play()
     end

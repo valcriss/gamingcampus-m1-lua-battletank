@@ -36,5 +36,6 @@ function love.draw()
 end
 
 function love.resize(_, _)
+    configuration:setMaximized(love.window.isMaximized())
     screenManager:resize()
 end

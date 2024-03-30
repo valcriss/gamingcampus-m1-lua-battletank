@@ -1,18 +1,19 @@
 local Component = require "models.scenes.Component"
 ---@class BitmapText
-BitmapText = {}
+BitmapText      = {}
 
-BitmapText.new = function(name, bmfFontData, content, alignmentX --[[optional]], alignmentY --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]])
-    alignmentX = alignmentX or "left"
-    alignmentY = alignmentY or "top"
-    local bitmapText = Component.new(name,
+BitmapText.new  = function(name, bmfFontData, content, alignmentX --[[optional]], alignmentY --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]])
+    alignmentX       = alignmentX or "left"
+    alignmentY       = alignmentY or "top"
+    local bitmapText = Component.new(
+            name,
             {
-                fontData = bmfFontData,
+                fontData   = bmfFontData,
                 alignmentX = alignmentX,
                 alignmentY = alignmentY,
-                content = content,
-                font = nil,
-                text = nil,
+                content    = content,
+                font       = nil,
+                text       = nil,
             },
             x,
             y,
@@ -20,7 +21,8 @@ BitmapText.new = function(name, bmfFontData, content, alignmentX --[[optional]],
             height,
             rotation,
             scale,
-            color)
+            color
+    )
 
     setmetatable(bitmapText, BitmapText)
     BitmapText.__index = BitmapText

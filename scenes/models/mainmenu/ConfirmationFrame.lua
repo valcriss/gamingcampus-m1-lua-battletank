@@ -1,9 +1,9 @@
-local MenuFrame = require "scenes.models.mainmenu.MenuFrame"
-local BitmapText = require "models.texts.BitmapText"
-local Button = require "models.ui.Button"
+local MenuFrame       = require "scenes.models.mainmenu.MenuFrame"
+local BitmapText      = require "models.texts.BitmapText"
+local Button          = require "models.ui.Button"
 
 ---@class ConfirmationFrame
-ConfirmationFrame = {}
+ConfirmationFrame     = {}
 
 ---@param name string
 ---@param title string
@@ -18,29 +18,9 @@ ConfirmationFrame.new = function(name, title, x, y, width, height, moveSpeed, co
     setmetatable(confirmationFrame, ConfirmationFrame)
     ConfirmationFrame.__index = ConfirmationFrame
 
-    local confirmationText = BitmapText.new(confirmationFrame.name .. "_confirmationText", "assets/ui/ui-18.fnt", "Etes-vous sur de vouloir quitter ?", "center", "center", confirmationFrame.bounds.x + confirmationFrame.bounds.width / 2, confirmationFrame.bounds.y + 50)
-    local confirmButton = Button.new("confirmButton",
-            "assets/ui/green_button00.png",
-            "assets/ui/green_button04.png",
-            "assets/ui/green_button03.png",
-            confirmationFrame.bounds.x + 40,
-            confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60,
-            "Oui",
-            function()
-                confirmationFrame.data.confirmAction(true)
-            end
-    )
-    local cancelButton = Button.new("confirmButton",
-            "assets/ui/red_button11.png",
-            "assets/ui/red_button01.png",
-            "assets/ui/red_button02.png",
-            confirmationFrame.bounds.x + confirmationFrame.bounds.width - 180,
-            confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60,
-            "Non",
-            function()
-                confirmationFrame.data.confirmAction(false)
-            end
-    )
+    local confirmationText    = BitmapText.new(confirmationFrame.name .. "_confirmationText", "assets/ui/ui-18.fnt", "Etes-vous sur de vouloir quitter ?", "center", "center", confirmationFrame.bounds.x + confirmationFrame.bounds.width / 2, confirmationFrame.bounds.y + 50)
+    local confirmButton       = Button.new("confirmButton", "assets/ui/green_button00.png", "assets/ui/green_button04.png", "assets/ui/green_button03.png", confirmationFrame.bounds.x + 40, confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60, "Oui", function() confirmationFrame.data.confirmAction(true) end)
+    local cancelButton        = Button.new("confirmButton", "assets/ui/red_button11.png", "assets/ui/red_button01.png", "assets/ui/red_button02.png", confirmationFrame.bounds.x + confirmationFrame.bounds.width - 180, confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60, "Non", function() confirmationFrame.data.confirmAction(false) end)
 
     confirmationFrame.addComponent(confirmationText)
     confirmationFrame.addComponent(confirmButton)

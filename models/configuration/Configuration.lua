@@ -1,19 +1,19 @@
 -- Configuration sauvegardé dans le fichier : %appdata%\LOVE\gamingcampus-m1-lua-battletank\configuration.json
-local json = require "libs.json"
+local json        = require "libs.json"
 ---@class Configuration
-Configuration = {}
+Configuration     = {}
 
 Configuration.new = function()
     local configuration = {
-        data = {},
+        data                 = {},
         defaultConfiguration = {
-            fullScreen = false,
-            vsync = false,
+            fullScreen  = false,
+            vsync       = false,
             musicVolume = 1,
             soundVolume = 1,
-            difficulty = 0.5,
-            maximized = false,
-            level = 1
+            difficulty  = 0.5,
+            maximized   = false,
+            level       = 1
         }
     }
 
@@ -94,7 +94,7 @@ Configuration.new = function()
     end
 
     function configuration:setConfiguration(data)
-        local needReload = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
+        local needReload   = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
         configuration.data = data
         configuration:save()
         return needReload
@@ -105,7 +105,7 @@ Configuration.new = function()
     --]]
     function configuration:load()
         local filename = configuration:getFileName()
-        local file = io.open(filename, "r")
+        local file     = io.open(filename, "r")
         if file == nil then
             print("Creating new configuration file : " .. filename)
             configuration.data = configuration.defaultConfiguration
@@ -128,13 +128,9 @@ Configuration.new = function()
 
     function configuration:getFileName()
         local saveDirectory = love.filesystem.getSaveDirectory()
-        if love.filesystem.getInfo(saveDirectory) == nil then
-            love.filesystem.createDirectory(saveDirectory)
-        end
+        if love.filesystem.getInfo(saveDirectory) == nil then love.filesystem.createDirectory(saveDirectory) end
         local path = love.filesystem.getSaveDirectory() .. "/configuration.json"
-        if love.system.getOS() == "Windows" then
-            path = path:gsub("/", "\\")
-        end
+        if love.system.getOS() == "Windows" then path = path:gsub("/", "\\") end
         return path
     end
 

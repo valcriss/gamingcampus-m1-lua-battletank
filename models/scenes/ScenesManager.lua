@@ -1,5 +1,5 @@
 ---@class ScenesManager
-ScenesManager = {}
+ScenesManager     = {}
 
 ScenesManager.new = function()
     local sceneManager = {
@@ -20,10 +20,7 @@ ScenesManager.new = function()
     ---@param scene Scene
     function sceneManager:removeScene(scene)
         local index = sceneManager:getSceneIndex(scene)
-        if (index == nil) then
-            print("Scene not found")
-        end
-
+        if (index == nil) then return end
         scene.innerUnload()
         table.remove(sceneManager.scenes, index)
         sceneManager:sortScenes()
@@ -42,12 +39,7 @@ ScenesManager.new = function()
 
     ---@private
     function sceneManager:sortScenes()
-        table.sort(
-            sceneManager.scenes,
-            function(a, b)
-                return a.order < b.order
-            end
-        )
+        table.sort(sceneManager.scenes, function(a, b) return a.order < b.order end)
     end
 
     ---@public

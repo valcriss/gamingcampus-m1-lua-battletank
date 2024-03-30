@@ -1,6 +1,6 @@
 local json = require "libs/json"
 ---@class JsonAsset
-JsonAsset = {}
+JsonAsset  = {}
 
 function JsonAsset.load(path)
     contents, size = love.filesystem.read(path)

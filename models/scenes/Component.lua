@@ -1,6 +1,6 @@
 local Rectangle = require("models.drawing.Rectangle")
 ---@class Component
-Component = {}
+Component       = {}
 
 ---@param name string
 ---@param data table
@@ -11,24 +11,24 @@ Component = {}
 ---@param rotation number
 ---@param scale number
 ---@param color table
-Component.new = function(name, data, x, y, width, height, rotation, scale, color)
-    data = data or {}
-    x = x or 0
-    y = y or 0
-    width = width or 0
-    height = height or 0
-    rotation = rotation or 0
-    scale = scale or 1
-    color = color or { r = 1, g = 1, b = 1, a = 1 }
+Component.new   = function(name, data, x, y, width, height, rotation, scale, color)
+    data            = data or {}
+    x               = x or 0
+    y               = y or 0
+    width           = width or 0
+    height          = height or 0
+    rotation        = rotation or 0
+    scale           = scale or 1
+    color           = color or { r = 1, g = 1, b = 1, a = 1 }
     local component = {
-        visible = true,
-        enabled = true,
-        name = name,
-        data = data,
-        color = color,
-        rotation = rotation,
-        scale = scale,
-        bounds = Rectangle.new(x, y, width, height),
+        visible    = true,
+        enabled    = true,
+        name       = name,
+        data       = data,
+        color      = color,
+        rotation   = rotation,
+        scale      = scale,
+        bounds     = Rectangle.new(x, y, width, height),
         components = {}
     }
 
@@ -158,7 +158,7 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
     ---@param newWidth number
     ---@param newHeight number
     function component.setSize(newWidth, newHeight)
-        component.bounds.width = newWidth
+        component.bounds.width  = newWidth
         component.bounds.height = newHeight
     end
 
@@ -168,9 +168,9 @@ Component.new = function(name, data, x, y, width, height, rotation, scale, color
     ---@param newWidth number
     ---@param newHeight number
     function component.setBounds(newPositionX, newPositionY, newWidth, newHeight)
-        component.bounds.x = newPositionX
-        component.bounds.y = newPositionY
-        component.bounds.width = newWidth
+        component.bounds.x      = newPositionX
+        component.bounds.y      = newPositionY
+        component.bounds.width  = newWidth
         component.bounds.height = newHeight
     end
 

@@ -1,6 +1,6 @@
-local Component = require "models.scenes.Component"
+local Component      = require "models.scenes.Component"
 ---@class SpriteSheetImage
-SpriteSheetImage = {}
+SpriteSheetImage     = {}
 
 ---@param name string
 ---@param imagePath string
@@ -17,36 +17,35 @@ SpriteSheetImage = {}
 ---@param animationEnds function
 SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[optional]], loop --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]], animationEnds --[[optional]])
     speed = speed or 30
-    rows = rows or 1
+    rows  = rows or 1
     if loop == nil then
         loop = true
     end
 
-    local spriteSheetImage =
-        Component.new(
-        name,
-        {
-            imagePath = imagePath,
-            columns = columns,
-            rows = rows,
-            sourceImage = nil,
-            quads = nil,
-            index = 1,
-            running = true,
-            loop = loop,
-            elapsedTime = 0,
-            speed = speed / 1000,
-            itemWidth = nil,
-            itemHeight = nil,
-            animationEnds = animationEnds
-        },
-        x,
-        y,
-        width,
-        height,
-        rotation,
-        scale,
-        color
+    local spriteSheetImage = Component.new(
+            name,
+            {
+                imagePath     = imagePath,
+                columns       = columns,
+                rows          = rows,
+                sourceImage   = nil,
+                quads         = nil,
+                index         = 1,
+                running       = true,
+                loop          = loop,
+                elapsedTime   = 0,
+                speed         = speed / 1000,
+                itemWidth     = nil,
+                itemHeight    = nil,
+                animationEnds = animationEnds
+            },
+            x,
+            y,
+            width,
+            height,
+            rotation,
+            scale,
+            color
     )
 
     setmetatable(spriteSheetImage, SpriteSheetImage)
@@ -55,8 +54,8 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
     ---@public
     function spriteSheetImage.load()
         spriteSheetImage.data.sourceImage = love.graphics.newImage(imagePath)
-        spriteSheetImage.data.itemWidth = math.floor(spriteSheetImage.data.sourceImage:getWidth() / spriteSheetImage.data.columns)
-        spriteSheetImage.data.itemHeight = math.floor(spriteSheetImage.data.sourceImage:getHeight()/ spriteSheetImage.data.rows)
+        spriteSheetImage.data.itemWidth   = math.floor(spriteSheetImage.data.sourceImage:getWidth() / spriteSheetImage.data.columns)
+        spriteSheetImage.data.itemHeight  = math.floor(spriteSheetImage.data.sourceImage:getHeight() / spriteSheetImage.data.rows)
         spriteSheetImage.loadDefinition()
     end
 
@@ -77,7 +76,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
     function spriteSheetImage.unload()
         spriteSheetImage.data.sourceImage:release()
         spriteSheetImage.data.sourceImage = nil
-        spriteSheetImage.data.quads = nil
+        spriteSheetImage.data.quads       = nil
     end
 
     --[[
@@ -90,7 +89,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
             return
         end
 
-        spriteSheetImage.data.index = spriteSheetImage.data.index + 1
+        spriteSheetImage.data.index       = spriteSheetImage.data.index + 1
         spriteSheetImage.data.elapsedTime = 0
         if (spriteSheetImage.data.index < #spriteSheetImage.data.quads) then
             return
@@ -99,7 +98,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
         if (spriteSheetImage.data.loop == true) then
             spriteSheetImage.data.index = 1
         else
-            spriteSheetImage.data.index = #spriteSheetImage.data.quads
+            spriteSheetImage.data.index   = #spriteSheetImage.data.quads
             spriteSheetImage.data.running = false
             if (spriteSheetImage.data.animationEnds ~= nil) then
                 spriteSheetImage.data.animationEnds()
@@ -113,17 +112,17 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
     ---@private
     function spriteSheetImage.loadDefinition()
         spriteSheetImage.data.quads = {}
-        local x = 0
-        local y = 0
+        local definitionX = 0
+        local definitionY = 0
         for _ = 1, spriteSheetImage.data.rows do
             for _ = 1, spriteSheetImage.data.columns do
-                table.insert(spriteSheetImage.data.quads, love.graphics.newQuad(x, y, spriteSheetImage.data.itemWidth, spriteSheetImage.data.itemHeight, spriteSheetImage.data.sourceImage))
-                x = math.floor(x + spriteSheetImage.data.itemWidth)
+                table.insert(spriteSheetImage.data.quads, love.graphics.newQuad(definitionX, definitionY, spriteSheetImage.data.itemWidth, spriteSheetImage.data.itemHeight, spriteSheetImage.data.sourceImage))
+                definitionX = math.floor(definitionX + spriteSheetImage.data.itemWidth)
             end
-            y = math.floor(y + spriteSheetImage.data.itemHeight)
-            x = 0
+            definitionY = math.floor(definitionY + spriteSheetImage.data.itemHeight)
+            definitionX = 0
         end
-        print(spriteSheetImage.name .. " found quads "..#spriteSheetImage.data.quads)
+        print(spriteSheetImage.name .. " found quads " .. #spriteSheetImage.data.quads)
     end
 
     return spriteSheetImage

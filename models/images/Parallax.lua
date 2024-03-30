@@ -1,6 +1,6 @@
 local Component = require "models.scenes.Component"
 ---@class Parallax
-Parallax = {}
+Parallax        = {}
 
 ---@param name string
 ---@param assetPath string
@@ -10,17 +10,19 @@ Parallax = {}
 ---@param y number
 ---@param rotation number
 ---@param scale number
-Parallax.new = function(name, assetPath, speed --[[optional]], direction --[[optional]], offsetX --[[optional]], y --[[optional]], rotation --[[optional]], scale --[[optional]])
-    direction = direction or "right"
-    offsetX = offsetX or 0
-    speed = speed or 10
-    local parallax = Component.new(name, {
-        assetPath = assetPath,
-        speed = speed,
-        direction = direction,
-        image = nil,
-        positionX = offsetX
-    },
+Parallax.new    = function(name, assetPath, speed --[[optional]], direction --[[optional]], offsetX --[[optional]], y --[[optional]], rotation --[[optional]], scale --[[optional]])
+    direction      = direction or "right"
+    offsetX        = offsetX or 0
+    speed          = speed or 10
+    local parallax = Component.new(
+            name,
+            {
+                assetPath = assetPath,
+                speed     = speed,
+                direction = direction,
+                image     = nil,
+                positionX = offsetX
+            },
             nil,
             y,
             nil,

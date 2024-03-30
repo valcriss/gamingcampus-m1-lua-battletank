@@ -1,14 +1,14 @@
 local Component = require "models.scenes.Component"
 ---@class Image
-Image = {}
+Image           = {}
 
 ---@param assetPath string
-Image.new = function(name, assetPath, x, y, rotation --[[optional]], scale --[[optional]], color --[[optional]])
+Image.new       = function(name, assetPath, x, y, rotation --[[optional]], scale --[[optional]], color --[[optional]])
     local image = Component.new(
             name,
             {
                 assetPath = assetPath,
-                image = nil
+                image     = nil
             },
             x,
             y,
@@ -24,8 +24,8 @@ Image.new = function(name, assetPath, x, y, rotation --[[optional]], scale --[[o
 
     ---@public
     function image.load()
-        image.data.image = love.graphics.newImage(image.data.assetPath)
-        image.bounds.width = image.data.image:getWidth()
+        image.data.image    = love.graphics.newImage(image.data.assetPath)
+        image.bounds.width  = image.data.image:getWidth()
         image.bounds.height = image.data.image:getHeight()
     end
 

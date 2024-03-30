@@ -1,6 +1,6 @@
 local Component = require "models.scenes.Component"
 ---@class SoundEffect
-SoundEffect = {}
+SoundEffect     = {}
 
 ---@param name string
 ---@param assetPath string
@@ -17,20 +17,19 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     if playOnStart == nil then
         playOnStart = true
     end
-    volume = volume or 1
-    pitch = pitch or 1
-    local soundEffect =
-        Component.new(
-        name,
-        {
-            assetPath = assetPath,
-            loadType = loadType,
-            loop = loop,
-            playOnStart = playOnStart,
-            volume = volume,
-            pitch = pitch,
-            sound = nil
-        }
+    volume            = volume or 1
+    pitch             = pitch or 1
+    local soundEffect = Component.new(
+            name,
+            {
+                assetPath   = assetPath,
+                loadType    = loadType,
+                loop        = loop,
+                playOnStart = playOnStart,
+                volume      = volume,
+                pitch       = pitch,
+                sound       = nil
+            }
     )
 
     setmetatable(soundEffect, SoundEffect)

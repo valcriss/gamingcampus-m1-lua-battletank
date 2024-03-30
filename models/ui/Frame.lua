@@ -1,6 +1,6 @@
 local Component = require "models.scenes.Component"
 ---@class Frame
-Frame = {}
+Frame           = {}
 
 ---@param name string
 ---@param assetPath string
@@ -9,21 +9,22 @@ Frame = {}
 ---@param y number
 ---@param width number
 ---@param height number
-Frame.new = function(name, assetPath, border, x, y, width, height)
-    local frame = Component.new(name, {
-        assetPath = assetPath,
-        border = border,
-        sourceImage = nil,
-        topLeft = nil,
-        top = nil,
-        left = nil,
-        right = nil,
-        bottom = nil,
-        topRight = nil,
-        bottomLeft = nil,
-        bottomRight = nil,
-        center = nil
-    },
+Frame.new       = function(name, assetPath, border, x, y, width, height)
+    local frame = Component.new(
+            name, {
+                assetPath   = assetPath,
+                border      = border,
+                sourceImage = nil,
+                topLeft     = nil,
+                top         = nil,
+                left        = nil,
+                right       = nil,
+                bottom      = nil,
+                topRight    = nil,
+                bottomLeft  = nil,
+                bottomRight = nil,
+                center      = nil
+            },
             x,
             y,
             width,
@@ -36,15 +37,15 @@ Frame.new = function(name, assetPath, border, x, y, width, height)
     ---@public
     function frame.load()
         frame.data.sourceImage = love.graphics.newImage(frame.data.assetPath)
-        frame.data.topLeft = love.graphics.newQuad(0, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.top = love.graphics.newQuad(frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.left = love.graphics.newQuad(0, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.right = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.bottom = love.graphics.newQuad(frame.data.border, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.topRight = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.bottomLeft = love.graphics.newQuad(0, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.topLeft     = love.graphics.newQuad(0, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.top         = love.graphics.newQuad(frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.left        = love.graphics.newQuad(0, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.right       = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.bottom      = love.graphics.newQuad(frame.data.border, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.topRight    = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.bottomLeft  = love.graphics.newQuad(0, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
         frame.data.bottomRight = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.center = love.graphics.newQuad(frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        frame.data.center      = love.graphics.newQuad(frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
     end
 
     ---@public

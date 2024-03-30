@@ -1,41 +1,40 @@
-local Component = require "models.scenes.Component"
-local Image = require "models.images.Image"
+local Component   = require "models.scenes.Component"
+local Image       = require "models.images.Image"
 local SoundEffect = require "models.audio.SoundEffect"
 ---@class LevelButton
-LevelButton = {}
+LevelButton       = {}
 
-LevelButton.new = function(name, enableAssetPath, disableAssetPath, hoverAssetPath, lockedAssetPath, x, y, level, onclick, onEnter, onLeave)
-    local levelButton =
-        Component.new(
-        name,
-        {
-            enableAssetPath = enableAssetPath,
-            disableAssetPath = disableAssetPath,
-            hoverAssetPath = hoverAssetPath,
-            lockedAssetPath = lockedAssetPath,
-            level = level,
-            onclick = onclick,
-            onEnter = onEnter,
-            onLeave = onLeave,
-            active = false,
-            mouseIsOver = false,
-            wasOver = false,
-            mouseIsPressed = false
-        },
-        x,
-        y,
-        64,
-        64
+LevelButton.new   = function(name, enableAssetPath, disableAssetPath, hoverAssetPath, lockedAssetPath, x, y, level, onclick, onEnter, onLeave)
+    local levelButton = Component.new(
+            name,
+            {
+                enableAssetPath  = enableAssetPath,
+                disableAssetPath = disableAssetPath,
+                hoverAssetPath   = hoverAssetPath,
+                lockedAssetPath  = lockedAssetPath,
+                level            = level,
+                onclick          = onclick,
+                onEnter          = onEnter,
+                onLeave          = onLeave,
+                active           = false,
+                mouseIsOver      = false,
+                wasOver          = false,
+                mouseIsPressed   = false
+            },
+            x,
+            y,
+            64,
+            64
     )
 
     setmetatable(levelButton, LevelButton)
-    LevelButton.__index = LevelButton
+    LevelButton.__index   = LevelButton
 
-    local levelEnabled = Image.new(levelButton.name .. "_levelEnabled", levelButton.data.enableAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32)
-    local levelDisabled = Image.new(levelButton.name .. "_levelDisabled", levelButton.data.disableAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32)
-    local levelLocked = Image.new(levelButton.name .. "_levelLocked", levelButton.data.lockedAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
-    local levelHover = Image.new(levelButton.name .. "_levelHover", levelButton.data.hoverAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
-    local soundEffect = SoundEffect.new(levelButton.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
+    local levelEnabled    = Image.new(levelButton.name .. "_levelEnabled", levelButton.data.enableAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32)
+    local levelDisabled   = Image.new(levelButton.name .. "_levelDisabled", levelButton.data.disableAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32)
+    local levelLocked     = Image.new(levelButton.name .. "_levelLocked", levelButton.data.lockedAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
+    local levelHover      = Image.new(levelButton.name .. "_levelHover", levelButton.data.hoverAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
+    local soundEffect     = SoundEffect.new(levelButton.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
     local forbiddenEffect = SoundEffect.new(levelButton.name .. "_forbiddenEffect", "assets/ui/wrong.mp3", "static", false, false, configuration:getSoundVolume())
 
     levelButton.addComponent(levelDisabled)
@@ -63,16 +62,16 @@ LevelButton.new = function(name, enableAssetPath, disableAssetPath, hoverAssetPa
         if (mouseX == nil or mouseY == nil) then
             return
         end
-        local isDown = love.mouse.isDown(1)
-        local wasPressed = not isDown and levelButton.data.mouseIsPressed
+        local isDown                    = love.mouse.isDown(1)
+        local wasPressed                = not isDown and levelButton.data.mouseIsPressed
         levelButton.data.mouseIsPressed = isDown
-        levelButton.data.mouseIsOver = levelButton.bounds.containsPoint(mouseX, mouseY)
+        levelButton.data.mouseIsOver    = levelButton.bounds.containsPoint(mouseX, mouseY)
 
         if not levelButton.data.mouseIsOver then
             levelButton.data.mouseIsPressed = false
             if levelButton.data.wasOver and levelButton.data.onLeave ~= nil then
                 levelButton.data.wasOver = false
-                levelButton.data.onLeave({active = levelButton.data.active, level = levelButton.data.level})
+                levelButton.data.onLeave({ active = levelButton.data.active, level = levelButton.data.level })
             end
         end
 
@@ -86,7 +85,7 @@ LevelButton.new = function(name, enableAssetPath, disableAssetPath, hoverAssetPa
             end
         elseif levelButton.data.mouseIsOver and not isDown then
             if not levelButton.data.wasOver and levelButton.data.onEnter ~= nil then
-                levelButton.data.onEnter({active = levelButton.data.active, level = levelButton.data.level})
+                levelButton.data.onEnter({ active = levelButton.data.active, level = levelButton.data.level })
                 levelButton.data.wasOver = true
             end
             if levelButton.data.active then
@@ -105,7 +104,7 @@ LevelButton.new = function(name, enableAssetPath, disableAssetPath, hoverAssetPa
                 forbiddenEffect.play()
             end
             if (levelButton.data.onclick ~= nil and levelButton.data.active) then
-                levelButton.data.onclick({active = levelButton.data.active, level = levelButton.data.level})
+                levelButton.data.onclick({ active = levelButton.data.active, level = levelButton.data.level })
             end
         end
     end
