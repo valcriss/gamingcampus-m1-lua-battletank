@@ -29,7 +29,7 @@ LevelSelect.new        = function()
         transitionEffect.play()
     end)
     local information      = InformationFrame.new("LevelSelect_information", "Information", 30, 80, 500, 50, 3000).hide()
-    local mapTank          = MapTank.new("LevelSelect_mapTank", ((64 * 2)+32), 543, 0, 0.7)
+    local mapTank          = MapTank.new("LevelSelect_mapTank", ((64 * 2) + 32), 543, 0, 0.7)
     local informationText  = ""
 
     levelSelect.addComponent(map)
