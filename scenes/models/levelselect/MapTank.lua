@@ -27,6 +27,13 @@ MapTank.new            = function(name, x, y, rotation, scale)
     mapTank.addComponent(tankWaiting)
     mapTank.addComponent(tankRunning)
 
+    function mapTank.update(_)
+        tankRunning.setPosition(mapTank.bounds.x, mapTank.bounds.y)
+        tankWaiting.setPosition(mapTank.bounds.x, mapTank.bounds.y)
+        tankRunning.setRotation(mapTank.rotation)
+        tankWaiting.setRotation(mapTank.rotation)
+    end
+
     function mapTank.run()
         if not mapTank.data.moving then
             mapTank.data.moving = true

@@ -174,6 +174,12 @@ Component.new   = function(name, data, x, y, width, height, rotation, scale, col
         component.bounds.height = newHeight
     end
 
+    ---@public
+    ---@param newRotation number
+    function component.setRotation(newRotation)
+        component.rotation = newRotation
+    end
+
     return component
 end
 

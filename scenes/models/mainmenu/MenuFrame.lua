@@ -17,7 +17,7 @@ MenuFrame         = {}
 ---@param data table
 ---@param stillUpdate boolean
 MenuFrame.new     = function(name, title, x, y, width, height, moveSpeed, headerAssetPath, data, stillUpdate)
-    moveSpeed = moveSpeed or 2600
+    moveSpeed = moveSpeed or 3000
     data      = data or {}
     if stillUpdate == nil then
         stillUpdate = false
