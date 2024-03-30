@@ -101,6 +101,7 @@ MainMenu.new            = function()
             local needReload = configuration:setConfiguration(data)
             if needReload then screenManager:reload() end
             backgroundMusic.setVolume(configuration:getMusicVolume())
+            transitionEffect.setVolume(configuration:getSoundVolume())
         end
         parametersFrame.disappear()
     end

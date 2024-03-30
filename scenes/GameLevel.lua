@@ -9,7 +9,7 @@ GameLevel.new = function()
     setmetatable(gameLevel, GameLevel)
     GameLevel.__index = GameLevel
 
-    function gameLevel:update(_)
+    function gameLevel.update(_)
     end
 
     return gameLevel
