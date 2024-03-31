@@ -1,4 +1,5 @@
 local Grid   = require "scenes.models.gamelevel.grid.Grid"
+local BitmapText = require "models.texts.BitmapText"
 ---@class GameGrid
 GameGrid     = {}
 

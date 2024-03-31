@@ -49,8 +49,8 @@ LevelGrid.new      = function(name, gameLevelData)
     end
 
     function levelGrid.setViewPortPosition(x, y)
-        viewPort.x = x
-        viewPort.y = y
+        viewPort.x = math.max(0, math.min(x, viewPort.bounds.width))
+        viewPort.y = math.max(0, math.min(y, viewPort.bounds.height))
     end
 
     return levelGrid
