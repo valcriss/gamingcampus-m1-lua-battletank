@@ -25,7 +25,7 @@ MapTankMovement.new = function(level)
         ---@type table
         paths                  = {
             -- Path to level 1
-            { path = { { x = 3, y = 9, r = 0 }, { x = 4, y = 9, r = 0 } }, stepDuration = 2 },
+            { path = { { x = 3, y = 9, r = 0 }, { x = 4, y = 9, r = 0 } }, stepDuration = 1 },
             -- Path to level 2
             { path = {
                 { x = 4, y = 9, r = -90 },
@@ -44,7 +44,7 @@ MapTankMovement.new = function(level)
                 { x = 10, y = 6, r = -90 },
                 { x = 10, y = 6, r = 0 },
                 { x = 11, y = 6, r = 0 },
-            }, stepDuration = 0.5 },
+            }, stepDuration = 0.25 },
             -- Path to level 3
             { path = {
                 { x = 11, y = 6, r = 0 },
@@ -62,7 +62,7 @@ MapTankMovement.new = function(level)
                 { x = 16, y = 3, r = 0 },
                 { x = 17, y = 3, r = 0 },
                 { x = 18, y = 3, r = 0 },
-            }, stepDuration = 0.5 },
+            }, stepDuration = 0.25 },
         }
     }
 

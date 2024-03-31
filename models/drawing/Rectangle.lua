@@ -24,6 +24,10 @@ Rectangle.new = function(x, y, width, height)
         return pointX >= screenManager:ScaleValueX(rectangle.x) and pointX <= screenManager:ScaleValueX(rectangle.x + rectangle.width) and pointY >= screenManager:ScaleValueY(rectangle.y) and pointY <= screenManager:ScaleValueY(rectangle.y + rectangle.height)
     end
 
+    function rectangle.toString()
+        return rectangle.x .. " " .. rectangle.y .. " " .. rectangle.width .. " " .. rectangle.height
+    end
+
     return rectangle
 end
 

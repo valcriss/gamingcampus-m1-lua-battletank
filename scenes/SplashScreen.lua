@@ -2,7 +2,7 @@ local Scene            = require "models.scenes.Scene"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local BitmapText       = require "models.texts.BitmapText"
 local SoundEffect      = require "models.audio.SoundEffect"
-
+local MainMenu         = require "scenes.MainMenu"
 ---@class SplashScreen
 SplashScreen           = {}
 
