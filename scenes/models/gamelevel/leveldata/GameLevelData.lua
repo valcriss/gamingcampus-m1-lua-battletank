@@ -1,7 +1,7 @@
 ---@class GameLevelData
 GameLevelData     = {}
 
-GameLevelData.new = function(name, layer0, layer1, startX, startY, mapWidth, mapHeight, baseTile)
+GameLevelData.new = function(name, tilesAssets, layer0, layer1, startX, startY, mapWidth, mapHeight, baseTile)
     baseTile            = baseTile or 1
     local gameLevelData = {
         name        = name,
@@ -14,18 +14,7 @@ GameLevelData.new = function(name, layer0, layer1, startX, startY, mapWidth, map
         baseTile    = baseTile,
         tileSize    = 64,
         tileScale   = 0.5,
-        tilesAssets = {
-            "assets/gamelevel/tiles/tile_23.png", -- 1
-            "assets/gamelevel/tiles/tile_06.png", -- 2
-            "assets/gamelevel/tiles/tile_06.png", -- 3
-            "assets/gamelevel/tiles/tile_07.png", -- 4
-            "assets/gamelevel/tiles/tile_09.png", -- 5
-            "assets/gamelevel/tiles/tile_22.png", -- 6
-            "assets/gamelevel/tiles/tile_54.png", -- 7
-            "assets/gamelevel/tiles/tile_56.png", -- 8
-            "assets/gamelevel/tiles/tile_57.png", -- 9
-            "assets/gamelevel/tiles/tile_41.png", -- 10
-        },
+        tilesAssets = tilesAssets,
         tiles       = {}
     }
     setmetatable(gameLevelData, GameLevelData)

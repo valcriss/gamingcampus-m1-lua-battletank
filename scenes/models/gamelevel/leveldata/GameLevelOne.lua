@@ -6,6 +6,18 @@ GameLevelOne.new    = function()
     local gameLevelOne = GameLevelData.new(
             "GameLevelOne",
             {
+                "assets/gamelevel/tiles/tile_23.png", -- 1
+                "assets/gamelevel/tiles/tile_06.png", -- 2
+                "assets/gamelevel/tiles/tile_06.png", -- 3
+                "assets/gamelevel/tiles/tile_07.png", -- 4
+                "assets/gamelevel/tiles/tile_09.png", -- 5
+                "assets/gamelevel/tiles/tile_22.png", -- 6
+                "assets/gamelevel/tiles/tile_54.png", -- 7
+                "assets/gamelevel/tiles/tile_56.png", -- 8
+                "assets/gamelevel/tiles/tile_57.png", -- 9
+                "assets/gamelevel/tiles/tile_41.png", -- 10
+            },
+            {
                 cell_1 = 3,
                 cell_2 = 4,
                 cell_3 = 4,
