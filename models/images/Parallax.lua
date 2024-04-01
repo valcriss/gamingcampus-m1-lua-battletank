@@ -11,7 +11,7 @@ Parallax        = {}
 ---@param rotation number
 ---@param scale number
 Parallax.new    = function(name, assetPath, speed --[[optional]], direction --[[optional]], offsetX --[[optional]], y --[[optional]], rotation --[[optional]], scale --[[optional]])
-    direction      = direction or "right"
+    direction      = direction or "left"
     offsetX        = offsetX or 0
     speed          = speed or 10
     local parallax = Component.new(

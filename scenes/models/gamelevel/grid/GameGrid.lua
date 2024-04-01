@@ -1,14 +1,14 @@
-local Grid   = require "scenes.models.gamelevel.grid.Grid"
+local Grid       = require "scenes.models.gamelevel.grid.Grid"
 local BitmapText = require "models.texts.BitmapText"
 ---@class GameGrid
-GameGrid     = {}
+GameGrid         = {}
 
 ---@param width number
 ---@param height number
 ---@param x number
 ---@param y number
 ---@param gameLevelData GameLevelData
-GameGrid.new = function(gameLevelData, gridViewPort, layer)
+GameGrid.new     = function(gameLevelData, gridViewPort, layer)
     local gameGrid = Grid.new(gameLevelData.mapWidth, gameLevelData.mapHeight, gameLevelData.tileSize, {
         ---@type GridViewPort
         gridViewPort  = gridViewPort,
@@ -31,30 +31,33 @@ GameGrid.new = function(gameLevelData, gridViewPort, layer)
     end
 
     function gameGrid.draw()
-        local x = gameGrid.data.gridViewPort.drawViewport.x
-        local y = gameGrid.data.gridViewPort.drawViewport.y
+        local x  = gameGrid.data.gridViewPort.drawViewport.x
+        local y  = gameGrid.data.gridViewPort.drawViewport.y
         local vx = gameGrid.data.gridViewPort.viewport.x
         local vy = gameGrid.data.gridViewPort.viewport.y
 
         while x <= gameGrid.data.gridViewPort.drawViewport.width do
             while y <= gameGrid.data.gridViewPort.drawViewport.height do
                 local tilePosition = gameGrid.data.gameLevelData.getGridPosition(vx, vy)
-                gameGrid.data.gameLevelData.draw(x, y, vx,vy, gameGrid.data.layer)
-                gameGrid.printDebug(x, y, tostring(tilePosition.x) .. "\n" .. tostring(tilePosition.y))
-                y = y + gameGrid.data.gameLevelData.tileSize
+                if(tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameGrid.data.gameLevelData.mapWidth or tilePosition.y > gameGrid.data.gameLevelData.mapHeight) then break end
+                gameGrid.data.gameLevelData.draw(x, y, vx, vy, gameGrid.data.layer)
+                -- gameGrid.printDebug(x, y, vx, vy)
+                y  = y + gameGrid.data.gameLevelData.tileSize
                 vy = vy + gameGrid.data.gameLevelData.tileSize
             end
-            y = 0
+            y  = gameGrid.data.gridViewPort.drawViewport.y
             vy = gameGrid.data.gridViewPort.viewport.y
-            x = x + gameGrid.data.gameLevelData.tileSize
+            x  = x + gameGrid.data.gameLevelData.tileSize
             vx = vx + gameGrid.data.gameLevelData.tileSize
         end
     end
 
-    function gameGrid.printDebug(realX, realY, content)
+    function gameGrid.printDebug(realX, realY, vx, vy)
+        local tilePosition = gameGrid.data.gameLevelData.getGridPosition(vx, vy)
+        local content      = gameGrid.data.gameLevelData.getTileIndex(tilePosition)
         debugText:set(content)
-        local originX = debugText:getWidth() / 2
-        local originY = debugText:getHeight() / 2
+        local originX   = debugText:getWidth() / 2
+        local originY   = debugText:getHeight() / 2
         local textScale = 0.75
         love.graphics.draw(debugText, screenManager:ScaleValueX(realX + gameGrid.data.gameLevelData.tileSize / 2), screenManager:ScaleValueY(realY + gameGrid.data.gameLevelData.tileSize / 2), 0, textScale * screenManager:getScaleX(), textScale * screenManager:getScaleY(), originX, originY)
         love.graphics.setColor(1, 1, 1, 0.5)

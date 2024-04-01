@@ -15,9 +15,16 @@ GameLevelData.new = function(name, layer0, layer1, startX, startY, mapWidth, map
         tileSize    = 64,
         tileScale   = 0.5,
         tilesAssets = {
-            "assets/gamelevel/tiles/tilegrass1.png", -- 1
-            "assets/gamelevel/tiles/tilegrass2.png", -- 2
-            "assets/gamelevel/tiles/tilesand1.png", -- 3
+            "assets/gamelevel/tiles/tile_23.png", -- 1
+            "assets/gamelevel/tiles/tile_06.png", -- 2
+            "assets/gamelevel/tiles/tile_06.png", -- 3
+            "assets/gamelevel/tiles/tile_07.png", -- 4
+            "assets/gamelevel/tiles/tile_09.png", -- 5
+            "assets/gamelevel/tiles/tile_22.png", -- 6
+            "assets/gamelevel/tiles/tile_54.png", -- 7
+            "assets/gamelevel/tiles/tile_56.png", -- 8
+            "assets/gamelevel/tiles/tile_57.png", -- 9
+            "assets/gamelevel/tiles/tile_41.png", -- 10
         },
         tiles       = {}
     }
@@ -35,13 +42,17 @@ GameLevelData.new = function(name, layer0, layer1, startX, startY, mapWidth, map
 
     function gameLevelData.draw(x, y, realX, realY, layer)
         local tilePosition = gameLevelData.getGridPosition(realX, realY)
-        local index        = tostring(((tilePosition.y - 1) * gameLevelData.mapWidth) + tilePosition.x)
+        local index        = tostring(gameLevelData.getTileIndex(tilePosition))
         local tileIndex    = gameLevelData.baseTile
         if layer["cell_" .. index] then
             tileIndex = layer["cell_" .. index]
         end
         local image = gameLevelData.tiles[tileIndex]
         love.graphics.draw(image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, gameLevelData.tileScale * screenManager:getScaleX(), gameLevelData.tileScale * screenManager:getScaleY())
+    end
+
+    function gameLevelData.getTileIndex(tilePosition)
+        return ((tilePosition.y - 1) * gameLevelData.mapWidth) + tilePosition.x
     end
 
     function gameLevelData.getRealPosition(x, y)

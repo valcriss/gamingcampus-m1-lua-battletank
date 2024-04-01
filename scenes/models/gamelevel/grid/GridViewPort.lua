@@ -37,7 +37,7 @@ GridViewPort.new = function(gameLevelData)
     end
 
     function gridViewPort.draw()
-        gridViewPort.drawDebug()
+        -- gridViewPort.drawDebug()
     end
 
     function gridViewPort.drawDebug()
@@ -70,41 +70,15 @@ GridViewPort.new = function(gameLevelData)
 
     function gridViewPort.calculateViewport()
         local v      = Rectangle.new(0, 0, screenManager:getWindowWidth(), screenManager:getWindowHeight())
-        local startX = gridViewPort.x - (screenManager:getWindowWidth() / 2)
-        local startY = gridViewPort.y - (screenManager:getWindowHeight() / 2)
-        local endX   = gridViewPort.x + (screenManager:getWindowWidth() / 2)
-        local endY   = gridViewPort.y + (screenManager:getWindowHeight() / 2)
 
-        local drawX  = 0
-        local drawY  = 0
-
-        if (startX < 0) then
-            v.x   = 0
-            drawX = 0
-        else
-            v.x   = startX
-            drawX = (screenManager:getWindowWidth() - (math.ceil(screenManager:getWindowWidth() / gridViewPort.gameLevelData.tileSize) * gridViewPort.gameLevelData.tileSize)) / 2
-        end
-        if (startY < 0) then
-            v.y   = 0
-            drawY = 0
-        else
-            v.y   = startY
-            drawY = (screenManager:getWindowHeight() - (math.ceil(screenManager:getWindowHeight() / gridViewPort.gameLevelData.tileSize) * gridViewPort.gameLevelData.tileSize)) / 2
-        end
-        if (endX > gridViewPort.bounds.width) then
-            v.x   = gridViewPort.bounds.width - screenManager:getWindowWidth()
-            drawX = screenManager:getWindowWidth() - (math.ceil(screenManager:getWindowWidth() / gridViewPort.gameLevelData.tileSize) * gridViewPort.gameLevelData.tileSize)
-        end
-        if (endY > gridViewPort.bounds.height) then
-            v.y   = gridViewPort.bounds.height - screenManager:getWindowHeight()
-            drawY = screenManager:getWindowHeight() - (math.ceil(screenManager:getWindowHeight() / gridViewPort.gameLevelData.tileSize) * gridViewPort.gameLevelData.tileSize)
-        end
+        local drawX  = (screenManager:getWindowWidth() / 2) - gridViewPort.x - (gridViewPort.gameLevelData.tileSize / 2)
+        local drawY  = (screenManager:getWindowHeight() / 2) - gridViewPort.y - (gridViewPort.gameLevelData.tileSize / 2)
 
         gridViewPort.drawViewport   = Rectangle.new(drawX, drawY, screenManager:getWindowWidth(), screenManager:getWindowHeight())
         gridViewPort.drawPosition   = { x = (gridViewPort.x / (v.x + v.width + v.x)) * screenManager:getWindowWidth(), y = (gridViewPort.y / (v.y + v.height + v.y)) * screenManager:getWindowHeight() }
         gridViewPort.drawPosition.x = math.min(screenManager:getWindowWidth() - gridViewPort.padding, math.max(gridViewPort.padding, gridViewPort.drawPosition.x))
         gridViewPort.drawPosition.y = math.min(screenManager:getWindowHeight() - gridViewPort.padding, math.max(gridViewPort.padding, gridViewPort.drawPosition.y))
+
         return v
     end
 
