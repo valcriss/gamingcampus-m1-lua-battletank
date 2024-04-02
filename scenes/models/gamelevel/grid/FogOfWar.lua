@@ -2,12 +2,13 @@
 FogOfWar     = {}
 
 FogOfWar.new = function(sight, gameLevelData)
+    sight = sight or 7
     local fogOfWar = {
         gameLevelData = gameLevelData,
         sight         = sight,
         inSight       = {},
         seen          = {},
-        seenDuration  = 20
+        seenDuration  = 10
     }
 
     setmetatable(fogOfWar, FogOfWar)

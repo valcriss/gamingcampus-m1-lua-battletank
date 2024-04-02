@@ -9,7 +9,7 @@ LevelGrid          = {}
 LevelGrid.new      = function(name, gameLevelData)
     local levelGrid = Component.new(name, {
         gameLevelData = gameLevelData,
-        fog           = FogOfWar.new(7, gameLevelData)
+        fog           = FogOfWar.new(nil, gameLevelData)
     })
 
     setmetatable(levelGrid, LevelGrid)
