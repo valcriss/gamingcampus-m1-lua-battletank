@@ -8,7 +8,9 @@ GameLevelOne.new    = function()
             "assets/gamelevel/level1.json",
             12,
             10,
-            1
+            1,
+            { x = 9, y = 7 },
+            { x = 42, y = 41 }
     )
 
     setmetatable(gameLevelOne, GameLevelOne)

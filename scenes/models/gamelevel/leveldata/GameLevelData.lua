@@ -2,7 +2,7 @@ local JsonAsset   = require "models.tools.JsonAsset"
 ---@class GameLevelData
 GameLevelData     = {}
 
-GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
+GameLevelData.new = function(name, levelAsset, startX, startY, baseTile, playerBase, enemyBase)
     baseTile            = baseTile or 1
     local gameLevelData = {
         name      = name,
@@ -12,7 +12,9 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
         baseTile  = baseTile,
         tileSize  = 64,
         tileScale = 0.5,
-        tiles     = {}
+        tiles     = {},
+        playerBase = playerBase,
+        enemyBase  = enemyBase
     }
     setmetatable(gameLevelData, GameLevelData)
     GameLevelData.__index = GameLevelData
