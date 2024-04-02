@@ -8,8 +8,7 @@ Unit.new = function(name, idleAnimation, x, y)
             name,
             {
                 name = name,
-                idleAnimation = idleAnimation,
-                collisionBox = { x = 0, y = 0, width = 104 * 0.6, height = 104 * 0.6 },
+                idleAnimation = idleAnimation
             },
             x,
             y,
@@ -17,7 +16,7 @@ Unit.new = function(name, idleAnimation, x, y)
             104,
             0,
             1,
-            { r = 1, g = 1, b = 1, a = 0.5 }
+            { r = 1, g = 1, b = 1, a = 1 }
     )
 
     local idle = Image.new(unit.name .. "_idle", idleAnimation, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
@@ -32,15 +31,11 @@ Unit.new = function(name, idleAnimation, x, y)
         idle.scale = unit.scale
         idle.bounds.x = unit.bounds.x
         idle.bounds.y = unit.bounds.y
-        unit.data.collisionBox.x = unit.bounds.x
-        unit.data.collisionBox.y = unit.bounds.y
     end
 
     function unit.setPosition(posX, posY, rotation)
         unit.bounds.x = posX
         unit.bounds.y = posY
-        unit.data.collisionBox.x = unit.bounds.x
-        unit.data.collisionBox.y = unit.bounds.y
         unit.rotation = rotation
     end
 

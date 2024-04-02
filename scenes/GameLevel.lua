@@ -82,9 +82,8 @@ GameLevel.new = function()
             rotation = 135
         end
 
-        local tileBlocked = levelGrid.isTileBlocked(viewPortPosition, rotation)
+        local tileBlocked = levelGrid.isTileBlocked(viewPortPosition, playerTank.data.collisionBox)
         if tileBlocked == true then
-            print("RESET POSITION")
             viewPortPosition = initialViewPortPosition
         end
 

@@ -1,11 +1,11 @@
-local Component = require "models.scenes.Component"
+local Component    = require "models.scenes.Component"
 local GridViewPort = require "scenes.models.gamelevel.grid.GridViewPort"
-local GameGrid = require "scenes.models.gamelevel.grid.GameGrid"
+local GameGrid     = require "scenes.models.gamelevel.grid.GameGrid"
 ---@class LevelGrid
-LevelGrid = {}
+LevelGrid          = {}
 
 ---@param gameLevelData GameLevelData
-LevelGrid.new = function(name, gameLevelData)
+LevelGrid.new      = function(name, gameLevelData)
     local levelGrid = Component.new(name, {
         gameLevelData = gameLevelData
     })
@@ -26,7 +26,7 @@ LevelGrid.new = function(name, gameLevelData)
     -- ---------------------------------------------
     ---@return LevelGrid
     function levelGrid.load()
-        viewPort = GridViewPort.new(levelGrid.data.gameLevelData).load()
+        viewPort   = GridViewPort.new(levelGrid.data.gameLevelData).load()
         layer0Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer0).load()
         layer1Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer1).load()
         return levelGrid
@@ -44,29 +44,15 @@ LevelGrid.new = function(name, gameLevelData)
         viewPort.draw()
     end
 
-    function levelGrid.isTileBlocked(viewPortPosition, rotation)
-        local tilePosition = levelGrid.data.gameLevelData.getGridPosition(viewPortPosition.x, viewPortPosition.y)
-        return levelGrid.data.gameLevelData.isTileBlocked(tilePosition)
-    end
+    function levelGrid.isTileBlocked(viewPortPosition)
+        local ref           = { x = viewPortPosition.x + levelGrid.data.gameLevelData.tileSize / 2, y = viewPortPosition.y + levelGrid.data.gameLevelData.tileSize / 2 }
+        local border        = (levelGrid.data.gameLevelData.tileSize / 2) * 0.6
+        local tilePosition1 = levelGrid.data.gameLevelData.getGridPosition(ref.x - border, ref.y + border)
+        local tilePosition2 = levelGrid.data.gameLevelData.getGridPosition(ref.x - border, ref.y - border)
+        local tilePosition3 = levelGrid.data.gameLevelData.getGridPosition(ref.x + border, ref.y - border)
+        local tilePosition4 = levelGrid.data.gameLevelData.getGridPosition(ref.x + border, ref.y + border)
 
-    function levelGrid.getTilePositionAhead(viewPortPosition, rotation)
-        if rotation == 180 then
-            -- UP
-        elseif rotation == 0 then
-            -- DOWN
-        elseif rotation == 90 then
-            -- LEFT
-        elseif rotation == -90 then
-            -- RIGHT
-        elseif rotation == -45 then
-            -- BOTTOM RIGHT
-        elseif rotation == 45 then
-            -- BOTTOM LEFT
-        elseif rotation == -135 then
-            -- TOP RIGHT
-        elseif rotation == 135 then
-            -- TOP LEFT
-        end
+        return levelGrid.data.gameLevelData.isTileBlocked(tilePosition1) or levelGrid.data.gameLevelData.isTileBlocked(tilePosition2) or levelGrid.data.gameLevelData.isTileBlocked(tilePosition3) or levelGrid.data.gameLevelData.isTileBlocked(tilePosition4)
     end
 
     function levelGrid.getViewPortPosition()

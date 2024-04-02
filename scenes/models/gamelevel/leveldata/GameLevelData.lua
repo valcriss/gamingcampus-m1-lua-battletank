@@ -45,6 +45,7 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
     end
 
     function gameLevelData.isTileBlocked(tilePosition)
+        if(tilePosition.x <=0 or tilePosition.y <= 0) then return true end
         local index        = gameLevelData.getTileIndex(tilePosition)
         local v = gameLevelData.level.Block["block_" .. tostring(index)]
         if v == nil then return false end

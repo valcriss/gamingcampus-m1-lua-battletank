@@ -3,11 +3,9 @@ local BitmapText = require "models.texts.BitmapText"
 ---@class GameGrid
 GameGrid = {}
 
----@param width number
----@param height number
----@param x number
----@param y number
 ---@param gameLevelData GameLevelData
+---@param gridViewPort GridViewPort
+---@param layer Tables
 GameGrid.new = function(gameLevelData, gridViewPort, layer)
     local gameGrid = Grid.new(gameLevelData.mapWidth, gameLevelData.mapHeight, gameLevelData.tileSize, {
         ---@type GridViewPort
@@ -55,6 +53,7 @@ GameGrid.new = function(gameLevelData, gridViewPort, layer)
     end
 
     function gameGrid.printDebug(realX, realY, vx, vy)
+        if DEBUG == nil or DEBUG == false then return end
         local tilePosition = gameGrid.data.gameLevelData.getGridPosition(vx, vy)
         local content = gameGrid.data.gameLevelData.getTileIndex(tilePosition)
         local tileBlocked = gameGrid.data.gameLevelData.isTileBlocked(tilePosition)
@@ -76,17 +75,8 @@ GameGrid.new = function(gameLevelData, gridViewPort, layer)
                 screenManager:ScaleValueX(realX + gameGrid.data.gameLevelData.tileSize), screenManager:ScaleValueY(realY + gameGrid.data.gameLevelData.tileSize),
                 screenManager:ScaleValueX(realX), screenManager:ScaleValueY(realY + gameGrid.data.gameLevelData.tileSize)
         )
-        love.graphics.setColor(0, 1, 0, 0.5)
 
-        local border = ((gameGrid.data.gameLevelData.tileSize / 2) * .6)
-        love.graphics.polygon("fill",
-                screenManager:ScaleValueX(screenManager:calculateCenterPointX() - border), screenManager:ScaleValueY(screenManager:calculateCenterPointY() - border),
-                screenManager:ScaleValueX(screenManager:calculateCenterPointX() + border), screenManager:ScaleValueY(screenManager:calculateCenterPointY() - border),
-                screenManager:ScaleValueX(screenManager:calculateCenterPointX() + border), screenManager:ScaleValueY(screenManager:calculateCenterPointY() + border),
-                screenManager:ScaleValueX(screenManager:calculateCenterPointX() - border), screenManager:ScaleValueY(screenManager:calculateCenterPointY() + border)
-        )
         love.graphics.setColor(1, 1, 1, 1)
-
     end
 
     ---@param newViewPort GridViewPort

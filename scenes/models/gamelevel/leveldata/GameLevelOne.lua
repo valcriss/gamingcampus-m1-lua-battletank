@@ -6,8 +6,8 @@ GameLevelOne.new    = function()
     local gameLevelOne = GameLevelData.new(
             "GameLevelOne",
             "assets/gamelevel/level1.json",
-            5,
-            5,
+            12,
+            10,
             1
     )
 

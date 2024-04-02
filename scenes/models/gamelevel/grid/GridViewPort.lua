@@ -37,10 +37,11 @@ GridViewPort.new = function(gameLevelData)
     end
 
     function gridViewPort.draw()
-        -- gridViewPort.drawDebug()
+        gridViewPort.drawDebug()
     end
 
     function gridViewPort.drawDebug()
+        if DEBUG == nil or DEBUG == false then return end
         love.graphics.setColor(1, 1, 1, 0.75)
         local boxX      = 5
         local boxY      = 5
@@ -62,7 +63,8 @@ GridViewPort.new = function(gameLevelData)
         love.graphics.draw(debug, screenManager:ScaleValueX(10), screenManager:ScaleValueY(55), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         debug:set("gridViewPort.drawViewport : " .. gridViewPort.drawViewport.toString())
         love.graphics.draw(debug, screenManager:ScaleValueX(10), screenManager:ScaleValueY(70), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-        debug:set("gridViewPort.drawPosition.x and gridViewPort.drawPosition.y : " .. gridViewPort.drawPosition.x .. " " .. gridViewPort.drawPosition.y)
+        local gridPosition = gridViewPort.gameLevelData.getGridPosition(gridViewPort.x, gridViewPort.y)
+        debug:set("gridViewPort.TileX and gridViewPort.TileY : " .. gridPosition.x .. " " .. gridPosition.y)
         love.graphics.draw(debug, screenManager:ScaleValueX(10), screenManager:ScaleValueY(85), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
 
         love.graphics.setColor(1, 1, 1, 1)
