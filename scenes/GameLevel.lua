@@ -50,6 +50,7 @@ GameLevel.new = function()
 
     function gameLevel.updateInput(dt)
         local viewPortPosition = levelGrid.getViewPortPosition()
+        local initialViewPortPosition = levelGrid.getViewPortPosition()
         local rotation         = playerTank.rotation
 
         if love.keyboard.isDown("w") or love.keyboard.isDown("z") then
@@ -79,6 +80,12 @@ GameLevel.new = function()
         end
         if (love.keyboard.isDown("w") or love.keyboard.isDown("z")) and (love.keyboard.isDown("a") or love.keyboard.isDown("q")) then
             rotation = 135
+        end
+
+        local cannotGoThisWay = levelGrid.cannotGoThisWay(viewPortPosition)
+        if cannotGoThisWay == true then
+            print("RESET POSITION")
+            viewPortPosition = initialViewPortPosition
         end
 
         return { position = viewPortPosition, rotation = rotation }

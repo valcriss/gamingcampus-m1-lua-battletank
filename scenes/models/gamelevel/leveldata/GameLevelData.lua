@@ -1,47 +1,51 @@
+local JsonAsset   = require "models.tools.JsonAsset"
 ---@class GameLevelData
 GameLevelData     = {}
 
-GameLevelData.new = function(name, tilesAssets, layer0, layer1, startX, startY, mapWidth, mapHeight, baseTile)
+GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
     baseTile            = baseTile or 1
     local gameLevelData = {
-        name        = name,
-        layer0      = layer0,
-        layer1      = layer1,
-        startX      = startX,
-        startY      = startY,
-        mapWidth    = mapWidth,
-        mapHeight   = mapHeight,
-        baseTile    = baseTile,
-        tileSize    = 64,
-        tileScale   = 0.5,
-        tilesAssets = tilesAssets,
-        tiles       = {}
+        name      = name,
+        level     = JsonAsset:load(levelAsset),
+        startX    = startX,
+        startY    = startY,
+        baseTile  = baseTile,
+        tileSize  = 64,
+        tileScale = 0.5,
+        tiles     = {}
     }
     setmetatable(gameLevelData, GameLevelData)
     GameLevelData.__index = GameLevelData
 
     ---@return GameLevelData
     function gameLevelData.load()
-        for _, tileAsset in ipairs(gameLevelData.tilesAssets) do
-            print("Loading tile: " .. tileAsset)
-            table.insert(gameLevelData.tiles, love.graphics.newImage(tileAsset))
+        for key, value in pairs(gameLevelData.level.TilesAssets) do
+            print("Loading tile: [" .. key .. "]=" .. value)
+            gameLevelData.tiles[key] = love.graphics.newImage(value)
+        end
+        for key, value in pairs(gameLevelData.level.Block) do
+            local v = "KO"
+            if value then v = "OK" end
+            print("Block tile: [" .. key .. "]=" .. v)
         end
         return gameLevelData
     end
 
     function gameLevelData.draw(x, y, realX, realY, layer)
         local tilePosition = gameLevelData.getGridPosition(realX, realY)
-        local index        = tostring(gameLevelData.getTileIndex(tilePosition))
-        local tileIndex    = gameLevelData.baseTile
+        local index        = gameLevelData.getTileIndex(tilePosition)
+        local tileIndex
         if layer["cell_" .. index] then
             tileIndex = layer["cell_" .. index]
         end
+        if tileIndex == nil then return end
         local image = gameLevelData.tiles[tileIndex]
+        if image == nil then return end
         love.graphics.draw(image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, gameLevelData.tileScale * screenManager:getScaleX(), gameLevelData.tileScale * screenManager:getScaleY())
     end
 
     function gameLevelData.getTileIndex(tilePosition)
-        return ((tilePosition.y - 1) * gameLevelData.mapWidth) + tilePosition.x
+        return ((tilePosition.y - 1) * gameLevelData.level.Width) + tilePosition.x
     end
 
     function gameLevelData.getRealPosition(x, y)
@@ -56,6 +60,13 @@ GameLevelData.new = function(name, tilesAssets, layer0, layer1, startX, startY, 
             x = math.floor(x / gameLevelData.tileSize) + 1,
             y = math.floor(y / gameLevelData.tileSize) + 1
         }
+    end
+
+    function gameLevelData.cannotGoThisWay(tilePosition)
+        local index = gameLevelData.getTileIndex(tilePosition)
+        local v = gameLevelData.level.Block["block_" .. tostring(index)]
+        if v == nil then return false end
+        if v == true then print("Cannot go this way", tilePosition.x, tilePosition.y) return true end
     end
 
     return gameLevelData

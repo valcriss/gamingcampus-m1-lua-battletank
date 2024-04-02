@@ -19,6 +19,7 @@ LevelGrid.new      = function(name, gameLevelData)
     ---@type GridViewPort
     local viewPort
     local layer0Grid
+    local layer1Grid
 
     -- ---------------------------------------------
     -- Functions
@@ -26,18 +27,26 @@ LevelGrid.new      = function(name, gameLevelData)
     ---@return LevelGrid
     function levelGrid.load()
         viewPort   = GridViewPort.new(levelGrid.data.gameLevelData).load()
-        layer0Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.layer0).load()
+        layer0Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer0).load()
+        layer1Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer1).load()
         return levelGrid
     end
 
     function levelGrid.update(dt)
         viewPort.update(dt)
         layer0Grid.setViewPort(viewPort)
+        layer1Grid.setViewPort(viewPort)
     end
 
     function levelGrid.draw()
         layer0Grid.draw()
+        layer1Grid.draw()
         viewPort.draw()
+    end
+
+    function levelGrid.cannotGoThisWay(viewPortPosition)
+        local tilePosition = levelGrid.data.gameLevelData.getGridPosition(viewPortPosition.x, viewPortPosition.y)
+        return levelGrid.data.gameLevelData.cannotGoThisWay(tilePosition)
     end
 
     function levelGrid.getViewPortPosition()

@@ -39,9 +39,9 @@ GameGrid.new     = function(gameLevelData, gridViewPort, layer)
         while x <= gameGrid.data.gridViewPort.drawViewport.width do
             while y <= gameGrid.data.gridViewPort.drawViewport.height do
                 local tilePosition = gameGrid.data.gameLevelData.getGridPosition(vx, vy)
-                if(tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameGrid.data.gameLevelData.mapWidth or tilePosition.y > gameGrid.data.gameLevelData.mapHeight) then break end
+                if(tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameGrid.data.gameLevelData.level.Width or tilePosition.y > gameGrid.data.gameLevelData.level.Height) then break end
                 gameGrid.data.gameLevelData.draw(x, y, vx, vy, gameGrid.data.layer)
-                -- gameGrid.printDebug(x, y, vx, vy)
+                gameGrid.printDebug(x, y, vx, vy)
                 y  = y + gameGrid.data.gameLevelData.tileSize
                 vy = vy + gameGrid.data.gameLevelData.tileSize
             end
