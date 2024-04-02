@@ -11,8 +11,9 @@ end
 
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
--- Déclaration des variables globales
-DEBUG = true
+-- Déclaration des variables globals
+DEBUG = false
+
 configuration = Configuration:new()
 screenManager = ScreenManager:new()
 scenesManager = ScenesManager:new()

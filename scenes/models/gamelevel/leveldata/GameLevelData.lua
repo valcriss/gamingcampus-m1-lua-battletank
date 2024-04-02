@@ -28,13 +28,13 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
 
     function gameLevelData.draw(x, y, realX, realY, layer)
         local tilePosition = gameLevelData.getGridPosition(realX, realY)
-        local image = gameLevelData.getTileImage(tilePosition, layer)
+        local image        = gameLevelData.getTileImage(tilePosition, layer)
         if image == nil then return end
         love.graphics.draw(image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, gameLevelData.tileScale * screenManager:getScaleX(), gameLevelData.tileScale * screenManager:getScaleY())
     end
 
     function gameLevelData.getTileImage(tilePosition, layer)
-        local index        = gameLevelData.getTileIndex(tilePosition)
+        local index = gameLevelData.getTileIndex(tilePosition)
         local tileIndex
         if layer["cell_" .. index] then
             tileIndex = layer["cell_" .. index]
@@ -45,9 +45,9 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
     end
 
     function gameLevelData.isTileBlocked(tilePosition)
-        if(tilePosition.x <=0 or tilePosition.y <= 0) then return true end
-        local index        = gameLevelData.getTileIndex(tilePosition)
-        local v = gameLevelData.level.Block["block_" .. tostring(index)]
+        if (tilePosition.x <= 0 or tilePosition.y <= 0) then return true end
+        local index = gameLevelData.getTileIndex(tilePosition)
+        local v     = gameLevelData.level.Block["block_" .. tostring(index)]
         if v == nil then return false end
         if v == true then return true end
         return false
@@ -55,6 +55,11 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
 
     function gameLevelData.getTileIndex(tilePosition)
         return ((tilePosition.y - 1) * gameLevelData.level.Width) + tilePosition.x
+    end
+
+    function gameLevelData.getTileIndexFromRealPosition(realX, realY)
+        local tilePosition = gameLevelData.getGridPosition(realX, realY)
+        return gameLevelData.getTileIndex(tilePosition)
     end
 
     function gameLevelData.getRealPosition(x, y)

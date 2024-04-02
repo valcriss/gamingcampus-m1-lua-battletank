@@ -1,13 +1,15 @@
 local Component    = require "models.scenes.Component"
 local GridViewPort = require "scenes.models.gamelevel.grid.GridViewPort"
 local GameGrid     = require "scenes.models.gamelevel.grid.GameGrid"
+local FogOfWar     = require "scenes.models.gamelevel.grid.FogOfWar"
 ---@class LevelGrid
 LevelGrid          = {}
 
 ---@param gameLevelData GameLevelData
 LevelGrid.new      = function(name, gameLevelData)
     local levelGrid = Component.new(name, {
-        gameLevelData = gameLevelData
+        gameLevelData = gameLevelData,
+        fog           = FogOfWar.new(7, gameLevelData)
     })
 
     setmetatable(levelGrid, LevelGrid)
@@ -27,15 +29,16 @@ LevelGrid.new      = function(name, gameLevelData)
     ---@return LevelGrid
     function levelGrid.load()
         viewPort   = GridViewPort.new(levelGrid.data.gameLevelData).load()
-        layer0Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer0).load()
-        layer1Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer1).load()
+        layer0Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer0, 0).load()
+        layer1Grid = GameGrid.new(levelGrid.data.gameLevelData, viewPort, levelGrid.data.gameLevelData.level.Layer1, 1).load()
         return levelGrid
     end
 
     function levelGrid.update(dt)
         viewPort.update(dt)
-        layer0Grid.setViewPort(viewPort)
-        layer1Grid.setViewPort(viewPort)
+        levelGrid.data.fog.updateFog(dt, { x = viewPort.x, y = viewPort.y })
+        layer0Grid.setViewPort(viewPort).setFogOfWar(levelGrid.data.fog, true)
+        layer1Grid.setViewPort(viewPort).setFogOfWar(levelGrid.data.fog, false)
     end
 
     function levelGrid.draw()
@@ -62,6 +65,7 @@ LevelGrid.new      = function(name, gameLevelData)
     function levelGrid.setViewPortPosition(x, y)
         viewPort.x = math.max(0, math.min(x, viewPort.bounds.width - levelGrid.data.gameLevelData.tileSize))
         viewPort.y = math.max(0, math.min(y, viewPort.bounds.height - levelGrid.data.gameLevelData.tileSize))
+
     end
 
     return levelGrid
