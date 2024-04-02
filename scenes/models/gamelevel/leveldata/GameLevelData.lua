@@ -23,25 +23,33 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
             print("Loading tile: [" .. key .. "]=" .. value)
             gameLevelData.tiles[key] = love.graphics.newImage(value)
         end
-        for key, value in pairs(gameLevelData.level.Block) do
-            local v = "KO"
-            if value then v = "OK" end
-            print("Block tile: [" .. key .. "]=" .. v)
-        end
         return gameLevelData
     end
 
     function gameLevelData.draw(x, y, realX, realY, layer)
         local tilePosition = gameLevelData.getGridPosition(realX, realY)
+        local image = gameLevelData.getTileImage(tilePosition, layer)
+        if image == nil then return end
+        love.graphics.draw(image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, gameLevelData.tileScale * screenManager:getScaleX(), gameLevelData.tileScale * screenManager:getScaleY())
+    end
+
+    function gameLevelData.getTileImage(tilePosition, layer)
         local index        = gameLevelData.getTileIndex(tilePosition)
         local tileIndex
         if layer["cell_" .. index] then
             tileIndex = layer["cell_" .. index]
         end
-        if tileIndex == nil then return end
+        if tileIndex == nil then return nil end
         local image = gameLevelData.tiles[tileIndex]
-        if image == nil then return end
-        love.graphics.draw(image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), 0, gameLevelData.tileScale * screenManager:getScaleX(), gameLevelData.tileScale * screenManager:getScaleY())
+        return image
+    end
+
+    function gameLevelData.isTileBlocked(tilePosition)
+        local index        = gameLevelData.getTileIndex(tilePosition)
+        local v = gameLevelData.level.Block["block_" .. tostring(index)]
+        if v == nil then return false end
+        if v == true then return true end
+        return false
     end
 
     function gameLevelData.getTileIndex(tilePosition)
@@ -60,13 +68,6 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile)
             x = math.floor(x / gameLevelData.tileSize) + 1,
             y = math.floor(y / gameLevelData.tileSize) + 1
         }
-    end
-
-    function gameLevelData.cannotGoThisWay(tilePosition)
-        local index = gameLevelData.getTileIndex(tilePosition)
-        local v = gameLevelData.level.Block["block_" .. tostring(index)]
-        if v == nil then return false end
-        if v == true then print("Cannot go this way", tilePosition.x, tilePosition.y) return true end
     end
 
     return gameLevelData

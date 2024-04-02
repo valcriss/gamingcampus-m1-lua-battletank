@@ -82,8 +82,8 @@ GameLevel.new = function()
             rotation = 135
         end
 
-        local cannotGoThisWay = levelGrid.cannotGoThisWay(viewPortPosition)
-        if cannotGoThisWay == true then
+        local tileBlocked = levelGrid.isTileBlocked(viewPortPosition, rotation)
+        if tileBlocked == true then
             print("RESET POSITION")
             viewPortPosition = initialViewPortPosition
         end
