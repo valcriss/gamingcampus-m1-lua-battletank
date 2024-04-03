@@ -91,6 +91,16 @@ ScreenManager.new = function()
         return y * screenManager.scaleY
     end
 
+    ---@public
+    function screenManager:ScaleUIValueX(x)
+        return x * (screenManager.windowWidth / love.graphics.getWidth())
+    end
+
+    ---@public
+    function screenManager:ScaleUIValueY(y)
+        return y * (screenManager.windowHeight / love.graphics.getHeight())
+    end
+
     function screenManager:clear(r, g, b)
         love.graphics.clear(r / 255, g / 255, b / 255, 1)
     end

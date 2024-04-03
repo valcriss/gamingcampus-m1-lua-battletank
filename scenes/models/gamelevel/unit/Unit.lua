@@ -76,6 +76,8 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y)
     end
 
     function unit.targetPosition(targetX, targetY)
+        targetX = screenManager:ScaleUIValueX(targetX)
+        targetY = screenManager:ScaleUIValueY(targetY)
         local tankPositionX = unit.bounds.x
         local tankPositionY = unit.bounds.y
         local angle         = math.deg(math.atan2(tankPositionY - targetY, targetX - tankPositionX))
