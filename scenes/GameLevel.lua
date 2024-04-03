@@ -4,6 +4,7 @@ local LevelGrid    = require "scenes.models.gamelevel.grid.LevelGrid"
 local Fps          = require "models.tools.Fps"
 local PlayerTank   = require "scenes.models.gamelevel.unit.PlayerTank"
 local Parallax     = require "models.images.Parallax"
+local GameUI       = require "scenes.models.gamelevel.ui.GameUI"
 
 ---@class GameLevel
 GameLevel          = {}
@@ -32,7 +33,10 @@ GameLevel.new = function()
     local playerTank    = PlayerTank.new()
     --- @type number
     local moveSpeed     = 600
+    --- @type Parallax
     local water         = Parallax.new("water", "assets/gamelevel/water.png", 100)
+    --- @type GameUI
+    local gameUI        = GameUI.new("gameUI")
     -- ---------------------------------------------
     -- Ajout des composants
     -- ---------------------------------------------
@@ -41,6 +45,7 @@ GameLevel.new = function()
     gameLevel.addComponent(levelGrid)
     gameLevel.addComponent(fps)
     gameLevel.addComponent(playerTank)
+    gameLevel.addComponent(gameUI)
 
     function gameLevel.update(dt)
         local update = gameLevel.updateInput(dt)
@@ -49,9 +54,9 @@ GameLevel.new = function()
     end
 
     function gameLevel.updateInput(dt)
-        local viewPortPosition = levelGrid.getViewPortPosition()
+        local viewPortPosition        = levelGrid.getViewPortPosition()
         local initialViewPortPosition = levelGrid.getViewPortPosition()
-        local rotation         = playerTank.rotation
+        local rotation                = playerTank.rotation
 
         if love.keyboard.isDown("w") or love.keyboard.isDown("z") then
             viewPortPosition.y = viewPortPosition.y - (moveSpeed * dt)

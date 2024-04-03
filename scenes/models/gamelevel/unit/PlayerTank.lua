@@ -23,25 +23,7 @@ PlayerTank.new = function()
             playerTank.data.mouseWasDown = false
         end
         local mouseX, mouseY = love.mouse.getPosition()
-        local tankPositionX  = playerTank.bounds.x
-        local tankPositionY  = playerTank.bounds.y
-        local angle          = math.deg(math.atan2(tankPositionY - mouseY, mouseX - tankPositionX))
-        local turretAngle    = -angle - 90
-
-        if (playerTank.rotation == 0) then
-            turretAngle = math.max(-60, math.min(60, turretAngle))
-        elseif (playerTank.rotation == 180) then
-            turretAngle = math.max(-240, math.min(-120, turretAngle))
-        elseif (playerTank.rotation == -90) then
-            turretAngle = math.max(-150, math.min(-30, turretAngle))
-        elseif (playerTank.rotation == 90) then
-            if turretAngle >= 0 then
-                turretAngle = math.max(30, math.min(90, turretAngle))
-            else
-                turretAngle = math.max(-270, math.min(-210, turretAngle))
-            end
-        end
-        playerTank.data.turretRotation = turretAngle
+        playerTank.targetPosition(mouseX,mouseY)
     end
 
     return playerTank
