@@ -1,14 +1,22 @@
-local Component = require "models.scenes.Component"
-local Image = require "models.images.Image"
----@class Unit
-Unit = {}
+local Component        = require "models.scenes.Component"
+local Image            = require "models.images.Image"
+local SpriteSheetImage = require "models.images.SpriteSheetImage"
 
-Unit.new = function(name, idleAnimation, x, y)
-    local unit = Component.new(
+---@class Unit
+Unit                   = {}
+
+Unit.new               = function(name, body, turret, fireAnimation, x, y)
+    local unit       = Component.new(
             name,
             {
-                name = name,
-                idleAnimation = idleAnimation
+                name           = name,
+                body           = body,
+                turret         = turret,
+                fireAnimation  = fireAnimation,
+                turretRotation = 0,
+                turretSpeed    = 10,
+                mouseWasDown   = false,
+                mouseClicked   = false
             },
             x,
             y,
@@ -19,18 +27,55 @@ Unit.new = function(name, idleAnimation, x, y)
             { r = 1, g = 1, b = 1, a = 1 }
     )
 
-    local idle = Image.new(unit.name .. "_idle", idleAnimation, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
+    local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
+    local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
+    local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
 
-    unit.addComponent(idle)
+    unit.addComponent(tankBody)
+    unit.addComponent(tankTurret)
+    unit.addComponent(tankFire)
 
     setmetatable(unit, Unit)
     Unit.__index = Unit
 
-    function unit.update(_)
-        idle.rotation = unit.rotation
-        idle.scale = unit.scale
-        idle.bounds.x = unit.bounds.x
-        idle.bounds.y = unit.bounds.y
+    function unit.update(dt)
+        unit.updateUnit(dt)
+
+        if unit.data.mouseClicked then
+            unit.fireStarts()
+            unit.data.mouseClicked = false
+        end
+
+        tankBody.rotation   = unit.rotation
+        tankBody.scale      = unit.scale
+        tankBody.bounds.x   = unit.bounds.x
+        tankBody.bounds.y   = unit.bounds.y
+        tankTurret.rotation = unit.data.turretRotation
+        tankTurret.scale    = unit.scale
+        tankTurret.bounds.x = unit.bounds.x
+        tankTurret.bounds.y = unit.bounds.y
+        tankFire.rotation   = unit.data.turretRotation
+        tankFire.scale      = unit.scale
+        tankFire.bounds.x   = unit.bounds.x
+        tankFire.bounds.y   = unit.bounds.y
+    end
+
+    function unit.fireStarts()
+        tankFire.show()
+        tankTurret.hide()
+    end
+
+    function unit.fireEnds()
+        tankFire.hide()
+        tankTurret.show()
+    end
+
+    function unit.updateUnit(_)
+
+    end
+
+    function unit.lerp(a, b, t)
+        return a + (b - a) * t
     end
 
     function unit.setPosition(posX, posY, rotation)

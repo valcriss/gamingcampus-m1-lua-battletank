@@ -106,6 +106,14 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
         end
     end
 
+    function spriteSheetImage.show()
+        spriteSheetImage.visible = true
+        spriteSheetImage.data.running = true
+        spriteSheetImage.data.elapsedTime = 0
+        spriteSheetImage.data.index = 1
+        return spriteSheetImage
+    end
+
     --[[
     Fonction qui charge les quads de differents frames a partir de l'image principale
     --]]
