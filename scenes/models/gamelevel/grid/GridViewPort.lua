@@ -70,6 +70,14 @@ GridViewPort.new = function(gameLevelData)
         love.graphics.setColor(1, 1, 1, 1)
     end
 
+    function gridViewPort.getGridViewPort()
+        return gridViewPort.viewport
+    end
+
+    function gridViewPort.getGridViewDrawViewPort()
+        return gridViewPort.drawViewport
+    end
+
     function gridViewPort.calculateViewport()
         local v      = Rectangle.new(0, 0, screenManager:getWindowWidth(), screenManager:getWindowHeight())
 

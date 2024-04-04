@@ -30,7 +30,7 @@ GameLevel.new = function()
     --- @type LevelGrid
     local levelGrid     = LevelGrid.new("levelGrid", gameLevelData)
     --- @type PlayerTank
-    local playerTank    = PlayerTank.new()
+    local playerTank    = PlayerTank.new(gameLevelData)
     --- @type number
     local moveSpeed     = 600
     --- @type Parallax
@@ -50,6 +50,8 @@ GameLevel.new = function()
     function gameLevel.update(dt)
         local update = gameLevel.updateInput(dt)
         levelGrid.setViewPortPosition(update.position.x, update.position.y)
+        playerTank.setViewPort(levelGrid.getViewPortPosition())
+        playerTank.setDrawViewPort(levelGrid.getGridViewDrawViewPort())
         playerTank.setPosition(screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), update.rotation)
     end
 

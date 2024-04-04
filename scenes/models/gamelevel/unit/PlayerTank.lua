@@ -2,8 +2,9 @@ local Unit     = require "scenes.models.gamelevel.unit.Unit"
 ---@class PlayerTank
 PlayerTank     = {}
 
-PlayerTank.new = function()
-    local playerTank = Unit.new("playerTank", "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", 0, 0)
+--- @param gameLevelData GameLevelData
+PlayerTank.new = function(gameLevelData)
+    local playerTank = Unit.new("playerTank", "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, gameLevelData)
 
     setmetatable(playerTank, PlayerTank)
     PlayerTank.__index = PlayerTank
@@ -16,14 +17,25 @@ PlayerTank.new = function()
     end
 
     function playerTank.updateUnit(_)
+        local mouseX, mouseY   = love.mouse.getPosition()
+        local mouseOffset      = { x = mouseX - screenManager:calculateCenterPointX(), y = mouseY - screenManager:calculateCenterPointY() }
+        local realUnitPosition = { x = (playerTank.data.viewPort.x), y = (playerTank.data.viewPort.y) }
         if love.mouse.isDown(1) then
-            playerTank.data.mouseWasDown = true
+            playerTank.data.mouseMapCoords = nil
+            playerTank.data.mouseWasDown   = true
         elseif not love.mouse.isDown(1) and playerTank.data.mouseWasDown then
+            print("Real unit position: " .. realUnitPosition.x .. ", " .. realUnitPosition.y)
+            playerTank.data.startRealPosition       = realUnitPosition
+            playerTank.data.destinationRealPosition = { x = realUnitPosition.x + mouseOffset.x, y = realUnitPosition.y + mouseOffset.y }
+            print("Destination real position: " .. playerTank.data.destinationRealPosition.x .. ", " .. playerTank.data.destinationRealPosition.y)
             playerTank.data.mouseClicked = true
             playerTank.data.mouseWasDown = false
+        else
+            playerTank.data.mouseMapCoords = nil
+            playerTank.data.mouseWasDown   = false
         end
-        local mouseX, mouseY = love.mouse.getPosition()
-        playerTank.targetPosition(mouseX,mouseY)
+
+        playerTank.targetPosition(mouseX, mouseY)
     end
 
     return playerTank

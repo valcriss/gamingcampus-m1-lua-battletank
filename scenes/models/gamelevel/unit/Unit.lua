@@ -1,22 +1,28 @@
 local Component        = require "models.scenes.Component"
 local Image            = require "models.images.Image"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
+local UnitMissile      = require "scenes.models.gamelevel.unit.UnitMissile"
 
 ---@class Unit
 Unit                   = {}
 
-Unit.new               = function(name, body, turret, fireAnimation, x, y)
+Unit.new               = function(name, body, turret, fireAnimation, x, y, gameLevelData)
     local unit       = Component.new(
             name,
             {
-                name           = name,
-                body           = body,
-                turret         = turret,
-                fireAnimation  = fireAnimation,
-                turretRotation = 0,
-                turretSpeed    = 10,
-                mouseWasDown   = false,
-                mouseClicked   = false
+                name                    = name,
+                body                    = body,
+                turret                  = turret,
+                fireAnimation           = fireAnimation,
+                turretRotation          = 0,
+                turretSpeed             = 10,
+                mouseWasDown            = false,
+                mouseClicked            = false,
+                gameLevelData           = gameLevelData,
+                startRealPosition       = { x = 0, y = 0 },
+                destinationRealPosition = { x = 0, y = 0 },
+                viewPort                = nil,
+                drawViewPort            = nil
             },
             x,
             y,
@@ -29,16 +35,15 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y)
 
     local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
     local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
-    local tankBullet1 = Image.new(unit.name .. "_tankBullet", "assets/gamelevel/bullet.png", unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
-    local tankBullet2 = Image.new(unit.name .. "_tankBullet", "assets/gamelevel/bullet.png", unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
     local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
+    local missile1   = UnitMissile.new("missile1", gameLevelData)
+    local missile2   = UnitMissile.new("missile2", gameLevelData)
 
     unit.addComponent(tankBody)
     unit.addComponent(tankTurret)
     unit.addComponent(tankFire)
-
-    unit.addComponent(tankBullet1)
-    unit.addComponent(tankBullet2)
+    unit.addComponent(missile1)
+    unit.addComponent(missile2)
 
     setmetatable(unit, Unit)
     Unit.__index = Unit
@@ -51,6 +56,20 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y)
             unit.data.mouseClicked = false
         end
 
+        unit.updateTankPosition()
+    end
+
+    function unit.setViewPort(viewPort)
+        unit.data.viewPort = viewPort
+    end
+
+    function unit.setDrawViewPort(drawViewPort)
+        unit.data.drawViewPort = drawViewPort
+        missile1.setDrawViewPort(drawViewPort)
+        missile2.setDrawViewPort(drawViewPort)
+    end
+
+    function unit.updateTankPosition()
         tankBody.rotation   = unit.rotation
         tankBody.scale      = unit.scale
         tankBody.bounds.x   = unit.bounds.x
@@ -63,21 +82,11 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y)
         tankFire.scale      = unit.scale
         tankFire.bounds.x   = unit.bounds.x
         tankFire.bounds.y   = unit.bounds.y
-
-        tankBullet1.bounds.x = unit.bounds.x - math.cos(math.rad(unit.data.turretRotation)) * 10
-        tankBullet1.bounds.y = unit.bounds.y - math.sin(math.rad(unit.data.turretRotation)) * 10
-        tankBullet1.scale    = unit.scale
-        tankBullet1.rotation = unit.data.turretRotation
-
-        tankBullet2.bounds.x = unit.bounds.x + math.cos(math.rad(unit.data.turretRotation)) * 10
-        tankBullet2.bounds.y = unit.bounds.y + math.sin(math.rad(unit.data.turretRotation)) * 10
-        tankBullet2.scale    = unit.scale
-        tankBullet2.rotation = unit.data.turretRotation
     end
 
     function unit.targetPosition(targetX, targetY)
-        targetX = screenManager:ScaleUIValueX(targetX)
-        targetY = screenManager:ScaleUIValueY(targetY)
+        targetX             = screenManager:ScaleUIValueX(targetX)
+        targetY             = screenManager:ScaleUIValueY(targetY)
         local tankPositionX = unit.bounds.x
         local tankPositionY = unit.bounds.y
         local angle         = math.deg(math.atan2(tankPositionY - targetY, targetX - tankPositionX))
@@ -100,6 +109,21 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y)
     end
 
     function unit.fireStarts()
+        missile1.fire(
+                unit.data.startRealPosition.x - math.cos(math.rad(unit.data.turretRotation)) * 10,
+                unit.data.startRealPosition.y - math.sin(math.rad(unit.data.turretRotation)) * 10,
+                unit.data.destinationRealPosition.x,
+                unit.data.destinationRealPosition.y,
+                unit.data.turretRotation
+        )
+        missile2.fire(
+                unit.data.startRealPosition.x + math.cos(math.rad(unit.data.turretRotation)) * 10,
+                unit.data.startRealPosition.y + math.sin(math.rad(unit.data.turretRotation)) * 10,
+                unit.data.destinationRealPosition.x,
+                unit.data.destinationRealPosition.y,
+                unit.data.turretRotation
+        )
+
         tankFire.show()
         tankTurret.hide()
     end

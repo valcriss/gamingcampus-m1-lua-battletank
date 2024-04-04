@@ -42,10 +42,11 @@ LevelGrid.new      = function(name, gameLevelData)
     end
 
     function levelGrid.draw()
+        levelGrid.data.fog.drawClip()
         layer0Grid.draw()
         layer1Grid.draw()
         viewPort.draw()
-        levelGrid.data.fog.drawClip()
+
     end
 
     function levelGrid.isTileBlocked(viewPortPosition)
@@ -61,6 +62,15 @@ LevelGrid.new      = function(name, gameLevelData)
 
     function levelGrid.getViewPortPosition()
         return { x = viewPort.x, y = viewPort.y }
+    end
+
+    function levelGrid.getGridViewDrawViewPort()
+        return viewPort.getGridViewDrawViewPort()
+    end
+
+    function levelGrid.getGridViewPort()
+        local gridViewPort = viewPort.getGridViewPort()
+        return { x = gridViewPort.x, y = gridViewPort.y, width = gridViewPort.width, height = gridViewPort.height }
     end
 
     function levelGrid.setViewPortPosition(x, y)
