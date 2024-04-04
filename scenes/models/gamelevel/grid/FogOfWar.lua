@@ -1,14 +1,20 @@
 ---@class FogOfWar
 FogOfWar     = {}
 
+---@param sight number
+---@param gameLevelData GameLevelData
 FogOfWar.new = function(sight, gameLevelData)
-    sight = sight or 7
+    sight          = sight or 7
     local fogOfWar = {
         gameLevelData = gameLevelData,
         sight         = sight,
         inSight       = {},
         seen          = {},
-        seenDuration  = 10
+        seenDuration  = 10,
+        clipTop       = nil,
+        clipRight     = nil,
+        clipBottom    = nil,
+        clipLeft      = nil,
     }
 
     setmetatable(fogOfWar, FogOfWar)
@@ -28,6 +34,7 @@ FogOfWar.new = function(sight, gameLevelData)
         local tilePosition = fogOfWar.gameLevelData.getGridPosition(realX, realY)
         local seen         = fogOfWar.isTileSeen(tilePosition)
         local inSight      = fogOfWar.isTileInSight(tilePosition)
+
         if inSight then return end
         if not seen then
             love.graphics.setColor(0, 0, 0, 1)
@@ -46,7 +53,25 @@ FogOfWar.new = function(sight, gameLevelData)
         return a + (b - a) * t
     end
 
+    function fogOfWar.drawClip()
+        love.graphics.setColor(0, 0, 0, 1)
+        if (fogOfWar.clipLeft ~= nil) then
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(fogOfWar.clipLeft.x), screenManager:ScaleValueY(fogOfWar.clipLeft.y), screenManager:ScaleValueX(fogOfWar.clipLeft.width), screenManager:ScaleValueY(fogOfWar.clipLeft.height))
+        end
+        if (fogOfWar.clipTop ~= nil) then
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(fogOfWar.clipTop.x), screenManager:ScaleValueY(fogOfWar.clipTop.y), screenManager:ScaleValueX(fogOfWar.clipTop.width), screenManager:ScaleValueY(fogOfWar.clipTop.height))
+        end
+        if (fogOfWar.clipRight ~= nil) then
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(fogOfWar.clipRight.x), screenManager:ScaleValueY(fogOfWar.clipRight.y), screenManager:ScaleValueX(fogOfWar.clipRight.width), screenManager:ScaleValueY(fogOfWar.clipRight.height))
+        end
+        if (fogOfWar.clipBottom ~= nil) then
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(fogOfWar.clipBottom.x), screenManager:ScaleValueY(fogOfWar.clipBottom.y), screenManager:ScaleValueX(fogOfWar.clipBottom.width), screenManager:ScaleValueY(fogOfWar.clipBottom.height))
+        end
+        love.graphics.setColor(1, 1, 1, 1)
+    end
+
     function fogOfWar.updateFog(dt, position)
+        fogOfWar.updateClipBounds(position)
         local distSeen    = ((fogOfWar.sight + 1) * fogOfWar.gameLevelData.tileSize)
         local distInSight = ((fogOfWar.sight) * fogOfWar.gameLevelData.tileSize)
         local xMin        = position.x - distSeen
@@ -79,6 +104,38 @@ FogOfWar.new = function(sight, gameLevelData)
             if (fogOfWar.seen[key] > fogOfWar.seenDuration) then
                 fogOfWar.seen[key] = nil
             end
+        end
+    end
+
+    function fogOfWar.updateClipBounds(position)
+        local mapWidth   = (fogOfWar.gameLevelData.tileSize * fogOfWar.gameLevelData.level.Width)
+        local mapHeight  = (fogOfWar.gameLevelData.tileSize * fogOfWar.gameLevelData.level.Height)
+        local midScreenX = (screenManager:getWindowWidth() / 2)
+        local midScreenY = (screenManager:getWindowHeight() / 2)
+        local left       = (midScreenX + (((position.x - (mapWidth)) + mapWidth) * -1)) - (fogOfWar.gameLevelData.tileSize / 2)
+        local top      = (midScreenY + (((position.y - (mapHeight)) + mapHeight) * -1)) - (fogOfWar.gameLevelData.tileSize / 2)
+        local right = (position.x -mapWidth) + (fogOfWar.gameLevelData.tileSize / 2) + midScreenX
+        local bottom = (position.y -mapHeight) + (fogOfWar.gameLevelData.tileSize / 2) + midScreenY
+
+        if (left > 0) then
+            fogOfWar.clipLeft = { x = 0, y = 0, width = left, height = screenManager:getWindowHeight() }
+        else
+            fogOfWar.clipLeft = nil
+        end
+        if (top > 0) then
+            fogOfWar.clipTop = { x = 0, y = 0, width = screenManager:getWindowWidth(), height = top }
+        else
+            fogOfWar.clipTop = nil
+        end
+        if (right > 0) then
+            fogOfWar.clipRight = { x = screenManager:getWindowWidth() - right, y = 0, width = right, height = screenManager:getWindowHeight() }
+        else
+            fogOfWar.clipRight = nil
+        end
+        if (bottom > 0) then
+            fogOfWar.clipBottom = { x = 0, y = screenManager:getWindowHeight() - bottom, width = screenManager:getWindowWidth(), height = bottom }
+        else
+            fogOfWar.clipBottom = nil
         end
     end
 

@@ -45,6 +45,7 @@ LevelGrid.new      = function(name, gameLevelData)
         layer0Grid.draw()
         layer1Grid.draw()
         viewPort.draw()
+        levelGrid.data.fog.drawClip()
     end
 
     function levelGrid.isTileBlocked(viewPortPosition)
