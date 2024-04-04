@@ -16,7 +16,7 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
         rotation        = 0,
         running         = false,
         gameLevelData   = gameLevelData,
-        speed           = 800,
+        speed           = 2000,
         drawViewPort    = nil,
         missileEnded    = missileEnded
     })
@@ -38,7 +38,7 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
         local translated = unitMissile.translateRealPositionToScreenPosition(unitMissile.data.currentX, unitMissile.data.currentY)
         missile.bounds.x = translated.x
         missile.bounds.y = translated.y
-        missile.scale    = 0.5
+        missile.scale    = 0.75
         missile.rotation = unitMissile.data.currentRotation
     end
 
