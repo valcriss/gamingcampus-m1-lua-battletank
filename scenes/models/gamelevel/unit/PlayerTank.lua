@@ -18,7 +18,7 @@ PlayerTank.new = function(gameLevelData)
 
     function playerTank.updateUnit(_)
         local mouseX, mouseY   = love.mouse.getPosition()
-        local mouseOffset      = { x = mouseX - screenManager:ScaleValueX(screenManager:calculateCenterPointX()), y = mouseY - screenManager:ScaleValueY(screenManager:calculateCenterPointY()) }
+        local mouseOffset      = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
         local realUnitPosition = { x = (playerTank.data.viewPort.x), y = (playerTank.data.viewPort.y) }
         if love.mouse.isDown(1) then
             playerTank.data.mouseMapCoords = nil
