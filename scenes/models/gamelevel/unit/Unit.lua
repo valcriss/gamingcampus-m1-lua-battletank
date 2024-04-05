@@ -18,6 +18,7 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y, gameL
                 turretSpeed             = 10,
                 mouseWasDown            = false,
                 mouseClicked            = false,
+                limitUnitAngle          = false,
                 gameLevelData           = gameLevelData,
                 startRealPosition       = { x = 0, y = 0 },
                 destinationRealPosition = { x = 0, y = 0 },
@@ -92,23 +93,26 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y, gameL
         local angle         = math.deg(math.atan2(tankPositionY - targetY, targetX - tankPositionX))
         local turretAngle   = -angle - 90
 
-        if (unit.rotation == 0) then
-            turretAngle = math.max(-60, math.min(60, turretAngle))
-        elseif (unit.rotation == 180) then
-            turretAngle = math.max(-240, math.min(-120, turretAngle))
-        elseif (unit.rotation == -90) then
-            turretAngle = math.max(-150, math.min(-30, turretAngle))
-        elseif (unit.rotation == 90) then
-            if turretAngle >= 0 then
-                turretAngle = math.max(30, math.min(90, turretAngle))
-            else
-                turretAngle = math.max(-270, math.min(-210, turretAngle))
+        if unit.data.limitUnitAngle then
+            if (unit.rotation == 0) then
+                turretAngle = math.max(-60, math.min(60, turretAngle))
+            elseif (unit.rotation == 180) then
+                turretAngle = math.max(-240, math.min(-120, turretAngle))
+            elseif (unit.rotation == -90) then
+                turretAngle = math.max(-150, math.min(-30, turretAngle))
+            elseif (unit.rotation == 90) then
+                if turretAngle >= 0 then
+                    turretAngle = math.max(30, math.min(90, turretAngle))
+                else
+                    turretAngle = math.max(-270, math.min(-210, turretAngle))
+                end
             end
         end
         unit.data.turretRotation = turretAngle
     end
 
     function unit.fireStarts()
+        if missile1.isRunning() or missile2.isRunning() then return end
         missile1.fire(
                 unit.data.startRealPosition.x - math.cos(math.rad(unit.data.turretRotation)) * 10,
                 unit.data.startRealPosition.y - math.sin(math.rad(unit.data.turretRotation)) * 10,

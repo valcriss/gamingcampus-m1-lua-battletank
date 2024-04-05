@@ -63,6 +63,11 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile, playerB
         return gameLevelData.getTileIndex(tilePosition)
     end
 
+    function gameLevelData.isTileDecorationBlocked(tileIndex)
+        if (tileIndex == nil or tileIndex <= 0) then return false end
+        return gameLevelData.level.Block["block_" .. tostring(tileIndex)] and gameLevelData.level.Layer1["cell_" .. tostring(tileIndex)]
+    end
+
     function gameLevelData.getRealPosition(x, y)
         return {
             x = (x - 1) * gameLevelData.tileSize,
