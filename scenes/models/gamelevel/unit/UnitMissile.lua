@@ -1,10 +1,10 @@
-local Rectangle        = require "models.drawing.Rectangle"
-local Component        = require "models.scenes.Component"
-local Image            = require "models.images.Image"
+local Rectangle = require "models.drawing.Rectangle"
+local Component = require "models.scenes.Component"
+local Image     = require "models.images.Image"
 ---@class UnitMissile
-UnitMissile            = {}
+UnitMissile     = {}
 
-UnitMissile.new        = function(name, gameLevelData, missileEnded)
+UnitMissile.new = function(name, gameLevelData, missileEnded)
     local unitMissile = Component.new(name, {
         startX          = 0,
         startY          = 0,
@@ -69,17 +69,14 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
     end
 
     function unitMissile.fire(startX, startY, destinationX, destinationY, rotation)
-        unitMissile.data.startX = startX
-        unitMissile.data.startY = startY
-        print("Start X : " .. startX .. " Start Y : " .. startY)
-        unitMissile.data.destinationX = destinationX
-        unitMissile.data.destinationY = destinationY
-        print("Destination X : " .. destinationX .. " Destination Y : " .. destinationY)
+        unitMissile.data.startX          = startX
+        unitMissile.data.startY          = startY
+        unitMissile.data.destinationX    = destinationX
+        unitMissile.data.destinationY    = destinationY
         unitMissile.data.rotation        = rotation
         unitMissile.data.currentX        = startX
         unitMissile.data.currentY        = startY
         unitMissile.data.currentRotation = rotation
-        print("Draw View Port X : " .. unitMissile.data.drawViewPort.x .. " Draw View Port Y : " .. unitMissile.data.drawViewPort.y)
         missile.show()
         unitMissile.data.running = true
     end

@@ -24,12 +24,10 @@ PlayerTank.new = function(gameLevelData)
             playerTank.data.mouseMapCoords = nil
             playerTank.data.mouseWasDown   = true
         elseif not love.mouse.isDown(1) and playerTank.data.mouseWasDown then
-            print("Real unit position: " .. realUnitPosition.x .. ", " .. realUnitPosition.y)
             playerTank.data.startRealPosition       = realUnitPosition
             playerTank.data.destinationRealPosition = { x = realUnitPosition.x + mouseOffset.x, y = realUnitPosition.y + mouseOffset.y }
-            print("Destination real position: " .. playerTank.data.destinationRealPosition.x .. ", " .. playerTank.data.destinationRealPosition.y)
-            playerTank.data.mouseClicked = true
-            playerTank.data.mouseWasDown = false
+            playerTank.data.mouseClicked            = true
+            playerTank.data.mouseWasDown            = false
         else
             playerTank.data.mouseMapCoords = nil
             playerTank.data.mouseWasDown   = false

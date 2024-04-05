@@ -5,14 +5,14 @@ GameLevelData     = {}
 GameLevelData.new = function(name, levelAsset, startX, startY, baseTile, playerBase, enemyBase)
     baseTile            = baseTile or 1
     local gameLevelData = {
-        name      = name,
-        level     = JsonAsset:load(levelAsset),
-        startX    = startX,
-        startY    = startY,
-        baseTile  = baseTile,
-        tileSize  = 64,
-        tileScale = 0.5,
-        tiles     = {},
+        name       = name,
+        level      = JsonAsset:load(levelAsset),
+        startX     = startX,
+        startY     = startY,
+        baseTile   = baseTile,
+        tileSize   = 64,
+        tileScale  = 0.5,
+        tiles      = {},
         playerBase = playerBase,
         enemyBase  = enemyBase
     }
@@ -22,7 +22,6 @@ GameLevelData.new = function(name, levelAsset, startX, startY, baseTile, playerB
     ---@return GameLevelData
     function gameLevelData.load()
         for key, value in pairs(gameLevelData.level.TilesAssets) do
-            print("Loading tile: [" .. key .. "]=" .. value)
             gameLevelData.tiles[key] = love.graphics.newImage(value)
         end
         return gameLevelData
