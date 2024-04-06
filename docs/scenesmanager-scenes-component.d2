@@ -1,0 +1,67 @@
+ScenesManager: {
+    shape: class
+
+    -screens: Array<Scene>
+    addScene(scene Scene): void
+    removeScene(scene Scene): void
+    draw(): void
+    update(dt float): void
+    -getSceneIndex(scene Scene):integer
+    -sortScenes():void
+}
+
+Scene: {
+    shape: class
+
+    -name: String
+    -order: integer
+    -backgroundColor: Color
+    -components: Array<Component>
+    Scene(name string, order number = nil, backgroundColor Color = nil): void
+    innerLoad():void
+    innerUpdate(dt float):void
+    innerDraw():void
+    innerUnload():void
+    addComponent(component Component):void
+    switchToScene(oldScene Scene, newScene Scene):void
+    \#load():void
+    \#update(dt float):void
+    \#draw():void
+    \#unload():void
+}
+
+Component: {
+    shape: class
+
+    -name: string
+    -bounds: Rectangle
+    -rotation: integer
+    -scale: float
+    -color: Color
+    -visible: boolean
+    -enabled: boolean
+    -data: Table
+    -components: Array<Component>
+
+    innerLoad():void
+    innerUpdate(dt float):void
+    innerDraw():void
+    innerUnload():void
+    isVisible():boolean
+    isEnabled():boolean
+    show():void
+    hide():void
+    disable():void
+    enable():void
+    toggleVisibility():void
+    toggleEnabled():void
+    setPosition(newPositionX integer, newPositionY integer):void
+    setSize(newWidth integer, newHeight integer):void
+    setBounds(newPositionX integer, newPositionY integer, newWidth integer, newHeight integer):void
+    setRotation(newRotation float):void
+    addComponent(component Component):void
+    \#load():void
+    \#update(dt float):void
+    \#draw():void
+    \#unload():void
+}

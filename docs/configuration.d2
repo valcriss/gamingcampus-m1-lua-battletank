@@ -1,0 +1,25 @@
+Configuration: {
+    shape: class
+
+    -data:Table
+    -defaultConfiguration:Table
+    +isFullScreen():boolean
+    +setFullScreen(value boolean):void
+    +getVsync():boolean
+    +getVsyncAsInteger():integer
+    +setVsync(value boolean):boolean
+    +getMusicVolume():float
+    +setMusicVolume(value float):void
+    +getSoundVolume():float
+    +setSoundVolume(value float):void
+    +getDifficulty():integer
+    +setDifficulty(value integer):void
+    +isMaximized():boolean
+    +setMaximized(value boolean):void
+    +getLevel():integer
+    +setLevel(value integer):void
+    +setConfiguration(data Table):void
+    +load():void
+    -save():void
+    -getFileName():string
+}

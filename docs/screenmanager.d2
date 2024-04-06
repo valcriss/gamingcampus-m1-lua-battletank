@@ -1,0 +1,25 @@
+ScreenManager: {
+    shape: class
+
+    -windowWidth: integer
+    -windowHeight: integer
+    -scaleX: float
+    -scaleY: float
+
+    +init(width integer, height integer):void
+    +reload():void
+    +resize():void
+    +calculateCenterPointX():integer
+    +calculateCenterPointY():integer
+    +getWindowWidth():integer
+    +getWindowHeight():integer
+    +getScaleX():float
+    +getScaleY():float
+    +ScaleValueX(x integer):integer
+    +ScaleValueY(y integer):integer
+    +ScaleUIValueX(x integer):integer
+    +ScaleUIValueY(y integer):integer
+    +clear(r integer, g integer, b integer):void
+    -calculateScale():void
+
+}
