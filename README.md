@@ -5,7 +5,7 @@
 ### models/configuration/Configuration.lua
 La classe configuration enregistre dans un fichier les éléments de configuration de l'utilisateur (full-screen, vsync, volume de la musique, volume des effets sonores, niveau de difficulté)
 
-![Configuration](./docs/configuration.svg)
+<img src="./docs/configuration.svg" width="300">
 
 --------
 
@@ -13,7 +13,7 @@ La classe configuration enregistre dans un fichier les éléments de configurati
 ScreenManager permet de gérer les changements de résolution, lors de son initialisation l'objet ScreenManager est initialisé avec la résolution de développement.
 Ensuite la classe permet d'obtenir le ratio à appliquer à chaque composant du jeu afin de s'adapter à la résolution actuelle.
 
-![ScreenManager](./docs/screenmanager.svg)
+<img src="./docs/screenmanager.svg" width="300">
 
 --------
 
