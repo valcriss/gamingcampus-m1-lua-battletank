@@ -9,7 +9,7 @@ GameLevelOne.new    = function()
             12,
             10,
             1,
-            { x = 9, y = 7 },
+            { x = 10, y = 8 },
             { x = 42, y = 41 }
     )
 

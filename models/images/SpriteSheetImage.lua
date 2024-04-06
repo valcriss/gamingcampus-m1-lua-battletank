@@ -56,6 +56,8 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
         spriteSheetImage.data.sourceImage = love.graphics.newImage(imagePath)
         spriteSheetImage.data.itemWidth   = math.floor(spriteSheetImage.data.sourceImage:getWidth() / spriteSheetImage.data.columns)
         spriteSheetImage.data.itemHeight  = math.floor(spriteSheetImage.data.sourceImage:getHeight() / spriteSheetImage.data.rows)
+        spriteSheetImage.bounds.width = spriteSheetImage.data.itemWidth * spriteSheetImage.scale
+        spriteSheetImage.bounds.height = spriteSheetImage.data.itemHeight * spriteSheetImage.scale
         spriteSheetImage.loadDefinition()
     end
 

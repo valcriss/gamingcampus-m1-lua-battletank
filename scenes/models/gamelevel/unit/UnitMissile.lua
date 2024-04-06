@@ -39,41 +39,53 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
     function unitMissile.update(dt)
         if (unitMissile.data.running == false) then return end
         unitMissile.updateMissileMovement(dt)
-        local translated = unitMissile.translateRealPositionToScreenPosition(unitMissile.data.currentX, unitMissile.data.currentY)
-        missile.bounds.x = translated.x
-        missile.bounds.y = translated.y
+        local translated   = unitMissile.translateRealPositionToScreenPosition(unitMissile.data.currentX, unitMissile.data.currentY)
+        missile.bounds.x   = translated.x
+        missile.bounds.y   = translated.y
         explosion.bounds.x = translated.x
         explosion.bounds.y = translated.y
-        missile.scale    = 0.75
-        explosion.scale = 0.4
-        missile.rotation = unitMissile.data.currentRotation
+        missile.scale      = 0.75
+        explosion.scale    = 0.4
+        missile.rotation   = unitMissile.data.currentRotation
     end
 
     function unitMissile.updateMissileMovement(dt)
         if not unitMissile.data.moving then return end
         local vector              = unitMissile.getNormalizedMovementVector()
 
-
         unitMissile.data.currentX = unitMissile.data.currentX + (unitMissile.data.speed * vector.x * dt)
         unitMissile.data.currentY = unitMissile.data.currentY + (unitMissile.data.speed * vector.y * dt)
 
-        local tileIndex = unitMissile.data.gameLevelData.getTileIndexFromRealPosition(unitMissile.data.currentX + (unitMissile.data.gameLevelData.tileSize / 2), unitMissile.data.currentY + (unitMissile.data.gameLevelData.tileSize / 2))
-        local blocked = unitMissile.data.gameLevelData.isTileDecorationBlocked(tileIndex)
+        local tileIndex           = unitMissile.data.gameLevelData.getTileIndexFromRealPosition(unitMissile.data.currentX + (unitMissile.data.gameLevelData.tileSize / 2), unitMissile.data.currentY + (unitMissile.data.gameLevelData.tileSize / 2))
+        local blockedByDecoration = unitMissile.data.gameLevelData.isTileDecorationBlocked(tileIndex)
+        local blockedByUnit       = unitMissile.isBlockedByUnit(unitMissile.data.currentX, unitMissile.data.currentY)
 
-        if blocked then
+        if blockedByDecoration or blockedByUnit then
             unitMissile.data.destinationX = unitMissile.data.currentX
             unitMissile.data.destinationY = unitMissile.data.currentY
         end
 
-        local distance            = unitMissile.distanceToDestination()
+        local distance = unitMissile.distanceToDestination()
 
-        if distance < 5 or blocked then
+        if distance < 5 then
             unitMissile.data.currentX = unitMissile.data.destinationX
             unitMissile.data.currentY = unitMissile.data.destinationY
-            unitMissile.data.moving = false
+            unitMissile.data.moving   = false
             missile.hide()
             explosion.show()
         end
+    end
+
+    function unitMissile.isBlockedByUnit(x, y)
+        for _, unit in ipairs(gameUnits) do
+            if unit.data.realBounds ~= nil then
+                local realUnitBounds = unit.data.realBounds
+                if realUnitBounds.containsPoint(x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
+                    return true
+                end
+            end
+        end
+        return false
     end
 
     function unitMissile.explosionEnds()
@@ -108,7 +120,7 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
         unitMissile.data.currentRotation = rotation
         missile.show()
         unitMissile.data.running = true
-        unitMissile.data.moving = true
+        unitMissile.data.moving  = true
     end
 
     function unitMissile.translateRealPositionToScreenPosition(realX, realY)

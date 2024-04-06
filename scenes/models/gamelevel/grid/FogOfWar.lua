@@ -21,13 +21,21 @@ FogOfWar.new = function(sight, gameLevelData)
     FogOfWar.__index = FogOfWar
 
     function fogOfWar.isTileSeen(tilePosition)
-        local tile = fogOfWar.gameLevelData.getTileIndex(tilePosition)
-        return fogOfWar.seen["seen_" .. tostring(tile)]
+        local tileIndex = fogOfWar.gameLevelData.getTileIndex(tilePosition)
+        return fogOfWar.isTileSeenByIndex(tileIndex)
+    end
+
+    function fogOfWar.isTileSeenByIndex(tileIndex)
+        return fogOfWar.seen["seen_" .. tostring(tileIndex)]
     end
 
     function fogOfWar.isTileInSight(tilePosition)
-        local tile = fogOfWar.gameLevelData.getTileIndex(tilePosition)
-        return fogOfWar.inSight["inSight_" .. tostring(tile)] ~= nil
+        local tileIndex = fogOfWar.gameLevelData.getTileIndex(tilePosition)
+        return fogOfWar.isTileInSightByIndex(tileIndex)
+    end
+
+    function fogOfWar.isTileInSightByIndex(tileIndex)
+        return fogOfWar.inSight["inSight_" .. tostring(tileIndex)] ~= nil
     end
 
     function fogOfWar.draw(x, y, realX, realY)

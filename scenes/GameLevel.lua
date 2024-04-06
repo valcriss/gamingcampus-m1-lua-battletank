@@ -1,13 +1,14 @@
-local Scene        = require "models.scenes.Scene"
-local GameLevelOne = require "scenes.models.gamelevel.leveldata.GameLevelOne"
-local LevelGrid    = require "scenes.models.gamelevel.grid.LevelGrid"
-local Fps          = require "models.tools.Fps"
-local PlayerTank   = require "scenes.models.gamelevel.unit.PlayerTank"
-local Parallax     = require "models.images.Parallax"
-local GameUI       = require "scenes.models.gamelevel.ui.GameUI"
-
+local Scene          = require "models.scenes.Scene"
+local GameLevelOne   = require "scenes.models.gamelevel.leveldata.GameLevelOne"
+local LevelGrid      = require "scenes.models.gamelevel.grid.LevelGrid"
+local Fps            = require "models.tools.Fps"
+local PlayerTank     = require "scenes.models.gamelevel.unit.PlayerTank"
+local Parallax       = require "models.images.Parallax"
+local GameUI         = require "scenes.models.gamelevel.ui.GameUI"
+local MainTower      = require "scenes.models.gamelevel.unit.MainTower"
+local BoundsRenderer = require "models.tools.BoundsRenderer"
 ---@class GameLevel
-GameLevel          = {}
+GameLevel            = {}
 
 function GameLevel:getLevelData()
     if configuration.getLevel() == 1 then return GameLevelOne.new() end
@@ -18,25 +19,32 @@ GameLevel.new = function()
     local gameLevel = Scene.new("GameLevel", 0)
 
     setmetatable(gameLevel, GameLevel)
-    GameLevel.__index   = GameLevel
+    GameLevel.__index    = GameLevel
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
     --- @type Fps
-    local fps           = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 })
+    local fps            = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 })
     --- @type GameLevelData
-    local gameLevelData = GameLevel:getLevelData().load()
+    local gameLevelData  = GameLevel:getLevelData().load()
     --- @type LevelGrid
-    local levelGrid     = LevelGrid.new("levelGrid", gameLevelData)
-    --- @type PlayerTank
-    local playerTank    = PlayerTank.new(gameLevelData)
+    local levelGrid      = LevelGrid.new("levelGrid", gameLevelData)
     --- @type number
-    local moveSpeed     = 600
+    local moveSpeed      = 600
     --- @type Parallax
-    local water         = Parallax.new("water", "assets/gamelevel/water.png", 100)
+    local water          = Parallax.new("water", "assets/gamelevel/water.png", 100)
     --- @type GameUI
-    local gameUI        = GameUI.new("gameUI")
+    local gameUI         = GameUI.new("gameUI")
+    -- ---------------------------------------------
+    -- Units et Building
+    -- ---------------------------------------------
+    --- @type PlayerTank
+    local playerTank     = PlayerTank.new(gameLevelData)
+    --- @type MainTower
+    local mainTowerRed   = MainTower.new("mainTowerRed", gameLevelData.playerBase.x, gameLevelData.playerBase.y, gameLevelData, levelGrid)
+
+    local boundsRenderer = BoundsRenderer.new(levelGrid, gameLevelData)
     -- ---------------------------------------------
     -- Ajout des composants
     -- ---------------------------------------------
@@ -45,7 +53,12 @@ GameLevel.new = function()
     gameLevel.addComponent(levelGrid)
     gameLevel.addComponent(fps)
     gameLevel.addComponent(playerTank)
+    gameLevel.addComponent(mainTowerRed)
     gameLevel.addComponent(gameUI)
+    gameLevel.addComponent(boundsRenderer)
+
+    table.insert(gameUnits, playerTank)
+    table.insert(gameUnits, mainTowerRed)
 
     function gameLevel.update(dt)
         local update = gameLevel.updateInput(dt)
