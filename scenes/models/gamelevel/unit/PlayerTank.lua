@@ -1,10 +1,11 @@
-local Unit     = require "scenes.models.gamelevel.unit.Unit"
+local Unit      = require "scenes.models.gamelevel.unit.Unit"
+local Rectangle = require "models.drawing.Rectangle"
 ---@class PlayerTank
-PlayerTank     = {}
+PlayerTank      = {}
 
 --- @param gameLevelData GameLevelData
-PlayerTank.new = function(gameLevelData)
-    local playerTank = Unit.new("playerTank", "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, gameLevelData)
+PlayerTank.new  = function(gameLevelData)
+    local playerTank = Unit.new("playerTank", "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, gameLevelData, 1)
 
     setmetatable(playerTank, PlayerTank)
     PlayerTank.__index = PlayerTank
@@ -17,9 +18,10 @@ PlayerTank.new = function(gameLevelData)
     end
 
     function playerTank.updateUnit(_)
-        local mouseX, mouseY   = love.mouse.getPosition()
-        local mouseOffset      = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
-        local realUnitPosition = { x = (playerTank.data.viewPort.x), y = (playerTank.data.viewPort.y) }
+        local mouseX, mouseY       = love.mouse.getPosition()
+        local mouseOffset          = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
+        local realUnitPosition     = { x = (playerTank.data.viewPort.x), y = (playerTank.data.viewPort.y) }
+        playerTank.data.realBounds = Rectangle.new(realUnitPosition.x, realUnitPosition.y, playerTank.bounds.width * playerTank.scale, playerTank.bounds.height * playerTank.scale)
         if love.mouse.isDown(1) then
             playerTank.data.mouseMapCoords = nil
             playerTank.data.mouseWasDown   = true
@@ -33,7 +35,7 @@ PlayerTank.new = function(gameLevelData)
             playerTank.data.mouseWasDown   = false
         end
 
-        playerTank.targetPosition(mouseX, mouseY)
+        playerTank.targetPosition(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
     end
 
     return playerTank

@@ -6,7 +6,7 @@ local UnitMissile      = require "scenes.models.gamelevel.unit.UnitMissile"
 ---@class Unit
 Unit                   = {}
 
-Unit.new               = function(name, body, turret, fireAnimation, x, y, gameLevelData)
+Unit.new               = function(name, body, turret, fireAnimation, x, y, gameLevelData, group)
     local unit       = Component.new(
             name,
             {
@@ -23,7 +23,9 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y, gameL
                 startRealPosition       = { x = 0, y = 0 },
                 destinationRealPosition = { x = 0, y = 0 },
                 viewPort                = nil,
-                drawViewPort            = nil
+                drawViewPort            = nil,
+                unitType                = "Tank",
+                unitGroup               = group,
             },
             x,
             y,
@@ -37,8 +39,8 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y, gameL
     local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
     local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale, unit.color)
     local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
-    local missile1   = UnitMissile.new("missile1", gameLevelData)
-    local missile2   = UnitMissile.new("missile2", gameLevelData)
+    local missile1   = UnitMissile.new("missile1", gameLevelData, group)
+    local missile2   = UnitMissile.new("missile2", gameLevelData, group)
 
     unit.addComponent(tankBody)
     unit.addComponent(tankTurret)
@@ -86,8 +88,6 @@ Unit.new               = function(name, body, turret, fireAnimation, x, y, gameL
     end
 
     function unit.targetPosition(targetX, targetY)
-        targetX             = screenManager:ScaleUIValueX(targetX)
-        targetY             = screenManager:ScaleUIValueY(targetY)
         local tankPositionX = unit.bounds.x
         local tankPositionY = unit.bounds.y
         local angle         = math.deg(math.atan2(tankPositionY - targetY, targetX - tankPositionX))

@@ -5,7 +5,7 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 ---@class UnitMissile
 UnitMissile            = {}
 
-UnitMissile.new        = function(name, gameLevelData, missileEnded)
+UnitMissile.new        = function(name, gameLevelData, missileEnded, group)
     local unitMissile = Component.new(name, {
         startX          = 0,
         startY          = 0,
@@ -20,7 +20,9 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
         gameLevelData   = gameLevelData,
         speed           = 2000,
         drawViewPort    = nil,
-        missileEnded    = missileEnded
+        missileEnded    = missileEnded,
+        unitType        = "Missile",
+        unitGroup       = group,
     })
 
     setmetatable(unitMissile, UnitMissile)
@@ -78,9 +80,9 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded)
 
     function unitMissile.isBlockedByUnit(x, y)
         for _, unit in ipairs(gameUnits) do
-            if unit.data.realBounds ~= nil then
+            if unit.data.realBounds ~= nil and not (unit.data.unitType == "Tank" and unit.data.group == unitMissile.data.unitGroup) then
                 local realUnitBounds = unit.data.realBounds
-                if realUnitBounds.containsPoint(x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
+                if realUnitBounds.containsPoint( x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
                     return true
                 end
             end

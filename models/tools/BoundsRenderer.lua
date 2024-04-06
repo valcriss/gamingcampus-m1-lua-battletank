@@ -24,7 +24,7 @@ BoundsRenderer.new = function(levelGrid, gameLevelData)
                 local x = (unit.data.realBounds.x + drawViewPort.x)
                 local y = (unit.data.realBounds.y + drawViewPort.y)
                 love.graphics.setColor(0, 0, 1, 1)
-                love.graphics.rectangle("line", x, y, unit.data.realBounds.width, unit.data.realBounds.height)
+                love.graphics.rectangle("line", screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(unit.data.realBounds.width), screenManager:ScaleValueY(unit.data.realBounds.height))
                 love.graphics.setColor(1, 1, 1, 1)
             end
         end

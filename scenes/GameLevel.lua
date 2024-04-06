@@ -42,8 +42,10 @@ GameLevel.new = function()
     --- @type PlayerTank
     local playerTank     = PlayerTank.new(gameLevelData)
     --- @type MainTower
-    local mainTowerRed   = MainTower.new("mainTowerRed", gameLevelData.playerBase.x, gameLevelData.playerBase.y, gameLevelData, levelGrid)
-
+    local mainTowerRed   = MainTower.new("mainTowerRed", "assets/gamelevel/tower-gun-red.png", gameLevelData.playerBase.x, gameLevelData.playerBase.y, gameLevelData, levelGrid, 1)
+    --- @type MainTower
+    local mainTowerBlue  = MainTower.new("mainTowerRed", "assets/gamelevel/tower-gun-blue.png", gameLevelData.enemyBase.x, gameLevelData.enemyBase.y, gameLevelData, levelGrid, 2)
+    --- @type BoundsRenderer
     local boundsRenderer = BoundsRenderer.new(levelGrid, gameLevelData)
     -- ---------------------------------------------
     -- Ajout des composants
@@ -52,13 +54,16 @@ GameLevel.new = function()
     gameLevel.addComponent(water)
     gameLevel.addComponent(levelGrid)
     gameLevel.addComponent(fps)
-    gameLevel.addComponent(playerTank)
     gameLevel.addComponent(mainTowerRed)
+    gameLevel.addComponent(mainTowerBlue)
+    gameLevel.addComponent(playerTank)
+
     gameLevel.addComponent(gameUI)
     gameLevel.addComponent(boundsRenderer)
 
     table.insert(gameUnits, playerTank)
     table.insert(gameUnits, mainTowerRed)
+    table.insert(gameUnits, mainTowerBlue)
 
     function gameLevel.update(dt)
         local update = gameLevel.updateInput(dt)
