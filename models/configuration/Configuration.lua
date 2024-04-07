@@ -107,11 +107,9 @@ Configuration.new = function()
         local filename = configuration:getFileName()
         local file     = io.open(filename, "r")
         if file == nil then
-            print("Creating new configuration file : " .. filename)
             configuration.data = configuration.defaultConfiguration
             configuration:save()
         else
-            print("Loading configuration file : " .. filename)
             local contents = file:read("*a")
             file:close()
             configuration.data = json.decode(contents)
@@ -120,7 +118,6 @@ Configuration.new = function()
 
     function configuration:save()
         local filename = configuration:getFileName()
-        print("Saving configuration file : " .. filename)
         local file = io.open(filename, "w")
         file:write(json.encode(configuration.data))
         file:close()
