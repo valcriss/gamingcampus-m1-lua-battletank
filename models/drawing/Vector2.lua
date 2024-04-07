@@ -14,7 +14,7 @@ Vector2.new = function(x, y)
     Vector2.__index = Vector2
 
     function vector2.toString()
-        return vector2.x .. " " .. vector2.y
+        return math.floor(vector2.x) .. " " .. math.floor(vector2.y)
     end
 
     return vector2
