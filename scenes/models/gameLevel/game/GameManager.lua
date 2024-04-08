@@ -1,6 +1,7 @@
 local Component = require "models.scenes.Component"
 local ViewPort  = require "scenes.models.gameLevel.game.viewport.ViewPort"
 local GameMap   = require "scenes.models.gameLevel.game.map.GameMap"
+local Parallax  = require "models.images.Parallax"
 
 ---@class GameManager
 GameManager     = {}
@@ -11,14 +12,16 @@ GameManager.new = function(gameLevelData)
     local gameManager = Component.new("GameManager")
 
     setmetatable(gameManager, GameManager)
-    GameManager.__index = GameManager
+    GameManager.__index      = GameManager
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local viewPort      = ViewPort.new(gameManager)
-    local gameMap       = GameMap.new(gameManager)
+    local backgroundParallax = Parallax.new("background", "assets/gameLevel/water.png", 50, "left")
+    local viewPort           = ViewPort.new(gameManager)
+    local gameMap            = GameMap.new(gameManager)
 
+    gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
 

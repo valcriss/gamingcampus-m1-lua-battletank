@@ -28,8 +28,9 @@ GameLevel.new       = function()
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
     gameLevel.addComponent(uiManager)
-    gameLevel.addComponent(debugManager)
-
+    if DEBUG == true then
+        gameLevel.addComponent(debugManager)
+    end
     -- ---------------------------------------------
     -- Private Functions
     -- ---------------------------------------------

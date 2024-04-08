@@ -1,14 +1,14 @@
 local Component = require "models.scenes.Component"
 
 ---@class GameMap
-GameMap = {}
+GameMap         = {}
 
 --- @param gameManager GameManager
-GameMap.new = function(gameManager)
+GameMap.new     = function(gameManager)
     local gameMap = Component.new("GameMap")
 
     setmetatable(gameMap, GameMap)
-    GameMap.__index = GameMap
+    GameMap.__index            = GameMap
 
     -- ---------------------------------------------
     -- Properties
@@ -23,35 +23,36 @@ GameMap.new = function(gameManager)
     function gameMap.update(_)
         tilesToRenderLayout0 = {}
         tilesToRenderLayout1 = {}
-        local renderBounds = gameManager.getViewport().getRenderBounds()
+        local renderBounds   = gameManager.getViewport().getRenderBounds()
 
-        local x = renderBounds.x
-        local y = renderBounds.y
-        local vx = 0
-        local vy = 0
+        local x              = renderBounds.x
+        local y              = renderBounds.y
+        local vx             = 0
+        local vy             = 0
 
         while x <= renderBounds.width do
             while y <= renderBounds.height do
+
                 local tilePosition = gameManager.getGameLevelData().getGridPosition(vx, vy)
                 if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().data.level.Width or tilePosition.y > gameManager.getGameLevelData().data.level.Height) then
                     break
                 end
-                local index = gameManager.getGameLevelData().getTileIndex(tilePosition.x, tilePosition.y)
+                local index            = gameManager.getGameLevelData().getTileIndex(tilePosition.x, tilePosition.y)
                 local tileIndexLayout0 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 0)
                 local tileIndexLayout1 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 1)
-                if tileIndexLayout0 ~= nil then
+                if tileIndexLayout0 ~= nil and y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
                     table.insert(tilesToRenderLayout0, { x = x, y = y, tileIndex = tileIndexLayout0 })
                 end
-                if tileIndexLayout1 ~= nil then
+                if tileIndexLayout1 ~= nil and y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
                     table.insert(tilesToRenderLayout1, { x = x, y = y, tileIndex = tileIndexLayout1 })
                 end
 
-                y = y + gameManager.getGameLevelData().data.level.TileSize
+                y  = y + gameManager.getGameLevelData().data.level.TileSize
                 vy = vy + gameManager.getGameLevelData().data.level.TileSize
             end
-            y = renderBounds.y
+            y  = renderBounds.y
             vy = 0
-            x = x + gameManager.getGameLevelData().data.level.TileSize
+            x  = x + gameManager.getGameLevelData().data.level.TileSize
             vx = vx + gameManager.getGameLevelData().data.level.TileSize
         end
     end

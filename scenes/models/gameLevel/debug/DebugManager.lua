@@ -19,9 +19,24 @@ DebugManager.new    = function(gameManager)
     local viewPortDebug  = ViewPortDebug.new(gameManager)
     local gameMapDebug   = GameMapDebug.new(gameManager)
     local fpsDebug       = FpsDebug.new()
+
     debugManager.addComponent(viewPortDebug)
     debugManager.addComponent(gameMapDebug)
     debugManager.addComponent(fpsDebug)
+
+    function debugManager.update(dt)
+        viewPortDebug.updateBounds(dt)
+        gameMapDebug.updateBounds(dt)
+        fpsDebug.updateBounds(dt)
+        local x       = 10
+        local y       = 10
+        local padding = 10
+        viewPortDebug.setPosition(x, y)
+        y = y + padding + viewPortDebug.bounds.height
+        gameMapDebug.setPosition(x, y)
+        y = y + padding + gameMapDebug.bounds.height
+        fpsDebug.setPosition(x, y)
+    end
 
     return debugManager
 end
