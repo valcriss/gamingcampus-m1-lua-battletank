@@ -17,6 +17,10 @@ Vector2.new = function(x, y)
         return math.floor(vector2.x) .. " " .. math.floor(vector2.y)
     end
 
+    function vector2.distance(x2, y2)
+        return math.sqrt((x2 - vector2.x) * (x2 - vector2.x) + (y2 - vector2.y) * (y2 - vector2.y))
+    end
+
     return vector2
 end
 

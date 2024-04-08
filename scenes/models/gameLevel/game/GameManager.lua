@@ -1,6 +1,7 @@
 local Component = require "models.scenes.Component"
 local ViewPort  = require "scenes.models.gameLevel.game.viewport.ViewPort"
 local GameMap   = require "scenes.models.gameLevel.game.map.GameMap"
+local FogOfWar  = require "scenes.models.gameLevel.game.map.FogOfWar"
 local Parallax  = require "models.images.Parallax"
 
 ---@class GameManager
@@ -20,10 +21,12 @@ GameManager.new = function(gameLevelData)
     local backgroundParallax = Parallax.new("background", "assets/gameLevel/water.png", 50, "left")
     local viewPort           = ViewPort.new(gameManager)
     local gameMap            = GameMap.new(gameManager)
+    local fogOfWar           = FogOfWar.new(gameManager, true)
 
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
+    gameManager.addComponent(fogOfWar)
 
     -- ---------------------------------------------
     -- Public Functions
@@ -61,6 +64,12 @@ GameManager.new = function(gameLevelData)
     ---@return GameMap
     function gameManager.getGameMap()
         return gameMap
+    end
+
+    ---@public
+    ---@return FogOfWar
+    function gameManager.getFogOfWar()
+        return fogOfWar
     end
 
     return gameManager
