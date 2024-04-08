@@ -9,7 +9,7 @@ DebugItem        = {}
 --- @param data Tables
 DebugItem.new    = function(name, color, data)
     data            = data or {}
-    color           = color or { r = 0, g = 0, b = 0, a = 0.5 }
+    color           = color or { r = 0, g = 0, b = 0, a = 0.75 }
     local debugItem = Component.new(name, data)
 
     setmetatable(debugItem, DebugItem)
@@ -20,13 +20,13 @@ DebugItem.new    = function(name, color, data)
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local debug       = BitmapText.new(debugItem.name .. "_debugText", "assets/debug/courier-14.fnt", "Not enough data", "left", "top", 0, 0, nil, nil, 0, 1)
+    local debug       = BitmapText.new(debugItem.name .. "_debugText", "assets/debug/courier-12.fnt", "Not enough data", "left", "top", 0, 0, nil, nil, 0, 1)
     debugItem.addComponent(debug)
 
     function debugItem.updateBounds(dt)
         debugItem.innerUpdate(dt)
         debug.setPosition(debugItem.bounds.x + padding, debugItem.bounds.y + padding)
-        debugItem.setSize(math.max(420, debug.getWidth() + (padding * 2)), debug.getHeight() + (padding * 2))
+        debugItem.setSize(math.max(300, debug.getWidth() + (padding * 2)), debug.getHeight() + (padding * 2))
     end
 
     ---@protected

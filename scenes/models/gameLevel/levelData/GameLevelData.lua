@@ -63,6 +63,10 @@ GameLevelData.new = function()
         return gameLevelData.data.level["Layer" .. tostring(layer)]["cell_" .. tostring(tileIndex)]
     end
 
+    function gameLevelData.isTileBlocked(tileIndex)
+        return gameLevelData.data.level["Block"]["block_" .. tostring(tileIndex)] ~= nil
+    end
+
     -- ---------------------------------------------
     -- Private Functions
     -- ---------------------------------------------
