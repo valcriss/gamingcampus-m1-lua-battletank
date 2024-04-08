@@ -64,7 +64,16 @@ GameLevelData.new = function()
     end
 
     function gameLevelData.isTileBlocked(tileIndex)
-        return gameLevelData.data.level["Block"]["block_" .. tostring(tileIndex)] ~= nil
+        return gameLevelData.data.level["Block"]["block_" .. tostring(tileIndex)] == true
+    end
+
+    function gameLevelData.isTileDecorationBlocked(tileIndex)
+        return gameLevelData.data.level["Layer1"]["cell_" .. tostring(tileIndex)] ~= nil
+    end
+
+    function gameLevelData.isTileBlockedFromGridPosition(gridPosition)
+        local tileIndex = gameLevelData.getTileIndex(gridPosition.x, gridPosition.y)
+        return gameLevelData.isTileBlocked(tileIndex)
     end
 
     -- ---------------------------------------------

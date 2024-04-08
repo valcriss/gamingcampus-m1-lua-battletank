@@ -3,6 +3,7 @@ local ViewPort  = require "scenes.models.gameLevel.game.viewport.ViewPort"
 local GameMap   = require "scenes.models.gameLevel.game.map.GameMap"
 local FogOfWar  = require "scenes.models.gameLevel.game.map.FogOfWar"
 local Parallax  = require "models.images.Parallax"
+local Player    = require "scenes.models.gameLevel.game.entities.Player"
 
 ---@class GameManager
 GameManager     = {}
@@ -21,31 +22,37 @@ GameManager.new = function(gameLevelData)
     local backgroundParallax = Parallax.new("background", "assets/gameLevel/water.png", 50, "left")
     local viewPort           = ViewPort.new(gameManager)
     local gameMap            = GameMap.new(gameManager)
+    local player             = Player.new(gameManager)
     local fogOfWar           = FogOfWar.new(gameManager, true)
 
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
-    gameManager.addComponent(fogOfWar)
+    gameManager.addComponent(player)
+
+    if FOG_OF_WAR then
+        gameManager.addComponent(fogOfWar)
+    end
+
+    local units = {}
 
     -- ---------------------------------------------
     -- Public Functions
     -- ---------------------------------------------
     ---@public
+    function gameManager.load()
+        table.insert(units, player)
+    end
+
+    ---@public
     function gameManager.update(dt)
-        local speed = 500
-        if love.keyboard.isDown("right") or love.keyboard.isDown("d") then
-            viewPort.horizontalMove(speed * dt)
-        end
-        if love.keyboard.isDown("left") or love.keyboard.isDown("q") then
-            viewPort.horizontalMove(-speed * dt)
-        end
-        if love.keyboard.isDown("up") or love.keyboard.isDown("z") then
-            viewPort.verticalMove(-speed * dt)
-        end
-        if love.keyboard.isDown("down") or love.keyboard.isDown("s") then
-            viewPort.verticalMove(speed * dt)
-        end
+        local right  = love.keyboard.isDown("right") or love.keyboard.isDown("d")
+        local left   = love.keyboard.isDown("left") or love.keyboard.isDown("q") or love.keyboard.isDown("a")
+        local top    = love.keyboard.isDown("up") or love.keyboard.isDown("z") or love.keyboard.isDown("w")
+        local bottom = love.keyboard.isDown("down") or love.keyboard.isDown("s")
+
+        viewPort.playerInputs(dt, top, left, bottom, right)
+        player.playerInputs(dt, top, left, bottom, right)
     end
 
     ---@public
@@ -70,6 +77,18 @@ GameManager.new = function(gameLevelData)
     ---@return FogOfWar
     function gameManager.getFogOfWar()
         return fogOfWar
+    end
+
+    ---@public
+    ---@return Player
+    function gameManager.getPlayer()
+        return player
+    end
+
+    ---@public
+    ---@return table
+    function gameManager.getUnits()
+        return units
     end
 
     return gameManager

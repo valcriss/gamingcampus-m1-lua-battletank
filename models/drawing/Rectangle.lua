@@ -44,6 +44,12 @@ Rectangle.new = function(x, y, width, height)
         rectangle.y = positionY
     end
 
+    function rectangle.scale(value)
+        rectangle.width = rectangle.width * value
+        rectangle.height = rectangle.height * value
+        return rectangle
+    end
+
     ---@public
     ---@return Rectangle
     ---@param offsetX number

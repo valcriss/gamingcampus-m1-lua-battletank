@@ -5,7 +5,7 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 ---@class UnitMissile
 UnitMissile            = {}
 
-UnitMissile.new        = function(name, gameLevelData, missileEnded, group)
+UnitMissile.new        = function(name, gameManager, missileEnded, group)
     local unitMissile = Component.new(name, {
         startX          = 0,
         startY          = 0,
@@ -17,7 +17,7 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded, group)
         rotation        = 0,
         running         = false,
         moving          = false,
-        gameLevelData   = gameLevelData,
+        gameManager     = gameManager,
         speed           = 2000,
         drawViewPort    = nil,
         missileEnded    = missileEnded,
@@ -58,8 +58,8 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded, group)
         unitMissile.data.currentX = unitMissile.data.currentX + (unitMissile.data.speed * vector.x * dt)
         unitMissile.data.currentY = unitMissile.data.currentY + (unitMissile.data.speed * vector.y * dt)
 
-        local tileIndex           = unitMissile.data.gameLevelData.getTileIndexFromRealPosition(unitMissile.data.currentX + (unitMissile.data.gameLevelData.tileSize / 2), unitMissile.data.currentY + (unitMissile.data.gameLevelData.tileSize / 2))
-        local blockedByDecoration = unitMissile.data.gameLevelData.isTileDecorationBlocked(tileIndex)
+        local tileIndex           = gameManager.getGameLevelData().getTileIndexFromRealPosition(unitMissile.data.currentX + (gameManager.getGameLevelData().data.level.TileSize / 2), unitMissile.data.currentY + (gameManager.getGameLevelData().data.level.TileSize / 2))
+        local blockedByDecoration = gameManager.getGameLevelData().isTileDecorationBlocked(tileIndex)
         local blockedByUnit       = unitMissile.isBlockedByUnit(unitMissile.data.currentX, unitMissile.data.currentY)
 
         if blockedByDecoration or blockedByUnit then
@@ -82,7 +82,7 @@ UnitMissile.new        = function(name, gameLevelData, missileEnded, group)
         for _, unit in ipairs(gameUnits) do
             if unit.data.realBounds ~= nil and not (unit.data.unitType == "Tank" and unit.data.group == unitMissile.data.unitGroup) then
                 local realUnitBounds = unit.data.realBounds
-                if realUnitBounds.containsPoint( x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
+                if realUnitBounds.containsPoint(x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
                     return true
                 end
             end
