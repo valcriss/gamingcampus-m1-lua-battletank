@@ -41,7 +41,7 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
     function unitMissile.update(dt)
         if (unitMissile.data.running == false) then return end
         unitMissile.updateMissileMovement(dt)
-        local translated   = unitMissile.translateRealPositionToScreenPosition(unitMissile.data.currentX, unitMissile.data.currentY)
+        local translated   = gameManager.getViewport().transformPointWorldToViewport({ x = unitMissile.data.currentX, y = unitMissile.data.currentY })
         missile.bounds.x   = translated.x
         missile.bounds.y   = translated.y
         explosion.bounds.x = translated.x
@@ -79,10 +79,10 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
     end
 
     function unitMissile.isBlockedByUnit(x, y)
-        for _, unit in ipairs(gameUnits) do
-            if unit.data.realBounds ~= nil and not (unit.data.unitType == "Tank" and unit.data.group == unitMissile.data.unitGroup) then
-                local realUnitBounds = unit.data.realBounds
-                if realUnitBounds.containsPoint(x + unitMissile.data.gameLevelData.tileSize / 2, y + unitMissile.data.gameLevelData.tileSize / 2) then
+        for _, unit in ipairs(gameManager.getUnits()) do
+            if unit.getCollider() ~= nil and not (unit.getType() == "Tank" and unit.getGroup() == unitMissile.data.unitGroup) then
+                local realUnitBounds = unit.getCollider()
+                if realUnitBounds.containsPoint(x + gameManager.getGameLevelData().data.level.TileSize / 2, y + gameManager.getGameLevelData().data.level.TileSize / 2) then
                     return true
                 end
             end
