@@ -39,7 +39,9 @@ GameLevelData.new = function()
     ---@param gridY number
     ---@return number
     function gameLevelData.getTileIndex(gridX, gridY)
-        return ((gridY - 1) * gameLevelData.data.level.Width) + gridX
+        local index = ((gridY - 1) * gameLevelData.data.level.Width) + gridX
+        if index < 1 or index > gameLevelData.data.level.Width * gameLevelData.data.level.Height then return nil end
+        return index
     end
 
     ---@public

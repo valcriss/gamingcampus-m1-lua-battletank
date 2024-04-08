@@ -25,14 +25,13 @@ ViewPortDebug.new = function(gameManager)
         debug.setContent(
                 "Viewport.getRealBounds      : " .. gameManager.getViewport().getRealBounds().toString() .. "\n" ..
                         "Viewport.getRealPosition    : " .. gameManager.getViewport().getRealPosition().toString() .. "\n" ..
-                        "Viewport.getMapBounds       : " .. gameManager.getViewport().getMapBounds().toString() .. "\n" ..
-                        "Viewport.getMapRenderBounds : " .. gameManager.getViewport().getMapRenderBounds().toString()
+                        "Viewport.getRenderBounds    : " .. gameManager.getViewport().getRenderBounds().toString()
         )
     end
 
     ---@public
     function viewPortDebug.draw()
-        love.graphics.setColor(0, 0, 0, 0.5)
+        love.graphics.setColor(1, 0, 0, 0.5)
         love.graphics.rectangle("fill", screenManager:ScaleValueX(10), screenManager:ScaleValueY(10), screenManager:ScaleValueX(420), screenManager:ScaleValueY(75))
         love.graphics.setColor(1, 1, 1, 1)
     end

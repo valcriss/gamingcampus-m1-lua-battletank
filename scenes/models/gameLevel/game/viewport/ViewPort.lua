@@ -12,15 +12,14 @@ ViewPort.new    = function(gameManager)
     }, 0, 0)
 
     setmetatable(viewPort, ViewPort)
-    ViewPort.__index      = ViewPort
+    ViewPort.__index   = ViewPort
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local maxBounds       = Rectangle.new()
-    local realBounds      = Rectangle.new()
-    local mapBounds       = Rectangle.new()
-    local mapRenderBounds = Rectangle.new()
+    local maxBounds    = Rectangle.new()
+    local realBounds   = Rectangle.new()
+    local renderBounds = Rectangle.new()
 
     -- ---------------------------------------------
     -- Public Functions
@@ -34,7 +33,7 @@ ViewPort.new    = function(gameManager)
     ---@public
     function viewPort.update(_)
         viewPort.updateRealBounds()
-        viewPort.updateMapBounds()
+        viewPort.updateRenderBounds()
         viewPort.restrictViewPortPosition()
     end
 
@@ -46,14 +45,14 @@ ViewPort.new    = function(gameManager)
 
     ---@public
     ---@return Rectangle
-    function viewPort.getMapBounds()
-        return mapBounds
+    function viewPort.getRenderBounds()
+        return renderBounds
     end
 
     ---@public
     ---@return Rectangle
-    function viewPort.getMapRenderBounds()
-        return mapRenderBounds
+    function viewPort.getMaxBounds()
+        return maxBounds
     end
 
     ---@public
@@ -86,32 +85,10 @@ ViewPort.new    = function(gameManager)
     end
 
     ---@private
-    function viewPort.updateMapBounds()
-        -- Calcul de la largeur et hauteur maximum
-        local maxWidth  = gameManager.getGameLevelData().data.level.Width * gameManager.getGameLevelData().data.level.TileSize
-        local maxHeight = gameManager.getGameLevelData().data.level.Height * gameManager.getGameLevelData().data.level.TileSize
-        -- Calcul de la position du viewport
-        local x         = screenManager:calculateCenterPointX() - viewPort.bounds.x
-        local y         = screenManager:calculateCenterPointY() - viewPort.bounds.y
-        local width     = screenManager:getWindowWidth()
-        local height    = screenManager:getWindowHeight()
-
-        -- Calcul du viewport limité par la fenêtre
-        if realBounds.x < 0 then
-            width = screenManager:getWindowWidth() + realBounds.x
-        end
-        if realBounds.x + width > maxWidth then
-            width = maxWidth - realBounds.x
-        end
-        if realBounds.y < 0 then
-            height = screenManager:getWindowHeight() + realBounds.y
-        end
-        if realBounds.y + height > maxHeight then
-            height = maxHeight - realBounds.y
-        end
-        local offset    = gameManager.getGameLevelData().data.level.TileSize / 2
-        mapBounds       = Rectangle.new(x, y, width, height).offsetPosition(-offset, -offset).offsetSize(offset * 2, offset * 2)
-        mapRenderBounds = Rectangle.new(math.max(0, realBounds.x), math.max(0, realBounds.y), width, height)
+    function viewPort.updateRenderBounds()
+        local drawX  = (screenManager:getWindowWidth() / 2) - viewPort.bounds.x - (gameManager.getGameLevelData().data.level.TileSize / 2)
+        local drawY  = (screenManager:getWindowHeight() / 2) - viewPort.bounds.y - (gameManager.getGameLevelData().data.level.TileSize / 2)
+        renderBounds   = Rectangle.new(drawX, drawY, screenManager:getWindowWidth(), screenManager:getWindowHeight())
     end
 
     return viewPort

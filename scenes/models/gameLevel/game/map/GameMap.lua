@@ -23,30 +23,37 @@ GameMap.new     = function(gameManager)
     function gameMap.update(_)
         tilesToRenderLayout0 = {}
         tilesToRenderLayout1 = {}
-        local renderBounds   = gameManager.getViewport().getMapRenderBounds()
-        local mapBounds      = gameManager.getViewport().getMapBounds()
-        local renderX        = mapBounds.x
-        local renderY        = mapBounds.y
-        local tileSize       = gameManager.getGameLevelData().data.level.TileSize
+        local realPosition   = gameManager.getViewport().getRealPosition()
+        local renderBounds   = gameManager.getViewport().getRenderBounds()
 
-        for realX = renderBounds.x, renderBounds.width, tileSize do
-            for realY = renderBounds.y, renderBounds.height, tileSize do
-                local index      = gameManager.getGameLevelData().getTileIndexFromRealPosition(realX, realY)
-                local tileIndex0 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 0)
+        local x              = renderBounds.x
+        local y              = renderBounds.y
+        local vx             = realPosition.x
+        local vy             = realPosition.y
+        print("x: " .. x .. " y: " .. y .. " vx: " .. vx .. " vy: " .. vy)
+        while x <= renderBounds.width do
+            while y <= renderBounds.height do
+                if x < -gameManager.getGameLevelData().data.level.TileSize or y < -gameManager.getGameLevelData().data.level.TileSize then break end
+                local tilePosition = gameManager.getGameLevelData().getGridPosition(vx, vy)
+                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().data.level.Width or tilePosition.y > gameManager.getGameLevelData().data.level.Height) then
+                    break
+                end
+                local index      = gameManager.getGameLevelData().getTileIndex(tilePosition.x, tilePosition.y)
+                local tileIndex0 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 0) or "tile_56"
                 local tileIndex1 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 1)
-
-                if tileIndex0 == nil then tileIndex0 = "tile_56" end
-
                 if tileIndex0 ~= nil then
-                    table.insert(tilesToRenderLayout0, { x = renderX, y = renderY, tileIndex = tileIndex0 })
+                    table.insert(tilesToRenderLayout0, { x = x, y = y, tileIndex = tileIndex0 })
                 end
                 if tileIndex1 ~= nil then
-                    table.insert(tilesToRenderLayout1, { x = renderX, y = renderY, tileIndex = tileIndex1 })
+                    table.insert(tilesToRenderLayout1, { x = x, y = y, tileIndex = tileIndex1 })
                 end
-                renderY = renderY + tileSize
+                y  = y + gameManager.getGameLevelData().data.level.TileSize
+                vy = vy + gameManager.getGameLevelData().data.level.TileSize
             end
-            renderY = mapBounds.y
-            renderX = renderX + tileSize
+            y  = renderBounds.y
+            vy = realPosition.y
+            x  = x + gameManager.getGameLevelData().data.level.TileSize
+            vx = vx + gameManager.getGameLevelData().data.level.TileSize
         end
     end
 

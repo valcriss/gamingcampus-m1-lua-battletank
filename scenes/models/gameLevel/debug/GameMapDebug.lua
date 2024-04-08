@@ -30,8 +30,8 @@ GameMapDebug.new    = function(gameManager)
 
     ---@public
     function gameMapDebug.draw()
-        love.graphics.setColor(0, 0, 0, 0.5)
-        love.graphics.rectangle("fill", screenManager:ScaleValueX(10), screenManager:ScaleValueY(100), screenManager:ScaleValueX(420), screenManager:ScaleValueY(75))
+        love.graphics.setColor(1, 1, 0, 0.5)
+        love.graphics.rectangle("fill", screenManager:ScaleValueX(10), screenManager:ScaleValueY(100), screenManager:ScaleValueX(420), screenManager:ScaleValueY(50))
         love.graphics.setColor(1, 1, 0, 1)
         love.graphics.circle("fill", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), 5)
         love.graphics.setColor(1, 1, 1, 1)
