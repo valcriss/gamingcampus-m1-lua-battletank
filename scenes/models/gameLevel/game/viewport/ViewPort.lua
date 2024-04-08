@@ -27,7 +27,7 @@ ViewPort.new = function(gameManager)
     ---@public
     function viewPort.load()
         maxBounds = Rectangle.new(0, 0, gameManager.getGameLevelData().data.level.Width * gameManager.getGameLevelData().data.level.TileSize, gameManager.getGameLevelData().data.level.Height * gameManager.getGameLevelData().data.level.TileSize)
-        viewPort.bounds.setPoint(gameManager.getGameLevelData().data.level.StartX, gameManager.getGameLevelData().data.level.StartY)
+        viewPort.bounds.setPoint(gameManager.getGameLevelData().data.level.StartX * gameManager.getGameLevelData().data.level.TileSize, gameManager.getGameLevelData().data.level.StartY * gameManager.getGameLevelData().data.level.TileSize)
     end
 
     ---@public

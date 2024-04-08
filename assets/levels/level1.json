@@ -2,17 +2,17 @@
   "Name": "Level 1",
   "Width": 50,
   "Height": 50,
-  "StartX": 0,
-  "StartY": 0,
+  "StartX": 12,
+  "StartY": 10,
   "TileSize": 64,
   "TileScale": 0.5,
   "PlayerBase": {
-    "x": 0,
-    "y": 0
+    "x": 10,
+    "y": 8
   },
   "EnemyBase": {
-    "x": 0,
-    "y": 0
+    "x": 42,
+    "y": 41
   },
   "TilesAssets": {
     "tile_1": "assets/gamelevel/tiles/tile_01.png",
