@@ -33,6 +33,12 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    ---@return Vector2
+    function rectangle.getCenter()
+        return Vector2.new(rectangle.x + (rectangle.width / 2), rectangle.y + (rectangle.height / 2))
+    end
+
+    ---@public
     function rectangle.setPoint(positionX, positionY)
         rectangle.x = positionX
         rectangle.y = positionY

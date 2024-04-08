@@ -2,23 +2,23 @@ local Component = require "models.scenes.Component"
 local Rectangle = require "models.drawing.Rectangle"
 
 ---@class ViewPort
-ViewPort        = {}
+ViewPort = {}
 
 ---@param gameManager GameManager
-ViewPort.new    = function(gameManager)
+ViewPort.new = function(gameManager)
 
     local viewPort = Component.new("ViewPort", {
         gameManager = gameManager
     }, 0, 0)
 
     setmetatable(viewPort, ViewPort)
-    ViewPort.__index   = ViewPort
+    ViewPort.__index = ViewPort
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local maxBounds    = Rectangle.new()
-    local realBounds   = Rectangle.new()
+    local maxBounds = Rectangle.new()
+    local realBounds = Rectangle.new()
     local renderBounds = Rectangle.new()
 
     -- ---------------------------------------------
@@ -88,7 +88,7 @@ ViewPort.new    = function(gameManager)
     function viewPort.updateRenderBounds()
         local drawX  = (screenManager:getWindowWidth() / 2) - viewPort.bounds.x - (gameManager.getGameLevelData().data.level.TileSize / 2)
         local drawY  = (screenManager:getWindowHeight() / 2) - viewPort.bounds.y - (gameManager.getGameLevelData().data.level.TileSize / 2)
-        renderBounds   = Rectangle.new(drawX, drawY, screenManager:getWindowWidth(), screenManager:getWindowHeight())
+        renderBounds = Rectangle.new(drawX, drawY, screenManager:getWindowWidth(), screenManager:getWindowHeight())
     end
 
     return viewPort
