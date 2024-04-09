@@ -65,13 +65,15 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
         unitMissile.data.currentY = unitMissile.data.currentY + (unitMissile.data.speed * vector.y * dt)
 
         local tileIndex = gameManager.getGameLevelData().getTileIndexFromRealPosition(unitMissile.data.currentX, unitMissile.data.currentY)
-        local blockedByDecoration = gameManager.getGameLevelData().isTileDecorationBlocked(tileIndex)
+        local blockedByEnvironment = gameManager.getGameLevelData().isTileEnvironmentBlocked(tileIndex)
         local blockedByUnit = unitMissile.isBlockedByUnit(unitMissile.data.currentX, unitMissile.data.currentY)
 
-        if blockedByDecoration or blockedByUnit then
-            print("Missile Blocked!", tostring(blockedByDecoration), tostring(blockedByUnit))
-            unitMissile.data.destinationX = unitMissile.data.currentX
-            unitMissile.data.destinationY = unitMissile.data.currentY
+        if blockedByEnvironment then
+            print("Missile Blocked by Environment")
+            unitMissile.blockMissile()
+        elseif blockedByUnit then
+            print("Missile Blocked by Unit")
+            unitMissile.blockMissile()
         end
 
         local distance = unitMissile.distanceToDestination()
@@ -83,6 +85,11 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
             missile.hide()
             explosion.show()
         end
+    end
+
+    function unitMissile.blockMissile()
+        unitMissile.data.destinationX = unitMissile.data.currentX
+        unitMissile.data.destinationY = unitMissile.data.currentY
     end
 
     function unitMissile.isBlockedByUnit(x, y)

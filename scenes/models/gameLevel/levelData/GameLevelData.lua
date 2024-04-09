@@ -67,7 +67,7 @@ GameLevelData.new = function()
         return gameLevelData.data.level["Block"]["block_" .. tostring(tileIndex)] == true
     end
 
-    function gameLevelData.isTileDecorationBlocked(tileIndex)
+    function gameLevelData.isTileEnvironmentBlocked(tileIndex)
         return gameLevelData.data.level["Layer1"]["cell_" .. tostring(tileIndex)] ~= nil and gameLevelData.isTileBlocked(tileIndex)
     end
 
