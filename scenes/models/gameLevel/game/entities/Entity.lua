@@ -1,14 +1,14 @@
 local Component = require "models.scenes.Component"
 ---@class Entity
-Entity          = {}
+Entity = {}
 
-Entity.new      = function(name, unitType, unitGroup, x, y, width, height, rotation, scale)
-    x            = x or 0
-    y            = y or 0
-    width        = width or 0
-    height       = height or 0
-    rotation     = rotation or 0
-    scale        = scale or 1
+Entity.new = function(name, unitType, unitGroup, x, y, width, height, rotation, scale)
+    x = x or 0
+    y = y or 0
+    width = width or 0
+    height = height or 0
+    rotation = rotation or 0
+    scale = scale or 1
     local entity = Component.new(name, {}, x, y, width, height, rotation, scale)
 
     setmetatable(entity, Entity)
@@ -17,8 +17,8 @@ Entity.new      = function(name, unitType, unitGroup, x, y, width, height, rotat
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local type     = unitType
-    local group    = unitGroup
+    local type = unitType
+    local group = unitGroup
     local collider
 
     -- ---------------------------------------------

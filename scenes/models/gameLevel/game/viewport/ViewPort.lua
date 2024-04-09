@@ -8,9 +8,7 @@ ViewPort = {}
 ---@param gameManager GameManager
 ViewPort.new = function(gameManager)
 
-    local viewPort = Component.new("ViewPort", {
-        gameManager = gameManager
-    }, 0, 0)
+    local viewPort = Component.new("ViewPort")
 
     setmetatable(viewPort, ViewPort)
     ViewPort.__index = ViewPort
