@@ -21,6 +21,10 @@ MainTower.new          = function(name, gameManager, group)
     local shield      = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
 
     local realPosition
+    local gunRotation = 0
+    local idleRotationSpeed = 10
+    local fastRotationSpeed = 200
+    local distanceThreshold = 450
 
     mainTower.addComponent(tower)
     mainTower.addComponent(gun)
@@ -37,14 +41,51 @@ MainTower.new          = function(name, gameManager, group)
 
     function mainTower.update(dt)
         mainTower.updateMainTower(dt)
+        mainTower.updateGunRotation(dt)
         local screenPosition = gameManager.getViewport().transformPointWorldToViewport(realPosition)
         mainTower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
         tower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
         gun.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
+        gun.rotation = gunRotation
+        shield.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
     end
 
     function mainTower.updateMainTower(_)
 
+    end
+
+    function mainTower.updateGunRotation(dt)
+        realPosition = gameManager.getGameLevelData().getMainTowerWorldPosition(group)
+        local minDistance       = math.huge
+        local targetUnit
+        for _, unit in ipairs(gameManager.getUnits()) do
+            local collider = unit.getCollider()
+            if collider ~= nil and unit.getGroup() ~= group then
+                local distance = realPosition.distance(collider.x, collider.y)
+                if distance < distanceThreshold then
+                    if distance < minDistance then
+                        minDistance = distance
+                        targetUnit  = collider
+                    end
+                end
+            end
+        end
+
+        if targetUnit ~= nil then
+            local targetAngle = -math.deg(math.atan2(realPosition.y - targetUnit.y, targetUnit.x - realPosition.x)) + 90
+            if targetAngle < 0 then targetAngle = targetAngle + 360 end
+            if targetAngle > 360 then targetAngle = targetAngle - 360 end
+            local angleMove = math.min(fastRotationSpeed * dt, math.abs(targetAngle - gunRotation))
+            if gunRotation < targetAngle then
+                gunRotation = gunRotation + angleMove
+            else
+                gunRotation = gunRotation - angleMove
+            end
+        else
+            gunRotation = gunRotation + (idleRotationSpeed * dt)
+        end
+        if gunRotation > 360 then gunRotation = gunRotation - 360 end
+        if gunRotation < 0 then gunRotation = gunRotation + 360 end
     end
 
     return mainTower
