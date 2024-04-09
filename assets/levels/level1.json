@@ -20,6 +20,12 @@
       "y": 42
     }
   ],
+  "Flags": [
+    {
+      "x": 11,
+      "y": 41
+    }
+  ],
   "TilesAssets": {
     "tile_1": "assets/gamelevel/tiles/tile_01.png",
     "tile_2": "assets/gamelevel/tiles/tile_02.png",

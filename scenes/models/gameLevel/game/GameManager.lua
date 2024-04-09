@@ -6,6 +6,7 @@ local Parallax  = require "models.images.Parallax"
 local Player    = require "scenes.models.gameLevel.game.entities.Player"
 local MainTower = require "scenes.models.gameLevel.game.entities.MainTower"
 local Enemy     = require "scenes.models.gameLevel.game.entities.Enemy"
+local Flag      = require "scenes.models.gameLevel.game.entities.Flag"
 
 ---@class GameManager
 GameManager     = {}
@@ -32,9 +33,6 @@ GameManager.new = function(gameLevelData)
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
-    gameManager.addComponent(mainTower1)
-    gameManager.addComponent(mainTower2)
-    gameManager.addComponent(player)
 
     local units = {}
 
@@ -50,13 +48,24 @@ GameManager.new = function(gameLevelData)
         table.insert(units, player)
         table.insert(units, mainTower1)
         table.insert(units, mainTower2)
-
+        -- Chargement des enemies
         for index = 1, #gameLevelData.data.level.EnemyStarts do
             local enemyPosition = gameLevelData.data.level.EnemyStarts[index]
-            local enemy = Enemy.new(enemyPosition, gameManager)
+            local enemy         = Enemy.new(enemyPosition, gameManager)
             gameManager.addComponent(enemy)
             table.insert(units, enemy)
         end
+        -- Chargement des flags
+        for index = 1, #gameLevelData.data.level.Flags do
+            local flagPosition = gameLevelData.data.level.Flags[index]
+            local flag         = Flag.new(gameManager, flagPosition, index)
+            gameManager.addComponent(flag)
+            table.insert(units, flag)
+        end
+        gameManager.addComponent(mainTower1)
+        gameManager.addComponent(mainTower2)
+        gameManager.addComponent(player)
+
     end
 
     ---@public
@@ -69,6 +78,10 @@ GameManager.new = function(gameLevelData)
         viewPort.playerInputs(dt, top, left, bottom, right)
         player.playerInputs(dt, top, left, bottom, right)
     end
+
+    -- ---------------------------------------------
+    -- Getters Functions
+    -- ---------------------------------------------
 
     ---@public
     ---@return ViewPort
@@ -104,6 +117,27 @@ GameManager.new = function(gameLevelData)
     ---@return table
     function gameManager.getUnits()
         return units
+    end
+
+    -- ---------------------------------------------
+    -- Event Handlers Functions
+    -- ---------------------------------------------
+    function gameManager.onUnitTakeDamage(unit, damage, fromGroup)
+        unit.takeDamage(damage, fromGroup)
+    end
+
+    function gameManager.onUnitDead(unit, fromGroup)
+        if unit.getType() == "Flag" then
+            unit.fullHealth()
+            gameManager.onFlagCaptured(unit, fromGroup)
+        elseif unit.getType() == "Tank" then
+            unit.fullHealth()
+            unit.setFrozen(10)
+        end
+    end
+
+    function gameManager.onFlagCaptured(unit, fromGroup)
+        unit.setGroup(fromGroup)
     end
 
     return gameManager

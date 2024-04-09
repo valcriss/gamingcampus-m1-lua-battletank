@@ -2,12 +2,13 @@ local Entity           = require "scenes.models.gameLevel.game.entities.Entity"
 local Image            = require "models.images.Image"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local Rectangle        = require "models.drawing.Rectangle"
+local HealthBar        = require "scenes.models.gameLevel.game.entities.HealthBar"
 
 ---@class MainTower
 MainTower              = {}
 
 MainTower.new          = function(name, gameManager, group)
-    local mainTower = Entity.new(name, "MainTower", group, 0, 0, 128, 128, 0, 0.5)
+    local mainTower = Entity.new(name, gameManager, "MainTower", group, 0, 0, 128, 128, 0, 0.5)
 
     setmetatable(mainTower, MainTower)
     MainTower.__index = MainTower
@@ -15,20 +16,24 @@ MainTower.new          = function(name, gameManager, group)
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-
-    local tower       = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower.png", 0, 0, 0, 0.5)
-    local gun         = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
-    local shield      = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
+    mainTower.setMaxHealth((configuration:getDifficulty() * 500) + 500)
+    mainTower.setHealth((configuration:getDifficulty() * 500) + 500)
+    local tower             = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower.png", 0, 0, 0, 0.5)
+    local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
+    local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
+    local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
 
     local realPosition
-    local gunRotation = 0
+    local gunRotation       = 0
     local idleRotationSpeed = 10
     local fastRotationSpeed = 200
     local distanceThreshold = 450
 
     mainTower.addComponent(tower)
     mainTower.addComponent(gun)
+    mainTower.addComponent(healthBar)
     mainTower.addComponent(shield)
+
 
     -- ---------------------------------------------
     -- Public Functions
@@ -37,15 +42,17 @@ MainTower.new          = function(name, gameManager, group)
     function mainTower.load()
         realPosition = gameManager.getGameLevelData().getMainTowerWorldPosition(group)
         mainTower.setCollider(Rectangle.new(realPosition.x, realPosition.y, mainTower.bounds.width, mainTower.bounds.height).scale(mainTower.scale))
+        mainTower.setCanBeDamaged(false)
     end
 
-    function mainTower.update(dt)
+    function mainTower.entityUpdate(dt)
         mainTower.updateMainTower(dt)
         mainTower.updateGunRotation(dt)
         local screenPosition = gameManager.getViewport().transformPointWorldToViewport(realPosition)
         mainTower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
         tower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
         gun.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
+        healthBar.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
         gun.rotation = gunRotation
         shield.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
     end
@@ -55,8 +62,8 @@ MainTower.new          = function(name, gameManager, group)
     end
 
     function mainTower.updateGunRotation(dt)
-        realPosition = gameManager.getGameLevelData().getMainTowerWorldPosition(group)
-        local minDistance       = math.huge
+        realPosition      = gameManager.getGameLevelData().getMainTowerWorldPosition(group)
+        local minDistance = math.huge
         local targetUnit
         for _, unit in ipairs(gameManager.getUnits()) do
             local collider = unit.getCollider()

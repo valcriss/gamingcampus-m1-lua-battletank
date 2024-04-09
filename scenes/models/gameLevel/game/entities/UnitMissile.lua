@@ -70,8 +70,11 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
 
         if blockedByEnvironment then
             unitMissile.blockMissile()
-        elseif blockedByUnit then
+        elseif blockedByUnit ~= nil then
             unitMissile.blockMissile()
+            if blockedByUnit.getGroup() ~= group then
+                gameManager.onUnitTakeDamage(blockedByUnit, 10, group)
+            end
         end
 
         local distance = unitMissile.distanceToDestination()
@@ -95,11 +98,11 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
             if unit.getCollider() ~= nil and not (unit.getType() == "Tank" and unit.getGroup() == unitMissile.data.unitGroup) then
                 local realUnitBounds = unit.getCollider()
                 if realUnitBounds.containsPoint(x, y) then
-                    return true
+                    return unit
                 end
             end
         end
-        return false
+        return nil
     end
 
     function unitMissile.explosionEnds()
