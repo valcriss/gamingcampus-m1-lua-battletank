@@ -1,5 +1,7 @@
 local JsonAsset   = require "models.tools.JsonAsset"
 local Component   = require "models.scenes.Component"
+local Vector2     = require "models.drawing.Vector2"
+
 ---@class GameLevelData
 GameLevelData     = {}
 
@@ -74,6 +76,27 @@ GameLevelData.new = function()
     function gameLevelData.isTileBlockedFromGridPosition(gridPosition)
         local tileIndex = gameLevelData.getTileIndex(gridPosition.x, gridPosition.y)
         return gameLevelData.isTileBlocked(tileIndex)
+    end
+
+
+    function gameLevelData.getMainTowerWorldPosition(group)
+        if group == 1 then
+            return gameLevelData.getPlayerMainTowerWorldPosition()
+        else
+            return gameLevelData.getEnemyMainTowerWorldPosition()
+        end
+    end
+
+    function gameLevelData.getPlayerMainTowerWorldPosition()
+        return gameLevelData.translateGridPositionToWorldPosition(gameLevelData.data.level.PlayerBase.x, gameLevelData.data.level.PlayerBase.y)
+    end
+
+    function gameLevelData.getEnemyMainTowerWorldPosition()
+        return gameLevelData.translateGridPositionToWorldPosition(gameLevelData.data.level.EnemyBase.x, gameLevelData.data.level.EnemyBase.y)
+    end
+
+    function gameLevelData.translateGridPositionToWorldPosition(x, y)
+        return Vector2.new((x - 1) * gameLevelData.data.level.TileSize, (y - 1) * gameLevelData.data.level.TileSize)
     end
 
     -- ---------------------------------------------

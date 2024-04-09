@@ -1,4 +1,4 @@
-local Component     = require "models.scenes.Component"
+local Component = require "models.scenes.Component"
 local TowerStatusUI = require "scenes.models.gameLevel.ui.TowerStatusUI"
 
 ---@class UIManager

@@ -62,8 +62,8 @@ GameMapTilesDebug.new = function(gameManager)
                 gameMapTilesDebug.drawRectangle("line", cell, { r = 0.5, g = 0.5, b = 0.5, a = 1 })
             end
 
-            gameMapTilesDebug.drawText(cell, tostring(cell.tileIndex), screenManager:ScaleValueY(-15))
-            gameMapTilesDebug.drawText(cell, tostring(math.floor(cell.tilePosition.x)) .. " - " .. tostring(math.floor(cell.tilePosition.y)), screenManager:ScaleValueY(-5))
+            gameMapTilesDebug.drawText(cell, tostring(cell.tileIndex), screenManager:ScaleValueY(-10))
+            gameMapTilesDebug.drawText(cell, tostring(math.floor(cell.tilePosition.x)) .. " - " .. tostring(math.floor(cell.tilePosition.y)), screenManager:ScaleValueY(10))
         end
         love.graphics.setColor(1, 1, 1, 1)
     end

@@ -27,6 +27,12 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    ---@param vector Vector2
+    function rectangle.containsVector2(vector)
+        return vector.x >= rectangle.x and vector.x <= rectangle.x + rectangle.width and vector.y >= rectangle.y and vector.y <= rectangle.y + rectangle.height
+    end
+
+    ---@public
     ---@return Vector2
     function rectangle.getPoint()
         return Vector2.new(rectangle.x, rectangle.y)
@@ -45,7 +51,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     function rectangle.scale(value)
-        rectangle.width = rectangle.width * value
+        rectangle.width  = rectangle.width * value
         rectangle.height = rectangle.height * value
         return rectangle
     end

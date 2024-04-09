@@ -4,6 +4,7 @@ local GameMap   = require "scenes.models.gameLevel.game.map.GameMap"
 local FogOfWar  = require "scenes.models.gameLevel.game.map.FogOfWar"
 local Parallax  = require "models.images.Parallax"
 local Player    = require "scenes.models.gameLevel.game.entities.Player"
+local MainTower = require "scenes.models.gameLevel.game.entities.MainTower"
 
 ---@class GameManager
 GameManager     = {}
@@ -23,12 +24,17 @@ GameManager.new = function(gameLevelData)
     local viewPort           = ViewPort.new(gameManager)
     local gameMap            = GameMap.new(gameManager)
     local player             = Player.new(gameManager)
+    local mainTower1         = MainTower.new("mainTower1", gameManager, 1)
+    local mainTower2         = MainTower.new("mainTower2", gameManager, 2)
     local fogOfWar           = FogOfWar.new(gameManager, true)
 
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
+    gameManager.addComponent(mainTower1)
+    gameManager.addComponent(mainTower2)
     gameManager.addComponent(player)
+
 
     if FOG_OF_WAR then
         gameManager.addComponent(fogOfWar)
@@ -42,6 +48,8 @@ GameManager.new = function(gameLevelData)
     ---@public
     function gameManager.load()
         table.insert(units, player)
+        table.insert(units, mainTower1)
+        table.insert(units, mainTower2)
     end
 
     ---@public

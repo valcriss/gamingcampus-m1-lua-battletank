@@ -1,37 +1,37 @@
-local Rectangle = require "models.drawing.Rectangle"
-local Component = require "models.scenes.Component"
-local Image = require "models.images.Image"
+local Rectangle        = require "models.drawing.Rectangle"
+local Component        = require "models.scenes.Component"
+local Image            = require "models.images.Image"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 ---@class UnitMissile
-UnitMissile = {}
+UnitMissile            = {}
 
-UnitMissile.new = function(name, gameManager, missileEnded, group)
+UnitMissile.new        = function(name, gameManager, missileEnded, group)
     local unitMissile = Component.new(name, {
-        startX = 0,
-        startY = 0,
-        currentX = 0,
-        currentY = 0,
+        startX          = 0,
+        startY          = 0,
+        currentX        = 0,
+        currentY        = 0,
         currentRotation = 0,
-        destinationX = 0,
-        destinationY = 0,
-        rotation = 0,
-        running = false,
-        moving = false,
-        gameManager = gameManager,
-        speed = 2000,
-        drawViewPort = nil,
-        missileEnded = missileEnded,
-        unitType = "Missile",
-        unitGroup = group,
+        destinationX    = 0,
+        destinationY    = 0,
+        rotation        = 0,
+        running         = false,
+        moving          = false,
+        gameManager     = gameManager,
+        speed           = 2000,
+        drawViewPort    = nil,
+        missileEnded    = missileEnded,
+        unitType        = "Missile",
+        unitGroup       = group,
     })
 
     setmetatable(unitMissile, UnitMissile)
     UnitMissile.__index = UnitMissile
 
-    local missile = Image.new(unitMissile.name .. "_missile", "assets/gamelevel/bullet.png", 0, 0)
-    local explosion = SpriteSheetImage.new(unitMissile.name .. "_explosion", "assets/gamelevel/explosion2.png", 5, 4, 3, false, 0, 0, nil, nil, 0, 1, nil, function()
+    local missile       = Image.new(unitMissile.name .. "_missile", "assets/gamelevel/bullet.png", 0, 0)
+    local explosion     = SpriteSheetImage.new(unitMissile.name .. "_explosion", "assets/gamelevel/explosion2.png", 5, 4, 3, false, 0, 0, nil, nil, 0, 1, nil, function()
         unitMissile.explosionEnds()
-    end)                              .hide()
+    end)                                  .hide()
 
     unitMissile.addComponent(missile)
     unitMissile.addComponent(explosion)
@@ -45,34 +45,33 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
             return
         end
         unitMissile.updateMissileMovement(dt)
-        local translated = gameManager.getViewport().transformPointWorldToViewport({ x = unitMissile.data.currentX, y = unitMissile.data.currentY })
-        missile.bounds.x = translated.x
-        missile.bounds.y = translated.y
+        local translated   = gameManager.getViewport().transformPointWorldToViewport({ x = unitMissile.data.currentX, y = unitMissile.data.currentY })
+        missile.bounds.x   = translated.x
+        missile.bounds.y   = translated.y
         explosion.bounds.x = translated.x
         explosion.bounds.y = translated.y
-        missile.scale = 0.75
-        explosion.scale = 0.4
-        missile.rotation = unitMissile.data.currentRotation
+        missile.scale      = 0.75
+        explosion.scale    = 0.4
+        missile.rotation   = unitMissile.data.currentRotation
     end
 
     function unitMissile.updateMissileMovement(dt)
         if not unitMissile.data.moving then
             return
         end
-        local vector = unitMissile.getNormalizedMovementVector()
+        local vector               = unitMissile.getNormalizedMovementVector()
 
-        unitMissile.data.currentX = unitMissile.data.currentX + (unitMissile.data.speed * vector.x * dt)
-        unitMissile.data.currentY = unitMissile.data.currentY + (unitMissile.data.speed * vector.y * dt)
+        unitMissile.data.currentX  = unitMissile.data.currentX + (unitMissile.data.speed * vector.x * dt)
+        unitMissile.data.currentY  = unitMissile.data.currentY + (unitMissile.data.speed * vector.y * dt)
 
-        local tileIndex = gameManager.getGameLevelData().getTileIndexFromRealPosition(unitMissile.data.currentX, unitMissile.data.currentY)
+        local tileIndex            = gameManager.getGameLevelData().getTileIndexFromRealPosition(unitMissile.data.currentX, unitMissile.data.currentY)
         local blockedByEnvironment = gameManager.getGameLevelData().isTileEnvironmentBlocked(tileIndex)
-        local blockedByUnit = unitMissile.isBlockedByUnit(unitMissile.data.currentX, unitMissile.data.currentY)
+        local blockedByUnit        = unitMissile.isBlockedByUnit(unitMissile.data.currentX, unitMissile.data.currentY)
 
         if blockedByEnvironment then
             print("Missile Blocked by Environment")
             unitMissile.blockMissile()
         elseif blockedByUnit then
-            print("Missile Blocked by Unit")
             unitMissile.blockMissile()
         end
 
@@ -81,7 +80,7 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
         if distance < 5 then
             unitMissile.data.currentX = unitMissile.data.destinationX
             unitMissile.data.currentY = unitMissile.data.destinationY
-            unitMissile.data.moving = false
+            unitMissile.data.moving   = false
             missile.hide()
             explosion.show()
         end
@@ -96,8 +95,8 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
         for _, unit in ipairs(gameManager.getUnits()) do
             if unit.getCollider() ~= nil and not (unit.getType() == "Tank" and unit.getGroup() == unitMissile.data.unitGroup) then
                 local realUnitBounds = unit.getCollider()
-                print("Missile Blocked by: ", unit.name, unit.getType(), unit.getGroup())
-                if realUnitBounds.containsPoint(x - (gameManager.getGameLevelData().data.level.TileSize / 2), y - (gameManager.getGameLevelData().data.level.TileSize / 2)) then
+                if realUnitBounds.containsPoint(x, y) then
+                    print("Missile Blocked by Unit : ", unit.name, unit.getType(), unit.getGroup())
                     return true
                 end
             end
@@ -115,29 +114,29 @@ UnitMissile.new = function(name, gameManager, missileEnded, group)
     end
 
     function unitMissile.distanceToDestination()
-        local vector = { x = unitMissile.data.destinationX - unitMissile.data.currentX, y = unitMissile.data.destinationY - unitMissile.data.currentY }
+        local vector    = { x = unitMissile.data.destinationX - unitMissile.data.currentX, y = unitMissile.data.destinationY - unitMissile.data.currentY }
         local magnitude = math.sqrt(vector.x ^ 2 + vector.y ^ 2)
         return magnitude
     end
 
     function unitMissile.getNormalizedMovementVector()
-        local vector = { x = unitMissile.data.destinationX - unitMissile.data.currentX, y = unitMissile.data.destinationY - unitMissile.data.currentY }
+        local vector    = { x = unitMissile.data.destinationX - unitMissile.data.currentX, y = unitMissile.data.destinationY - unitMissile.data.currentY }
         local magnitude = math.sqrt(vector.x ^ 2 + vector.y ^ 2)
         return { x = vector.x / magnitude, y = vector.y / magnitude }
     end
 
     function unitMissile.fire(startX, startY, destinationX, destinationY, rotation)
-        unitMissile.data.startX = startX
-        unitMissile.data.startY = startY
-        unitMissile.data.destinationX = destinationX
-        unitMissile.data.destinationY = destinationY
-        unitMissile.data.rotation = rotation
-        unitMissile.data.currentX = startX
-        unitMissile.data.currentY = startY
+        unitMissile.data.startX          = startX
+        unitMissile.data.startY          = startY
+        unitMissile.data.destinationX    = destinationX
+        unitMissile.data.destinationY    = destinationY
+        unitMissile.data.rotation        = rotation
+        unitMissile.data.currentX        = startX
+        unitMissile.data.currentY        = startY
         unitMissile.data.currentRotation = rotation
         missile.show()
         unitMissile.data.running = true
-        unitMissile.data.moving = true
+        unitMissile.data.moving  = true
     end
 
     function unitMissile.translateRealPositionToScreenPosition(realX, realY)

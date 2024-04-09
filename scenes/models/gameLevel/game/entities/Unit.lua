@@ -9,12 +9,19 @@ Unit                   = {}
 Unit.new               = function(name, gameManager, body, turret, fireAnimation, x, y, group)
     local unit       = Entity.new(name, "Tank", group, x, y, 128, 128, 0, 0.5)
 
+    setmetatable(unit, Unit)
+    Unit.__index = Unit
+
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+
     local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
     local missile1   = UnitMissile.new("missile1", gameManager, nil, group)
-    local missile2   = UnitMissile.new("missile2", gameManager, nil,group)
-    --
+    local missile2   = UnitMissile.new("missile2", gameManager, nil, group)
+
     unit.addComponent(tankBody)
     unit.addComponent(tankTurret)
     unit.addComponent(tankFire)
@@ -25,8 +32,9 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     local startRealPosition
     local destinationRealPosition
 
-    setmetatable(unit, Unit)
-    Unit.__index = Unit
+    -- ---------------------------------------------
+    -- Public Functions
+    -- ---------------------------------------------
 
     function unit.update(dt)
         unit.updateUnit(dt)

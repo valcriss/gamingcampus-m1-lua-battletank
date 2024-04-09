@@ -1,22 +1,30 @@
-local Unit = require "scenes.models.gameLevel.game.entities.Unit"
+local Unit      = require "scenes.models.gameLevel.game.entities.Unit"
 local Rectangle = require "models.drawing.Rectangle"
 
 ---@class Player
-Player = {}
+Player          = {}
 
 --- @param gameManager GameManager
-Player.new = function(gameManager)
+Player.new      = function(gameManager)
     local player = Unit.new("Player", gameManager, "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), 1)
 
     setmetatable(player, Player)
-    Player.__index = Player
+    Player.__index     = Player
+
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
 
     local mouseWasDown = false
     local mouseClicked = false
 
+    -- ---------------------------------------------
+    -- Public Functions
+    -- ---------------------------------------------
+
     function player.updateUnit(_)
         local mouseX, mouseY = love.mouse.getPosition()
-        local worldPosition = gameManager.getViewport().getRealPosition()
+        local worldPosition  = gameManager.getViewport().getRealPosition()
         player.setCollider(Rectangle.new(worldPosition.x, worldPosition.y, player.bounds.width, player.bounds.height).scale(player.scale))
         player.targetPosition(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if love.mouse.isDown(1) then
