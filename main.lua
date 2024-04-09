@@ -1,8 +1,10 @@
+local DIRECT_TO_MAP = false
+
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"
 local ScenesManager = require "models.scenes.ScenesManager"
 local Configuration = require "models.configuration.Configuration"
--- local SplashScreen  = require "scenes.SplashScreen"
+local SplashScreen  = require "scenes.SplashScreen"
 local GameLevel     = require "scenes.GameLevel"
 
 if pcall(require, "lldebugger") then
@@ -21,17 +23,19 @@ scenesManager = ScenesManager:new()
 
 -- Déclaration des variables locales
 -- local splashScreen
-local gameLevel
+--local gameLevel
 -- love.graphics.setDefaultFilter("nearest", "nearest", 0)
 -- Functions
 function love.load()
     configuration:load()
     screenManager:init(1366, 768)
-
-    -- splashScreen = SplashScreen.new(4)
-    -- scenesManager:addScene(splashScreen)
-    gameLevel = GameLevel.new()
-    scenesManager:addScene(gameLevel)
+    if DIRECT_TO_MAP then
+        local gameLevel = GameLevel.new()
+        scenesManager:addScene(gameLevel)
+    else
+        local splashScreen = SplashScreen.new(4)
+        scenesManager:addScene(splashScreen)
+    end
 end
 
 function love.update(dt)
