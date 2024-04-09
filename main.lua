@@ -22,7 +22,7 @@ scenesManager = ScenesManager:new()
 -- Déclaration des variables locales
 -- local splashScreen
 local gameLevel
-
+-- love.graphics.setDefaultFilter("nearest", "nearest", 0)
 -- Functions
 function love.load()
     configuration:load()

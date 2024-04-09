@@ -5,6 +5,7 @@ local FogOfWar  = require "scenes.models.gameLevel.game.map.FogOfWar"
 local Parallax  = require "models.images.Parallax"
 local Player    = require "scenes.models.gameLevel.game.entities.Player"
 local MainTower = require "scenes.models.gameLevel.game.entities.MainTower"
+local Enemy     = require "scenes.models.gameLevel.game.entities.Enemy"
 
 ---@class GameManager
 GameManager     = {}
@@ -35,12 +36,11 @@ GameManager.new = function(gameLevelData)
     gameManager.addComponent(mainTower2)
     gameManager.addComponent(player)
 
+    local units = {}
 
     if FOG_OF_WAR then
         gameManager.addComponent(fogOfWar)
     end
-
-    local units = {}
 
     -- ---------------------------------------------
     -- Public Functions
@@ -50,6 +50,13 @@ GameManager.new = function(gameLevelData)
         table.insert(units, player)
         table.insert(units, mainTower1)
         table.insert(units, mainTower2)
+
+        for index = 1, #gameLevelData.data.level.EnemyStarts do
+            local enemyPosition = gameLevelData.data.level.EnemyStarts[index]
+            local enemy = Enemy.new(enemyPosition, gameManager)
+            gameManager.addComponent(enemy)
+            table.insert(units, enemy)
+        end
     end
 
     ---@public
