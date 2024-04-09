@@ -24,7 +24,6 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     -- Inner functions
     ---@public
     function scene.innerLoad()
-        print("Loading scene : " .. scene.name)
         scene.load()
         for _, subComponent in ipairs(scene.components) do
             subComponent.innerLoad()
@@ -54,7 +53,6 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
 
     ---@public
     function scene.innerUnload()
-        print("Unloading scene : " .. scene.name)
         for _, subComponent in ipairs(scene.components) do
             subComponent.innerUnload()
         end

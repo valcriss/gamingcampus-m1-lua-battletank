@@ -78,7 +78,6 @@ LevelSelect.new        = function()
 
     function levelSelect.onLevelClick(data)
         if mapTank.data.moving then return end
-        print("Go to level " .. data.level)
         mapTankMovement.runPath(data.level, function() levelSelect.startTransitionEnd() end)
         information.disappear()
     end

@@ -7,7 +7,6 @@ local SoundEffect       = require "models.audio.SoundEffect"
 local CreditsFrame      = require "scenes.models.mainmenu.CreditsFrame"
 local ParametersFrame   = require "scenes.models.mainmenu.ParametersFrame"
 local ConfirmationFrame = require "scenes.models.mainmenu.ConfirmationFrame"
-local Fps               = require "models.tools.Fps"
 local LevelSelect       = require "scenes.LevelSelect"
 
 ---@class MainMenu
@@ -20,7 +19,6 @@ MainMenu.new            = function()
     MainMenu.__index         = MainMenu
     local confirmationWith   = 500
     local confirmationHeight = 150
-    local fps                = Fps.new("fps", 10, 10, { r = 1, g = 0, b = 0, a = 1 }).hide()
     local tank               = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 34, nil, 65, true, 750, 600, nil, nil, nil, 0.5)
     local transition         = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() mainMenu.startGame() end).hide().disable()
     local transitionEffect   = SoundEffect.new("transitionEffect", "assets/ui/ascending.mp3", "static", false, false, configuration:getSoundVolume())
@@ -40,7 +38,6 @@ MainMenu.new            = function()
     mainMenu.addComponent(creditsFrame)
     mainMenu.addComponent(parametersFrame)
     mainMenu.addComponent(confirmationFrame)
-    mainMenu.addComponent(fps)
     mainMenu.addComponent(transition)
     mainMenu.addComponent(transitionEffect)
 

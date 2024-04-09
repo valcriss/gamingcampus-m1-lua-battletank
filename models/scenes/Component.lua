@@ -38,7 +38,6 @@ Component.new   = function(name, data, x, y, width, height, rotation, scale, col
     -- Inner functions
     ---@public
     function component.innerLoad()
-        print("Loading Component : " .. component.name)
         component.load()
         for _, subComponent in ipairs(component.components) do
             subComponent.innerLoad()
@@ -69,7 +68,6 @@ Component.new   = function(name, data, x, y, width, height, rotation, scale, col
 
     ---@public
     function component.innerUnload()
-        print("Unloading Component : " .. component.name)
         for _, subComponent in ipairs(component.components) do
             subComponent.innerUnload()
         end

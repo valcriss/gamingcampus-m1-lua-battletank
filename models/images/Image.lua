@@ -47,6 +47,7 @@ Image.new       = function(name, assetPath, x, y, rotation --[[optional]], scale
 
     ---@public
     function image.draw()
+        image.rotation = image.rotation or 0
         love.graphics.draw(image.data.image, screenManager:ScaleValueX(image.bounds.x), screenManager:ScaleValueY(image.bounds.y), math.rad(image.rotation), image.scale * screenManager:getScaleX(), image.scale * screenManager:getScaleY(), image.data.image:getWidth() / 2, image.data.image:getHeight() / 2)
     end
 
