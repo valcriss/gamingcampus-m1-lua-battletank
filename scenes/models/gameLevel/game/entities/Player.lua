@@ -22,7 +22,7 @@ Player.new      = function(gameManager)
         if love.mouse.isDown(1) then
             mouseWasDown   = true
         elseif not love.mouse.isDown(1) and mouseWasDown then
-            player.setStartRealPosition(worldPosition)
+            player.setStartRealPosition(worldPosition.offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2,gameManager.getGameLevelData().data.level.TileSize / 2))
             local mouseOffset = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
             player.setDestinationRealPosition({ x = worldPosition.x + mouseOffset.x, y = worldPosition.y + mouseOffset.y })
             mouseClicked = true
