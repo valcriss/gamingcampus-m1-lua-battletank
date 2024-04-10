@@ -21,13 +21,14 @@ GameLevel.new       = function()
     --- @type GameManager
     local gameManager   = GameManager.new(gameLevelData)
     --- @type UIManager
-    local uiManager     = UIManager.new()
+    local uiManager     = UIManager.new(gameManager)
     --- @type DebugManager
     local debugManager  = DebugManager.new(gameManager)
 
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
     gameLevel.addComponent(uiManager)
+    
     if DEBUG == true then
         gameLevel.addComponent(debugManager)
     end

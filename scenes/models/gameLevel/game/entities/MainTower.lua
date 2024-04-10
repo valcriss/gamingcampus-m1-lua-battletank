@@ -25,6 +25,7 @@ MainTower.new          = function(name, gameManager, group)
 
     local realPosition
     local gunRotation       = 0
+    local shieldActive      = true
     local idleRotationSpeed = 10
     local fastRotationSpeed = 200
     local distanceThreshold = 450
@@ -59,6 +60,18 @@ MainTower.new          = function(name, gameManager, group)
 
     function mainTower.updateMainTower(_)
 
+    end
+
+    function mainTower.setShieldOff()
+        shieldActive = false
+        shield.hide()
+        mainTower.setCanBeDamaged(true)
+    end
+
+    function mainTower.setShieldOn()
+        shieldActive = true
+        shield.show()
+        mainTower.setCanBeDamaged(false)
     end
 
     function mainTower.updateGunRotation(dt)

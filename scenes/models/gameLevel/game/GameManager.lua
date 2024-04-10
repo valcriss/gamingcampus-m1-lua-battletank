@@ -34,7 +34,10 @@ GameManager.new = function(gameLevelData)
     gameManager.addComponent(viewPort)
     gameManager.addComponent(gameMap)
 
-    local units = {}
+    local units                          = {}
+    local onUnitUnderAttackEventHandlers = {}
+    local onUnitDeadEventHandlers        = {}
+    local onFlagCapturedEventHandlers    = {}
 
     if FOG_OF_WAR then
         gameManager.addComponent(fogOfWar)
@@ -65,7 +68,6 @@ GameManager.new = function(gameLevelData)
         gameManager.addComponent(mainTower1)
         gameManager.addComponent(mainTower2)
         gameManager.addComponent(player)
-
     end
 
     ---@public
@@ -119,11 +121,52 @@ GameManager.new = function(gameLevelData)
         return units
     end
 
+    function gameManager.getEnemyUnit()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "Tank" end)
+    end
+
+    function gameManager.getEnemyFlag()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "Flag" end)
+    end
+
+    function gameManager.getPlayerFlag()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 1 and unit.getType() == "Flag" end)
+    end
+
+    function gameManager.getNeutralFlag()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 0 and unit.getType() == "Flag" end)
+    end
+
+    function gameManager.getFlags()
+        return gameManager.getFilteredUnits(function(unit) return unit.getType() == "Flag" end)
+    end
+
+    function gameManager.getEnemyTower()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "MainTower" end)
+    end
+
+    function gameManager.getPlayerTower()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 1 and unit.getType() == "MainTower" end)
+    end
+
+    function gameManager.getFilteredUnits(filter)
+        local filteredUnits = {}
+        for index = 1, #units do
+            if filter(units[index]) then
+                table.insert(filteredUnits, units[index])
+            end
+        end
+        return filteredUnits
+    end
+
     -- ---------------------------------------------
     -- Event Handlers Functions
     -- ---------------------------------------------
     function gameManager.onUnitTakeDamage(unit, damage, fromGroup)
         unit.takeDamage(damage, fromGroup)
+        for index = 1, #onUnitUnderAttackEventHandlers do
+            onUnitUnderAttackEventHandlers[index](unit, damage, fromGroup)
+        end
     end
 
     function gameManager.onUnitDead(unit, fromGroup)
@@ -133,11 +176,53 @@ GameManager.new = function(gameLevelData)
         elseif unit.getType() == "Tank" then
             unit.fullHealth()
             unit.setFrozen(10)
+        elseif unit.getType() == "MainTower" then
+            unit.fullHealth()
+            unit.setCanBeDamaged(false)
+            if unit.getGroup() == 1 then
+                print("Le joueur a perdu")
+            else
+                print("L'ennemi a perdu")
+            end
+        end
+        for index = 1, #onUnitDeadEventHandlers do
+            onUnitDeadEventHandlers[index](unit, fromGroup)
         end
     end
 
     function gameManager.onFlagCaptured(unit, fromGroup)
+        -- Mise a jour du proprietaire du flag
         unit.setGroup(fromGroup)
+        local allFlagsCount    = #gameManager.getFlags()
+        local playerFlagsCount = #gameManager.getPlayerFlag()
+        local enemyFlagsCount  = #gameManager.getEnemyFlag()
+
+        if allFlagsCount == playerFlagsCount then
+            mainTower2.setShieldOff()
+        else
+            mainTower2.setShieldOn()
+        end
+        if allFlagsCount == enemyFlagsCount then
+            mainTower1.setShieldOff()
+        else
+            mainTower1.setShieldOn()
+        end
+
+        for index = 1, #onFlagCapturedEventHandlers do
+            onFlagCapturedEventHandlers[index](unit, fromGroup)
+        end
+    end
+
+    function gameManager.registerOnUnitDeadEventHandler(handler)
+        table.insert(onUnitDeadEventHandlers, handler)
+    end
+
+    function gameManager.registerOnFlagCapturedEventHandler(handler)
+        table.insert(onFlagCapturedEventHandlers, handler)
+    end
+
+    function gameManager.registerOnUnitUnderAttackEventHandler(handler)
+        table.insert(onUnitUnderAttackEventHandlers, handler)
     end
 
     return gameManager
