@@ -15,8 +15,8 @@ Flag.new        = function(gameManager, flagPosition, index)
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    flag.setMaxHealth((configuration:getDifficulty() * 200) + 300)
-    flag.setHealth((configuration:getDifficulty() * 200) + 300)
+    flag.setMaxHealth(configuration:getFlagMaxHealth())
+    flag.setHealth(configuration:getFlagMaxHealth())
     local realPosition
     local tower     = Image.new(flag.name .. "_flag", "assets/gameLevel/flag.png", 0, 0, 0, 0.5)
     local number    = Image.new(flag.name .. "_number", "assets/gameLevel/flag-" .. tostring(index) .. ".png", 0, 0, 0, 0.4)

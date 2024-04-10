@@ -93,6 +93,38 @@ Configuration.new = function()
         configuration:save()
     end
 
+    function configuration:getEnemyRegenHealthAmount()
+        return (9 * configuration:getDifficulty()) + 1
+    end
+
+    function configuration:getPlayerRegenHealthAmount()
+        return 10 - (9 * configuration:getDifficulty())
+    end
+
+    function configuration:getFlagMaxHealth()
+        return (configuration:getDifficulty() * 200) + 300
+    end
+
+    function configuration:getMainTowerMaxHealth()
+        return (configuration:getDifficulty() * 500) + 500
+    end
+
+    function configuration:getEnemyMaxHealth()
+        return (configuration:getDifficulty() * 200) + 150
+    end
+
+    function configuration:getPlayerMaxHealth()
+        return ((1 - (configuration:getDifficulty())) * 200) + 150
+    end
+
+    function configuration:getPlayerDamage()
+        return ((1 - (configuration:getDifficulty())) * 20) + 10
+    end
+
+    function configuration:getEnemyDamage()
+        return 20 - (configuration:getDifficulty() * 10)
+    end
+
     function configuration:setConfiguration(data)
         local needReload   = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
         configuration.data = data
@@ -118,7 +150,7 @@ Configuration.new = function()
 
     function configuration:save()
         local filename = configuration:getFileName()
-        local file = io.open(filename, "w")
+        local file     = io.open(filename, "w")
         file:write(json.encode(configuration.data))
         file:close()
     end

@@ -24,7 +24,7 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
     local isFrozen          = false
     local canRegenHealth    = true
     local isDead            = false
-    local regenHealthAmount = 5
+    local regenHealthAmount = configuration:getEnemyRegenHealthAmount()
     local regenTimer        = 0
     local frozenDuration    = 0
     local currentHealth     = maxHealth
@@ -108,10 +108,11 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
 
     function entity.update(dt)
         entity.entityUpdate(dt)
-        if canRegenHealth and not isDead then
+        if canRegenHealth and not isDead and entity.getHealth() < entity.getMaxHealth() then
             regenTimer = regenTimer + dt
             if regenTimer >= 1 then
                 entity.setHealth(entity.getHealth() + regenHealthAmount)
+                print("Unit " .. entity.name .. " regenerated " .. regenHealthAmount .. " health.")
                 regenTimer = 0
             end
         end

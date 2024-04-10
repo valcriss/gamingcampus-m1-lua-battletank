@@ -16,8 +16,8 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    unit.setMaxHealth((configuration:getDifficulty() * 200) + 150)
-    unit.setHealth((configuration:getDifficulty() * 200) + 150)
+    unit.setMaxHealth(configuration:getEnemyMaxHealth())
+    unit.setHealth(configuration:getEnemyMaxHealth())
     local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()

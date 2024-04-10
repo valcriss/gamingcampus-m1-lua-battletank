@@ -17,7 +17,9 @@ Player.new      = function(gameManager)
 
     local mouseWasDown = false
     local mouseClicked = false
-
+    player.setRegenHealthAmount(configuration:getPlayerRegenHealthAmount())
+    player.setMaxHealth(configuration:getPlayerMaxHealth())
+    player.setHealth(configuration:getPlayerMaxHealth())
     -- ---------------------------------------------
     -- Public Functions
     -- ---------------------------------------------

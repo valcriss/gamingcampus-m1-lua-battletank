@@ -1,4 +1,4 @@
-local DIRECT_TO_MAP = false
+local DIRECT_TO_MAP = true
 
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"

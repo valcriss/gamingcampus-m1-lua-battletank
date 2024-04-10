@@ -5,11 +5,11 @@ local Rectangle = require "models.drawing.Rectangle"
 Enemy           = {}
 
 --- @param gameManager GameManager
-Enemy.new       = function( enemyPosition, gameManager)
-    local enemy = Unit.new("Enemy", gameManager, "assets/gamelevel/tank-body-blue.png", "assets/gamelevel/tank-turret-blue.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, 2)
+Enemy.new       = function(index, enemyPosition, gameManager)
+    local enemy = Unit.new("Enemy-" .. index, gameManager, "assets/gamelevel/tank-body-blue.png", "assets/gamelevel/tank-turret-blue.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, 2)
 
     setmetatable(enemy, Enemy)
-    Enemy.__index    = Enemy
+    Enemy.__index = Enemy
 
     -- ---------------------------------------------
     -- Properties
@@ -20,6 +20,10 @@ Enemy.new       = function( enemyPosition, gameManager)
     -- ---------------------------------------------
 
     function enemy.load()
+        enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+    end
+
+    function enemy.resetPosition()
         enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
     end
 

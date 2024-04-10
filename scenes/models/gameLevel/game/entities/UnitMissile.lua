@@ -73,7 +73,7 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
         elseif blockedByUnit ~= nil then
             unitMissile.blockMissile()
             if blockedByUnit.getGroup() ~= group then
-                gameManager.onUnitTakeDamage(blockedByUnit, 20 - (configuration:getDifficulty() * 10), group)
+                gameManager.onUnitTakeDamage(blockedByUnit, group == 1 and configuration:getPlayerDamage() or configuration:getEnemyDamage(), group)
             end
         end
 

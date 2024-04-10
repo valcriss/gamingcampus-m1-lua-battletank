@@ -54,7 +54,7 @@ GameManager.new = function(gameLevelData)
         -- Chargement des enemies
         for index = 1, #gameLevelData.data.level.EnemyStarts do
             local enemyPosition = gameLevelData.data.level.EnemyStarts[index]
-            local enemy         = Enemy.new(enemyPosition, gameManager)
+            local enemy         = Enemy.new(index, enemyPosition, gameManager)
             gameManager.addComponent(enemy)
             table.insert(units, enemy)
         end
@@ -172,6 +172,7 @@ GameManager.new = function(gameLevelData)
     -- ---------------------------------------------
     function gameManager.onUnitTakeDamage(unit, damage, fromGroup)
         unit.takeDamage(damage, fromGroup)
+        print("Unit " .. unit.name .. " took " .. damage .. " damage from " .. fromGroup)
         for index = 1, #onUnitUnderAttackEventHandlers do
             onUnitUnderAttackEventHandlers[index](unit, damage, fromGroup)
         end
@@ -184,6 +185,11 @@ GameManager.new = function(gameLevelData)
         elseif unit.getType() == "Tank" then
             unit.fullHealth()
             unit.setFrozen(10)
+            if unit.getGroup() == 1 then
+                gameManager.getViewport().resetPosition()
+            else
+                unit.resetPosition()
+            end
         elseif unit.getType() == "MainTower" then
             unit.setCanBeDamaged(false)
             if unit.getGroup() == 1 then

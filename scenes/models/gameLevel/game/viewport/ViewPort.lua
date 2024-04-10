@@ -30,6 +30,11 @@ ViewPort.new    = function(gameManager)
         viewPort.bounds.setPoint(viewPortRealPosition.x, viewPortRealPosition.y)
     end
 
+    function viewPort.resetPosition()
+        local viewPortRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(gameManager.getGameLevelData().data.level.StartX, gameManager.getGameLevelData().data.level.StartY)
+        viewPort.bounds.setPoint(viewPortRealPosition.x, viewPortRealPosition.y)
+    end
+
     ---@public
     function viewPort.update(_)
         viewPort.updateRealBounds()
