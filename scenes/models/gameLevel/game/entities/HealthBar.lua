@@ -42,6 +42,7 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
 
     ---@public
     function healthBar.draw()
+        if renderInfo == nil then return end
         if healthBarValue >= healthBarMaxValue then return end
         if healthBarValue == 0 then return end
         love.graphics.setColor(renderInfo.backgroundColor.r, renderInfo.backgroundColor.g, renderInfo.backgroundColor.b, renderInfo.backgroundColor.a)

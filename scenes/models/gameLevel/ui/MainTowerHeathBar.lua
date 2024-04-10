@@ -42,6 +42,7 @@ MainTowerHeathBar.new = function(name, mainTower)
 
     ---@public
     function mainTowerHeathBar.draw()
+        if renderInfo == nil then return end
         love.graphics.setColor(renderInfo.backgroundColor.r, renderInfo.backgroundColor.g, renderInfo.backgroundColor.b, renderInfo.backgroundColor.a)
         love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.maxWidth), screenManager:ScaleValueY(renderInfo.height), height / 4, height / 4)
         love.graphics.setColor(renderInfo.barColor.r, renderInfo.barColor.g, renderInfo.barColor.b, renderInfo.barColor.a)

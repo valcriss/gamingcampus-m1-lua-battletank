@@ -37,7 +37,7 @@ SliderButton.new  = function(name, assetPath, x, y, action)
         local isDown                     = love.mouse.isDown(1)
         local wasPressed                 = not isDown and sliderButton.data.mouseIsPressed
         sliderButton.data.mouseIsPressed = isDown
-        sliderButton.data.mouseIsOver    = sliderButton.bounds.containsPoint(mouseX, mouseY)
+        sliderButton.data.mouseIsOver    = sliderButton.bounds.containsPoint(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if not sliderButton.data.mouseIsOver then sliderButton.data.mouseIsPressed = false end
         if sliderButton.data.mouseIsOver and wasPressed then
             soundEffect.play()

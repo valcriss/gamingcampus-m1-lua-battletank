@@ -42,7 +42,7 @@ CheckBox.new      = function(name, assetPath, assetCheckedPath, x, y, checked)
         local isDown                 = love.mouse.isDown(1)
         local wasPressed             = not isDown and checkBox.data.mouseIsPressed
         checkBox.data.mouseIsPressed = isDown
-        checkBox.data.mouseIsOver    = checkBox.bounds.containsPoint(mouseX, mouseY)
+        checkBox.data.mouseIsOver    = checkBox.bounds.containsPoint(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if not checkBox.data.mouseIsOver then checkBox.data.mouseIsPressed = false end
 
         if checkBox.data.mouseIsOver and wasPressed then

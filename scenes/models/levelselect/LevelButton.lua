@@ -76,7 +76,7 @@ LevelButton.new   = function(name, enableAssetPath, disableAssetPath, hoverAsset
         local isDown                    = love.mouse.isDown(1)
         local wasPressed                = not isDown and levelButton.data.mouseIsPressed
         levelButton.data.mouseIsPressed = isDown
-        levelButton.data.mouseIsOver    = levelButton.bounds.containsPoint(mouseX, mouseY)
+        levelButton.data.mouseIsOver    = levelButton.bounds.containsPoint(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
 
         if not levelButton.data.mouseIsOver then
             levelButton.data.mouseIsPressed = false

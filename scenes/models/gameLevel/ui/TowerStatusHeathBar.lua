@@ -61,6 +61,7 @@ TowerStatusHeathBar.new = function(name, flagItem, x, y)
 
     ---@public
     function towerStatusHeathBar.draw()
+        if renderInfo == nil then return end
         love.graphics.setColor(1, 1, 1, 1)
         love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(towerStatusHeathBar.bounds.y - offsetY), screenManager:ScaleValueX(width), screenManager:ScaleValueY(height))
 

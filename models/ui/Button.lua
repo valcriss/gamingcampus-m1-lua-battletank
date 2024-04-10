@@ -50,7 +50,7 @@ Button.new        = function(name, assetPath, assetOverPath, assetPressedPath, x
         local isDown               = love.mouse.isDown(1)
         local wasPressed           = not isDown and button.data.mouseIsPressed
         button.data.mouseIsPressed = isDown
-        button.data.mouseIsOver    = button.bounds.containsPoint(mouseX, mouseY)
+        button.data.mouseIsOver    = button.bounds.containsPoint(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if not button.data.mouseIsOver then button.data.mouseIsPressed = false end
 
         if not button.data.mouseIsOver then
