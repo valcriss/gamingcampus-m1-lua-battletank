@@ -58,6 +58,10 @@ Flag.new        = function(gameManager, flagPosition, index)
         end
     end
 
+    function flag.getIndex()
+        return index
+    end
+
     return flag
 end
 

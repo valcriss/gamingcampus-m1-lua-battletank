@@ -4,7 +4,7 @@ local Image           = require "models.images.Image"
 ---@class TowerStatusItemUI
 TowerStatusItemUI     = {}
 
-TowerStatusItemUI.new = function(name, x, y)
+TowerStatusItemUI.new = function(name, index, x, y)
     local towerStatusItemUI = Component.new(name, {}, x, y, 19, 26, 0, 1)
 
     setmetatable(towerStatusItemUI, TowerStatusItemUI)
@@ -13,10 +13,12 @@ TowerStatusItemUI.new = function(name, x, y)
     local towerOwner0         = Image.new(towerStatusItemUI.name .. "_towerOwner0", "assets/gameLevel/ui/tower-owner-0.png", x, y, nil, 1)
     local towerOwner1         = Image.new(towerStatusItemUI.name .. "_towerOwner1", "assets/gameLevel/ui/tower-owner-1.png", x, y, nil, 1)
     local towerOwner2         = Image.new(towerStatusItemUI.name .. "_towerOwner2", "assets/gameLevel/ui/tower-owner-2.png", x, y, nil, 1)
+    local towerNumber         = Image.new(towerStatusItemUI.name .. "_towerNumber", "assets/gameLevel/flag-" .. tostring(index) .. ".png", x, y, nil, 0.25)
 
     towerStatusItemUI.addComponent(towerOwner0)
     towerStatusItemUI.addComponent(towerOwner1)
     towerStatusItemUI.addComponent(towerOwner2)
+    towerStatusItemUI.addComponent(towerNumber)
 
     function towerStatusItemUI.load()
         towerStatusItemUI.setOwner(0)

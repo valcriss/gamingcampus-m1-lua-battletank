@@ -4,7 +4,10 @@ local Component = require "models.scenes.Component"
 HealthBar       = {}
 
 --- @param gameManager GameManager
-HealthBar.new   = function(name, entity)
+HealthBar.new   = function(name, entity, width, height, offsetY)
+    width           = width or 32
+    height          = height or 6
+    offsetY         = offsetY or 16
     local healthBar = Component.new(name)
 
     setmetatable(healthBar, HealthBar)
@@ -24,14 +27,13 @@ HealthBar.new   = function(name, entity)
     ---@public
     function healthBar.update(_)
         healthBarValue = entity.getHealth()
-        local ratio = healthBarValue / healthBarMaxValue
-        local width = 32
-        renderInfo  = {
+        local ratio    = healthBarValue / healthBarMaxValue
+        renderInfo     = {
             x               = healthBar.bounds.x - width / 2,
-            y               = healthBar.bounds.y + 16,
+            y               = healthBar.bounds.y + offsetY,
             maxWidth        = width,
             width           = width * ratio,
-            height          = 6,
+            height          = height,
             backgroundColor = healthBar.getBackgroundRenderColor(),
             borderColor     = healthBar.getBorderRenderColor(),
             barColor        = healthBar.getBarRenderColor()
