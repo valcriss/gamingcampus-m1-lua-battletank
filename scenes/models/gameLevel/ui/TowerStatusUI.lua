@@ -25,7 +25,7 @@ TowerStatusUI.new       = function(name, gameManager)
         local w         = 19 * flagCount + (padding * (flagCount - 1))
         local x         = (screenManager:calculateCenterPointX() - w / 2) + (19 / 2)
         for _, item in ipairs(flags) do
-            local flagItem = TowerStatusItemUI.new(item.name, item.getIndex(), x, 22)
+            local flagItem = TowerStatusItemUI.new(item.name, item, x, 22)
             table.insert(flagItems, flagItem)
             towerStatusUI.addComponent(flagItem)
             x = x + (padding + 19)
@@ -33,12 +33,24 @@ TowerStatusUI.new       = function(name, gameManager)
     end
 
     function towerStatusUI.setFlagCaptured(unit, fromGroup)
+        local flagItem = towerStatusUI.getUnitByName(unit.name)
+        if (flagItem == nil) then return end
+        flagItem.setOwner(fromGroup)
+    end
+
+    function towerStatusUI.setUnitUnderAttack(unit, _, fromGroup)
+        local flagItem = towerStatusUI.getUnitByName(unit.name)
+        if (flagItem == nil) then return end
+        flagItem.updateUnitAttacker(fromGroup)
+    end
+
+    function towerStatusUI.getUnitByName(unitName)
         for _, flagItem in ipairs(flagItems) do
-            if (flagItem.name == unit.name) then
-                flagItem.setOwner(fromGroup)
-                break
+            if (flagItem.name == unitName) then
+                return flagItem
             end
         end
+        return nil
     end
 
     return towerStatusUI

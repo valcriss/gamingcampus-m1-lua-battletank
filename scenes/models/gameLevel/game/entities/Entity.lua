@@ -12,18 +12,22 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
     local entity = Component.new(name, {}, x, y, width, height, rotation, scale)
 
     setmetatable(entity, Entity)
-    Entity.__index       = Entity
+    Entity.__index          = Entity
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local type           = unitType
-    local group          = unitGroup
-    local maxHealth      = 1000
-    local canBeDamaged   = true
-    local isFrozen       = false
-    local frozenDuration = 0
-    local currentHealth  = maxHealth
+    local type              = unitType
+    local group             = unitGroup
+    local maxHealth         = 1000
+    local canBeDamaged      = true
+    local isFrozen          = false
+    local canRegenHealth    = true
+    local isDead            = false
+    local regenHealthAmount = 5
+    local regenTimer        = 0
+    local frozenDuration    = 0
+    local currentHealth     = maxHealth
     local collider
 
     -- ---------------------------------------------
@@ -56,12 +60,21 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
         collider = newCollider
     end
 
+    function entity.setCanRegenHealth(newCanRegenHealth)
+        canRegenHealth = newCanRegenHealth
+        regenTimer     = 0
+    end
+
+    function entity.setRegenHealthAmount(newRegenHealthAmount)
+        regenHealthAmount = newRegenHealthAmount
+    end
+
     function entity.getHealth()
         return currentHealth
     end
 
     function entity.setHealth(newHealth)
-        currentHealth = newHealth
+        currentHealth = math.min(newHealth, maxHealth)
     end
 
     function entity.getHealthPercentage()
@@ -95,6 +108,13 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
 
     function entity.update(dt)
         entity.entityUpdate(dt)
+        if canRegenHealth and not isDead then
+            regenTimer = regenTimer + dt
+            if regenTimer >= 1 then
+                entity.setHealth(entity.getHealth() + regenHealthAmount)
+                regenTimer = 0
+            end
+        end
         if isFrozen then
             frozenDuration = math.max(frozenDuration - dt, 0)
             if frozenDuration <= 0 then
@@ -116,12 +136,14 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
         if not canBeDamaged or isFrozen then return end
         currentHealth = math.max(currentHealth - damage, 0)
         if currentHealth <= 0 then
+            isDead = true
             gameManager.onUnitDead(entity, fromGroup)
         end
     end
 
     function entity.fullHealth()
         currentHealth = maxHealth
+        isDead        = false
     end
 
     return entity

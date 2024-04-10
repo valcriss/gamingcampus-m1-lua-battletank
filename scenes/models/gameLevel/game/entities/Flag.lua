@@ -52,9 +52,9 @@ Flag.new        = function(gameManager, flagPosition, index)
         if flag.getGroup() == 0 then
             return { r = 1, g = 1, b = 1, a = 1 }
         elseif flag.getGroup() == 1 then
-            return { r = 1, g = 0, b = 0, a = 1 }
+            return { r = 1, g = 0.5, b = 0.5, a = 1 }
         elseif flag.getGroup() == 2 then
-            return { r = 0, g = 0, b = 1, a = 1 }
+            return { r = 0.5, g = 0.5, b = 1, a = 1 }
         end
     end
 

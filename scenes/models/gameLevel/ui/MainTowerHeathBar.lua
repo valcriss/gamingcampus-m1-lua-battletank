@@ -1,55 +1,53 @@
-local Component = require "models.scenes.Component"
+local Component       = require "models.scenes.Component"
 
----@class HealthBar
-HealthBar       = {}
+---@class MainTowerHeathBar
+MainTowerHeathBar     = {}
 
---- @param gameManager GameManager
-HealthBar.new   = function(name, entity, width, height, offsetY)
-    width           = width or 32
-    height          = height or 6
-    offsetY         = offsetY or 16
-    local healthBar = Component.new(name)
+MainTowerHeathBar.new = function(name, mainTower)
+    local mainTowerHeathBar = Component.new(name)
 
-    setmetatable(healthBar, HealthBar)
-    HealthBar.__index       = HealthBar
+    setmetatable(mainTowerHeathBar, MainTowerHeathBar)
+    MainTowerHeathBar.__index = MainTowerHeathBar
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local healthBarGroup    = entity.getGroup()
-    local healthBarValue    = entity.getHealth()
-    local healthBarMaxValue = entity.getMaxHealth()
+
+    local healthBarGroup      = mainTower.getGroup()
+    local healthBarValue      = mainTower.getHealth()
+    local healthBarMaxValue   = mainTower.getMaxHealth()
+    local width               = 285
+    local height              = 15
     local renderInfo
+
     -- ---------------------------------------------
     -- Public Functions
     -- ---------------------------------------------
 
-    ---@public
-    function healthBar.update(_)
-        healthBarValue = entity.getHealth()
+    function mainTowerHeathBar.update(_)
+        healthBarValue = mainTower.getHealth()
         local ratio    = healthBarValue / healthBarMaxValue
         renderInfo     = {
-            x               = healthBar.bounds.x - width / 2,
-            y               = healthBar.bounds.y + offsetY,
+            x               = mainTowerHeathBar.bounds.x,
+            y               = mainTowerHeathBar.bounds.y,
+            barX            = mainTowerHeathBar.bounds.x,
             maxWidth        = width,
             width           = width * ratio,
             height          = height,
-            backgroundColor = healthBar.getBackgroundRenderColor(),
-            borderColor     = healthBar.getBorderRenderColor(),
-            barColor        = healthBar.getBarRenderColor()
+            backgroundColor = mainTowerHeathBar.getBackgroundRenderColor(),
+            borderColor     = mainTowerHeathBar.getBorderRenderColor(),
+            barColor        = mainTowerHeathBar.getBarRenderColor()
         }
     end
 
     ---@public
-    function healthBar.draw()
-        if healthBarValue >= healthBarMaxValue then return end
-        if healthBarValue == 0 then return end
+    function mainTowerHeathBar.draw()
         love.graphics.setColor(renderInfo.backgroundColor.r, renderInfo.backgroundColor.g, renderInfo.backgroundColor.b, renderInfo.backgroundColor.a)
-        love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.maxWidth), screenManager:ScaleValueY(renderInfo.height))
+        love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.maxWidth), screenManager:ScaleValueY(renderInfo.height), height / 4, height / 4)
         love.graphics.setColor(renderInfo.barColor.r, renderInfo.barColor.g, renderInfo.barColor.b, renderInfo.barColor.a)
-        love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.width), screenManager:ScaleValueY(renderInfo.height))
+        love.graphics.rectangle("fill", screenManager:ScaleValueX(renderInfo.barX), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.width), screenManager:ScaleValueY(renderInfo.height))
         love.graphics.setColor(renderInfo.borderColor.r, renderInfo.borderColor.g, renderInfo.borderColor.b, renderInfo.borderColor.a)
-        love.graphics.rectangle("line", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.maxWidth), screenManager:ScaleValueY(renderInfo.height))
+        love.graphics.rectangle("line", screenManager:ScaleValueX(renderInfo.x), screenManager:ScaleValueY(renderInfo.y), screenManager:ScaleValueX(renderInfo.maxWidth), screenManager:ScaleValueY(renderInfo.height), height / 4, height / 4)
         love.graphics.setColor(1, 1, 1, 1)
     end
 
@@ -57,7 +55,7 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
     -- Private Functions
     -- ---------------------------------------------
 
-    function healthBar.getBackgroundRenderColor()
+    function mainTowerHeathBar.getBackgroundRenderColor()
         if healthBarGroup == 0 then
             return { r = 0.9, g = 0.9, b = 0.9, a = 1 }
         elseif healthBarGroup == 1 then
@@ -67,7 +65,7 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
         end
     end
 
-    function healthBar.getBorderRenderColor()
+    function mainTowerHeathBar.getBorderRenderColor()
         if healthBarGroup == 0 then
             return { r = 0.3, g = 0.3, b = 0.3, a = 1 }
         elseif healthBarGroup == 1 then
@@ -77,7 +75,7 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
         end
     end
 
-    function healthBar.getBarRenderColor()
+    function mainTowerHeathBar.getBarRenderColor()
         if healthBarGroup == 0 then
             return { r = 0.6, g = 0.6, b = 0.6, a = 1 }
         elseif healthBarGroup == 1 then
@@ -87,7 +85,7 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
         end
     end
 
-    return healthBar
+    return mainTowerHeathBar
 end
 
-return HealthBar
+return MainTowerHeathBar

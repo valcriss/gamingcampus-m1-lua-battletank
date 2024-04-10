@@ -121,6 +121,14 @@ GameManager.new = function(gameLevelData)
         return units
     end
 
+    function gameManager.getMainTowerByGroup(group)
+        if group == 1 then
+            return mainTower1
+        elseif group == 2 then
+            return mainTower2
+        end
+    end
+
     function gameManager.getEnemyUnit()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "Tank" end)
     end
@@ -177,7 +185,6 @@ GameManager.new = function(gameLevelData)
             unit.fullHealth()
             unit.setFrozen(10)
         elseif unit.getType() == "MainTower" then
-            unit.fullHealth()
             unit.setCanBeDamaged(false)
             if unit.getGroup() == 1 then
                 print("Le joueur a perdu")
