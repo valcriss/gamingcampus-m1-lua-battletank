@@ -4,6 +4,7 @@ local GameMapDebug       = require "scenes.models.gameLevel.debug.GameMapDebug"
 local FpsDebug           = require "scenes.models.gameLevel.debug.FpsDebug"
 local GameMapTilesDebug  = require "scenes.models.gameLevel.debug.GameMapTilesDebug"
 local UnitsColliderDebug = require "scenes.models.gameLevel.debug.UnitsColliderDebug"
+local PathFindingDebug   = require "scenes.models.gameLevel.debug.PathFindingDebug"
 
 ---@class DebugManager
 DebugManager             = {}
@@ -23,12 +24,14 @@ DebugManager.new         = function(gameManager)
     local fpsDebug           = FpsDebug.new()
     local gameMapTilesDebug  = GameMapTilesDebug.new(gameManager)
     local unitsColliderDebug = UnitsColliderDebug.new(gameManager)
+    local pathFindingDebug   = PathFindingDebug.new(gameManager)
 
     debugManager.addComponent(gameMapTilesDebug)
     debugManager.addComponent(viewPortDebug)
     debugManager.addComponent(gameMapDebug)
     debugManager.addComponent(unitsColliderDebug)
     debugManager.addComponent(fpsDebug)
+    debugManager.addComponent(pathFindingDebug)
 
     function debugManager.update(dt)
         local x       = 10

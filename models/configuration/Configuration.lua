@@ -1,9 +1,12 @@
 -- Configuration sauvegardé dans le fichier : %appdata%\LOVE\gamingcampus-m1-lua-battletank\configuration.json
-local json        = require "libs.json"
+local json           = require "libs.json"
+local EasyBehavior   = require "scenes.models.gameLevel.game.entities.behaviors.EasyBehavior"
+local MediumBehavior = require "scenes.models.gameLevel.game.entities.behaviors.MediumBehavior"
+local HardBehavior   = require "scenes.models.gameLevel.game.entities.behaviors.HardBehavior"
 ---@class Configuration
-Configuration     = {}
+Configuration        = {}
 
-Configuration.new = function()
+Configuration.new    = function()
     local configuration = {
         data                 = {},
         defaultConfiguration = {
@@ -125,6 +128,19 @@ Configuration.new = function()
         return 20 - (configuration:getDifficulty() * 10)
     end
 
+    function configuration:getEnemySpeed()
+        return 400 + (configuration:getDifficulty() * 200)
+    end
+
+    function configuration:getEnemyBehavior(gameManager, enemy)
+        if configuration:getDifficulty() < 0.4 then
+            return EasyBehavior.new(gameManager, enemy)
+        elseif configuration:getDifficulty() < 0.7 then
+            return MediumBehavior.new(gameManager, enemy)
+        else
+            return HardBehavior.new(gameManager, enemy)
+        end
+    end
     function configuration:setConfiguration(data)
         local needReload   = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
         configuration.data = data

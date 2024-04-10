@@ -19,6 +19,52 @@ GameLevelData.new = function()
     -- ---------------------------------------------
 
     ---@public
+    ---@param sourceEnemy Enemy
+    ---@param gameManager GameManager
+    ---@param index number
+    function gameLevelData.getNeighbors(sourceEnemy, gameManager, index, destination, done)
+        local neighbors = {}
+        --- Normals
+        local topIndex  = index - gameLevelData.data.level.Width
+        if topIndex >= 1 and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topIndex, sourceEnemy) and not done["n" .. topIndex] then
+            table.insert(neighbors, topIndex)
+        end
+        local bottomIndex = index + gameLevelData.data.level.Width
+        if bottomIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and not gameLevelData.isTileBlocked(bottomIndex) and not gameManager.tileContainsUnit(bottomIndex, sourceEnemy) and not done["n" .. bottomIndex] then
+            table.insert(neighbors, bottomIndex)
+        end
+        local leftIndex = index - 1
+        if leftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(leftIndex) and not gameManager.tileContainsUnit(leftIndex, sourceEnemy) and not done["n" .. leftIndex] then
+            table.insert(neighbors, leftIndex)
+        end
+        local rightIndex = index + 1
+        if rightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(rightIndex) and not gameManager.tileContainsUnit(rightIndex, sourceEnemy) and not done["n" .. rightIndex] then
+            table.insert(neighbors, rightIndex)
+        end
+        --- Diagonals
+        local topRightIndex = (index - gameLevelData.data.level.Width) + 1
+        if topRightIndex >= 1 and topRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topRightIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topRightIndex, sourceEnemy) and not done["n" .. topRightIndex] then
+            table.insert(neighbors, topRightIndex)
+        end
+        local topLeftIndex = (index - gameLevelData.data.level.Width) - 1
+        if topLeftIndex >= 1 and topLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topLeftIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topLeftIndex, sourceEnemy) and not done["n" .. topLeftIndex] then
+            table.insert(neighbors, topLeftIndex)
+        end
+        local bottomRightIndex = (index + gameLevelData.data.level.Width) + 1
+        if bottomRightIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomRightIndex) and not gameManager.tileContainsUnit(bottomRightIndex, sourceEnemy) and not done["n" .. bottomRightIndex] then
+            table.insert(neighbors, bottomRightIndex)
+        end
+        local bottomLeftIndex = (index + gameLevelData.data.level.Width) - 1
+        if bottomLeftIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomLeftIndex) and not gameManager.tileContainsUnit(bottomLeftIndex, sourceEnemy) and not done["n" .. bottomLeftIndex] then
+            table.insert(neighbors, bottomLeftIndex)
+        end
+
+        table.sort(neighbors, function(a, b) return gameLevelData.getRealPositionFromTileIndex(a).distance(destination.x, destination.y) < gameLevelData.getRealPositionFromTileIndex(b).distance(destination.x, destination.y) end)
+
+        return neighbors
+    end
+
+    ---@public
     function gameLevelData.load()
         local levelAsset         = gameLevelData.getLevelAsset()
         gameLevelData.data.level = JsonAsset:load(levelAsset)
@@ -78,7 +124,6 @@ GameLevelData.new = function()
         return gameLevelData.isTileBlocked(tileIndex)
     end
 
-
     function gameLevelData.getMainTowerWorldPosition(group)
         if group == 1 then
             return gameLevelData.getPlayerMainTowerWorldPosition()
@@ -97,6 +142,17 @@ GameLevelData.new = function()
 
     function gameLevelData.translateGridPositionToWorldPosition(x, y)
         return Vector2.new((x - 1) * gameLevelData.data.level.TileSize, (y - 1) * gameLevelData.data.level.TileSize)
+    end
+
+    function gameLevelData.getRealPositionFromTileIndex(tileIndex)
+        local gridPosition = gameLevelData.getGridPositionFromTileIndex(tileIndex)
+        return gameLevelData.translateGridPositionToWorldPosition(gridPosition.x, gridPosition.y)
+    end
+
+    function gameLevelData.getGridPositionFromTileIndex(tileIndex)
+        local x = (tileIndex - 1) % gameLevelData.data.level.Width + 1
+        local y = math.floor((tileIndex - 1) / gameLevelData.data.level.Width) + 1
+        return { x = x, y = y }
     end
 
     -- ---------------------------------------------

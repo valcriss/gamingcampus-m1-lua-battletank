@@ -1,18 +1,19 @@
-local Component = require "models.scenes.Component"
-local ViewPort  = require "scenes.models.gameLevel.game.viewport.ViewPort"
-local GameMap   = require "scenes.models.gameLevel.game.map.GameMap"
-local FogOfWar  = require "scenes.models.gameLevel.game.map.FogOfWar"
-local Parallax  = require "models.images.Parallax"
-local Player    = require "scenes.models.gameLevel.game.entities.Player"
-local MainTower = require "scenes.models.gameLevel.game.entities.MainTower"
-local Enemy     = require "scenes.models.gameLevel.game.entities.Enemy"
-local Flag      = require "scenes.models.gameLevel.game.entities.Flag"
+local Component   = require "models.scenes.Component"
+local ViewPort    = require "scenes.models.gameLevel.game.viewport.ViewPort"
+local GameMap     = require "scenes.models.gameLevel.game.map.GameMap"
+local FogOfWar    = require "scenes.models.gameLevel.game.map.FogOfWar"
+local Parallax    = require "models.images.Parallax"
+local Player      = require "scenes.models.gameLevel.game.entities.Player"
+local MainTower   = require "scenes.models.gameLevel.game.entities.MainTower"
+local Enemy       = require "scenes.models.gameLevel.game.entities.Enemy"
+local Flag        = require "scenes.models.gameLevel.game.entities.Flag"
+local PathFinding = require "scenes.models.gameLevel.game.map.PathFinding"
 
 ---@class GameManager
-GameManager     = {}
+GameManager       = {}
 
 --- @param gameLevelData GameLevelData
-GameManager.new = function(gameLevelData)
+GameManager.new   = function(gameLevelData)
 
     local gameManager = Component.new("GameManager")
 
@@ -29,6 +30,7 @@ GameManager.new = function(gameLevelData)
     local mainTower1         = MainTower.new("mainTower1", gameManager, 1)
     local mainTower2         = MainTower.new("mainTower2", gameManager, 2)
     local fogOfWar           = FogOfWar.new(gameManager, true)
+    local pathFinding        = PathFinding.new(gameManager)
 
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
@@ -68,6 +70,7 @@ GameManager.new = function(gameLevelData)
         gameManager.addComponent(mainTower1)
         gameManager.addComponent(mainTower2)
         gameManager.addComponent(player)
+        pathFinding.load()
     end
 
     ---@public
@@ -115,6 +118,10 @@ GameManager.new = function(gameLevelData)
         return player
     end
 
+    function gameManager.getPathFinding()
+        return pathFinding
+    end
+
     ---@public
     ---@return table
     function gameManager.getUnits()
@@ -129,19 +136,19 @@ GameManager.new = function(gameLevelData)
         end
     end
 
-    function gameManager.getEnemyUnit()
+    function gameManager.getEnemyUnits()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "Tank" end)
     end
 
-    function gameManager.getEnemyFlag()
+    function gameManager.getEnemyFlags()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "Flag" end)
     end
 
-    function gameManager.getPlayerFlag()
+    function gameManager.getPlayerFlags()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 1 and unit.getType() == "Flag" end)
     end
 
-    function gameManager.getNeutralFlag()
+    function gameManager.getNeutralFlags()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 0 and unit.getType() == "Flag" end)
     end
 
@@ -150,11 +157,11 @@ GameManager.new = function(gameLevelData)
     end
 
     function gameManager.getEnemyTower()
-        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 2 and unit.getType() == "MainTower" end)
+        return mainTower2
     end
 
     function gameManager.getPlayerTower()
-        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 1 and unit.getType() == "MainTower" end)
+        return mainTower1
     end
 
     function gameManager.getFilteredUnits(filter)
@@ -165,6 +172,20 @@ GameManager.new = function(gameLevelData)
             end
         end
         return filteredUnits
+    end
+
+    function gameManager.tileContainsUnit(tileIndex, excludeUnit)
+        for index = 1, #units do
+            local unit = units[index]
+            if unit ~= excludeUnit then
+                local collider = unit.getCollider()
+                if collider then
+                    local unitIndex = gameLevelData.getTileIndexFromRealPosition(unit.getCollider().x, unit.getCollider().y)
+                    if unitIndex == tileIndex then return true end
+                end
+            end
+        end
+        return false
     end
 
     -- ---------------------------------------------
@@ -207,8 +228,8 @@ GameManager.new = function(gameLevelData)
         -- Mise a jour du proprietaire du flag
         unit.setGroup(fromGroup)
         local allFlagsCount    = #gameManager.getFlags()
-        local playerFlagsCount = #gameManager.getPlayerFlag()
-        local enemyFlagsCount  = #gameManager.getEnemyFlag()
+        local playerFlagsCount = #gameManager.getPlayerFlags()
+        local enemyFlagsCount  = #gameManager.getEnemyFlags()
 
         if allFlagsCount == playerFlagsCount then
             mainTower2.setShieldOff()
