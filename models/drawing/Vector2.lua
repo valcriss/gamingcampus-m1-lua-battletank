@@ -31,6 +31,11 @@ Vector2.new = function(x, y)
         return vector2
     end
 
+    function vector2.normalize()
+        local magnitude = math.sqrt(vector2.x ^ 2 + vector2.y ^ 2)
+        return { x = vector2.x / magnitude, y = vector2.y / magnitude }
+    end
+
     return vector2
 end
 

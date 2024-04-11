@@ -7,14 +7,14 @@ Behavior.new = function(gameManager, enemy)
     local behavior = {}
 
     setmetatable(behavior, Behavior)
-    Behavior.__index = Behavior
+    Behavior.__index   = Behavior
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local currentPath
     local currentOrder
-    local seenTiles  = {}
+    local seenTiles    = {}
+    local ignoredTiles = {}
     -- ---------------------------------------------
     -- Public Functions
     -- ---------------------------------------------
@@ -22,6 +22,45 @@ Behavior.new = function(gameManager, enemy)
     ---@public
     function behavior.update(_)
 
+    end
+
+    function behavior.getFirstUnSeenTilePosition()
+        if enemy.getCollider() == nil then return end
+        local position = enemy.getCollider().getPoint()
+        local diffX    = 0
+        local diffY    = 0
+
+        while diffX * diffY <= gameManager.getGameLevelData().data.level.Width * gameManager.getGameLevelData().data.level.Height do
+            local xMin = position.x - (gameManager.getGameLevelData().data.level.TileSize * diffX)
+            local yMin = position.y - (gameManager.getGameLevelData().data.level.TileSize * diffY)
+            local xMax = position.x + (gameManager.getGameLevelData().data.level.TileSize * diffX)
+            local yMax = position.y + (gameManager.getGameLevelData().data.level.TileSize * diffY)
+
+            while xMin <= xMax do
+                while yMin <= yMax do
+                    -- ---------------------------------
+                    local tile = gameManager.getGameLevelData().getTileIndexFromRealPosition(xMin, yMin)
+                    if (tile ~= nil and gameManager.getGameLevelData().isTileBlocked(tile)) then
+                        ignoredTiles["ignored_" .. tostring(tile)] = true
+                    elseif (tile ~= nil and seenTiles["inSight_" .. tostring(tile)] == nil and ignoredTiles["ignored_" .. tostring(tile)] == nil) then
+                        local path = gameManager.getPathFinding().findPath(position, { x = xMin, y = yMin })
+                        if path == nil then
+                            ignoredTiles["ignored_" .. tostring(tile)] = true
+                        else
+                            return { x = xMin, y = yMin }
+                        end
+                    end
+                    -- ---------------------------------
+                    yMin = yMin + gameManager.getGameLevelData().data.level.TileSize
+                end
+                xMin = xMin + gameManager.getGameLevelData().data.level.TileSize
+                yMin = position.y - diffY
+            end
+
+            diffX = diffX + 1
+            diffY = diffY + 1
+        end
+        return nil
     end
 
     function behavior.updateTilesSeen(sight)
@@ -85,20 +124,12 @@ Behavior.new = function(gameManager, enemy)
         return nil
     end
 
-    function behavior.setCurrentPath(path)
-        currentPath = path
-    end
-
     function behavior.setCurrentOrder(order)
         currentOrder = order
     end
 
     function behavior.resetCurrentOrder()
         currentOrder = nil
-    end
-
-    function behavior.getCurrentPath()
-        return currentPath
     end
 
     function behavior.getCurrentOrder()

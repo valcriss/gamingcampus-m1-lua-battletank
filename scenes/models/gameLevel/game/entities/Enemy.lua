@@ -1,5 +1,6 @@
 local Unit      = require "scenes.models.gameLevel.game.entities.Unit"
 local Rectangle = require "models.drawing.Rectangle"
+local Vector2   = require "models.drawing.Vector2"
 
 ---@class Enemy
 Enemy           = {}
@@ -35,8 +36,24 @@ Enemy.new       = function(index, enemyPosition, gameManager)
         behavior.update(dt)
     end
 
+    function enemy.lookAtPosition(position)
+        enemy.setRotation(math.deg(math.atan2(position.y - enemyRealPosition.y, position.x - enemyRealPosition.x)))
+    end
+
+    function enemy.moveToPoint(destination)
+        local vector = Vector2.new(destination.x - enemyRealPosition.x, destination.y - enemyRealPosition.y).normalize()
+    end
+
     function enemy.getEnemyBehavior()
         return behavior
+    end
+
+    function enemy.getEnemyPosition()
+        return enemyRealPosition
+    end
+
+    function enemy.setEnemyPosition(position)
+        enemyRealPosition = position
     end
 
     return enemy
