@@ -20,7 +20,7 @@ EasyBehavior.new = function(gameManager, enemy)
     -- ---------------------------------------------
 
     ---@public
-    function easyBehavior.update(dt)
+    function easyBehavior.update(_)
         -- Si ma tour n'a plus de bouclier je retourne en defense
 
         -- Si le joueur est dans les parages j'attaque
@@ -29,16 +29,8 @@ EasyBehavior.new = function(gameManager, enemy)
 
         -- Sinon je target la case la plus proche qui je ne connais pas et que je peux atteindre
         if easyBehavior.getCurrentPath() == nil then
-            local path = gameManager.getPathFinding().findPath(enemy, enemy.getCollider().getPoint(), Vector2.new(540, 475))
-            if path ~= nil then
-                print("Path found")
-                for i = 1, #path do
-                    print(path[i])
-                end
-                easyBehavior.setCurrentPath(path)
-            else
-                print("Path not found")
-            end
+            local path = gameManager.getPathFinding().findPath(enemy.getCollider().getPoint(), Vector2.new(540, 475))
+            easyBehavior.setCurrentPath(path)
         end
     end
 

@@ -35,15 +35,15 @@ DebugManager.new         = function(gameManager)
 
     function debugManager.update(dt)
         local x       = 10
-        local y       = 10
+        local y       = 60
         local padding = 10
 
         viewPortDebug.updateBounds(dt)
         gameMapDebug.updateBounds(dt)
         fpsDebug.updateBounds(dt)
         viewPortDebug.setPosition(x, y)
-        gameMapDebug.setPosition(x, padding + viewPortDebug.bounds.height + padding)
-        fpsDebug.setPosition(x, padding + viewPortDebug.bounds.height + padding + gameMapDebug.bounds.height + padding)
+        gameMapDebug.setPosition(x, y + viewPortDebug.bounds.height + padding)
+        fpsDebug.setPosition(x, y + viewPortDebug.bounds.height + padding + gameMapDebug.bounds.height + padding)
     end
 
     return debugManager

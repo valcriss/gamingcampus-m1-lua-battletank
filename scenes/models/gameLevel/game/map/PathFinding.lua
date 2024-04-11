@@ -26,7 +26,7 @@ PathFinding.new = function(gameManager)
     ---@public
     ---@param source Vector2
     ---@param destination Vector2
-    function pathFinding.findPath(sourceEnemy, source, destination)
+    function pathFinding.findPath(source, destination)
         local done             = {}
         local queue            = {}
         local sourceIndex      = gameLevelData.getTileIndexFromRealPosition(source.x + gameLevelData.data.level.TileSize / 2, source.y + gameLevelData.data.level.TileSize / 2)
@@ -36,7 +36,7 @@ PathFinding.new = function(gameManager)
         while #queue > 0 do
             local currentPath = table.remove(queue, 1)
             local lastIndex   = currentPath[#currentPath]
-            local neighbors   = pathFinding.getNeighbors(sourceEnemy, destination, lastIndex, done)
+            local neighbors   = pathFinding.getNeighbors(destination, lastIndex, done)
             for _, neighborIndex in ipairs(neighbors) do
                 done["n" .. neighborIndex] = true
                 if neighborIndex == destinationIndex then
@@ -66,8 +66,26 @@ PathFinding.new = function(gameManager)
         return copy
     end
 
-    function pathFinding.getNeighbors(sourceEnemy, destination, tileIndex, done)
-        return gameLevelData.getNeighbors(sourceEnemy, gameManager, tileIndex, destination, done)
+    function pathFinding.getTileContainsUnit(tileIndex, sourceEnemy)
+        return gameManager.tileContainsUnit(tileIndex, sourceEnemy)
+    end
+
+    function pathFinding.getNeighbors(destination, tileIndex, done)
+        if neighborsCache[tileIndex] == nil then
+            neighborsCache[tileIndex] = gameLevelData.getNeighbors(tileIndex)
+        end
+        local staticNeighbors = neighborsCache[tileIndex]
+
+        local neighbors       = {}
+        for _, value in pairs(staticNeighbors) do
+            if not done["n" .. value] then
+                table.insert(neighbors, value)
+            end
+        end
+
+        table.sort(neighbors, function(a, b) return gameLevelData.getRealPositionFromTileIndex(a).distance(destination.x, destination.y) < gameLevelData.getRealPositionFromTileIndex(b).distance(destination.x, destination.y) end)
+
+        return neighbors
     end
 
     function pathFinding.clearCache()

@@ -175,12 +175,13 @@ GameManager.new   = function(gameLevelData)
     end
 
     function gameManager.tileContainsUnit(tileIndex, excludeUnit)
+        if tileIndex == nil then return true end
         for index = 1, #units do
             local unit = units[index]
-            if unit ~= excludeUnit then
+            if unit.name ~= excludeUnit.name then
                 local collider = unit.getCollider()
                 if collider then
-                    local unitIndex = gameLevelData.getTileIndexFromRealPosition(unit.getCollider().x, unit.getCollider().y)
+                    local unitIndex = gameLevelData.getTileIndexFromRealPosition(unit.getCollider().x + gameLevelData.data.level.TileSize / 2, unit.getCollider().y + gameLevelData.data.level.TileSize / 2)
                     if unitIndex == tileIndex then return true end
                 end
             end

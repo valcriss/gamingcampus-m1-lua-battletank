@@ -1,4 +1,5 @@
 local Component = require "models.scenes.Component"
+
 ---@class BitmapText
 BitmapText      = {}
 

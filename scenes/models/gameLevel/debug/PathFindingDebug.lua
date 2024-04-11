@@ -41,7 +41,7 @@ PathFindingDebug.new = function(gameManager)
     function pathFindingDebug.drawLines(positions)
         love.graphics.setColor(1, 0, 0, 1)
         for i = 1, #positions - 1 do
-            love.graphics.line(positions[i].x, positions[i].y, positions[i + 1].x, positions[i + 1].y)
+            love.graphics.line(screenManager:ScaleValueX(positions[i].x), screenManager:ScaleValueY(positions[i].y), screenManager:ScaleValueX(positions[i + 1].x), screenManager:ScaleValueY(positions[i + 1].y))
         end
     end
 

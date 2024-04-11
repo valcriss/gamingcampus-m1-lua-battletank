@@ -22,44 +22,42 @@ GameLevelData.new = function()
     ---@param sourceEnemy Enemy
     ---@param gameManager GameManager
     ---@param index number
-    function gameLevelData.getNeighbors(sourceEnemy, gameManager, index, destination, done)
+    function gameLevelData.getNeighbors(index)
         local neighbors = {}
         --- Normals
         local topIndex  = index - gameLevelData.data.level.Width
-        if topIndex >= 1 and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topIndex, sourceEnemy) and not done["n" .. topIndex] then
-            table.insert(neighbors, topIndex)
+        if topIndex >= 1 and not gameLevelData.isTileBlocked(topIndex) and not gameLevelData.isTileBlocked(topIndex) then
+            neighbors["top"] = topIndex
         end
         local bottomIndex = index + gameLevelData.data.level.Width
-        if bottomIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and not gameLevelData.isTileBlocked(bottomIndex) and not gameManager.tileContainsUnit(bottomIndex, sourceEnemy) and not done["n" .. bottomIndex] then
-            table.insert(neighbors, bottomIndex)
+        if bottomIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and not gameLevelData.isTileBlocked(bottomIndex) then
+            neighbors["bottom"] = bottomIndex
         end
         local leftIndex = index - 1
-        if leftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(leftIndex) and not gameManager.tileContainsUnit(leftIndex, sourceEnemy) and not done["n" .. leftIndex] then
-            table.insert(neighbors, leftIndex)
+        if leftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(leftIndex) then
+            neighbors["left"] = leftIndex
         end
         local rightIndex = index + 1
-        if rightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(rightIndex) and not gameManager.tileContainsUnit(rightIndex, sourceEnemy) and not done["n" .. rightIndex] then
-            table.insert(neighbors, rightIndex)
+        if rightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(rightIndex) then
+            neighbors["right"] = rightIndex
         end
         --- Diagonals
         local topRightIndex = (index - gameLevelData.data.level.Width) + 1
-        if topRightIndex >= 1 and topRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topRightIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topRightIndex, sourceEnemy) and not done["n" .. topRightIndex] then
-            table.insert(neighbors, topRightIndex)
+        if topRightIndex >= 1 and topRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topRightIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameLevelData.isTileBlocked(rightIndex) then
+            neighbors["topRight"] = topRightIndex
         end
         local topLeftIndex = (index - gameLevelData.data.level.Width) - 1
-        if topLeftIndex >= 1 and topLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topLeftIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameManager.tileContainsUnit(topLeftIndex, sourceEnemy) and not done["n" .. topLeftIndex] then
-            table.insert(neighbors, topLeftIndex)
+        if topLeftIndex >= 1 and topLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(topLeftIndex) and not gameLevelData.isTileBlocked(topIndex) and not gameLevelData.isTileBlocked(leftIndex) then
+            neighbors["topLeft"] = topLeftIndex
         end
         local bottomRightIndex = (index + gameLevelData.data.level.Width) + 1
-        if bottomRightIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomRightIndex) and not gameManager.tileContainsUnit(bottomRightIndex, sourceEnemy) and not done["n" .. bottomRightIndex] then
-            table.insert(neighbors, bottomRightIndex)
+        if bottomRightIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomRightIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomRightIndex) and not gameLevelData.isTileBlocked(rightIndex) then
+            neighbors["bottomRight"] = bottomRightIndex
         end
         local bottomLeftIndex = (index + gameLevelData.data.level.Width) - 1
-        if bottomLeftIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomLeftIndex) and not gameManager.tileContainsUnit(bottomLeftIndex, sourceEnemy) and not done["n" .. bottomLeftIndex] then
-            table.insert(neighbors, bottomLeftIndex)
+        if bottomLeftIndex <= gameLevelData.data.level.Width * gameLevelData.data.level.Height and bottomLeftIndex % gameLevelData.data.level.Width ~= 0 and not gameLevelData.isTileBlocked(bottomIndex) and not gameLevelData.isTileBlocked(bottomLeftIndex) and not gameLevelData.isTileBlocked(leftIndex) then
+            neighbors["bottomLeft"] = bottomLeftIndex
         end
-
-        table.sort(neighbors, function(a, b) return gameLevelData.getRealPositionFromTileIndex(a).distance(destination.x, destination.y) < gameLevelData.getRealPositionFromTileIndex(b).distance(destination.x, destination.y) end)
 
         return neighbors
     end
