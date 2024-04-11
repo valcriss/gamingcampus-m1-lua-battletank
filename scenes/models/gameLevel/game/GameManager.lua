@@ -148,6 +148,10 @@ GameManager.new   = function(gameLevelData)
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 1 and unit.getType() == "Flag" end)
     end
 
+    function gameManager.getPlayerOrNeutralFlags()
+        return gameManager.getFilteredUnits(function(unit) return unit.getGroup() ~= 2 and unit.getType() == "Flag" end)
+    end
+
     function gameManager.getNeutralFlags()
         return gameManager.getFilteredUnits(function(unit) return unit.getGroup() == 0 and unit.getType() == "Flag" end)
     end

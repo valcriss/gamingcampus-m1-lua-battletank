@@ -74,6 +74,10 @@ MainTower.new          = function(name, gameManager, group)
         mainTower.setCanBeDamaged(false)
     end
 
+    function mainTower.isShieldActive()
+        return shieldActive
+    end
+
     function mainTower.updateGunRotation(dt)
         realPosition      = gameManager.getGameLevelData().getMainTowerWorldPosition(group)
         local minDistance = math.huge
