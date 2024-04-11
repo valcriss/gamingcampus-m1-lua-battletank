@@ -40,8 +40,19 @@ Enemy.new       = function(index, enemyPosition, gameManager)
         enemy.setRotation(math.deg(math.atan2(position.y - enemyRealPosition.y, position.x - enemyRealPosition.x)))
     end
 
-    function enemy.moveToPoint(destination)
-        local vector = Vector2.new(destination.x - enemyRealPosition.x, destination.y - enemyRealPosition.y).normalize()
+    function enemy.moveToPoint(destination, dt)
+        local nan         = 0 / 0 -- nan
+        local vector      = Vector2.new(destination.x - enemyRealPosition.x, destination.y - enemyRealPosition.y).normalize()
+        local newPosition = { x = enemyRealPosition.x, y = enemyRealPosition.y }
+        if vector.x == nan or vector.y == nan then
+            enemy.setEnemyPosition(destination)
+        else
+            newPosition.x = newPosition.x + (vector.x * configuration:getEnemySpeed() * dt)
+            newPosition.y = newPosition.y + (vector.y * configuration:getEnemySpeed() * dt)
+            print("new position", newPosition.x, newPosition.y)
+            enemy.setEnemyPosition(newPosition)
+        end
+
     end
 
     function enemy.getEnemyBehavior()

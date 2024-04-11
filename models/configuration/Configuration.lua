@@ -129,7 +129,7 @@ Configuration.new    = function()
     end
 
     function configuration:getEnemySpeed()
-        return 400 + (configuration:getDifficulty() * 200)
+        return 300 + (configuration:getDifficulty() * 200)
     end
 
     function configuration:getEnemyBehavior(gameManager, enemy)
