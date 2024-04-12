@@ -76,6 +76,12 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     function scene.unload()
     end
 
+    function scene.pause()
+    end
+
+    function scene.unPause()
+    end
+    
     -- Public Functions
     ---@public
     ---@param component Component

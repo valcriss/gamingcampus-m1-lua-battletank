@@ -56,6 +56,18 @@ ScenesManager.new = function()
         end
     end
 
+    function screenManager:pause()
+        for i = 1, #sceneManager.scenes do
+            sceneManager.scenes[i].pause()
+        end
+    end
+
+    function screenManager:unPause()
+        for i = 1, #sceneManager.scenes do
+            sceneManager.scenes[i].unPause()
+        end
+    end
+
     return sceneManager
 end
 

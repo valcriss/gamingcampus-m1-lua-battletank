@@ -14,13 +14,14 @@ end
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
 -- Déclaration des variables globals
-DEBUG         = false
-FOG_OF_WAR    = false
+DEBUG            = false
+FOG_OF_WAR       = false
 
-configuration = Configuration:new()
-screenManager = ScreenManager:new()
-scenesManager = ScenesManager:new()
+configuration    = Configuration:new()
+screenManager    = ScreenManager:new()
+scenesManager    = ScenesManager:new()
 
+local gamePaused = false
 -- Déclaration des variables locales
 -- local splashScreen
 --local gameLevel
@@ -49,4 +50,17 @@ end
 function love.resize(_, _)
     configuration:setMaximized(love.window.isMaximized())
     screenManager:resize()
+end
+
+function love.keypressed(key, _, _)
+    local pause = key == "escape" or key == "p"
+    print("key pressed: " .. key)
+    if pause then
+        gamePaused = not gamePaused
+    end
+    if gamePaused then
+        screenManager:pause()
+    else
+        screenManager:unPause()
+    end
 end

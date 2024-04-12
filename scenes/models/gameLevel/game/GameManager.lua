@@ -79,7 +79,6 @@ GameManager.new   = function(gameLevelData)
         local left   = love.keyboard.isDown("left") or love.keyboard.isDown("q") or love.keyboard.isDown("a")
         local top    = love.keyboard.isDown("up") or love.keyboard.isDown("z") or love.keyboard.isDown("w")
         local bottom = love.keyboard.isDown("down") or love.keyboard.isDown("s")
-
         viewPort.playerInputs(dt, top, left, bottom, right)
         player.playerInputs(dt, top, left, bottom, right)
     end
