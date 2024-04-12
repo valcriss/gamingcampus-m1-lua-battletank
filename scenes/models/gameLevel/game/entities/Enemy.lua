@@ -37,7 +37,7 @@ Enemy.new       = function(index, enemyPosition, gameManager)
     end
 
     function enemy.lookAtPosition(position)
-        enemy.setRotation(math.deg(math.atan2(position.y - enemyRealPosition.y, position.x - enemyRealPosition.x)))
+        enemy.setRotation(math.deg(math.atan2(position.y - enemyRealPosition.y, position.x - enemyRealPosition.x)) - 90)
     end
 
     function enemy.moveToPoint(destination, dt)
@@ -49,7 +49,6 @@ Enemy.new       = function(index, enemyPosition, gameManager)
         else
             newPosition.x = newPosition.x + (vector.x * configuration:getEnemySpeed() * dt)
             newPosition.y = newPosition.y + (vector.y * configuration:getEnemySpeed() * dt)
-            print("new position", newPosition.x, newPosition.y)
             enemy.setEnemyPosition(newPosition)
         end
 

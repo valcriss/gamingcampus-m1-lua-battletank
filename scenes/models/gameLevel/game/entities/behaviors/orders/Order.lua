@@ -37,7 +37,6 @@ Order.new = function(type, target, gameManager, enemy, behavior)
 
     function order.nextNode()
         pathIndex = pathIndex + 1
-        print("Next Node: " .. tostring(pathIndex))
     end
 
     function order.getCurrentPath()

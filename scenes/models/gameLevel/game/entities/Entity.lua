@@ -112,7 +112,6 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
             regenTimer = regenTimer + dt
             if regenTimer >= 1 then
                 entity.setHealth(entity.getHealth() + regenHealthAmount)
-                print("Unit " .. entity.name .. " regenerated " .. regenHealthAmount .. " health.")
                 regenTimer = 0
             end
         end

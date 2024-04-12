@@ -198,7 +198,6 @@ GameManager.new   = function(gameLevelData)
     -- ---------------------------------------------
     function gameManager.onUnitTakeDamage(unit, damage, fromGroup)
         unit.takeDamage(damage, fromGroup)
-        print("Unit " .. unit.name .. " took " .. damage .. " damage from " .. fromGroup)
         for index = 1, #onUnitUnderAttackEventHandlers do
             onUnitUnderAttackEventHandlers[index](unit, damage, fromGroup)
         end
