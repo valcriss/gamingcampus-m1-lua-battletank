@@ -75,6 +75,8 @@ ViewPort.new    = function(gameManager)
     end
 
     function viewPort.playerInputs(dt, top, left, bottom, right)
+        if gameManager.getPlayer().isFrozen() == true then return end
+
         local previousBounds = Rectangle.new(viewPort.bounds.x, viewPort.bounds.y, viewPort.bounds.width, viewPort.bounds.height)
         local speed          = 500
 

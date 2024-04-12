@@ -17,7 +17,6 @@ MainTower.new          = function(name, gameManager, group)
     -- Properties
     -- ---------------------------------------------
     mainTower.setMaxHealth(configuration:getMainTowerMaxHealth())
-    mainTower.setHealth(configuration:getMainTowerMaxHealth())
     local tower             = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower.png", 0, 0, 0, 0.5)
     local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
     local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)

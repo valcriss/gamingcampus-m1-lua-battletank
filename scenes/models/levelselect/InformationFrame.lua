@@ -1,4 +1,4 @@
-local LeftMenuFrame  = require "scenes.models.mainmenu.LeftMenuFrame"
+local LeftMenuFrame  = require "models.ui.LeftMenuFrame"
 local BitmapText     = require "models.texts.BitmapText"
 
 ---@class InformationFrame

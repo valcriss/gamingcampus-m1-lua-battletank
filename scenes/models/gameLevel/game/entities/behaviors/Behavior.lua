@@ -121,6 +121,14 @@ Behavior.new = function(gameManager, enemy)
             end
             if flag.getCollider().getPoint().distance(enemy.getCollider().getPoint().x, enemy.getCollider().getPoint().y) < distance then return flag end
         end
+        for index = 1, #flags do
+            local flag      = flags[index]
+            local flagIndex = gameManager.getGameLevelData().getTileIndexFromRealPosition(flag.getCollider().getPoint().x, flag.getCollider().getPoint().y)
+            if seenTiles["inSight_" .. tostring(flagIndex)] ~= nil then
+                return flag
+            end
+        end
+
         return nil
     end
 

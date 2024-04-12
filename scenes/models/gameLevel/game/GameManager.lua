@@ -209,7 +209,7 @@ GameManager.new   = function(gameLevelData)
             gameManager.onFlagCaptured(unit, fromGroup)
         elseif unit.getType() == "Tank" then
             unit.fullHealth()
-            unit.setFrozen(10)
+            unit.setFrozen(unit.getGroup() == 1 and configuration:getPlayerFrozenDuration() or configuration:getEnemyFrozenDuration())
             if unit.getGroup() == 1 then
                 gameManager.getViewport().resetPosition()
             else

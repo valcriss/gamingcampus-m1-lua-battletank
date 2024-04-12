@@ -1,4 +1,4 @@
-local MenuFrame   = require "scenes.models.mainmenu.MenuFrame"
+local MenuFrame   = require "models.ui.MenuFrame"
 
 ---@class LeftMenuFrame
 LeftMenuFrame     = {}

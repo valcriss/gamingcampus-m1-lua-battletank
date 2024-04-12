@@ -11,13 +11,12 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     local unit = Entity.new(name, gameManager, "Tank", group, x, y, 128, 128, 0, 0.5)
 
     setmetatable(unit, Unit)
-    Unit.__index = Unit
+    Unit.__index     = Unit
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    unit.setMaxHealth(configuration:getEnemyMaxHealth())
-    unit.setHealth(configuration:getEnemyMaxHealth())
+
     local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
     local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
@@ -76,6 +75,16 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
         local tankPositionX = unit.bounds.x
         local tankPositionY = unit.bounds.y
         local angle         = math.deg(math.atan2(tankPositionY - targetY, targetX - tankPositionX))
+        local turretAngle   = -angle - 90
+        turretRotation      = turretAngle
+    end
+
+    ---@public
+    function unit.targetRealPosition(realTargetX, realTargetY)
+        if unit.isFrozen() then return end
+        local tankPositionX = unit.getCollider().x
+        local tankPositionY = unit.getCollider().y
+        local angle         = math.deg(math.atan2(tankPositionY - realTargetY, realTargetX - tankPositionX))
         local turretAngle   = -angle - 90
         turretRotation      = turretAngle
     end

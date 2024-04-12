@@ -1,5 +1,5 @@
 local BitmapText = require "models.texts.BitmapText"
-local MenuFrame  = require "scenes.models.mainmenu.MenuFrame"
+local MenuFrame  = require "models.ui.MenuFrame"
 ---@class CreditsFrame
 CreditsFrame     = {}
 

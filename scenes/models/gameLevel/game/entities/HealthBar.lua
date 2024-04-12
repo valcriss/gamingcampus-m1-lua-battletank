@@ -24,11 +24,14 @@ HealthBar.new   = function(name, entity, width, height, offsetY)
     -- Public Functions
     -- ---------------------------------------------
 
+
     ---@public
     function healthBar.update(_)
-        healthBarValue = entity.getHealth()
-        local ratio    = healthBarValue / healthBarMaxValue
-        renderInfo     = {
+        healthBarValue    = entity.getHealth()
+        healthBarMaxValue = entity.getMaxHealth()
+        local ratio       = healthBarValue / healthBarMaxValue
+
+        renderInfo        = {
             x               = healthBar.bounds.x - width / 2,
             y               = healthBar.bounds.y + offsetY,
             maxWidth        = width,

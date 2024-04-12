@@ -9,17 +9,13 @@ Player.new      = function(gameManager)
     local player = Unit.new("Player", gameManager, "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), 1)
 
     setmetatable(player, Player)
-    Player.__index     = Player
+    Player.__index = Player
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-
-    local mouseWasDown = false
-    local mouseClicked = false
     player.setRegenHealthAmount(configuration:getPlayerRegenHealthAmount())
     player.setMaxHealth(configuration:getPlayerMaxHealth())
-    player.setHealth(configuration:getPlayerMaxHealth())
     -- ---------------------------------------------
     -- Public Functions
     -- ---------------------------------------------
@@ -30,20 +26,10 @@ Player.new      = function(gameManager)
         player.setCollider(Rectangle.new(worldPosition.x, worldPosition.y, player.bounds.width, player.bounds.height).scale(player.scale))
         player.targetPosition(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if love.mouse.isDown(1) then
-            mouseWasDown = true
-        elseif not love.mouse.isDown(1) and mouseWasDown then
             player.setStartRealPosition(worldPosition.offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2))
             local mouseOffset = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
             player.setDestinationRealPosition({ x = worldPosition.x + mouseOffset.x, y = worldPosition.y + mouseOffset.y })
-            mouseClicked = true
-            mouseWasDown = false
-        else
-            mouseWasDown = false
-        end
-
-        if mouseClicked then
             player.fireStarts()
-            mouseClicked = false
         end
     end
 

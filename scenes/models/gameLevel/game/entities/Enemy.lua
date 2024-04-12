@@ -10,11 +10,12 @@ Enemy.new       = function(index, enemyPosition, gameManager)
     local enemy = Unit.new("Enemy-" .. index, gameManager, "assets/gamelevel/tank-body-blue.png", "assets/gamelevel/tank-turret-blue.png", "assets/gamelevel/tank-turret-fire.png", 0, 0, 2)
 
     setmetatable(enemy, Enemy)
-    Enemy.__index  = Enemy
+    Enemy.__index = Enemy
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
+    enemy.setMaxHealth(configuration:getEnemyMaxHealth())
     local enemyRealPosition
     local behavior = configuration:getEnemyBehavior(gameManager, enemy)
     -- ---------------------------------------------
@@ -59,11 +60,12 @@ Enemy.new       = function(index, enemyPosition, gameManager)
     end
 
     function enemy.getEnemyPosition()
-        return enemyRealPosition
+        return Vector2.new(enemyRealPosition.x, enemyRealPosition.y)
     end
 
     function enemy.setEnemyPosition(position)
         enemyRealPosition = position
+        enemy.setStartRealPosition(position)
     end
 
     return enemy

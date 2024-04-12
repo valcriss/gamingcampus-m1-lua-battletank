@@ -1,9 +1,7 @@
 ---@class Order
 Order     = {}
 
----@param gameManager GameManager
----@param enemy Enemy
-Order.new = function(type, target, gameManager, enemy, behavior)
+Order.new = function()
     local order = {}
 
     setmetatable(order, Order)
@@ -21,6 +19,11 @@ Order.new = function(type, target, gameManager, enemy, behavior)
     ---@public
     function order.update(_)
 
+    end
+
+    function order.clearCurrentPath()
+        currentPath = nil
+        pathIndex   = 1
     end
 
     function order.setCurrentPath(path)

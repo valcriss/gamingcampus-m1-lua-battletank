@@ -27,6 +27,7 @@ PathFinding.new = function(gameManager)
     ---@param source Vector2
     ---@param destination Vector2
     function pathFinding.findPath(source, destination)
+        if destination == nil or destination.x == nil or destination.y == nil then return nil end
         local done             = {}
         local queue            = {}
         local sourceIndex      = gameLevelData.getTileIndexFromRealPosition(source.x + gameLevelData.data.level.TileSize / 2, source.y + gameLevelData.data.level.TileSize / 2)
@@ -60,7 +61,6 @@ PathFinding.new = function(gameManager)
                 copy[orig_key] = orig_value
             end
         else
-            -- number, string, boolean, etc
             copy = orig
         end
         return copy

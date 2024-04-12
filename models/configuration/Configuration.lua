@@ -104,6 +104,14 @@ Configuration.new    = function()
         return 10 - (9 * configuration:getDifficulty())
     end
 
+    function configuration:getPlayerFrozenDuration()
+        return 3 + (7 * configuration:getDifficulty())
+    end
+
+    function configuration:getEnemyFrozenDuration()
+        return 10 - (7 * configuration:getDifficulty())
+    end
+
     function configuration:getFlagMaxHealth()
         return (configuration:getDifficulty() * 200) + 300
     end

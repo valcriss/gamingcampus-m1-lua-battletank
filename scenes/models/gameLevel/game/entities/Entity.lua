@@ -74,7 +74,7 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
     end
 
     function entity.setHealth(newHealth)
-        currentHealth = math.min(newHealth, maxHealth)
+        currentHealth = math.min(math.max(newHealth, 0), maxHealth)
     end
 
     function entity.getHealthPercentage()
@@ -103,7 +103,8 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
     end
 
     function entity.setMaxHealth(newMaxHealth)
-        maxHealth = newMaxHealth
+        maxHealth     = newMaxHealth
+        currentHealth = newMaxHealth
     end
 
     function entity.update(dt)

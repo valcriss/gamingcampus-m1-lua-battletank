@@ -1,11 +1,14 @@
-local Behavior   = require "scenes.models.gameLevel.game.entities.behaviors.Behavior"
-local MoveOrder  = require "scenes.models.gameLevel.game.entities.behaviors.orders.MoveOrder"
+local Behavior    = require "scenes.models.gameLevel.game.entities.behaviors.Behavior"
+local MoveOrder   = require "scenes.models.gameLevel.game.entities.behaviors.orders.MoveOrder"
+local AttackOrder = require "scenes.models.gameLevel.game.entities.behaviors.orders.AttackOrder"
+local DefendOrder = require "scenes.models.gameLevel.game.entities.behaviors.orders.DefendOrder"
+
 ---@class EasyBehavior
-EasyBehavior     = {}
+EasyBehavior      = {}
 
 ---@param gameManager GameManager
 ---@param enemy Enemy
-EasyBehavior.new = function(gameManager, enemy)
+EasyBehavior.new  = function(gameManager, enemy)
     local easyBehavior = Behavior.new(gameManager, enemy)
 
     setmetatable(easyBehavior, EasyBehavior)
@@ -21,6 +24,10 @@ EasyBehavior.new = function(gameManager, enemy)
 
     ---@public
     function easyBehavior.update(dt)
+        if enemy.isFrozen() then
+            easyBehavior.resetCurrentOrder()
+            return
+        end
         easyBehavior.updateTilesSeen(searchRange)
         local order = easyBehavior.getCurrentOrder()
         if (order ~= nil) then
@@ -29,30 +36,34 @@ EasyBehavior.new = function(gameManager, enemy)
             -- Si le joueur est dans les parages j'attaque
             local player = easyBehavior.searchPlayerInRange(searchRange)
             if player ~= nil then
-                -- easyBehavior.setCurrentOrder({ type = "attack", target = player })
+                easyBehavior.setCurrentOrder(AttackOrder.new(player, gameManager, enemy, easyBehavior))
+                return
             end
             -- Si ma tour n'a plus de bouclier je retourne en defense
             local enemyTower = gameManager.getEnemyTower()
             if enemyTower.isShieldActive() == false then
-                -- easyBehavior.setCurrentOrder({ type = "defend", target = enemyTower })
+                easyBehavior.setCurrentOrder(DefendOrder.new(enemyTower, gameManager, enemy, easyBehavior))
+                return
+            end
+            -- Si la tour du joueur n'a plus de bouclier je fonce l'attaquer
+            local playerTower = gameManager.getPlayerTower()
+            if playerTower.isShieldActive() == false then
+                easyBehavior.setCurrentOrder(AttackOrder.new(playerTower, gameManager, enemy, easyBehavior))
+                return
             end
             -- Si une tours adverse est dans les parages j'attaque
             local flag = easyBehavior.searchFlagInRange(searchRange)
             if flag ~= nil then
-                -- easyBehavior.setCurrentOrder({ type = "attack", target = flag })
+                easyBehavior.setCurrentOrder(AttackOrder.new(flag, gameManager, enemy, easyBehavior))
+                return
             end
             -- Sinon je target la case la plus proche qui je ne connais pas et que je peux atteindre
             local firstUnseenPosition = easyBehavior.getFirstUnSeenTilePosition()
             if firstUnseenPosition ~= nil then
-                easyBehavior.setCurrentOrder(MoveOrder.new("move", firstUnseenPosition, gameManager, enemy, easyBehavior))
+                easyBehavior.setCurrentOrder(MoveOrder.new(firstUnseenPosition, gameManager, enemy, easyBehavior))
             end
         end
-
     end
-
-    -- ---------------------------------------------
-    -- Private Functions
-    -- ---------------------------------------------
 
     return easyBehavior
 end
