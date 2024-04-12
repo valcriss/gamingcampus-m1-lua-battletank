@@ -3,6 +3,7 @@ local Image            = require "models.images.Image"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local Rectangle        = require "models.drawing.Rectangle"
 local HealthBar        = require "scenes.models.gameLevel.game.entities.HealthBar"
+local UnitMissile      = require "scenes.models.gameLevel.game.entities.UnitMissile"
 
 ---@class MainTower
 MainTower              = {}
@@ -21,6 +22,8 @@ MainTower.new          = function(name, gameManager, group)
     local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
     local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
     local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
+    local missile1          = UnitMissile.new("missile1", gameManager, nil, group).hide()
+    local missile2          = UnitMissile.new("missile2", gameManager, nil, group).hide()
 
     local realPosition
     local gunRotation       = 0
@@ -28,11 +31,14 @@ MainTower.new          = function(name, gameManager, group)
     local idleRotationSpeed = 10
     local fastRotationSpeed = 200
     local distanceThreshold = 450
+    local fireThreshold     = 400
 
     mainTower.addComponent(tower)
     mainTower.addComponent(gun)
     mainTower.addComponent(healthBar)
     mainTower.addComponent(shield)
+    mainTower.addComponent(missile1)
+    mainTower.addComponent(missile2)
 
 
     -- ---------------------------------------------
@@ -88,14 +94,14 @@ MainTower.new          = function(name, gameManager, group)
                 if distance < distanceThreshold then
                     if distance < minDistance then
                         minDistance = distance
-                        targetUnit  = collider
+                        targetUnit  = unit
                     end
                 end
             end
         end
 
         if targetUnit ~= nil then
-            local targetAngle = -math.deg(math.atan2(realPosition.y - targetUnit.y, targetUnit.x - realPosition.x)) + 90
+            local targetAngle = -math.deg(math.atan2(realPosition.y - targetUnit.getCollider().y, targetUnit.getCollider().x - realPosition.x)) + 90
             if targetAngle < 0 then targetAngle = targetAngle + 360 end
             if targetAngle > 360 then targetAngle = targetAngle - 360 end
             local angleMove = math.min(fastRotationSpeed * dt, math.abs(targetAngle - gunRotation))
@@ -104,11 +110,41 @@ MainTower.new          = function(name, gameManager, group)
             else
                 gunRotation = gunRotation - angleMove
             end
+
+            if math.abs(targetAngle - gunRotation) < 2 and minDistance <= fireThreshold then
+                mainTower.fireToTarget(targetUnit)
+            end
+
         else
             gunRotation = gunRotation + (idleRotationSpeed * dt)
         end
         if gunRotation > 360 then gunRotation = gunRotation - 360 end
         if gunRotation < 0 then gunRotation = gunRotation + 360 end
+    end
+
+    function mainTower.fireToTarget(targetUnit)
+        if mainTower.getCollider() == nil or targetUnit.getCollider() == nil then return end
+
+        local startRealPosition       = mainTower.getCollider().getPoint().offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+        local destinationRealPosition = targetUnit.getCollider().getPoint()
+        if missile1.isRunning() or missile2.isRunning() or targetUnit.isFrozen() then return end
+        missile1.show()
+        missile1.fire(
+                startRealPosition.x - math.cos(math.rad(gunRotation)) * 10,
+                startRealPosition.y - math.sin(math.rad(gunRotation)) * 10,
+                destinationRealPosition.x,
+                destinationRealPosition.y,
+                gunRotation
+        )
+        missile2.show()
+        missile2.fire(
+                startRealPosition.x + math.cos(math.rad(gunRotation)) * 10,
+                startRealPosition.y + math.sin(math.rad(gunRotation)) * 10,
+                destinationRealPosition.x,
+                destinationRealPosition.y,
+                gunRotation
+        )
+
     end
 
     return mainTower

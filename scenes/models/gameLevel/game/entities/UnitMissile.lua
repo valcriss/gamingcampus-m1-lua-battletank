@@ -5,7 +5,8 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 ---@class UnitMissile
 UnitMissile            = {}
 
-UnitMissile.new        = function(name, gameManager, missileEnded, group)
+UnitMissile.new        = function(name, gameManager, missileEnded, group, asset)
+    asset             = asset or "assets/gamelevel/bullet.png"
     local unitMissile = Component.new(name, {
         startX          = 0,
         startY          = 0,
@@ -71,8 +72,8 @@ UnitMissile.new        = function(name, gameManager, missileEnded, group)
         if blockedByEnvironment then
             unitMissile.blockMissile()
         elseif blockedByUnit ~= nil then
-            unitMissile.blockMissile()
             if blockedByUnit.getGroup() ~= group then
+                unitMissile.blockMissile()
                 gameManager.onUnitTakeDamage(blockedByUnit, group == 1 and configuration:getPlayerDamage() or configuration:getEnemyDamage(), group)
             end
         end
