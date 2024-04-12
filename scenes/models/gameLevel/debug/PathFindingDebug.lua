@@ -15,27 +15,30 @@ PathFindingDebug.new = function(gameManager)
     function pathFindingDebug.innerUpdate(_)
         pathFindingInfo = {}
         local enemies   = gameManager.getEnemyUnits()
-        --for _, unit in ipairs(enemies) do
-        --    local behavior = unit.getEnemyBehavior()
-        --    if behavior ~= nil then
-        --        local path = behavior.getCurrentPath()
-        --        if path ~= nil then
-        --            local positions = {}
-        --            for i = 1, #path do
-        --                local realPosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(path[i])
-        --                local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
-        --                table.insert(positions, translated)
-        --                table.insert(pathFindingInfo, { unit = unit, positions = positions })
-        --            end
-        --        end
-        --    end
-        --end
+        for _, unit in ipairs(enemies) do
+            local behavior = unit.getEnemyBehavior()
+            if behavior ~= nil then
+                local order = behavior.getCurrentOrder()
+                if order ~= nil then
+                    local path = order.getCurrentPath()
+                    if path ~= nil then
+                        local positions = {}
+                        for i = 1, #path do
+                            local realPosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(path[i])
+                            local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+                            table.insert(positions, translated)
+                            table.insert(pathFindingInfo, { unit = unit, positions = positions })
+                        end
+                    end
+                end
+            end
+        end
     end
 
     function pathFindingDebug.draw()
-        --for _, pathInfo in ipairs(pathFindingInfo) do
-        --    pathFindingDebug.drawLines(pathInfo.positions)
-        --end
+        for _, pathInfo in ipairs(pathFindingInfo) do
+            pathFindingDebug.drawLines(pathInfo.positions)
+        end
     end
 
     function pathFindingDebug.drawLines(positions)
