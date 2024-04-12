@@ -41,7 +41,7 @@ EasyBehavior.new  = function(gameManager, enemy)
             end
             -- Si ma tour n'a plus de bouclier je retourne en defense
             local enemyTower = gameManager.getEnemyTower()
-            if enemyTower.isShieldActive() == false then
+            if enemyTower.isShieldActive() == false and not gameManager.getPlayer().isFrozen() then
                 easyBehavior.setCurrentOrder(DefendOrder.new(enemyTower, gameManager, enemy, easyBehavior))
                 return
             end

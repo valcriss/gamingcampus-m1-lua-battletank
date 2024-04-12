@@ -7,7 +7,8 @@ ScenesManager.new = function()
     }
     setmetatable(sceneManager, ScenesManager)
     ScenesManager.__index = ScenesManager
-
+    ---@type boolean
+    local paused          = false
     ---@public
     ---@param scene Scene
     function sceneManager:addScene(scene)
@@ -56,15 +57,30 @@ ScenesManager.new = function()
         end
     end
 
-    function screenManager:pause()
+    function sceneManager:pause()
+        paused = true
         for i = 1, #sceneManager.scenes do
             sceneManager.scenes[i].pause()
         end
     end
 
-    function screenManager:unPause()
+    function sceneManager:unPause()
+        paused = false
         for i = 1, #sceneManager.scenes do
             sceneManager.scenes[i].unPause()
+        end
+    end
+
+    function sceneManager:isPaused()
+        return paused
+    end
+
+    function sceneManager:togglePause()
+        paused = not paused
+        if paused then
+            sceneManager:pause()
+        else
+            sceneManager:unPause()
         end
     end
 

@@ -41,9 +41,7 @@ GameManager.new   = function(gameLevelData)
     local onUnitDeadEventHandlers        = {}
     local onFlagCapturedEventHandlers    = {}
 
-    if FOG_OF_WAR then
-        gameManager.addComponent(fogOfWar)
-    end
+
 
     -- ---------------------------------------------
     -- Public Functions
@@ -70,6 +68,9 @@ GameManager.new   = function(gameLevelData)
         gameManager.addComponent(mainTower1)
         gameManager.addComponent(mainTower2)
         gameManager.addComponent(player)
+        if FOG_OF_WAR then
+            gameManager.addComponent(fogOfWar)
+        end
         pathFinding.load()
     end
 

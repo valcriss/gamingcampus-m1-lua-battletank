@@ -15,7 +15,7 @@ io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
 -- Déclaration des variables globals
 DEBUG            = false
-FOG_OF_WAR       = false
+FOG_OF_WAR       = true
 
 configuration    = Configuration:new()
 screenManager    = ScreenManager:new()
@@ -54,12 +54,7 @@ end
 
 function love.keypressed(key, _, _)
     if key == "escape" or key == "p" then
-        gamePaused = not gamePaused
-        if gamePaused then
-            screenManager:pause()
-        else
-            screenManager:unPause()
-        end
+        scenesManager:togglePause()
     end
-
 end
+

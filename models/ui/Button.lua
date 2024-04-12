@@ -52,7 +52,6 @@ Button.new        = function(name, assetPath, assetOverPath, assetPressedPath, x
         button.data.mouseIsPressed = isDown
         button.data.mouseIsOver    = button.bounds.containsPoint(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if not button.data.mouseIsOver then button.data.mouseIsPressed = false end
-
         if not button.data.mouseIsOver then
             buttonImage.show()
             buttonOverImage.hide()

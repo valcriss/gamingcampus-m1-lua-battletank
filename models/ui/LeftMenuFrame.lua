@@ -20,6 +20,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     LeftMenuFrame.__index = LeftMenuFrame
 
     function leftMenuFrame.animationShow(dt)
+
         if leftMenuFrame.data.animation == "show" then
             leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX + (leftMenuFrame.data.moveSpeed * dt)
             if leftMenuFrame.data.offsetX >= leftMenuFrame.bounds.x then
@@ -31,6 +32,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     end
 
     function leftMenuFrame.animationHide(dt)
+
         if leftMenuFrame.data.animation == "hide" then
             leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX - (leftMenuFrame.data.moveSpeed * dt)
             if leftMenuFrame.data.offsetX < -leftMenuFrame.bounds.width then
@@ -51,11 +53,11 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     end
 
     function leftMenuFrame.appear()
-        leftMenuFrame.show()
-        leftMenuFrame.enable()
         leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
         leftMenuFrame.data.animation = "show"
         leftMenuFrame.data.soundEffect.play()
+        leftMenuFrame.show()
+        leftMenuFrame.enable()
     end
 
     return leftMenuFrame
