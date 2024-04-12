@@ -1,4 +1,4 @@
-local DIRECT_TO_MAP = true
+local DIRECT_TO_MAP = false
 
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"
@@ -14,14 +14,13 @@ end
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
 -- Déclaration des variables globals
-DEBUG            = false
-FOG_OF_WAR       = true
+DEBUG         = false
+FOG_OF_WAR    = true
 
-configuration    = Configuration:new()
-screenManager    = ScreenManager:new()
-scenesManager    = ScenesManager:new()
+configuration = Configuration:new()
+screenManager = ScreenManager:new()
+scenesManager = ScenesManager:new()
 
-local gamePaused = false
 -- Déclaration des variables locales
 -- local splashScreen
 --local gameLevel
