@@ -4,8 +4,8 @@ local BitmapText    = require "models.texts.BitmapText"
 ---@class PauseMenuFrame
 PauseMenuFrame      = {}
 
-PauseMenuFrame.new  = function(name, title, x, y, width, height, moveSpeed, content)
-    local pauseMenuFrame = LeftMenuFrame.new(name, title, x, y, width, height, moveSpeed, "assets/ui/blue_panel.png", { content = content })
+PauseMenuFrame.new  = function()
+    local pauseMenuFrame = LeftMenuFrame.new("PauseMenuFrame", "Jeu en pause", 30, 200, 300, 400, 3000, "assets/ui/yellow_panel.png", { content = content })
 
     setmetatable(pauseMenuFrame, PauseMenuFrame)
     PauseMenuFrame.__index = PauseMenuFrame
