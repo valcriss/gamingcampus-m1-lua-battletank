@@ -26,9 +26,9 @@ GameLevel.new          = function()
     --- @type UIManager
     local uiManager        = UIManager.new(gameManager)
     --- @type DebugManager
-    local debugManager     = DebugManager.new(gameManager)
+    local debugManager     = DebugManager.new(gameManager).hide().disable()
     --- @type PauseMenuFrame
-    local pauseMenuFrame   = PauseMenuFrame.new(function() gameLevel.resume() end, function() gameLevel.back() end).hide()
+    local pauseMenuFrame   = PauseMenuFrame.new(function() gameLevel.resume() end, function() gameLevel.back() end, function(newValue) gameLevel.onDebugChanged(newValue) end).hide()
     --- @type SpriteSheetImage
     local transition       = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() gameLevel.returnToMap() end).hide().disable()
     --- @type DialogBackground
@@ -37,9 +37,7 @@ GameLevel.new          = function()
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
     gameLevel.addComponent(uiManager)
-    if DEBUG == true then
-        gameLevel.addComponent(debugManager)
-    end
+    gameLevel.addComponent(debugManager)
     gameLevel.addComponent(dialogBackground)
     gameLevel.addComponent(pauseMenuFrame)
     gameLevel.addComponent(transition)
@@ -48,17 +46,33 @@ GameLevel.new          = function()
     -- Private Functions
     -- ---------------------------------------------
     function gameLevel.pause()
+        gameLevel.disableGameUpdate()
+        gameLevel.showPauseMenu()
+    end
+
+    function gameLevel.unPause()
+        gameLevel.enableGameUpdate()
+        gameLevel.hidePauseMenu()
+    end
+
+    function gameLevel.disableGameUpdate()
         gameLevelData.disable()
         gameManager.disable()
         uiManager.disable()
+    end
+
+    function gameLevel.enableGameUpdate()
+        gameLevelData.enable()
+        gameManager.enable()
+        uiManager.enable()
+    end
+
+    function gameLevel.showPauseMenu()
         dialogBackground.enable().show()
         pauseMenuFrame.appear()
     end
 
-    function gameLevel.unPause()
-        gameLevelData.enable()
-        gameManager.enable()
-        uiManager.enable()
+    function gameLevel.hidePauseMenu()
         dialogBackground.disable().hide()
         pauseMenuFrame.disappear()
     end
@@ -75,6 +89,14 @@ GameLevel.new          = function()
         scenesManager:unPause()
         scenesManager:removeScene(gameLevel)
         scenesManager:addScene(LevelSelect.new())
+    end
+
+    function gameLevel.onDebugChanged(value)
+        if value then
+            debugManager.enable().show()
+        else
+            debugManager.disable().hide()
+        end
     end
 
     return gameLevel

@@ -125,8 +125,8 @@ MainTower.new          = function(name, gameManager, group)
     function mainTower.fireToTarget(targetUnit)
         if mainTower.getCollider() == nil or targetUnit.getCollider() == nil then return end
 
-        local startRealPosition       = mainTower.getCollider().getPoint().offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
-        local destinationRealPosition = targetUnit.getCollider().getPoint()
+        local startRealPosition       = mainTower.getCollider().getCenter()
+        local destinationRealPosition = targetUnit.getCollider().getCenter()
         if missile1.isRunning() or missile2.isRunning() or targetUnit.isFrozen() then return end
         missile1.show()
         missile1.fire(

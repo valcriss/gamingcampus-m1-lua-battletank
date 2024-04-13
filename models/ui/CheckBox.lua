@@ -4,7 +4,7 @@ local SoundEffect = require "models.audio.SoundEffect"
 ---@class CheckBox
 CheckBox          = {}
 
-CheckBox.new      = function(name, assetPath, assetCheckedPath, x, y, checked)
+CheckBox.new      = function(name, assetPath, assetCheckedPath, x, y, checked, stateChangedCallback)
     checked        = checked or false
     local checkBox = Component.new(
             name,
@@ -48,6 +48,9 @@ CheckBox.new      = function(name, assetPath, assetCheckedPath, x, y, checked)
         if checkBox.data.mouseIsOver and wasPressed then
             soundEffect.play()
             checkBox.data.checked = not checkBox.data.checked
+            if stateChangedCallback ~= nil then
+                stateChangedCallback(checkBox.data.checked)
+            end
         end
 
         if checkBox.data.checked then
