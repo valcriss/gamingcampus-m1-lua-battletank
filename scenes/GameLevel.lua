@@ -6,6 +6,8 @@ local DebugManager     = require "scenes.models.gameLevel.debug.DebugManager"
 local PauseMenuFrame   = require "scenes.models.gameLevel.pause.PauseMenuFrame"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local DialogBackground = require "models.ui.DialogBackground"
+local HelpFrame        = require "scenes.models.gameLevel.pause.HelpFrame"
+local Delay            = require "models.tools.Delay"
 
 ---@class GameLevel
 GameLevel              = {}
@@ -33,6 +35,12 @@ GameLevel.new          = function()
     local transition       = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() gameLevel.returnToMap() end).hide().disable()
     --- @type DialogBackground
     local dialogBackground = DialogBackground.new().hide().disable()
+    --- @type HelpFrame
+    local helpFrame        = HelpFrame.new(function() gameLevel.hideHelpMenu() end).hide().disable()
+    --- @type Delay
+    local delay            = Delay.new("showHelp").setDelay(0.2, function()
+        gameLevel.showHelpMenu()
+    end)
     -- ---------------------------------------------
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
@@ -40,11 +48,14 @@ GameLevel.new          = function()
     gameLevel.addComponent(debugManager)
     gameLevel.addComponent(dialogBackground)
     gameLevel.addComponent(pauseMenuFrame)
+    gameLevel.addComponent(helpFrame)
     gameLevel.addComponent(transition)
+    gameLevel.addComponent(delay)
 
     -- ---------------------------------------------
     -- Private Functions
     -- ---------------------------------------------
+
     function gameLevel.pause()
         gameLevel.disableGameUpdate()
         gameLevel.showPauseMenu()
@@ -75,6 +86,18 @@ GameLevel.new          = function()
     function gameLevel.hidePauseMenu()
         dialogBackground.disable().hide()
         pauseMenuFrame.disappear()
+    end
+
+    function gameLevel.showHelpMenu()
+        gameLevel.disableGameUpdate()
+        dialogBackground.enable().show()
+        helpFrame.appear()
+    end
+
+    function gameLevel.hideHelpMenu()
+        gameLevel.enableGameUpdate()
+        dialogBackground.disable().hide()
+        helpFrame.disappear()
     end
 
     function gameLevel.resume()

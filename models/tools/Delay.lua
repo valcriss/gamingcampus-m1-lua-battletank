@@ -35,6 +35,7 @@ Delay.new = function(name)
         delay.data.delay       = duration
         delay.data.action      = action
         delay.data.elapsedTime = 0
+        return delay
     end
 
     return delay

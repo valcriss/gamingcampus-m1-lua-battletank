@@ -1,4 +1,4 @@
-local DIRECT_TO_MAP = false
+local DIRECT_TO_MAP = true
 
 -- Importation des modules
 local ScreenManager = require "models.screen.ScreenManager"
@@ -14,7 +14,6 @@ end
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
 -- Déclaration des variables globals
-DEBUG         = false
 FOG_OF_WAR    = true
 
 configuration = Configuration:new()
