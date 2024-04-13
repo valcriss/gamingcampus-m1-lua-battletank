@@ -7,7 +7,7 @@ local CheckBox      = require "models.ui.CheckBox"
 PauseMenuFrame      = {}
 
 PauseMenuFrame.new  = function(onResume, onBack, onPauseChanged)
-    local pauseMenuFrame = LeftMenuFrame.new("PauseMenuFrame", "Jeu en pause", 20, 300, 220, 220, 3000, "assets/ui/yellow_panel.png", { content = "" }, true)
+    local pauseMenuFrame = LeftMenuFrame.new("PauseMenuFrame", "Jeu en pause", 20, 300, 220, 180, 3000, "assets/ui/yellow_panel.png", { content = "" }, true)
 
     setmetatable(pauseMenuFrame, PauseMenuFrame)
     PauseMenuFrame.__index = PauseMenuFrame
@@ -26,8 +26,8 @@ PauseMenuFrame.new  = function(onResume, onBack, onPauseChanged)
         pauseMenuFrame.updateAnimation(dt)
         resumeButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 20, pauseMenuFrame.bounds.y + 20)
         backButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 20, pauseMenuFrame.bounds.y + 80)
-        debugLabel.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 20, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 30)
-        debugCheckbox.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 90, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 40)
+        debugLabel.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 25, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 30)
+        debugCheckbox.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 170, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 40)
     end
 
     function pauseMenuFrame.resume()
