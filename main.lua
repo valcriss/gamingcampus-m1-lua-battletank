@@ -13,17 +13,18 @@ end
 
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
+love.graphics.setDefaultFilter("nearest")
 -- Déclaration des variables globals
 FOG_OF_WAR    = true
 
+-- Déclaration des variables globals
+-- Gestion globale de la configuration du jeu
 configuration = Configuration:new()
+-- Gestion de l'ecran et du ratio par rapport a la taille de la fenetre
 screenManager = ScreenManager:new()
+-- Gestion des scenes du jeu
 scenesManager = ScenesManager:new()
 
--- Déclaration des variables locales
--- local splashScreen
---local gameLevel
--- love.graphics.setDefaultFilter("nearest")
 -- Functions
 function love.load()
     configuration:load()

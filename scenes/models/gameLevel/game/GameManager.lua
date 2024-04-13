@@ -1,19 +1,20 @@
-local Component   = require "models.scenes.Component"
-local ViewPort    = require "scenes.models.gameLevel.game.viewport.ViewPort"
-local GameMap     = require "scenes.models.gameLevel.game.map.GameMap"
-local FogOfWar    = require "scenes.models.gameLevel.game.map.FogOfWar"
-local Parallax    = require "models.images.Parallax"
-local Player      = require "scenes.models.gameLevel.game.entities.Player"
-local MainTower   = require "scenes.models.gameLevel.game.entities.MainTower"
-local Enemy       = require "scenes.models.gameLevel.game.entities.Enemy"
-local Flag        = require "scenes.models.gameLevel.game.entities.Flag"
-local PathFinding = require "scenes.models.gameLevel.game.map.PathFinding"
+local Component        = require "models.scenes.Component"
+local ViewPort         = require "scenes.models.gameLevel.game.viewport.ViewPort"
+local GameMap          = require "scenes.models.gameLevel.game.map.GameMap"
+local FogOfWar         = require "scenes.models.gameLevel.game.map.FogOfWar"
+local Parallax         = require "models.images.Parallax"
+local Player           = require "scenes.models.gameLevel.game.entities.Player"
+local MainTower        = require "scenes.models.gameLevel.game.entities.MainTower"
+local Enemy            = require "scenes.models.gameLevel.game.entities.Enemy"
+local Flag             = require "scenes.models.gameLevel.game.entities.Flag"
+local PathFinding      = require "scenes.models.gameLevel.game.map.PathFinding"
+local GameNotification = require "scenes.models.gameLevel.notifications.GameNotification"
 
 ---@class GameManager
-GameManager       = {}
+GameManager            = {}
 
 --- @param gameLevelData GameLevelData
-GameManager.new   = function(gameLevelData)
+GameManager.new        = function(gameLevelData)
 
     local gameManager = Component.new("GameManager")
 
@@ -31,6 +32,7 @@ GameManager.new   = function(gameLevelData)
     local mainTower2         = MainTower.new("mainTower2", gameManager, 2)
     local fogOfWar           = FogOfWar.new(gameManager, true)
     local pathFinding        = PathFinding.new(gameManager)
+    local gameNotifications  = GameNotification.new(gameManager)
 
     gameManager.addComponent(backgroundParallax)
     gameManager.addComponent(viewPort)
@@ -40,8 +42,7 @@ GameManager.new   = function(gameLevelData)
     local onUnitUnderAttackEventHandlers = {}
     local onUnitDeadEventHandlers        = {}
     local onFlagCapturedEventHandlers    = {}
-
-
+    local onTowerFlagEventHandlers       = {}
 
     -- ---------------------------------------------
     -- Public Functions
@@ -71,6 +72,7 @@ GameManager.new   = function(gameLevelData)
         if FOG_OF_WAR then
             gameManager.addComponent(fogOfWar)
         end
+        gameManager.addComponent(gameNotifications)
         pathFinding.load()
     end
 
@@ -236,14 +238,36 @@ GameManager.new   = function(gameLevelData)
         local enemyFlagsCount  = #gameManager.getEnemyFlags()
 
         if allFlagsCount == playerFlagsCount then
-            mainTower2.setShieldOff()
+            if mainTower2.isShieldActive() then
+                mainTower2.setShieldOff()
+                for index = 1, #onTowerFlagEventHandlers do
+                    onTowerFlagEventHandlers[index](mainTower2, "off")
+                end
+
+            end
         else
-            mainTower2.setShieldOn()
+            if mainTower2.isShieldActive() == false then
+                mainTower2.setShieldOn()
+                for index = 1, #onTowerFlagEventHandlers do
+                    onTowerFlagEventHandlers[index](mainTower2, "on")
+                end
+
+            end
         end
         if allFlagsCount == enemyFlagsCount then
-            mainTower1.setShieldOff()
+            if mainTower1.isShieldActive() then
+                mainTower1.setShieldOff()
+                for index = 1, #onTowerFlagEventHandlers do
+                    onTowerFlagEventHandlers[index](mainTower1, "off")
+                end
+            end
         else
-            mainTower1.setShieldOn()
+            if mainTower1.isShieldActive() == false then
+                mainTower1.setShieldOn()
+                for index = 1, #onTowerFlagEventHandlers do
+                    onTowerFlagEventHandlers[index](mainTower1, "on")
+                end
+            end
         end
 
         for index = 1, #onFlagCapturedEventHandlers do
@@ -261,6 +285,10 @@ GameManager.new   = function(gameLevelData)
 
     function gameManager.registerOnUnitUnderAttackEventHandler(handler)
         table.insert(onUnitUnderAttackEventHandlers, handler)
+    end
+
+    function gameManager.registerOnTowerFlagEventHandler(handler)
+        table.insert(onTowerFlagEventHandlers, handler)
     end
 
     return gameManager
