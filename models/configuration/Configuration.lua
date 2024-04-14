@@ -12,9 +12,9 @@ Configuration.new    = function()
         defaultConfiguration = {
             fullScreen  = false,
             vsync       = false,
-            musicVolume = 1,
+            musicVolume = 0.4,
             soundVolume = 1,
-            difficulty  = 0.5,
+            difficulty  = 0,
             maximized   = false,
             level       = 1
         }
