@@ -14,7 +14,7 @@ local GameNotification = require "scenes.models.gameLevel.notifications.GameNoti
 GameManager            = {}
 
 --- @param gameLevelData GameLevelData
-GameManager.new        = function(gameLevelData)
+GameManager.new        = function(gameLevelData, onVictory, onDefeat)
 
     local gameManager = Component.new("GameManager")
 
@@ -220,9 +220,9 @@ GameManager.new        = function(gameLevelData)
         elseif unit.getType() == "MainTower" then
             unit.setCanBeDamaged(false)
             if unit.getGroup() == 1 then
-                print("Le joueur a perdu")
+                onDefeat()
             else
-                print("L'ennemi a perdu")
+                onVictory()
             end
         end
         for index = 1, #onUnitDeadEventHandlers do

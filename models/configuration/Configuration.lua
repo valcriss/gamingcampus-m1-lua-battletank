@@ -96,6 +96,15 @@ Configuration.new    = function()
         configuration:save()
     end
 
+    function configuration:changeLevel()
+        local level = configuration:getLevel()
+        level       = level + 1
+        if level == 4 then level = 1 end
+        configuration.data.level = level
+        configuration:save()
+    end
+
+
     -- ------------------------------------------------
     -- Enemy Regen Health
     -- ------------------------------------------------

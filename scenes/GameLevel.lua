@@ -8,6 +8,7 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local DialogBackground = require "models.ui.DialogBackground"
 local HelpFrame        = require "scenes.models.gameLevel.pause.HelpFrame"
 local Delay            = require "models.tools.Delay"
+local EndGameUI        = require "scenes.models.gameLevel.ui.EndGameUI"
 
 ---@class GameLevel
 GameLevel              = {}
@@ -24,7 +25,7 @@ GameLevel.new          = function()
     --- @type GameLevelData
     local gameLevelData    = GameLevelData.new()
     --- @type GameManager
-    local gameManager      = GameManager.new(gameLevelData)
+    local gameManager      = GameManager.new(gameLevelData, function() gameLevel.onVictory() end, function() gameLevel.onDefeat() end)
     --- @type UIManager
     local uiManager        = UIManager.new(gameManager)
     --- @type DebugManager
@@ -33,7 +34,7 @@ GameLevel.new          = function()
     local pauseMenuFrame   = PauseMenuFrame.new(function() gameLevel.resume() end, function() gameLevel.back() end, function(newValue) gameLevel.onDebugChanged(newValue) end).hide()
     --- @type SpriteSheetImage
     local transition       = SpriteSheetImage.new("transition", "assets/mainmenu/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() gameLevel.returnToMap() end).hide().disable()
-    --- @type DialogBackground
+
     local dialogBackground = DialogBackground.new().hide().disable()
     --- @type HelpFrame
     local helpFrame        = HelpFrame.new(function() gameLevel.hideHelpMenu() end).hide().disable()
@@ -41,6 +42,7 @@ GameLevel.new          = function()
     local delay            = Delay.new("showHelp").setDelay(0.2, function()
         gameLevel.showHelpMenu()
     end)
+    local endGameUI        = EndGameUI.new(function(isVictory) gameLevel.endGame(isVictory) end)
     -- ---------------------------------------------
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
@@ -51,6 +53,7 @@ GameLevel.new          = function()
     gameLevel.addComponent(helpFrame)
     gameLevel.addComponent(transition)
     gameLevel.addComponent(delay)
+    gameLevel.addComponent(endGameUI)
 
     -- ---------------------------------------------
     -- Private Functions
@@ -120,6 +123,26 @@ GameLevel.new          = function()
         else
             debugManager.disable().hide()
         end
+    end
+
+    function gameLevel.onVictory()
+        gameLevel.disableGameUpdate()
+        dialogBackground.enable().show()
+        endGameUI.victory()
+    end
+
+    function gameLevel.onDefeat()
+        gameLevel.disableGameUpdate()
+        dialogBackground.enable().show()
+        endGameUI.defeat()
+    end
+
+    function gameLevel.endGame(isVictory)
+        if isVictory then
+            configuration:changeLevel()
+        end
+        scenesManager:removeScene(gameLevel)
+        scenesManager:addScene(LevelSelect.new())
     end
 
     return gameLevel

@@ -161,6 +161,8 @@ GameLevelData.new = function()
     ---@return string
     function gameLevelData.getLevelAsset()
         if configuration.getLevel() == 1 then return "assets/levels/level1.json" end
+        if configuration.getLevel() == 2 then return "assets/levels/level2.json" end
+        if configuration.getLevel() == 3 then return "assets/levels/level3.json" end
         return nil
     end
 
