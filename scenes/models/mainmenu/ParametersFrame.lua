@@ -31,7 +31,7 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
 
     local musicSlider        = Slider.new(parametersFrame.name .. "_musicSlider", 0, 0, configuration:getMusicVolume())
     local soundSlider        = Slider.new(parametersFrame.name .. "_soundSlider", 0, 0, configuration:getSoundVolume())
-    local difficultySlider   = Slider.new(parametersFrame.name .. "_difficultySlider", 0, 0, configuration:getDifficulty())
+    local difficultySlider   = Slider.new(parametersFrame.name .. "_difficultySlider", 0, 0, configuration:getDifficulty(), 0.5, { { min = 0, max = 0.3, text = "Facile" }, { min = 0.3, max = 0.7, text = "Moyen" }, { min = 0.7, max = 1, text = "Difficile" } })
 
     local confirmButton      = Button.new("confirmButton", "assets/ui/green_button00.png", "assets/ui/green_button04.png", "assets/ui/green_button03.png", parametersFrame.bounds.x + 40, parametersFrame.bounds.y + parametersFrame.bounds.height - 60, "Sauvegarder", function()
         windowX, windowY, displayIndex = love.window.getPosition()

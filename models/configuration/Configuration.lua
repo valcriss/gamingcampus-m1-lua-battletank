@@ -96,49 +96,153 @@ Configuration.new    = function()
         configuration:save()
     end
 
+    -- ------------------------------------------------
+    -- Enemy Regen Health
+    -- ------------------------------------------------
+
     function configuration:getEnemyRegenHealthAmount()
-        return (9 * configuration:getDifficulty()) + 1
+        return configuration:calculateEnemyRegenHealthAmount(configuration:getDifficulty())
     end
+
+    function configuration:calculateEnemyRegenHealthAmount(value)
+        return (9 * value) + 1
+    end
+
+    -- ------------------------------------------------
+    -- Player Regen Health
+    -- ------------------------------------------------
 
     function configuration:getPlayerRegenHealthAmount()
-        return 10 - (9 * configuration:getDifficulty())
+        return configuration:calculatePlayerRegenHealthAmount(configuration:getDifficulty())
     end
+
+    function configuration:calculatePlayerRegenHealthAmount(value)
+        return 10 - (9 * value)
+    end
+
+    -- ------------------------------------------------
+    -- Player Frozen Duration
+    -- ------------------------------------------------
 
     function configuration:getPlayerFrozenDuration()
-        return 3 + (7 * configuration:getDifficulty())
+        return configuration:calculatePlayerFrozenDuration(configuration:getDifficulty())
     end
+
+    function configuration:calculatePlayerFrozenDuration(value)
+        return 3 + (7 * value)
+    end
+
+    -- ------------------------------------------------
+    -- Enemy Frozen Duration
+    -- ------------------------------------------------
 
     function configuration:getEnemyFrozenDuration()
-        return 10 - (7 * configuration:getDifficulty())
+        return configuration:calculateEnemyFrozenDuration(configuration:getDifficulty())
     end
+
+    function configuration:calculateEnemyFrozenDuration(value)
+        return 10 - (7 * value)
+    end
+
+    -- ------------------------------------------------
+    -- Flag Max Health
+    -- ------------------------------------------------
 
     function configuration:getFlagMaxHealth()
-        return (configuration:getDifficulty() * 200) + 300
+        return configuration:calculateFlagMaxHealth(configuration:getDifficulty())
     end
+
+    function configuration:calculateFlagMaxHealth(value)
+        return (value * 200) + 500
+    end
+
+    -- ------------------------------------------------
+    -- Main Tower Max Health
+    -- ------------------------------------------------
 
     function configuration:getMainTowerMaxHealth()
-        return (configuration:getDifficulty() * 500) + 500
+        return configuration:calculateMainTowerMaxHealth(configuration:getDifficulty())
     end
+
+    function configuration:calculateMainTowerMaxHealth(value)
+        return (value * 500) + 1000
+    end
+
+    -- ------------------------------------------------
+    -- Enemy Max Health
+    -- ------------------------------------------------
 
     function configuration:getEnemyMaxHealth()
-        return (configuration:getDifficulty() * 200) + 150
+        return configuration:calculateEnemyMaxHealth(configuration:getDifficulty())
     end
+
+    function configuration:calculateEnemyMaxHealth(value)
+        return (value * 200) + 150
+    end
+
+    -- ------------------------------------------------
+    -- Player Max Health
+    -- ------------------------------------------------
 
     function configuration:getPlayerMaxHealth()
-        return ((1 - (configuration:getDifficulty())) * 200) + 150
+        return configuration:calculatePlayerMaxHealth(configuration:getDifficulty())
     end
+
+    function configuration:calculatePlayerMaxHealth(value)
+        return ((1 - (value)) * 200) + 150
+    end
+
+    -- ------------------------------------------------
+    -- Player Damage
+    -- ------------------------------------------------
 
     function configuration:getPlayerDamage()
-        return ((1 - (configuration:getDifficulty())) * 20) + 10
+        return configuration:calculatePlayerDamage(configuration:getDifficulty())
     end
+
+    function configuration:calculatePlayerDamage(value)
+        return 30 - (value * 10)
+    end
+
+    -- ------------------------------------------------
+    -- Enemy Damage
+    -- ------------------------------------------------
 
     function configuration:getEnemyDamage()
-        return 20 - (configuration:getDifficulty() * 10)
+        return configuration:calculateEnemyDamage(configuration:getDifficulty())
     end
 
-    function configuration:getEnemySpeed()
-        return 300 + (configuration:getDifficulty() * 200)
+    function configuration:calculateEnemyDamage(value)
+        return 20 + (value * 10)
     end
+
+    -- ------------------------------------------------
+    -- Enemy Speed
+    -- ------------------------------------------------
+
+    function configuration:getEnemySpeed()
+        return configuration:calculateEnemySpeed(configuration:getDifficulty())
+    end
+
+    function configuration:calculateEnemySpeed(value)
+        return 475 + (value * 25)
+    end
+
+    -- ------------------------------------------------
+    -- Player Speed
+    -- ------------------------------------------------
+
+    function configuration:getPlayerSpeed()
+        return configuration:calculatePlayerSpeed(configuration:getDifficulty())
+    end
+
+    function configuration:calculatePlayerSpeed(value)
+        return 500 - (value * 25)
+    end
+
+    -- ------------------------------------------------
+    -- Enemy Behavior
+    -- ------------------------------------------------
 
     function configuration:getEnemyBehavior(gameManager, enemy)
         if configuration:getDifficulty() < 0.4 then

@@ -78,7 +78,7 @@ ViewPort.new    = function(gameManager)
         if gameManager.getPlayer().isFrozen() == true then return end
 
         local previousBounds = Rectangle.new(viewPort.bounds.x, viewPort.bounds.y, viewPort.bounds.width, viewPort.bounds.height)
-        local speed          = 500
+        local speed          = configuration:getPlayerSpeed()
 
         if top then
             viewPort.verticalMove(-speed * dt)
