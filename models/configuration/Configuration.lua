@@ -153,7 +153,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculateFlagMaxHealth(value)
-        return (value * 200) + 500
+        return (value * 200) + 1500
     end
 
     -- ------------------------------------------------
@@ -165,7 +165,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculateMainTowerMaxHealth(value)
-        return (value * 500) + 1000
+        return (value * 500) + 2000
     end
 
     -- ------------------------------------------------
