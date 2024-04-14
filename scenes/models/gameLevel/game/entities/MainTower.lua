@@ -4,6 +4,7 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local Rectangle        = require "models.drawing.Rectangle"
 local HealthBar        = require "scenes.models.gameLevel.game.entities.HealthBar"
 local UnitMissile      = require "scenes.models.gameLevel.game.entities.UnitMissile"
+local SoundEffect      = require "models.audio.SoundEffect"
 
 ---@class MainTower
 MainTower              = {}
@@ -24,6 +25,7 @@ MainTower.new          = function(name, gameManager, group)
     local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
     local missile1          = UnitMissile.new("missile1", gameManager, nil, group).hide()
     local missile2          = UnitMissile.new("missile2", gameManager, nil, group).hide()
+    local missileSound      = SoundEffect.new("background", "assets/gameLevel/sound/tower-fire.mp3", "static", false, false, configuration:getSoundVolume())
 
     local realPosition
     local gunRotation       = 0
@@ -39,6 +41,7 @@ MainTower.new          = function(name, gameManager, group)
     mainTower.addComponent(shield)
     mainTower.addComponent(missile1)
     mainTower.addComponent(missile2)
+    mainTower.addComponent(missileSound)
 
 
     -- ---------------------------------------------
@@ -128,6 +131,7 @@ MainTower.new          = function(name, gameManager, group)
         local startRealPosition       = mainTower.getCollider().getCenter()
         local destinationRealPosition = targetUnit.getCollider().getCenter()
         if missile1.isRunning() or missile2.isRunning() or targetUnit.isFrozen() then return end
+        missileSound.play()
         missile1.show()
         missile1.fire(
                 startRealPosition.x - math.cos(math.rad(gunRotation)) * 10,

@@ -29,7 +29,8 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
                 volume      = volume,
                 pitch       = pitch,
                 sound       = nil,
-                started     = false
+                started     = false,
+                paused      = false
             }
     )
 
@@ -50,7 +51,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     ---@public
     function soundEffect.update(_)
         if soundEffect.data.sound then
-            if not soundEffect.data.sound:isPlaying() and soundEffect.data.started and soundEffect.data.loop == true then
+            if not soundEffect.data.sound:isPlaying() and soundEffect.data.started and soundEffect.data.loop == true and soundEffect.data.paused == false then
                 soundEffect.play()
             end
         end
@@ -66,6 +67,17 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
             soundEffect.data.sound:setPitch(soundEffect.data.pitch)
             soundEffect.data.sound:play()
             soundEffect.data.started = true
+            soundEffect.data.paused  = false
+        end
+    end
+
+    function soundEffect.resume()
+        if soundEffect.data.sound then
+            soundEffect.data.sound:setVolume(soundEffect.data.volume)
+            soundEffect.data.sound:setPitch(soundEffect.data.pitch)
+            soundEffect.data.sound:play()
+            soundEffect.data.started = true
+            soundEffect.data.paused  = false
         end
     end
 
@@ -89,6 +101,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
         if soundEffect.data.sound then
             soundEffect.data.sound:pause()
             soundEffect.data.started = false
+            soundEffect.data.paused  = true
         end
     end
 

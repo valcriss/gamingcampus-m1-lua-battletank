@@ -126,7 +126,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculatePlayerRegenHealthAmount(value)
-        return 10 - (9 * value)
+        return 20 - (9 * value)
     end
 
     -- ------------------------------------------------
@@ -150,7 +150,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculateEnemyFrozenDuration(value)
-        return 10 - (7 * value)
+        return 15 - (7 * value)
     end
 
     -- ------------------------------------------------
@@ -210,7 +210,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculatePlayerDamage(value)
-        return 30 - (value * 10)
+        return 40 - (value * 10)
     end
 
     -- ------------------------------------------------
@@ -222,7 +222,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculateEnemyDamage(value)
-        return 20 + (value * 10)
+        return 10 + (value * 10)
     end
 
     -- ------------------------------------------------
@@ -234,7 +234,7 @@ Configuration.new    = function()
     end
 
     function configuration:calculateEnemySpeed(value)
-        return 475 + (value * 25)
+        return 400 + (value * 25)
     end
 
     -- ------------------------------------------------

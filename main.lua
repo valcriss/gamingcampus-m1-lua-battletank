@@ -13,7 +13,7 @@ end
 
 io.stdout:setvbuf "no"
 love.window.setTitle("Daniel Silvestre - Programmation fondamentale LUA et Love2 - Battle Tank")
-love.graphics.setDefaultFilter("nearest")
+-- love.graphics.setDefaultFilter("nearest")
 -- Déclaration des variables globals
 FOG_OF_WAR    = true
 

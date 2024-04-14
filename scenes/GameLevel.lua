@@ -9,6 +9,7 @@ local DialogBackground = require "models.ui.DialogBackground"
 local HelpFrame        = require "scenes.models.gameLevel.pause.HelpFrame"
 local Delay            = require "models.tools.Delay"
 local EndGameUI        = require "scenes.models.gameLevel.ui.EndGameUI"
+local SoundEffect      = require "models.audio.SoundEffect"
 
 ---@class GameLevel
 GameLevel              = {}
@@ -43,6 +44,11 @@ GameLevel.new          = function()
         gameLevel.showHelpMenu()
     end)
     local endGameUI        = EndGameUI.new(function(isVictory) gameLevel.endGame(isVictory) end)
+    --- @type SoundEffect
+    local backgroundMusic  = SoundEffect.new("background", "assets/gameLevel/music/map-" .. configuration:getLevel() .. ".mp3", "stream", true, true, configuration:getMusicVolume())
+    local victorySound     = SoundEffect.new("victorySound", "assets/gameLevel/sound/victory.mp3", "static", false, false, configuration:getSoundVolume())
+    local defeatSound      = SoundEffect.new("defeatSound", "assets/gameLevel/sound/defeat.mp3", "static", false, false, configuration:getSoundVolume())
+
     -- ---------------------------------------------
     gameLevel.addComponent(gameLevelData)
     gameLevel.addComponent(gameManager)
@@ -54,6 +60,9 @@ GameLevel.new          = function()
     gameLevel.addComponent(transition)
     gameLevel.addComponent(delay)
     gameLevel.addComponent(endGameUI)
+    gameLevel.addComponent(backgroundMusic)
+    gameLevel.addComponent(victorySound)
+    gameLevel.addComponent(defeatSound)
 
     -- ---------------------------------------------
     -- Private Functions
@@ -73,12 +82,14 @@ GameLevel.new          = function()
         gameLevelData.disable()
         gameManager.disable()
         uiManager.disable()
+        backgroundMusic.pause()
     end
 
     function gameLevel.enableGameUpdate()
         gameLevelData.enable()
         gameManager.enable()
         uiManager.enable()
+        backgroundMusic.resume()
     end
 
     function gameLevel.showPauseMenu()
@@ -129,12 +140,14 @@ GameLevel.new          = function()
         gameLevel.disableGameUpdate()
         dialogBackground.enable().show()
         endGameUI.victory()
+        victorySound.play()
     end
 
     function gameLevel.onDefeat()
         gameLevel.disableGameUpdate()
         dialogBackground.enable().show()
         endGameUI.defeat()
+        defeatSound.play()
     end
 
     function gameLevel.endGame(isVictory)

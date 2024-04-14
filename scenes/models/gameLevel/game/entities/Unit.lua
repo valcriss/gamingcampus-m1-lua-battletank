@@ -3,6 +3,7 @@ local Image            = require "models.images.Image"
 local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local UnitMissile      = require "scenes.models.gameLevel.game.entities.UnitMissile"
 local HealthBar        = require "scenes.models.gameLevel.game.entities.HealthBar"
+local SoundEffect      = require "models.audio.SoundEffect"
 
 ---@class Unit
 Unit                   = {}
@@ -11,19 +12,20 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     local unit = Entity.new(name, gameManager, "Tank", group, x, y, 128, 128, 0, 0.5)
 
     setmetatable(unit, Unit)
-    Unit.__index     = Unit
+    Unit.__index       = Unit
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
 
-    local tankBody   = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
-    local tankTurret = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
-    local tankFire   = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
-    local missile1   = UnitMissile.new("missile1", gameManager, nil, group).hide()
-    local missile2   = UnitMissile.new("missile2", gameManager, nil, group).hide()
-    local healthBar  = HealthBar.new(unit.name .. "_healthBar", unit)
-    local emoteWait  = SpriteSheetImage.new(unit.name .. "_emoteWait", "assets/emotes/emote-wait.png", 15, 1, 50, true, 0, 0, nil, nil, unit.rotation, unit.scale, unit.color)
+    local tankBody     = Image.new(unit.name .. "_body", body, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
+    local tankTurret   = Image.new(unit.name .. "_turret", turret, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), unit.rotation, unit.scale)
+    local tankFire     = SpriteSheetImage.new(unit.name .. "_tankFire", fireAnimation, 18, 1, 10, false, unit.bounds.x + (unit.bounds.width / 2), unit.bounds.y + (unit.bounds.height / 2), nil, nil, unit.rotation, unit.scale, unit.color, function() unit.fireEnds() end).hide()
+    local missile1     = UnitMissile.new("missile1", gameManager, nil, group).hide()
+    local missile2     = UnitMissile.new("missile2", gameManager, nil, group).hide()
+    local healthBar    = HealthBar.new(unit.name .. "_healthBar", unit)
+    local emoteWait    = SpriteSheetImage.new(unit.name .. "_emoteWait", "assets/emotes/emote-wait.png", 15, 1, 50, true, 0, 0, nil, nil, unit.rotation, unit.scale, unit.color)
+    local missileSound = SoundEffect.new("background", "assets/gameLevel/sound/tank-fire.mp3", "static", false, false, configuration:getSoundVolume() * 0.5)
 
     unit.addComponent(tankBody)
     unit.addComponent(tankTurret)
@@ -32,6 +34,7 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     unit.addComponent(missile2)
     unit.addComponent(healthBar)
     unit.addComponent(emoteWait)
+    unit.addComponent(missileSound)
 
     local turretRotation = 0
     local startRealPosition
@@ -91,6 +94,7 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
 
     function unit.fireStarts()
         if missile1.isRunning() or missile2.isRunning() or unit.isFrozen() then return end
+        missileSound.play()
         missile1.show()
         missile1.fire(
                 startRealPosition.x - math.cos(math.rad(turretRotation)) * 10,
