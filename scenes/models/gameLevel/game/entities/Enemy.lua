@@ -23,16 +23,16 @@ Enemy.new       = function(index, enemyPosition, gameManager)
     -- ---------------------------------------------
 
     function enemy.load()
-        enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+        enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
     end
 
     function enemy.resetPosition()
-        enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+        enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
     end
 
     function enemy.updateUnit(dt)
         local position = gameManager.getViewport().transformPointWorldToViewport(enemyRealPosition)
-        enemy.setCollider(Rectangle.new(enemyRealPosition.x, enemyRealPosition.y, enemy.bounds.width, enemy.bounds.height).scale(enemy.scale).offsetPosition(-gameManager.getGameLevelData().data.level.TileSize / 2, -gameManager.getGameLevelData().data.level.TileSize / 2))
+        enemy.setCollider(Rectangle.new(enemyRealPosition.x, enemyRealPosition.y, enemy.bounds.width, enemy.bounds.height).scale(enemy.scale).offsetPosition(-gameManager.getGameLevelData().getLevel().TileSize / 2, -gameManager.getGameLevelData().getLevel().TileSize / 2))
         enemy.bounds.setPoint(position.x, position.y)
         behavior.update(dt)
     end

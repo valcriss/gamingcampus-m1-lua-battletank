@@ -31,7 +31,7 @@ PathFindingDebug.new = function(gameManager)
                         local positions = {}
                         for i = 1, #path do
                             local realPosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(path[i])
-                            local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+                            local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
                             table.insert(positions, translated)
                             table.insert(pathFindingInfo, { unit = unit, positions = positions })
                         end

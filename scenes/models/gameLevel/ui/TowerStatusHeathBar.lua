@@ -4,7 +4,7 @@ local Component         = require "models.scenes.Component"
 TowerStatusHeathBar     = {}
 
 TowerStatusHeathBar.new = function(name, flagItem, x, y)
-    local towerStatusHeathBar = Component.new(name, {}, x, y)
+    local towerStatusHeathBar = Component.new(name, x, y)
 
     setmetatable(towerStatusHeathBar, TowerStatusHeathBar)
     TowerStatusHeathBar.__index = TowerStatusHeathBar

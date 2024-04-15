@@ -13,7 +13,7 @@ DefendOrder.new = function(target, gameManager, enemy, behavior)
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local defendRange   = 5 * gameManager.getGameLevelData().data.level.TileSize
+    local defendRange   = 5 * gameManager.getGameLevelData().getLevel().TileSize
 
     -- ---------------------------------------------
     -- Public Functions
@@ -40,9 +40,9 @@ DefendOrder.new = function(target, gameManager, enemy, behavior)
         else
             local nextTile = defendOrder.getPathNode()
             if nextTile ~= nil then
-                local nextTilePosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(nextTile).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+                local nextTilePosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(nextTile).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
                 defendOrder.lookAtPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
-                if nextTilePosition.distance(enemy.getEnemyPosition().x, enemy.getEnemyPosition().y) < gameManager.getGameLevelData().data.level.TileSize / 4 then
+                if nextTilePosition.distance(enemy.getEnemyPosition().x, enemy.getEnemyPosition().y) < gameManager.getGameLevelData().getLevel().TileSize / 4 then
                     enemy.setEnemyPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
                     defendOrder.nextNode()
                 else

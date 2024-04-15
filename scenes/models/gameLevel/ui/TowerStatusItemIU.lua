@@ -6,7 +6,7 @@ local TowerStatusHeathBar = require "scenes.models.gameLevel.ui.TowerStatusHeath
 TowerStatusItemUI         = {}
 
 TowerStatusItemUI.new     = function(name, flagItem, x, y)
-    local towerStatusItemUI = Component.new(name, {}, x, y, 27, 37, 0, 1)
+    local towerStatusItemUI = Component.new(name, x, y, 27, 37, 0, 1)
 
     setmetatable(towerStatusItemUI, TowerStatusItemUI)
     TowerStatusItemUI.__index = TowerStatusItemUI

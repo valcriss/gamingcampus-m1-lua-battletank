@@ -34,22 +34,22 @@ GameMapTilesDebug.new = function(gameManager)
             while y <= renderBounds.height do
 
                 local tilePosition = gameManager.getGameLevelData().getGridPosition(vx, vy)
-                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().data.level.Width or tilePosition.y > gameManager.getGameLevelData().data.level.Height) then
+                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().getLevel().Width or tilePosition.y > gameManager.getGameLevelData().getLevel().Height) then
                     break
                 end
                 local index   = gameManager.getGameLevelData().getTileIndex(tilePosition.x, tilePosition.y)
                 local blocked = gameManager.getGameLevelData().isTileBlocked(index)
-                if y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
+                if y >= -gameManager.getGameLevelData().getLevel().TileSize and x >= -gameManager.getGameLevelData().getLevel().TileSize then
                     table.insert(tilesToRender, { x = x, y = y, tileIndex = index, tilePosition = tilePosition, blocked = blocked })
                 end
 
-                y  = y + gameManager.getGameLevelData().data.level.TileSize
-                vy = vy + gameManager.getGameLevelData().data.level.TileSize
+                y  = y + gameManager.getGameLevelData().getLevel().TileSize
+                vy = vy + gameManager.getGameLevelData().getLevel().TileSize
             end
             y  = renderBounds.y
             vy = 0
-            x  = x + gameManager.getGameLevelData().data.level.TileSize
-            vx = vx + gameManager.getGameLevelData().data.level.TileSize
+            x  = x + gameManager.getGameLevelData().getLevel().TileSize
+            vx = vx + gameManager.getGameLevelData().getLevel().TileSize
         end
 
         table.sort(tilesToRender, function(a, b)
@@ -78,7 +78,7 @@ GameMapTilesDebug.new = function(gameManager)
     ---@public
     function gameMapTilesDebug.drawRectangle(mode, cell, color)
         love.graphics.setColor(color.r, color.g, color.b, color.a)
-        love.graphics.rectangle(mode, screenManager:ScaleValueX(cell.x), screenManager:ScaleValueY(cell.y), screenManager:ScaleValueX(gameManager.getGameLevelData().data.level.TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().data.level.TileSize))
+        love.graphics.rectangle(mode, screenManager:ScaleValueX(cell.x), screenManager:ScaleValueY(cell.y), screenManager:ScaleValueX(gameManager.getGameLevelData().getLevel().TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().getLevel().TileSize))
     end
 
     ---@public
@@ -88,7 +88,7 @@ GameMapTilesDebug.new = function(gameManager)
         local originX   = debugText:getWidth() / 2
         local originY   = debugText:getHeight() / 2
         local textScale = 0.7
-        love.graphics.draw(debugText, screenManager:ScaleValueX(cell.x + gameManager.getGameLevelData().data.level.TileSize / 2), screenManager:ScaleValueY(cell.y + (gameManager.getGameLevelData().data.level.TileSize / 2) + offsetY), 0, textScale * screenManager:getScaleX(), textScale * screenManager:getScaleY(), originX, originY)
+        love.graphics.draw(debugText, screenManager:ScaleValueX(cell.x + gameManager.getGameLevelData().getLevel().TileSize / 2), screenManager:ScaleValueY(cell.y + (gameManager.getGameLevelData().getLevel().TileSize / 2) + offsetY), 0, textScale * screenManager:getScaleX(), textScale * screenManager:getScaleY(), originX, originY)
     end
 
     return gameMapTilesDebug

@@ -30,8 +30,8 @@ FogOfWar.new     = function(gameManager, forgetTilesSeen)
     function fogOfWar.update(dt)
         local position = gameManager.getViewport().getRealPosition()
         fogOfWar.updateClipBounds(position)
-        local distSeen    = ((sight + 1) * gameManager.getGameLevelData().data.level.TileSize)
-        local distInSight = ((sight) * gameManager.getGameLevelData().data.level.TileSize)
+        local distSeen    = ((sight + 1) * gameManager.getGameLevelData().getLevel().TileSize)
+        local distInSight = ((sight) * gameManager.getGameLevelData().getLevel().TileSize)
         local xMin        = position.x - distSeen
         local yMin        = position.y - distSeen
         local xMax        = position.x + distSeen
@@ -51,9 +51,9 @@ FogOfWar.new     = function(gameManager, forgetTilesSeen)
                     seen["seen_" .. tostring(tile)] = 0
                 end
                 -- ---------------------------------
-                yMin = yMin + gameManager.getGameLevelData().data.level.TileSize
+                yMin = yMin + gameManager.getGameLevelData().getLevel().TileSize
             end
-            xMin = xMin + gameManager.getGameLevelData().data.level.TileSize
+            xMin = xMin + gameManager.getGameLevelData().getLevel().TileSize
             yMin = position.y - distSeen
         end
 
@@ -79,21 +79,21 @@ FogOfWar.new     = function(gameManager, forgetTilesSeen)
             while y <= renderBounds.height do
 
                 local tilePosition = gameManager.getGameLevelData().getGridPosition(vx, vy)
-                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().data.level.Width or tilePosition.y > gameManager.getGameLevelData().data.level.Height) then
+                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().getLevel().Width or tilePosition.y > gameManager.getGameLevelData().getLevel().Height) then
                     break
                 end
 
-                if y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
+                if y >= -gameManager.getGameLevelData().getLevel().TileSize and x >= -gameManager.getGameLevelData().getLevel().TileSize then
                     fogOfWar.drawTile(x, y, tilePosition)
                 end
 
-                y  = y + gameManager.getGameLevelData().data.level.TileSize
-                vy = vy + gameManager.getGameLevelData().data.level.TileSize
+                y  = y + gameManager.getGameLevelData().getLevel().TileSize
+                vy = vy + gameManager.getGameLevelData().getLevel().TileSize
             end
             y  = renderBounds.y
             vy = 0
-            x  = x + gameManager.getGameLevelData().data.level.TileSize
-            vx = vx + gameManager.getGameLevelData().data.level.TileSize
+            x  = x + gameManager.getGameLevelData().getLevel().TileSize
+            vx = vx + gameManager.getGameLevelData().getLevel().TileSize
         end
         fogOfWar.drawClip()
     end
@@ -127,27 +127,27 @@ FogOfWar.new     = function(gameManager, forgetTilesSeen)
         if isInSight then return end
         if not isSeen then
             love.graphics.setColor(0, 0, 0, 1)
-            love.graphics.rectangle("fill", screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(gameManager.getGameLevelData().data.level.TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().data.level.TileSize))
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(gameManager.getGameLevelData().getLevel().TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().getLevel().TileSize))
             love.graphics.setColor(1, 1, 1, 1)
         end
         if not isInSight and isSeen ~= nil then
             local alpha = 0.3 + MathHelper:lerp(0, 0.7, isSeen / seenDuration)
             love.graphics.setColor(0, 0, 0, alpha)
-            love.graphics.rectangle("fill", screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(gameManager.getGameLevelData().data.level.TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().data.level.TileSize))
+            love.graphics.rectangle("fill", screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(gameManager.getGameLevelData().getLevel().TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().getLevel().TileSize))
             love.graphics.setColor(1, 1, 1, 1)
         end
     end
 
     ---@private
     function fogOfWar.updateClipBounds(position)
-        local mapWidth   = (gameManager.getGameLevelData().data.level.TileSize * gameManager.getGameLevelData().data.level.Width)
-        local mapHeight  = (gameManager.getGameLevelData().data.level.TileSize * gameManager.getGameLevelData().data.level.Height)
+        local mapWidth   = (gameManager.getGameLevelData().getLevel().TileSize * gameManager.getGameLevelData().getLevel().Width)
+        local mapHeight  = (gameManager.getGameLevelData().getLevel().TileSize * gameManager.getGameLevelData().getLevel().Height)
         local midScreenX = (screenManager:getWindowWidth() / 2)
         local midScreenY = (screenManager:getWindowHeight() / 2)
-        local left       = (midScreenX + (((position.x - (mapWidth)) + mapWidth) * -1)) - (gameManager.getGameLevelData().data.level.TileSize / 2)
-        local top        = (midScreenY + (((position.y - (mapHeight)) + mapHeight) * -1)) - (gameManager.getGameLevelData().data.level.TileSize / 2)
-        local right      = (position.x - mapWidth) + (gameManager.getGameLevelData().data.level.TileSize / 2) + midScreenX
-        local bottom     = (position.y - mapHeight) + (gameManager.getGameLevelData().data.level.TileSize / 2) + midScreenY
+        local left       = (midScreenX + (((position.x - (mapWidth)) + mapWidth) * -1)) - (gameManager.getGameLevelData().getLevel().TileSize / 2)
+        local top        = (midScreenY + (((position.y - (mapHeight)) + mapHeight) * -1)) - (gameManager.getGameLevelData().getLevel().TileSize / 2)
+        local right      = (position.x - mapWidth) + (gameManager.getGameLevelData().getLevel().TileSize / 2) + midScreenX
+        local bottom     = (position.y - mapHeight) + (gameManager.getGameLevelData().getLevel().TileSize / 2) + midScreenY
 
         if (left > 0) then
             clipLeft = { x = 0, y = 0, width = left, height = screenManager:getWindowHeight() }

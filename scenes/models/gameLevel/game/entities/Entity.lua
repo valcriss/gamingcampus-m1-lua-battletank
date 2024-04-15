@@ -9,7 +9,7 @@ Entity.new      = function(name, gameManager, unitType, unitGroup, x, y, width, 
     height       = height or 0
     rotation     = rotation or 0
     scale        = scale or 1
-    local entity = Component.new(name, {}, x, y, width, height, rotation, scale)
+    local entity = Component.new(name, x, y, width, height, rotation, scale)
 
     setmetatable(entity, Entity)
     Entity.__index          = Entity

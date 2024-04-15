@@ -25,13 +25,13 @@ ViewPort.new    = function(gameManager)
     -- ---------------------------------------------
     ---@public
     function viewPort.load()
-        maxBounds                  = Rectangle.new(0, 0, gameManager.getGameLevelData().data.level.Width * gameManager.getGameLevelData().data.level.TileSize, gameManager.getGameLevelData().data.level.Height * gameManager.getGameLevelData().data.level.TileSize)
-        local viewPortRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(gameManager.getGameLevelData().data.level.StartX, gameManager.getGameLevelData().data.level.StartY)
+        maxBounds                  = Rectangle.new(0, 0, gameManager.getGameLevelData().getLevel().Width * gameManager.getGameLevelData().getLevel().TileSize, gameManager.getGameLevelData().getLevel().Height * gameManager.getGameLevelData().getLevel().TileSize)
+        local viewPortRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(gameManager.getGameLevelData().getLevel().StartX, gameManager.getGameLevelData().getLevel().StartY)
         viewPort.bounds.setPoint(viewPortRealPosition.x, viewPortRealPosition.y)
     end
 
     function viewPort.resetPosition()
-        local viewPortRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(gameManager.getGameLevelData().data.level.StartX, gameManager.getGameLevelData().data.level.StartY)
+        local viewPortRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(gameManager.getGameLevelData().getLevel().StartX, gameManager.getGameLevelData().getLevel().StartY)
         viewPort.bounds.setPoint(viewPortRealPosition.x, viewPortRealPosition.y)
     end
 
@@ -100,7 +100,7 @@ ViewPort.new    = function(gameManager)
 
     function viewPort.newPositionIsInvalid()
         local ref           = viewPort.bounds.getPoint()
-        local border        = (gameManager.getGameLevelData().data.level.TileSize)
+        local border        = (gameManager.getGameLevelData().getLevel().TileSize)
         local point1        = Vector2.new(ref.x, ref.y)
         local point2        = Vector2.new(ref.x + border, ref.y)
         local point3        = Vector2.new(ref.x + border, ref.y + border)
@@ -160,8 +160,8 @@ ViewPort.new    = function(gameManager)
 
     ---@private
     function viewPort.updateRenderBounds()
-        local drawX  = (screenManager:getWindowWidth() / 2) - viewPort.bounds.x - (gameManager.getGameLevelData().data.level.TileSize / 2)
-        local drawY  = (screenManager:getWindowHeight() / 2) - viewPort.bounds.y - (gameManager.getGameLevelData().data.level.TileSize / 2)
+        local drawX  = (screenManager:getWindowWidth() / 2) - viewPort.bounds.x - (gameManager.getGameLevelData().getLevel().TileSize / 2)
+        local drawY  = (screenManager:getWindowHeight() / 2) - viewPort.bounds.y - (gameManager.getGameLevelData().getLevel().TileSize / 2)
         renderBounds = Rectangle.new(drawX, drawY, screenManager:getWindowWidth(), screenManager:getWindowHeight())
     end
 

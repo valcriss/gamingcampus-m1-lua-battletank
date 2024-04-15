@@ -31,6 +31,8 @@ BitmapText.new  = function(name, bmfFontData, content, alignmentX --[[optional]]
     local font
     ---@type table
     local text
+    ---@type string
+    local contentText  = content
 
     -- ---------------------------------------------
     -- Public functions
@@ -40,7 +42,7 @@ BitmapText.new  = function(name, bmfFontData, content, alignmentX --[[optional]]
     --- Fonction appelée automatiquement qui charge la police depuis la ressource
     function bitmapText.load()
         font = love.graphics.newFont(bmfFontData)
-        text = love.graphics.newText(font, content)
+        text = love.graphics.newText(font, contentText)
     end
 
     ---@public
@@ -86,6 +88,8 @@ BitmapText.new  = function(name, bmfFontData, content, alignmentX --[[optional]]
     --- Fonction qui permet de définir le texte affiché
     ---@param newContent string
     function bitmapText.setContent(newContent)
+        contentText = newContent
+        if text == nil then return end
         text:set(newContent)
     end
 
