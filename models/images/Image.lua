@@ -47,6 +47,18 @@ Image.new       = function(name, assetPath, x, y, rotation --[[optional]], scale
     end
 
     ---@public
+    --- Fonction qui retourne la largeur de l'image
+    function image.getWidth()
+        return bitmapImage:getWidth()
+    end
+
+    ---@public
+    --- Fonction qui retourne la hauteur de l'image
+    function image.getHeight()
+        return bitmapImage:getHeight()
+    end
+
+    ---@public
     --- Fonction appelée automatiquement qui dessine l'image
     function image.draw()
         love.graphics.draw(bitmapImage, screenManager:ScaleValueX(image.bounds.x), screenManager:ScaleValueY(image.bounds.y), math.rad(image.rotation), image.scale * screenManager:getScaleX(), image.scale * screenManager:getScaleY(), bitmapImage:getWidth() / 2, bitmapImage:getHeight() / 2)

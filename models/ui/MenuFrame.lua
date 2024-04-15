@@ -107,6 +107,13 @@ MenuFrame.new     = function(name, title, x, y, width, height, moveSpeed, header
         soundEffect.play()
     end
 
+    ---@public
+    --- Retourne l'offset de la frame
+    ---@return number
+    function menuFrame.getOffsetX()
+        return offsetX
+    end
+
     return menuFrame
 end
 
