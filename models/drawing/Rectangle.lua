@@ -19,15 +19,21 @@ Rectangle.new = function(x, y, width, height)
     setmetatable(rectangle, Rectangle)
     Rectangle.__index = Rectangle
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+
     ---@public
     ---@param pointX number
     ---@param pointY number
+    ---@return boolean
     function rectangle.containsPoint(pointX, pointY)
         return pointX >= rectangle.x and pointX <= rectangle.x + rectangle.width and pointY >= rectangle.y and pointY <= rectangle.y + rectangle.height
     end
 
     ---@public
     ---@param vector Vector2
+    ---@return boolean
     function rectangle.containsVector2(vector)
         return vector.x >= rectangle.x and vector.x <= rectangle.x + rectangle.width and vector.y >= rectangle.y and vector.y <= rectangle.y + rectangle.height
     end
@@ -45,11 +51,18 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    ---@param positionX number
+    ---@param positionY number
+    ---@return Rectangle
     function rectangle.setPoint(positionX, positionY)
         rectangle.x = positionX
         rectangle.y = positionY
+        return rectangle
     end
 
+    ---@public
+    ---@type number
+    ---@return Rectangle
     function rectangle.scale(value)
         rectangle.width  = rectangle.width * value
         rectangle.height = rectangle.height * value
@@ -57,9 +70,9 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
-    ---@return Rectangle
     ---@param offsetX number
     ---@param offsetY number
+    ---@return Rectangle
     function rectangle.offsetPosition(offsetX, offsetY)
         rectangle.x = rectangle.x + offsetX
         rectangle.y = rectangle.y + offsetY
@@ -67,9 +80,9 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
-    ---@return Rectangle
     ---@param offsetWidth number
     ---@param offsetHeight number
+    ---@return Rectangle
     function rectangle.offsetSize(offsetWidth, offsetHeight)
         rectangle.width  = rectangle.width + offsetWidth
         rectangle.height = rectangle.height + offsetHeight

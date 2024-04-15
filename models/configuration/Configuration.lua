@@ -3,6 +3,7 @@ local json           = require "libs.json"
 local EasyBehavior   = require "scenes.models.gameLevel.game.entities.behaviors.EasyBehavior"
 local MediumBehavior = require "scenes.models.gameLevel.game.entities.behaviors.MediumBehavior"
 local HardBehavior   = require "scenes.models.gameLevel.game.entities.behaviors.HardBehavior"
+
 ---@class Configuration
 Configuration        = {}
 
@@ -22,9 +23,10 @@ Configuration.new    = function()
 
     setmetatable(configuration, Configuration)
     Configuration.__index = Configuration
-    --[[
-        Getter et Setters
-    --]]
+
+    -- ------------------------------------------------
+    -- Game Fullscreen (get,set)
+    -- ------------------------------------------------
     function configuration:isFullScreen()
         return configuration.data.fullScreen
     end
@@ -33,6 +35,10 @@ Configuration.new    = function()
         configuration.data.fullScreen = value
         configuration:save()
     end
+
+    -- ------------------------------------------------
+    -- Graphics Vsync (get,set)
+    -- ------------------------------------------------
 
     function configuration:getVsync()
         return configuration.data.vsync
@@ -51,6 +57,10 @@ Configuration.new    = function()
         configuration:save()
     end
 
+    -- ------------------------------------------------
+    -- Music Volume (get,set)
+    -- ------------------------------------------------
+
     function configuration:getMusicVolume()
         return configuration.data.musicVolume
     end
@@ -59,6 +69,10 @@ Configuration.new    = function()
         configuration.data.musicVolume = value
         configuration:save()
     end
+
+    -- ------------------------------------------------
+    -- Sound Volume (get,set)
+    -- ------------------------------------------------
 
     function configuration:getSoundVolume()
         return configuration.data.soundVolume
@@ -69,6 +83,10 @@ Configuration.new    = function()
         configuration:save()
     end
 
+    -- ------------------------------------------------
+    -- Game difficulty (get,set)
+    -- ------------------------------------------------
+
     function configuration:getDifficulty()
         return configuration.data.difficulty
     end
@@ -77,6 +95,10 @@ Configuration.new    = function()
         configuration.data.difficulty = value
         configuration:save()
     end
+
+    -- ------------------------------------------------
+    -- Screen Maximized (get,set)
+    -- ------------------------------------------------
 
     function configuration:isMaximized()
         return configuration.data.maximized
@@ -87,6 +109,9 @@ Configuration.new    = function()
         configuration:save()
     end
 
+    -- ------------------------------------------------
+    -- Player level (get, set, increment)
+    -- ------------------------------------------------
     function configuration:getLevel()
         return configuration.data.level
     end
@@ -104,11 +129,9 @@ Configuration.new    = function()
         configuration:save()
     end
 
-
     -- ------------------------------------------------
     -- Enemy Regen Health
     -- ------------------------------------------------
-
     function configuration:getEnemyRegenHealthAmount()
         return configuration:calculateEnemyRegenHealthAmount(configuration:getDifficulty())
     end
@@ -120,7 +143,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Player Regen Health
     -- ------------------------------------------------
-
     function configuration:getPlayerRegenHealthAmount()
         return configuration:calculatePlayerRegenHealthAmount(configuration:getDifficulty())
     end
@@ -132,7 +154,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Player Frozen Duration
     -- ------------------------------------------------
-
     function configuration:getPlayerFrozenDuration()
         return configuration:calculatePlayerFrozenDuration(configuration:getDifficulty())
     end
@@ -144,7 +165,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Enemy Frozen Duration
     -- ------------------------------------------------
-
     function configuration:getEnemyFrozenDuration()
         return configuration:calculateEnemyFrozenDuration(configuration:getDifficulty())
     end
@@ -156,7 +176,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Flag Max Health
     -- ------------------------------------------------
-
     function configuration:getFlagMaxHealth()
         return configuration:calculateFlagMaxHealth(configuration:getDifficulty())
     end
@@ -168,7 +187,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Main Tower Max Health
     -- ------------------------------------------------
-
     function configuration:getMainTowerMaxHealth()
         return configuration:calculateMainTowerMaxHealth(configuration:getDifficulty())
     end
@@ -180,7 +198,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Enemy Max Health
     -- ------------------------------------------------
-
     function configuration:getEnemyMaxHealth()
         return configuration:calculateEnemyMaxHealth(configuration:getDifficulty())
     end
@@ -192,7 +209,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Player Max Health
     -- ------------------------------------------------
-
     function configuration:getPlayerMaxHealth()
         return configuration:calculatePlayerMaxHealth(configuration:getDifficulty())
     end
@@ -204,7 +220,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Player Damage
     -- ------------------------------------------------
-
     function configuration:getPlayerDamage()
         return configuration:calculatePlayerDamage(configuration:getDifficulty())
     end
@@ -216,7 +231,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Enemy Damage
     -- ------------------------------------------------
-
     function configuration:getEnemyDamage()
         return configuration:calculateEnemyDamage(configuration:getDifficulty())
     end
@@ -228,7 +242,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Enemy Speed
     -- ------------------------------------------------
-
     function configuration:getEnemySpeed()
         return configuration:calculateEnemySpeed(configuration:getDifficulty())
     end
@@ -240,7 +253,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Player Speed
     -- ------------------------------------------------
-
     function configuration:getPlayerSpeed()
         return configuration:calculatePlayerSpeed(configuration:getDifficulty())
     end
@@ -252,7 +264,6 @@ Configuration.new    = function()
     -- ------------------------------------------------
     -- Enemy Behavior
     -- ------------------------------------------------
-
     function configuration:getEnemyBehavior(gameManager, enemy)
         if configuration:getDifficulty() < 0.4 then
             return EasyBehavior.new(gameManager, enemy)
@@ -262,6 +273,10 @@ Configuration.new    = function()
             return HardBehavior.new(gameManager, enemy)
         end
     end
+
+    -- ------------------------------------------------
+    -- Remplace la configuration actuelle et la sauvegarde
+    -- ------------------------------------------------
     function configuration:setConfiguration(data)
         local needReload   = configuration.data.fullScreen ~= data.fullScreen or configuration.data.vsync ~= data.vsync
         configuration.data = data
@@ -269,9 +284,9 @@ Configuration.new    = function()
         return needReload
     end
 
-    --[[
-        Fonctions de sauvegarde et chargement
-    --]]
+    -- ------------------------------------------------
+    -- Charge la configuration depuis un fichier ou la configuration par défaut
+    -- ------------------------------------------------
     function configuration:load()
         local filename = configuration:getFileName()
         local file     = io.open(filename, "r")
@@ -285,6 +300,9 @@ Configuration.new    = function()
         end
     end
 
+    -- ------------------------------------------------
+    -- Sauvegarde la configuration dans un fichier
+    -- ------------------------------------------------
     function configuration:save()
         local filename = configuration:getFileName()
         local file     = io.open(filename, "w")
@@ -292,6 +310,9 @@ Configuration.new    = function()
         file:close()
     end
 
+    -- ------------------------------------------------
+    -- Retourne le chemin complet vers le fichier de configuration
+    -- ------------------------------------------------
     function configuration:getFileName()
         local saveDirectory = love.filesystem.getSaveDirectory()
         if love.filesystem.getInfo(saveDirectory) == nil then love.filesystem.createDirectory(saveDirectory) end
