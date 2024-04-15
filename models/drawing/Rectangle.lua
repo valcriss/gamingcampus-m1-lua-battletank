@@ -3,12 +3,17 @@ local Vector2 = require "models.drawing.Vector2"
 ---@class Rectangle
 Rectangle     = {}
 
+---@param x number
+---@param y number
+---@param width number
+---@param height number
 Rectangle.new = function(x, y, width, height)
     x               = x or 0
     y               = y or 0
     width           = width or 0
     height          = height or 0
 
+    ---@type table
     local rectangle = {
         x      = x,
         y      = y,
@@ -19,11 +24,13 @@ Rectangle.new = function(x, y, width, height)
     setmetatable(rectangle, Rectangle)
     Rectangle.__index = Rectangle
 
+
     -- ---------------------------------------------
     -- Public functions
     -- ---------------------------------------------
 
     ---@public
+    --- Indique si le point est dans le rectangle
     ---@param pointX number
     ---@param pointY number
     ---@return boolean
@@ -32,6 +39,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Indique si le vecteur est dans le rectangle
     ---@param vector Vector2
     ---@return boolean
     function rectangle.containsVector2(vector)
@@ -39,18 +47,21 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Retourne la position du rectangle
     ---@return Vector2
     function rectangle.getPoint()
         return Vector2.new(rectangle.x, rectangle.y)
     end
 
     ---@public
+    --- Retourne le centre du rectangle
     ---@return Vector2
     function rectangle.getCenter()
         return Vector2.new(rectangle.x + (rectangle.width / 2), rectangle.y + (rectangle.height / 2))
     end
 
     ---@public
+    --- Change la position du rectangle
     ---@param positionX number
     ---@param positionY number
     ---@return Rectangle
@@ -61,6 +72,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Change la taille du rectangle d'un facteur value
     ---@type number
     ---@return Rectangle
     function rectangle.scale(value)
@@ -70,6 +82,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Change la position du rectangle
     ---@param offsetX number
     ---@param offsetY number
     ---@return Rectangle
@@ -80,6 +93,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Change la taille du rectangle
     ---@param offsetWidth number
     ---@param offsetHeight number
     ---@return Rectangle
@@ -90,6 +104,7 @@ Rectangle.new = function(x, y, width, height)
     end
 
     ---@public
+    --- Retourne une représentation sous forme de string du rectangle
     ---@return string
     function rectangle.toString()
         return math.floor(rectangle.x) .. " " .. math.floor(rectangle.y) .. " " .. math.floor(rectangle.width) .. " " .. math.floor(rectangle.height)

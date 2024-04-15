@@ -26,8 +26,11 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     -- Properties
     -- ---------------------------------------------
 
+    ---@type table
     local sound
+    ---@type boolean
     local started       = false
+    ---@type boolean
     local paused        = false
 
     -- ---------------------------------------------
@@ -84,6 +87,8 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
 
     ---@public
+    --- Fonction qui permet de savoir si le son est en cours de lecture
+    ---@return boolean
     function soundEffect.isPlaying()
         if sound then
             return sound:isPlaying()
@@ -92,6 +97,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
 
     ---@public
+    --- Fonction qui permet de stopper la lecture du son
     function soundEffect.stop()
         if sound then
             sound:stop()
@@ -100,6 +106,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
 
     ---@public
+    ----Fonction qui permet de mettre en pause la lecture du son
     function soundEffect.pause()
         if sound then
             sound:pause()
@@ -109,6 +116,7 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
 
     ---@public
+    --- fonction appelée automatiquement qui supprime le son
     function soundEffect.unload()
         soundEffect.stop()
         sound:release()
@@ -116,6 +124,8 @@ SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[op
     end
 
     ---@public
+    --- Fonction qui permet de modifier le volume
+    ---@param value number
     function soundEffect.setVolume(value)
         if sound then
             sound:setVolume(value)

@@ -14,52 +14,53 @@ Parallax.new    = function(name, assetPath, speed --[[optional]], direction --[[
     direction      = direction or "left"
     offsetX        = offsetX or 0
     speed          = speed or 10
-    local parallax = Component.new(
-            name,
-            {
-                assetPath = assetPath,
-                speed     = speed,
-                direction = direction,
-                image     = nil,
-                positionX = offsetX
-            },
-            nil,
-            y,
-            nil,
-            nil,
-            rotation,
-            scale
-    )
+
+    local parallax = Component.new(name, 0, y, nil, nil, rotation, scale)
 
     setmetatable(parallax, Parallax)
     Parallax.__index = Parallax
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+
+    local parallaxImage
+    local positionX  = 0
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+
     ---@public
+    --- Fonction appelée automatiquement qui charge l'image depuis la ressource
     function parallax.load()
-        parallax.data.image = love.graphics.newImage(parallax.data.assetPath)
+        parallaxImage = love.graphics.newImage(assetPath)
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui decharge l'image
     function parallax.unload()
-        parallax.data.image:release()
-        parallax.data.image = nil
+        parallaxImage:release()
+        parallaxImage = nil
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui met a jour l'image affichée
     function parallax.update(dt)
         local dir = 1
-        if (parallax.data.direction == "left") then
+        if (direction == "left") then
             dir = -1
         end
-        parallax.data.positionX = parallax.data.positionX + (dir * (parallax.data.speed * dt))
+        positionX = positionX + (dir * (speed * dt))
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui dessine l'image
     function parallax.draw()
-        local x = parallax.data.positionX - parallax.data.image:getWidth()
+        local x = positionX - parallaxImage:getWidth()
         while (x < screenManager:getWindowWidth()) do
-            love.graphics.draw(parallax.data.image, screenManager:ScaleValueX(x), screenManager:ScaleValueY(parallax.bounds.y), math.rad(parallax.rotation), parallax.scale * screenManager:getScaleX(), parallax.scale * screenManager:getScaleY(), 0, 0)
-            x = x + parallax.data.image:getWidth()
+            love.graphics.draw(parallaxImage, screenManager:ScaleValueX(x), screenManager:ScaleValueY(parallax.bounds.y), math.rad(parallax.rotation), parallax.scale * screenManager:getScaleX(), parallax.scale * screenManager:getScaleY(), 0, 0)
+            x = x + parallaxImage:getWidth()
         end
     end
 

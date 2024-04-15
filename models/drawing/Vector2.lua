@@ -1,10 +1,13 @@
 ---@class Vector2
 Vector2     = {}
 
+---@param x number
+---@param y number
 Vector2.new = function(x, y)
     x             = x or 0
     y             = y or 0
 
+    ---@type table
     local vector2 = {
         x = x,
         y = y
@@ -18,6 +21,7 @@ Vector2.new = function(x, y)
     -- ---------------------------------------------
 
     ---@public
+    --- Retourne la distance entre deux points
     ---@param x2 number
     ---@param y2 number
     ---@return number
@@ -26,6 +30,7 @@ Vector2.new = function(x, y)
     end
 
     ---@public
+    --- Deplace le vecteur d'une valeur x et y
     ---@param offsetX number
     ---@param offsetY number
     ---@return Vector2
@@ -36,6 +41,7 @@ Vector2.new = function(x, y)
     end
 
     ---@public
+    --- Retourne le vecteur normalise
     ---@return Vector2
     function vector2.normalize()
         local magnitude = math.sqrt(vector2.x ^ 2 + vector2.y ^ 2)
@@ -43,6 +49,7 @@ Vector2.new = function(x, y)
     end
 
     ---@public
+    --- Retourne une représentation sous forme de string du vecteur
     ---@return string
     function vector2.toString()
         return math.floor(vector2.x) .. " " .. math.floor(vector2.y)

@@ -16,120 +16,128 @@ SpriteSheetImage     = {}
 ---@param color table
 ---@param animationEnds function
 SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[optional]], loop --[[optional]], x --[[optional]], y --[[optional]], width --[[optional]], height --[[optional]], rotation --[[optional]], scale --[[optional]], color --[[optional]], animationEnds --[[optional]])
-    speed = speed or 30
-    rows  = rows or 1
+    columns = columns or 1
+    rows    = rows or 1
+    speed   = speed or 30
     if loop == nil then
         loop = true
     end
 
-    local spriteSheetImage = Component.new(
-            name,
-            {
-                imagePath     = imagePath,
-                columns       = columns,
-                rows          = rows,
-                sourceImage   = nil,
-                quads         = nil,
-                index         = 1,
-                running       = true,
-                loop          = loop,
-                elapsedTime   = 0,
-                speed         = speed / 1000,
-                itemWidth     = nil,
-                itemHeight    = nil,
-                animationEnds = animationEnds
-            },
-            x,
-            y,
-            width,
-            height,
-            rotation,
-            scale,
-            color
-    )
+    local spriteSheetImage = Component.new(name, x, y, width, height, rotation, scale, color)
 
     setmetatable(spriteSheetImage, SpriteSheetImage)
     SpriteSheetImage.__index = SpriteSheetImage
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+    ---@type table
+    local sourceImage
+    ---@type number
+    local itemWidth
+    ---@type number
+    local itemHeight
+    ---@type number
+    local index              = 1
+    ---@type boolean
+    local running            = true
+    ---@type table
+    local quads              = {}
+    ---@type number
+    local elapsedTime        = 0
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+
     ---@public
+    --- Fonction appelée automatiquement qui charge l'image depuis la ressource
     function spriteSheetImage.load()
-        spriteSheetImage.data.sourceImage = love.graphics.newImage(imagePath)
-        spriteSheetImage.data.itemWidth   = math.floor(spriteSheetImage.data.sourceImage:getWidth() / spriteSheetImage.data.columns)
-        spriteSheetImage.data.itemHeight  = math.floor(spriteSheetImage.data.sourceImage:getHeight() / spriteSheetImage.data.rows)
-        spriteSheetImage.bounds.width = spriteSheetImage.data.itemWidth * spriteSheetImage.scale
-        spriteSheetImage.bounds.height = spriteSheetImage.data.itemHeight * spriteSheetImage.scale
+        sourceImage                    = love.graphics.newImage(imagePath)
+        itemWidth                      = math.floor(sourceImage:getWidth() / columns)
+        itemHeight                     = math.floor(sourceImage:getHeight() / rows)
+        spriteSheetImage.bounds.width  = itemWidth * spriteSheetImage.scale
+        spriteSheetImage.bounds.height = itemHeight * spriteSheetImage.scale
         spriteSheetImage.loadDefinition()
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui met a jour l'image affichée
     function spriteSheetImage.update(dt)
-        if (spriteSheetImage.data.running == false) then
+        if (running == false) then
+            print("animation not running")
             return
         end
         spriteSheetImage.updateSpriteSheet(dt)
     end
 
+    ---@public
+    --- Fonction appelée automatiquement qui dessine l'image
     function spriteSheetImage.draw()
-        local quad = spriteSheetImage.data.quads[spriteSheetImage.data.index]
-        love.graphics.draw(spriteSheetImage.data.sourceImage, quad, screenManager:ScaleValueX(spriteSheetImage.bounds.x), screenManager:ScaleValueY(spriteSheetImage.bounds.y), math.rad(spriteSheetImage.rotation), spriteSheetImage.scale * screenManager:getScaleX(), spriteSheetImage.scale * screenManager:getScaleY(), spriteSheetImage.data.itemWidth / 2, spriteSheetImage.data.itemHeight / 2)
+        local quad = quads[index]
+        love.graphics.draw(sourceImage, quad, screenManager:ScaleValueX(spriteSheetImage.bounds.x), screenManager:ScaleValueY(spriteSheetImage.bounds.y), math.rad(spriteSheetImage.rotation), spriteSheetImage.scale * screenManager:getScaleX(), spriteSheetImage.scale * screenManager:getScaleY(), itemWidth / 2, itemHeight / 2)
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui decharge l'image
     function spriteSheetImage.unload()
-        spriteSheetImage.data.sourceImage:release()
-        spriteSheetImage.data.sourceImage = nil
-        spriteSheetImage.data.quads       = nil
+        sourceImage:release()
+        sourceImage = nil
+        quads       = nil
     end
 
-    --[[
-    Fonction qui permet de mettre a jour la frame actuellement affichée
-    --]]
-    ---@private
-    function spriteSheetImage.updateSpriteSheet(dt)
-        spriteSheetImage.data.elapsedTime = spriteSheetImage.data.elapsedTime + dt
-        if (spriteSheetImage.data.elapsedTime < spriteSheetImage.data.speed) then
-            return
-        end
-
-        spriteSheetImage.data.index       = spriteSheetImage.data.index + 1
-        spriteSheetImage.data.elapsedTime = 0
-        if (spriteSheetImage.data.index < #spriteSheetImage.data.quads) then
-            return
-        end
-
-        if (spriteSheetImage.data.loop == true) then
-            spriteSheetImage.data.index = 1
-        else
-            spriteSheetImage.data.index   = #spriteSheetImage.data.quads
-            spriteSheetImage.data.running = false
-            if (spriteSheetImage.data.animationEnds ~= nil) then
-                spriteSheetImage.data.animationEnds()
-            end
-        end
-    end
-
+    ---@public
+    --- Fonction qui permet de déclencher l'affiche de l'image
     function spriteSheetImage.show()
         spriteSheetImage.visible = true
-        spriteSheetImage.data.running = true
-        spriteSheetImage.data.elapsedTime = 0
-        spriteSheetImage.data.index = 1
+        running                  = true
+        elapsedTime              = 0
+        index                    = 1
         return spriteSheetImage
     end
 
-    --[[
-    Fonction qui charge les quads de differents frames a partir de l'image principale
-    --]]
+    -- ---------------------------------------------
+    -- Private functions
+    -- ---------------------------------------------
+
     ---@private
+    --- Fonction qui met a jour l'image affichée
+    function spriteSheetImage.updateSpriteSheet(dt)
+        elapsedTime = elapsedTime + dt
+        if (elapsedTime < (speed / 1000)) then
+
+            return
+        end
+
+        index       = index + 1
+        elapsedTime = 0
+        if (index < #quads) then
+            return
+        end
+
+        if (loop == true) then
+            index = 1
+        else
+            index   = #quads
+            running = false
+            if (animationEnds ~= nil) then
+                animationEnds()
+            end
+        end
+    end
+
+    ---@private
+    --- Fonction qui permet de charger la definition de l'image
     function spriteSheetImage.loadDefinition()
-        spriteSheetImage.data.quads = {}
+        quads             = {}
         local definitionX = 0
         local definitionY = 0
-        for _ = 1, spriteSheetImage.data.rows do
-            for _ = 1, spriteSheetImage.data.columns do
-                table.insert(spriteSheetImage.data.quads, love.graphics.newQuad(definitionX, definitionY, spriteSheetImage.data.itemWidth, spriteSheetImage.data.itemHeight, spriteSheetImage.data.sourceImage))
-                definitionX = math.floor(definitionX + spriteSheetImage.data.itemWidth)
+        for _ = 1, rows do
+            for _ = 1, columns do
+                table.insert(quads, love.graphics.newQuad(definitionX, definitionY, itemWidth, itemHeight, sourceImage))
+                definitionX = math.floor(definitionX + itemWidth)
             end
-            definitionY = math.floor(definitionY + spriteSheetImage.data.itemHeight)
+            definitionY = math.floor(definitionY + itemHeight)
             definitionX = 0
         end
     end

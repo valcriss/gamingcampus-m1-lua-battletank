@@ -7,7 +7,7 @@ local Scene = {}
 Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]])
     order           = order or 0
     backgroundColor = backgroundColor or { r = 0, g = 0, b = 0 }
-    scene           = {
+    local scene     = {
         ---@type string
         name            = name,
         ---@type number
@@ -21,8 +21,11 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     setmetatable(scene, Scene)
     Scene.__index = Scene
 
-    -- Inner functions
+    -- ---------------------------------------------
+    -- ScenesManager functions
+    -- ---------------------------------------------
     ---@public
+    --- Fonction appelée par le scenesManager qui va charger la scene et ses composants
     function scene.innerLoad()
         scene.load()
         for _, subComponent in ipairs(scene.components) do
@@ -31,6 +34,7 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     end
 
     ---@public
+    --- Fonction appelée par le scenesManager qui va mettre à jour la scene et ses composants
     function scene.innerUpdate(dt)
         scene.update(dt)
         for _, subComponent in ipairs(scene.components) do
@@ -41,6 +45,7 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     end
 
     ---@public
+    --- Fonction appelée par le scenesManager qui va dessiner la scene et ses composants
     function scene.innerDraw()
         screenManager:clear(scene.backgroundColor.r, scene.backgroundColor.g, scene.backgroundColor.b)
         scene.draw()
@@ -52,6 +57,7 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     end
 
     ---@public
+    --- Fonction appelée par le scenesManager qui va decharger la scene et ses composants
     function scene.innerUnload()
         for _, subComponent in ipairs(scene.components) do
             subComponent.innerUnload()
@@ -59,7 +65,9 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
         scene.unload()
     end
 
-    -- Protected Functions
+    -- ---------------------------------------------
+    -- Protected functions
+    -- ---------------------------------------------
     ---@public
     function scene.load()
     end
@@ -76,14 +84,19 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
     function scene.unload()
     end
 
+    ---@public
     function scene.pause()
     end
 
+    ---@public
     function scene.unPause()
     end
-    
-    -- Public Functions
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
+    --- Ajoute un composant a la scene
     ---@param component Component
     ---@return Scene
     function scene.addComponent(component)
@@ -91,6 +104,10 @@ Scene.new   = function(name, order --[[optional]], backgroundColor --[[optional]
         return scene
     end
 
+    ---@public
+    --- Change la scene
+    ---@param oldScene Scene
+    ---@param newScene Scene
     function scene.switchToScene(oldScene, newScene)
         scenesManager:removeScene(oldScene)
         scenesManager:addScene(newScene)
