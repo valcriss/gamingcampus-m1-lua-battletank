@@ -23,8 +23,8 @@ MainTower.new          = function(name, gameManager, group)
     local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
     local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
     local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
-    local missile1          = UnitMissile.new("missile1", gameManager, nil, group).hide()
-    local missile2          = UnitMissile.new("missile2", gameManager, nil, group).hide()
+    local missile1          = UnitMissile.new("missile1", gameManager, group).hide()
+    local missile2          = UnitMissile.new("missile2", gameManager, group).hide()
     local missileSound      = SoundEffect.new("background", "assets/gameLevel/sound/tower-fire.mp3", "static", false, false, configuration:getSoundVolume())
 
     local realPosition
@@ -58,12 +58,12 @@ MainTower.new          = function(name, gameManager, group)
         mainTower.updateMainTower(dt)
         mainTower.updateGunRotation(dt)
         local screenPosition = gameManager.getViewport().transformPointWorldToViewport(realPosition)
-        mainTower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
-        tower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
-        gun.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
-        healthBar.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
+        mainTower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().getLevel().TileSize / 2, screenPosition.y + gameManager.getGameLevelData().getLevel().TileSize / 2)
+        tower.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().getLevel().TileSize / 2, screenPosition.y + gameManager.getGameLevelData().getLevel().TileSize / 2)
+        gun.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().getLevel().TileSize / 2, screenPosition.y + gameManager.getGameLevelData().getLevel().TileSize / 2)
+        healthBar.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().getLevel().TileSize / 2, screenPosition.y + gameManager.getGameLevelData().getLevel().TileSize / 2)
         gun.rotation = gunRotation
-        shield.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().data.level.TileSize / 2, screenPosition.y + gameManager.getGameLevelData().data.level.TileSize / 2)
+        shield.bounds.setPoint(screenPosition.x + gameManager.getGameLevelData().getLevel().TileSize / 2, screenPosition.y + gameManager.getGameLevelData().getLevel().TileSize / 2)
     end
 
     function mainTower.updateMainTower(_)

@@ -26,14 +26,14 @@ PlayerStatusUI.new      = function(name, gameManager, position, group)
     function playerStatusUI.load()
         title.bounds.y = 5
         if group == 1 then
-            title.data.content         = "Joueur"
+            title.setContent("Joueur")
             title.bounds.x             = 10
             playerStatusUI.bounds.x    = 151
             playerStatusUI.bounds.y    = 25
             mainTowerHeathBar.bounds.x = 10
             mainTowerHeathBar.bounds.y = 25
         else
-            title.data.content         = "Ordinateur"
+            title.setContent("Ordinateur")
             title.bounds.x             = screenManager:getWindowWidth() - 10
             playerStatusUI.bounds.x    = screenManager:getWindowWidth() - 151
             playerStatusUI.bounds.y    = 25

@@ -26,7 +26,7 @@ Player.new      = function(gameManager)
         player.setCollider(Rectangle.new(worldPosition.x, worldPosition.y, player.bounds.width, player.bounds.height).scale(player.scale))
         player.targetPosition(screenManager:ScaleUIValueX(mouseX), screenManager:ScaleUIValueY(mouseY))
         if love.mouse.isDown(1) then
-            player.setStartRealPosition(worldPosition.offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2))
+            player.setStartRealPosition(worldPosition.offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2))
             local mouseOffset = { x = screenManager:ScaleUIValueX(mouseX) - screenManager:calculateCenterPointX(), y = screenManager:ScaleUIValueY(mouseY) - screenManager:calculateCenterPointY() }
             player.setDestinationRealPosition({ x = worldPosition.x + mouseOffset.x, y = worldPosition.y + mouseOffset.y })
             player.fireStarts()

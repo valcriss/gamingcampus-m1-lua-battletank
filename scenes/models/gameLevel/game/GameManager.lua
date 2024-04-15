@@ -19,30 +19,33 @@ GameManager.new        = function(gameLevelData, onVictory, onDefeat)
     local gameManager = Component.new("GameManager")
 
     setmetatable(gameManager, GameManager)
-    GameManager.__index      = GameManager
+    GameManager.__index                  = GameManager
 
     -- ---------------------------------------------
     -- Properties
     -- ---------------------------------------------
-    local backgroundParallax = Parallax.new("background", "assets/gameLevel/water.png", 50, "left")
-    local viewPort           = ViewPort.new(gameManager)
-    local gameMap            = GameMap.new(gameManager)
-    local player             = Player.new(gameManager)
-    local mainTower1         = MainTower.new("mainTower1", gameManager, 1)
-    local mainTower2         = MainTower.new("mainTower2", gameManager, 2)
-    local fogOfWar           = FogOfWar.new(gameManager, true)
-    local pathFinding        = PathFinding.new(gameManager)
-    local gameNotifications  = GameNotification.new(gameManager)
-
-    gameManager.addComponent(backgroundParallax)
-    gameManager.addComponent(viewPort)
-    gameManager.addComponent(gameMap)
-
     local units                          = {}
     local onUnitUnderAttackEventHandlers = {}
     local onUnitDeadEventHandlers        = {}
     local onFlagCapturedEventHandlers    = {}
     local onTowerFlagEventHandlers       = {}
+
+    -- ---------------------------------------------
+    -- Components
+    -- ---------------------------------------------
+    local backgroundParallax             = Parallax.new("background", "assets/gameLevel/water.png", 50, "left")
+    local viewPort                       = ViewPort.new(gameManager)
+    local gameMap                        = GameMap.new(gameManager)
+    local player                         = Player.new(gameManager)
+    local mainTower1                     = MainTower.new("mainTower1", gameManager, 1)
+    local mainTower2                     = MainTower.new("mainTower2", gameManager, 2)
+    local fogOfWar                       = FogOfWar.new(gameManager, true)
+    local pathFinding                    = PathFinding.new(gameManager)
+    local gameNotifications              = GameNotification.new(gameManager)
+
+    gameManager.addComponent(backgroundParallax)
+    gameManager.addComponent(viewPort)
+    gameManager.addComponent(gameMap)
 
     -- ---------------------------------------------
     -- Public Functions
@@ -53,15 +56,15 @@ GameManager.new        = function(gameLevelData, onVictory, onDefeat)
         table.insert(units, mainTower1)
         table.insert(units, mainTower2)
         -- Chargement des enemies
-        for index = 1, #gameLevelData.data.level.EnemyStarts do
-            local enemyPosition = gameLevelData.data.level.EnemyStarts[index]
+        for index = 1, #gameLevelData.getLevel().EnemyStarts do
+            local enemyPosition = gameLevelData.getLevel().EnemyStarts[index]
             local enemy         = Enemy.new(index, enemyPosition, gameManager)
             gameManager.addComponent(enemy)
             table.insert(units, enemy)
         end
         -- Chargement des flags
-        for index = 1, #gameLevelData.data.level.Flags do
-            local flagPosition = gameLevelData.data.level.Flags[index]
+        for index = 1, #gameLevelData.getLevel().Flags do
+            local flagPosition = gameLevelData.getLevel().Flags[index]
             local flag         = Flag.new(gameManager, flagPosition, index)
             gameManager.addComponent(flag)
             table.insert(units, flag)
@@ -187,7 +190,7 @@ GameManager.new        = function(gameLevelData, onVictory, onDefeat)
             if unit.name ~= excludeUnit.name then
                 local collider = unit.getCollider()
                 if collider then
-                    local unitIndex = gameLevelData.getTileIndexFromRealPosition(unit.getCollider().x + gameLevelData.data.level.TileSize / 2, unit.getCollider().y + gameLevelData.data.level.TileSize / 2)
+                    local unitIndex = gameLevelData.getTileIndexFromRealPosition(unit.getCollider().x + gameLevelData.getLevel().TileSize / 2, unit.getCollider().y + gameLevelData.getLevel().TileSize / 2)
                     if unitIndex == tileIndex then return true end
                 end
             end

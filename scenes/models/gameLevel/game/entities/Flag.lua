@@ -30,8 +30,8 @@ Flag.new        = function(gameManager, flagPosition, index)
     -- ---------------------------------------------
 
     function flag.load()
-        realPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(flagPosition.x, flagPosition.y).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
-        flag.setCollider(Rectangle.new(realPosition.x, realPosition.y, flag.bounds.width, flag.bounds.height).scale(flag.scale).offsetPosition(-gameManager.getGameLevelData().data.level.TileSize / 2, -gameManager.getGameLevelData().data.level.TileSize / 2))
+        realPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(flagPosition.x, flagPosition.y).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
+        flag.setCollider(Rectangle.new(realPosition.x, realPosition.y, flag.bounds.width, flag.bounds.height).scale(flag.scale).offsetPosition(-gameManager.getGameLevelData().getLevel().TileSize / 2, -gameManager.getGameLevelData().getLevel().TileSize / 2))
     end
 
     function flag.entityUpdate(_)

@@ -19,8 +19,8 @@ HelpFrame.new       = function(onClose)
 
     function helpFrame.update(dt)
         helpFrame.updateAnimation(dt)
-        helpImage.setPosition(helpFrame.bounds.x + 300 + helpFrame.data.offsetX + 20, helpFrame.bounds.y + 160)
-        resumeButton.setPosition(helpFrame.bounds.x + 200 + helpFrame.data.offsetX + 20, helpFrame.bounds.y + 340)
+        helpImage.setPosition(helpFrame.bounds.x + 300 + helpFrame.getOffsetX() + 20, helpFrame.bounds.y + 160)
+        resumeButton.setPosition(helpFrame.bounds.x + 200 + helpFrame.getOffsetX() + 20, helpFrame.bounds.y + 340)
     end
 
     return helpFrame

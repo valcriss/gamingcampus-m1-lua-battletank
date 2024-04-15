@@ -17,7 +17,7 @@ DebugManager.new         = function(gameManager)
     DebugManager.__index     = DebugManager
 
     -- ---------------------------------------------
-    -- Properties
+    -- Components
     -- ---------------------------------------------
     local viewPortDebug      = ViewPortDebug.new(gameManager)
     local gameMapDebug       = GameMapDebug.new(gameManager)
@@ -33,6 +33,10 @@ DebugManager.new         = function(gameManager)
     debugManager.addComponent(fpsDebug)
     debugManager.addComponent(pathFindingDebug)
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
     function debugManager.update(dt)
         local x       = 10
         local y       = 60

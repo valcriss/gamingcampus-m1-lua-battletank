@@ -30,11 +30,11 @@ Behavior.new = function(gameManager, enemy)
         local diffX    = 0
         local diffY    = 0
 
-        while diffX * diffY <= gameManager.getGameLevelData().data.level.Width * gameManager.getGameLevelData().data.level.Height do
-            local xMin = position.x - (gameManager.getGameLevelData().data.level.TileSize * diffX)
-            local yMin = position.y - (gameManager.getGameLevelData().data.level.TileSize * diffY)
-            local xMax = position.x + (gameManager.getGameLevelData().data.level.TileSize * diffX)
-            local yMax = position.y + (gameManager.getGameLevelData().data.level.TileSize * diffY)
+        while diffX * diffY <= gameManager.getGameLevelData().getLevel().Width * gameManager.getGameLevelData().getLevel().Height do
+            local xMin = position.x - (gameManager.getGameLevelData().getLevel().TileSize * diffX)
+            local yMin = position.y - (gameManager.getGameLevelData().getLevel().TileSize * diffY)
+            local xMax = position.x + (gameManager.getGameLevelData().getLevel().TileSize * diffX)
+            local yMax = position.y + (gameManager.getGameLevelData().getLevel().TileSize * diffY)
 
             while xMin <= xMax do
                 while yMin <= yMax do
@@ -51,9 +51,9 @@ Behavior.new = function(gameManager, enemy)
                         end
                     end
                     -- ---------------------------------
-                    yMin = yMin + gameManager.getGameLevelData().data.level.TileSize
+                    yMin = yMin + gameManager.getGameLevelData().getLevel().TileSize
                 end
-                xMin = xMin + gameManager.getGameLevelData().data.level.TileSize
+                xMin = xMin + gameManager.getGameLevelData().getLevel().TileSize
                 yMin = position.y - diffY
             end
 
@@ -66,7 +66,7 @@ Behavior.new = function(gameManager, enemy)
     function behavior.updateTilesSeen(sight)
         if enemy.getCollider() == nil then return end
         local position    = enemy.getCollider().getPoint()
-        local distInSight = ((sight) * gameManager.getGameLevelData().data.level.TileSize)
+        local distInSight = ((sight) * gameManager.getGameLevelData().getLevel().TileSize)
         local xMin        = position.x - distInSight
         local yMin        = position.y - distInSight
         local xMax        = position.x + distInSight
@@ -81,9 +81,9 @@ Behavior.new = function(gameManager, enemy)
                     seenTiles["inSight_" .. tostring(tile)] = true
                 end
                 -- ---------------------------------
-                yMin = yMin + gameManager.getGameLevelData().data.level.TileSize
+                yMin = yMin + gameManager.getGameLevelData().getLevel().TileSize
             end
-            xMin = xMin + gameManager.getGameLevelData().data.level.TileSize
+            xMin = xMin + gameManager.getGameLevelData().getLevel().TileSize
             yMin = position.y - distInSight
         end
     end
@@ -103,7 +103,7 @@ Behavior.new = function(gameManager, enemy)
 
     function behavior.searchPlayerInRange(range)
         local player   = gameManager.getPlayer()
-        local distance = range * gameManager.getGameLevelData().data.level.TileSize
+        local distance = range * gameManager.getGameLevelData().getLevel().TileSize
         if player == nil or player.getCollider() == nil or enemy.getCollider() == nil then
             return nil
         end
@@ -113,7 +113,7 @@ Behavior.new = function(gameManager, enemy)
 
     function behavior.searchFlagInRange(range)
         local flags    = gameManager.getPlayerOrNeutralFlags()
-        local distance = range * gameManager.getGameLevelData().data.level.TileSize
+        local distance = range * gameManager.getGameLevelData().getLevel().TileSize
         for index = 1, #flags do
             local flag = flags[index]
             if flag.getCollider() == nil or enemy.getCollider() == nil then

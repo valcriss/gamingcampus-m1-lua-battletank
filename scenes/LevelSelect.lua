@@ -20,6 +20,15 @@ LevelSelect.new        = function()
     setmetatable(levelSelect, LevelSelect)
     LevelSelect.__index       = LevelSelect
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+    local informationText     = ""
+    local moving              = false
+
+    -- ---------------------------------------------
+    -- Components
+    -- ---------------------------------------------
     local map                 = Image.new("LevelSelect_map", "assets/levelselect/map.png", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY())
     local level1              = LevelButton.new("LevelSelect_level1", "assets/levelselect/map-1.png", "assets/levelselect/map-1-disabled.png", "assets/levelselect/map-1-hover.png", "assets/levelselect/map-1-locked.png", "assets/levelselect/map-1-finished.png", 223 - 32, 543 - 32, 1, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
     local level2              = LevelButton.new("LevelSelect_level2", "assets/levelselect/map-2.png", "assets/levelselect/map-2-disabled.png", "assets/levelselect/map-2-hover.png", "assets/levelselect/map-2-locked.png", "assets/levelselect/map-2-finished.png", 671 - 32, 351 - 32, 2, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
@@ -38,7 +47,6 @@ LevelSelect.new        = function()
     local initialPosition     = mapTankMovement.getInitialPosition()
     local mapTank             = MapTank.new("LevelSelect_mapTank", initialPosition.x, initialPosition.y, initialPosition.r, 0.6)
     local delay               = Delay.new("delay")
-    local informationText     = ""
 
     levelSelect.addComponent(map)
     levelSelect.addComponent(level1)
@@ -54,6 +62,11 @@ LevelSelect.new        = function()
     levelSelect.addComponent(transitionEndEffect)
     levelSelect.addComponent(delay)
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
+    ---@param dt number
     function levelSelect.update(dt)
         information.setContent(informationText)
         local tankPosition = mapTankMovement.update(dt)
@@ -66,29 +79,40 @@ LevelSelect.new        = function()
         end
     end
 
+    ---@public
+    --- Fonction permettant de retourner au menu principal
     function levelSelect.backToMainMenu()
         scenesManager:removeScene(levelSelect)
         scenesManager:addScene(MainMenu.new())
     end
 
+    ---@public
+    --- Fonction permettant de commencer le jeu
     function levelSelect.startGame()
         scenesManager:removeScene(levelSelect)
         scenesManager:addScene(GameLevel.new())
     end
 
+    ---@public
+    --- Fonction gèrant le click sur un niveau
     function levelSelect.onLevelClick(data)
-        if mapTank.data.moving then return end
+        if moving then return end
         mapTankMovement.runPath(data.level, function() levelSelect.startTransitionEnd() end)
         information.disappear()
     end
 
+    ---@public
+    --- Fonction qui gère l'affichage de la fenetre de transition
     function levelSelect.startTransitionEnd()
         transitionEnd.enable().show()
         delay.setDelay(0.7, function() transitionEndEffect.play() end)
     end
 
+    ---@public
+    --- Fonction déclenché au passage de la souris sur un niveau
+    --- @param data table
     function levelSelect.onLevelEnter(data)
-        if mapTank.data.moving then return end
+        if moving then return end
         if data.active then
             informationText = "Cliquez poour commencer le niveau " .. data.level
         else
@@ -97,8 +121,10 @@ LevelSelect.new        = function()
         information.appear()
     end
 
+    ---@public
+    --- Fonction déclenché a la sortie de la souris d'un niveau
     function levelSelect.onLevelLeave(_)
-        if mapTank.data.moving then return end
+        if moving then return end
         information.disappear()
     end
 

@@ -11,7 +11,7 @@ GameMapDebug.new = function(gameManager)
     GameMapDebug.__index = GameMapDebug
 
     -- ---------------------------------------------
-    -- Protected Functions
+    -- Public functions
     -- ---------------------------------------------
     ---@protected
     function gameMapDebug.innerUpdate(_)

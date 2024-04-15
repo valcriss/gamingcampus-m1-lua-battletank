@@ -34,38 +34,38 @@ GameMap.new     = function(gameManager)
             while y <= renderBounds.height do
 
                 local tilePosition = gameManager.getGameLevelData().getGridPosition(vx, vy)
-                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().data.level.Width or tilePosition.y > gameManager.getGameLevelData().data.level.Height) then
+                if (tilePosition.x < 1 or tilePosition.y < 1 or tilePosition.x > gameManager.getGameLevelData().getLevel().Width or tilePosition.y > gameManager.getGameLevelData().getLevel().Height) then
                     break
                 end
                 local index            = gameManager.getGameLevelData().getTileIndex(tilePosition.x, tilePosition.y)
                 local tileIndexLayout0 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 0)
                 local tileIndexLayout1 = gameManager.getGameLevelData().getImageIndexFromTileIndex(index, 1)
-                if tileIndexLayout0 ~= nil and y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
+                if tileIndexLayout0 ~= nil and y >= -gameManager.getGameLevelData().getLevel().TileSize and x >= -gameManager.getGameLevelData().getLevel().TileSize then
                     table.insert(tilesToRenderLayout0, { x = x, y = y, tileIndex = tileIndexLayout0 })
                 end
-                if tileIndexLayout1 ~= nil and y >= -gameManager.getGameLevelData().data.level.TileSize and x >= -gameManager.getGameLevelData().data.level.TileSize then
+                if tileIndexLayout1 ~= nil and y >= -gameManager.getGameLevelData().getLevel().TileSize and x >= -gameManager.getGameLevelData().getLevel().TileSize then
                     table.insert(tilesToRenderLayout1, { x = x, y = y, tileIndex = tileIndexLayout1 })
                 end
 
-                y  = y + gameManager.getGameLevelData().data.level.TileSize
-                vy = vy + gameManager.getGameLevelData().data.level.TileSize
+                y  = y + gameManager.getGameLevelData().getLevel().TileSize
+                vy = vy + gameManager.getGameLevelData().getLevel().TileSize
             end
             y  = renderBounds.y
             vy = 0
-            x  = x + gameManager.getGameLevelData().data.level.TileSize
-            vx = vx + gameManager.getGameLevelData().data.level.TileSize
+            x  = x + gameManager.getGameLevelData().getLevel().TileSize
+            vx = vx + gameManager.getGameLevelData().getLevel().TileSize
         end
     end
 
     ---@public
     function gameMap.draw()
-        local tileScale = gameManager.getGameLevelData().data.level.TileScale
+        local tileScale = gameManager.getGameLevelData().getLevel().TileScale
         for _, cell in ipairs(tilesToRenderLayout0) do
-            local image = gameManager.getGameLevelData().data.tiles[cell.tileIndex]
+            local image = gameManager.getGameLevelData().getTiles()[cell.tileIndex]
             love.graphics.draw(image, screenManager:ScaleValueX(cell.x), screenManager:ScaleValueY(cell.y), 0, tileScale * screenManager:getScaleX(), tileScale * screenManager:getScaleY())
         end
         for _, cell in ipairs(tilesToRenderLayout1) do
-            local image = gameManager.getGameLevelData().data.tiles[cell.tileIndex]
+            local image = gameManager.getGameLevelData().getTiles()[cell.tileIndex]
             love.graphics.draw(image, screenManager:ScaleValueX(cell.x), screenManager:ScaleValueY(cell.y), 0, tileScale * screenManager:getScaleX(), tileScale * screenManager:getScaleY())
         end
     end

@@ -9,8 +9,14 @@ PathFindingDebug.new = function(gameManager)
     setmetatable(pathFindingDebug, PathFindingDebug)
     PathFindingDebug.__index = PathFindingDebug
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
     local pathFindingInfo    = {}
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
     function pathFindingDebug.innerUpdate(_)
         pathFindingInfo = {}
@@ -25,7 +31,7 @@ PathFindingDebug.new = function(gameManager)
                         local positions = {}
                         for i = 1, #path do
                             local realPosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(path[i])
-                            local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+                            local translated   = gameManager.getViewport().transformPointWorldToViewport(realPosition).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
                             table.insert(positions, translated)
                             table.insert(pathFindingInfo, { unit = unit, positions = positions })
                         end
@@ -35,12 +41,14 @@ PathFindingDebug.new = function(gameManager)
         end
     end
 
+    ---@public
     function pathFindingDebug.draw()
         for _, pathInfo in ipairs(pathFindingInfo) do
             pathFindingDebug.drawLines(pathInfo.positions)
         end
     end
 
+    ---@public
     function pathFindingDebug.drawLines(positions)
         love.graphics.setColor(1, 0, 0, 1)
         for i = 1, #positions - 1 do

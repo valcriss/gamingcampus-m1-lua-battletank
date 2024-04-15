@@ -3,16 +3,26 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 local BitmapText       = require "models.texts.BitmapText"
 local SoundEffect      = require "models.audio.SoundEffect"
 local MainMenu         = require "scenes.MainMenu"
+
 ---@class SplashScreen
 SplashScreen           = {}
 
 SplashScreen.new       = function(splashScreenDuration)
     splashScreenDuration = splashScreenDuration or 7
 
-    local splashScreen   = Scene.new("SplashScreen", 0, { r = 128, g = 180, b = 255 })
+    local splashScreen   = Scene.new("SplashScreen", 0, { r = 0.5, g = 0.7, b = 1 })
 
     setmetatable(splashScreen, SplashScreen)
     SplashScreen.__index = SplashScreen
+
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+    local elapsedTime    = 0
+
+    -- ---------------------------------------------
+    -- Components
+    -- ---------------------------------------------
 
     local logo           = SpriteSheetImage.new("logo", "assets/splashscreen/logo.png", 6, 5, nil, true, screenManager.calculateCenterPointX(), 300, nil, nil, 0, 1)
     local title          = BitmapText.new("title", "assets/splashscreen/title-font.fnt", "Daniel SILVESTRE", "center", "center", screenManager.calculateCenterPointX(), 500)
@@ -24,8 +34,10 @@ SplashScreen.new       = function(splashScreenDuration)
     splashScreen.addComponent(subTitle)
     splashScreen.addComponent(soundEffect)
 
-    local elapsedTime = 0
-
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
     function splashScreen.update(dt)
         elapsedTime = elapsedTime + dt
         if (elapsedTime > splashScreenDuration) then

@@ -1,4 +1,5 @@
 local Component      = require "models.scenes.Component"
+
 ---@class DialogBackground
 DialogBackground     = {}
 
@@ -8,6 +9,9 @@ DialogBackground.new = function()
     setmetatable(dialogBackground, DialogBackground)
     DialogBackground.__index = DialogBackground
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
     function dialogBackground.draw()
         love.graphics.setColor(0, 0, 0, 0.5)

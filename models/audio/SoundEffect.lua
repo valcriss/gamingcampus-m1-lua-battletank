@@ -1,4 +1,5 @@
 local Component = require "models.scenes.Component"
+
 ---@class SoundEffect
 SoundEffect     = {}
 
@@ -10,112 +11,124 @@ SoundEffect     = {}
 ---@param volume number
 ---@param pitch number
 SoundEffect.new = function(name, assetPath, loadType --[[optional]], loop --[[optional]], playOnStart --[[optional]], volume --[[optional]], pitch --[[optional]])
-    loadType = loadType or "static"
-    if loop == nil then
-        loop = false
-    end
-    if playOnStart == nil then
-        playOnStart = true
-    end
+    if loop == nil then loop = false end
+    if playOnStart == nil then playOnStart = true end
+    loadType          = loadType or "static"
     volume            = volume or 1
     pitch             = pitch or 1
-    local soundEffect = Component.new(
-            name,
-            {
-                assetPath   = assetPath,
-                loadType    = loadType,
-                loop        = loop,
-                playOnStart = playOnStart,
-                volume      = volume,
-                pitch       = pitch,
-                sound       = nil,
-                started     = false,
-                paused      = false
-            }
-    )
+
+    local soundEffect = Component.new(name)
 
     setmetatable(soundEffect, SoundEffect)
     SoundEffect.__index = SoundEffect
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+
+    ---@type table
+    local sound
+    ---@type boolean
+    local started       = false
+    ---@type boolean
+    local paused        = false
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+
     ---@public
+    --- Fonction appelée automatiquement qui charge le son
     function soundEffect.load()
-        soundEffect.data.sound = love.audio.newSource(soundEffect.data.assetPath, soundEffect.data.loadType)
-        if (soundEffect.data.playOnStart) then
+        sound = love.audio.newSource(assetPath, loadType)
+        if (playOnStart) then
             soundEffect.play()
-            soundEffect.data.started = true
+            started = true
         else
             soundEffect.stop()
         end
     end
 
     ---@public
+    --- Fonction appelée automatiquement qui relance le son si la proprétie loop est vraie
     function soundEffect.update(_)
-        if soundEffect.data.sound then
-            if not soundEffect.data.sound:isPlaying() and soundEffect.data.started and soundEffect.data.loop == true and soundEffect.data.paused == false then
+        if sound then
+            if not sound:isPlaying() and started and loop == true and paused == false then
                 soundEffect.play()
             end
         end
     end
 
     ---@public
+    --- Function qui permet de déclencher le son
     function soundEffect.play()
-        if soundEffect.data.sound then
-            if soundEffect.data.sound:isPlaying() then
+        if sound then
+            if sound:isPlaying() then
                 soundEffect.stop()
             end
-            soundEffect.data.sound:setVolume(soundEffect.data.volume)
-            soundEffect.data.sound:setPitch(soundEffect.data.pitch)
-            soundEffect.data.sound:play()
-            soundEffect.data.started = true
-            soundEffect.data.paused  = false
+            sound:setVolume(volume)
+            sound:setPitch(pitch)
+            sound:play()
+            started = true
+            paused  = false
         end
     end
 
+    ---@public
+    --- Fonction qui permet de reprendre la lecture du son qui à été en pause
     function soundEffect.resume()
-        if soundEffect.data.sound then
-            soundEffect.data.sound:setVolume(soundEffect.data.volume)
-            soundEffect.data.sound:setPitch(soundEffect.data.pitch)
-            soundEffect.data.sound:play()
-            soundEffect.data.started = true
-            soundEffect.data.paused  = false
+        if sound then
+            sound:setVolume(volume)
+            sound:setPitch(pitch)
+            sound:play()
+            started = true
+            paused  = false
         end
     end
 
+    ---@public
+    --- Fonction qui permet de savoir si le son est en cours de lecture
+    ---@return boolean
     function soundEffect.isPlaying()
-        if soundEffect.data.sound then
-            return soundEffect.data.sound:isPlaying()
+        if sound then
+            return sound:isPlaying()
         end
         return false
     end
 
     ---@public
+    --- Fonction qui permet de stopper la lecture du son
     function soundEffect.stop()
-        if soundEffect.data.sound then
-            soundEffect.data.sound:stop()
-            soundEffect.data.started = false
+        if sound then
+            sound:stop()
+            started = false
         end
     end
 
     ---@public
+    ----Fonction qui permet de mettre en pause la lecture du son
     function soundEffect.pause()
-        if soundEffect.data.sound then
-            soundEffect.data.sound:pause()
-            soundEffect.data.started = false
-            soundEffect.data.paused  = true
+        if sound then
+            sound:pause()
+            started = false
+            paused  = true
         end
     end
 
     ---@public
+    --- fonction appelée automatiquement qui supprime le son
     function soundEffect.unload()
         soundEffect.stop()
-        soundEffect.data.sound:release()
-        soundEffect.data.sound = nil
+        sound:release()
+        sound = nil
     end
 
+    ---@public
+    --- Fonction qui permet de modifier le volume
+    ---@param value number
     function soundEffect.setVolume(value)
-        soundEffect.data.volume = value
-        if soundEffect.data.sound then
-            soundEffect.data.sound:setVolume(soundEffect.data.volume)
+        if sound then
+            sound:setVolume(value)
         end
     end
 

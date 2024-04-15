@@ -11,12 +11,12 @@ ViewPortDebug.new = function(gameManager)
     ViewPortDebug.__index = ViewPortDebug
 
     -- ---------------------------------------------
-    -- Protected Functions
+    -- Public functions
     -- ---------------------------------------------
     ---@protected
     function viewPortDebug.innerUpdate(_)
         viewPortDebug.setText(
-                  "Viewport.getRealBounds   : " .. gameManager.getViewport().getRealBounds().toString() .. "\n" ..
+                "Viewport.getRealBounds   : " .. gameManager.getViewport().getRealBounds().toString() .. "\n" ..
                         "Viewport.getRealPosition : " .. gameManager.getViewport().getRealPosition().toString() .. "\n" ..
                         "Viewport.getRenderBounds : " .. gameManager.getViewport().getRenderBounds().toString()
         )

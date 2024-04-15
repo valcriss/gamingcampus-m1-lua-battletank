@@ -25,9 +25,9 @@ MoveOrder.new = function(target, gameManager, enemy, behavior)
         else
             local nextTile = moveOrder.getPathNode()
             if nextTile ~= nil then
-                local nextTilePosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(nextTile).offsetPosition(gameManager.getGameLevelData().data.level.TileSize / 2, gameManager.getGameLevelData().data.level.TileSize / 2)
+                local nextTilePosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(nextTile).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
                 moveOrder.lookAtPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
-                if nextTilePosition.distance(enemy.getEnemyPosition().x, enemy.getEnemyPosition().y) < gameManager.getGameLevelData().data.level.TileSize / 4 then
+                if nextTilePosition.distance(enemy.getEnemyPosition().x, enemy.getEnemyPosition().y) < gameManager.getGameLevelData().getLevel().TileSize / 4 then
                     enemy.setEnemyPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
                     moveOrder.nextNode()
                 else

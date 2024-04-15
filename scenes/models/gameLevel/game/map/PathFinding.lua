@@ -30,8 +30,8 @@ PathFinding.new = function(gameManager)
         if destination == nil or destination.x == nil or destination.y == nil then return nil end
         local done             = {}
         local queue            = {}
-        local sourceIndex      = gameLevelData.getTileIndexFromRealPosition(source.x + gameLevelData.data.level.TileSize / 2, source.y + gameLevelData.data.level.TileSize / 2)
-        local destinationIndex = gameLevelData.getTileIndexFromRealPosition(destination.x + gameLevelData.data.level.TileSize / 2, destination.y + gameLevelData.data.level.TileSize / 2)
+        local sourceIndex      = gameLevelData.getTileIndexFromRealPosition(source.x + gameLevelData.getLevel().TileSize / 2, source.y + gameLevelData.getLevel().TileSize / 2)
+        local destinationIndex = gameLevelData.getTileIndexFromRealPosition(destination.x + gameLevelData.getLevel().TileSize / 2, destination.y + gameLevelData.getLevel().TileSize / 2)
         local startingItem     = { sourceIndex }
         table.insert(queue, startingItem)
         while #queue > 0 do
