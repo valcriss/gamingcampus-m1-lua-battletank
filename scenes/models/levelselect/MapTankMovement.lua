@@ -27,7 +27,7 @@ MapTankMovement.new = function(level)
             -- Path to level 1
             { path = { { x = 3, y = 9, r = 0 }, { x = 4, y = 9, r = 0 } }, stepDuration = 1 },
             -- Path to level 2
-            { path = {
+            { path          = {
                 { x = 4, y = 9, r = -90 },
                 { x = 4, y = 8, r = -90 },
                 { x = 4, y = 8, r = 0 },
@@ -46,7 +46,7 @@ MapTankMovement.new = function(level)
                 { x = 11, y = 6, r = 0 },
             }, stepDuration = 0.25 },
             -- Path to level 3
-            { path = {
+            { path          = {
                 { x = 11, y = 6, r = 0 },
                 { x = 12, y = 6, r = 0 },
                 { x = 13, y = 6, r = 0 },
@@ -69,23 +69,21 @@ MapTankMovement.new = function(level)
     setmetatable(mapTankMovement, MapTankMovement)
     MapTankMovement.__index = MapTankMovement
 
-    function mapTankMovement.getInitialPosition()
-        return mapTankMovement.getRealPosition(mapTankMovement.initialPosition[mapTankMovement.level].x, mapTankMovement.initialPosition[mapTankMovement.level].y, mapTankMovement.initialPosition[mapTankMovement.level].r)
-    end
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
 
-    ---@private
-    ---@param positionX number
-    ---@param positionY number
-    function mapTankMovement.getRealPosition(positionX, positionY, rotation)
-        return { x = ((positionX - 1) * 64) + 32, y = ((positionY - 1) * 64) + 30, r = rotation }
-    end
-
+    ---@public
+    ---@param levelPath string
+    ---@param onPathCompleted function
     function mapTankMovement.runPath(levelPath, onPathCompleted)
         mapTankMovement.onPathCompleted = onPathCompleted
         mapTankMovement.currentPath     = mapTankMovement.paths[levelPath]
         mapTankMovement.startPathStep(1)
     end
 
+    ---@public
+    ---@param index number
     function mapTankMovement.startPathStep(index)
         mapTankMovement.currentPathIndex       = index
         mapTankMovement.currentPathElapsedTime = 0
@@ -97,6 +95,7 @@ MapTankMovement.new = function(level)
         end
     end
 
+    ---@public
     function mapTankMovement.update(dt)
         if (mapTankMovement.currentPath == nil) then
             return nil
@@ -120,10 +119,27 @@ MapTankMovement.new = function(level)
         return { x = x, y = y, r = r }
     end
 
+    -- ---------------------------------------------
+    -- Private functions
+    -- ---------------------------------------------
+    ---@private
+    function mapTankMovement.getInitialPosition()
+        return mapTankMovement.getRealPosition(mapTankMovement.initialPosition[mapTankMovement.level].x, mapTankMovement.initialPosition[mapTankMovement.level].y, mapTankMovement.initialPosition[mapTankMovement.level].r)
+    end
+
+    ---@private
+    ---@param positionX number
+    ---@param positionY number
+    function mapTankMovement.getRealPosition(positionX, positionY, rotation)
+        return { x = ((positionX - 1) * 64) + 32, y = ((positionY - 1) * 64) + 30, r = rotation }
+    end
+
+    ---@private
     function mapTankMovement.lerp(a, b, t)
         return a + (b - a) * t
     end
 
+    ---@private
     function mapTankMovement.distance(x1, y1, x2, y2)
         return math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
     end

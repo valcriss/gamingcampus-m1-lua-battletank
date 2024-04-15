@@ -114,6 +114,28 @@ MenuFrame.new     = function(name, title, x, y, width, height, moveSpeed, header
         return offsetX
     end
 
+    ---@public
+    ---@param x number
+    function menuFrame.setOffsetX(xValue)
+        offsetX = xValue
+    end
+
+    ---@public
+    ---@return string
+    function menuFrame.getAnimation()
+        return animation
+    end
+
+    ---@public
+    ---@param animationValue string
+    function menuFrame.setAnimation(animationValue)
+        animation = animationValue
+    end
+
+    function menuFrame.PlaySoundEffect()
+        soundEffect.play()
+    end
+
     return menuFrame
 end
 

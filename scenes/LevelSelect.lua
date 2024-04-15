@@ -24,6 +24,7 @@ LevelSelect.new        = function()
     -- Properties
     -- ---------------------------------------------
     local informationText     = ""
+    local moving              = false
 
     -- ---------------------------------------------
     -- Components
@@ -95,7 +96,7 @@ LevelSelect.new        = function()
     ---@public
     --- Fonction gèrant le click sur un niveau
     function levelSelect.onLevelClick(data)
-        if mapTank.data.moving then return end
+        if moving then return end
         mapTankMovement.runPath(data.level, function() levelSelect.startTransitionEnd() end)
         information.disappear()
     end
@@ -111,7 +112,7 @@ LevelSelect.new        = function()
     --- Fonction déclenché au passage de la souris sur un niveau
     --- @param data table
     function levelSelect.onLevelEnter(data)
-        if mapTank.data.moving then return end
+        if moving then return end
         if data.active then
             informationText = "Cliquez poour commencer le niveau " .. data.level
         else
@@ -123,7 +124,7 @@ LevelSelect.new        = function()
     ---@public
     --- Fonction déclenché a la sortie de la souris d'un niveau
     function levelSelect.onLevelLeave(_)
-        if mapTank.data.moving then return end
+        if moving then return end
         information.disappear()
     end
 

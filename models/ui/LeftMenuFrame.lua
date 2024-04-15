@@ -25,13 +25,12 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     --- Fonction qui met a jour l'animation de la frame
     --- @param dt number
     function leftMenuFrame.animationShow(dt)
-
-        if leftMenuFrame.data.animation == "show" then
-            leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX + (leftMenuFrame.data.moveSpeed * dt)
-            if leftMenuFrame.data.offsetX >= leftMenuFrame.bounds.x then
-                leftMenuFrame.data.offsetX   = leftMenuFrame.bounds.x
-                leftMenuFrame.data.animation = "none"
-                if not leftMenuFrame.data.stillUpdate then leftMenuFrame.disable() end
+        if leftMenuFrame.getAnimation() == "show" then
+            leftMenuFrame.setOffsetX(leftMenuFrame.getOffsetX() + (moveSpeed * dt))
+            if leftMenuFrame.getOffsetX() >= leftMenuFrame.bounds.x then
+                leftMenuFrame.setOffsetX(leftMenuFrame.bounds.x)
+                leftMenuFrame.setAnimation("none")
+                if not stillUpdate then leftMenuFrame.disable() end
             end
         end
     end
@@ -40,12 +39,11 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     --- Fonction qui gère l'animation de disparition de la frame
     ---@param dt number
     function leftMenuFrame.animationHide(dt)
-
-        if leftMenuFrame.data.animation == "hide" then
-            leftMenuFrame.data.offsetX = leftMenuFrame.data.offsetX - (leftMenuFrame.data.moveSpeed * dt)
-            if leftMenuFrame.data.offsetX < -leftMenuFrame.bounds.width then
-                leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
-                leftMenuFrame.data.animation = "none"
+        if leftMenuFrame.getAnimation() == "hide" then
+            leftMenuFrame.setOffsetX(leftMenuFrame.getOffsetX() - (moveSpeed * dt))
+            if leftMenuFrame.getOffsetX() < -leftMenuFrame.bounds.width then
+                leftMenuFrame.setOffsetX(-leftMenuFrame.bounds.width)
+                leftMenuFrame.setAnimation("none")
                 leftMenuFrame.hide()
                 leftMenuFrame.disable()
             end
@@ -55,19 +53,19 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     ---@public
     --- Fonction permettant de faire apparaitre la frame
     function leftMenuFrame.disappear()
-        leftMenuFrame.data.animation = "hide"
-        leftMenuFrame.data.offsetX   = leftMenuFrame.bounds.x
+        leftMenuFrame.setAnimation("hide")
+        leftMenuFrame.setOffsetX(leftMenuFrame.bounds.x)
         leftMenuFrame.show()
         leftMenuFrame.enable()
-        leftMenuFrame.data.soundEffect.play()
+        leftMenuFrame.PlaySoundEffect()
     end
 
     ---@public
     --- Fonction permettant de faire disparaitre la frame
     function leftMenuFrame.appear()
-        leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
-        leftMenuFrame.data.animation = "show"
-        leftMenuFrame.data.soundEffect.play()
+        leftMenuFrame.setOffsetX(-leftMenuFrame.bounds.width)
+        leftMenuFrame.setAnimation("show")
+        leftMenuFrame.PlaySoundEffect()
         leftMenuFrame.show()
         leftMenuFrame.enable()
     end
