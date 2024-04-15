@@ -15,14 +15,21 @@ DebugItem.new    = function(name, color, data)
     setmetatable(debugItem, DebugItem)
     DebugItem.__index = DebugItem
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
     local padding     = 10
 
     -- ---------------------------------------------
-    -- Properties
+    -- Components
     -- ---------------------------------------------
     local debug       = BitmapText.new(debugItem.name .. "_debugText", "assets/debug/courier-12.fnt", "Not enough data", "left", "top", 0, 0, nil, nil, 0, 1)
     debugItem.addComponent(debug)
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
     function debugItem.updateBounds(dt)
         debugItem.innerUpdate(dt)
         debug.setPosition(debugItem.bounds.x + padding, debugItem.bounds.y + padding)
@@ -34,6 +41,7 @@ DebugItem.new    = function(name, color, data)
 
     end
 
+    ---@public
     function debugItem.setText(text)
         debug.setContent(text)
     end

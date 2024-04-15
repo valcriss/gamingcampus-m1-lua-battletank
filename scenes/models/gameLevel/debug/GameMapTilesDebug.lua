@@ -10,10 +10,17 @@ GameMapTilesDebug.new = function(gameManager)
     setmetatable(gameMapTilesDebug, GameMapTilesDebug)
     GameMapTilesDebug.__index = GameMapTilesDebug
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
     local tilesToRender       = {}
     local debugFont           = love.graphics.newFont("assets/ui/ui-18.fnt")
     local debugText           = love.graphics.newText(debugFont, "")
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
     function gameMapTilesDebug.update(_)
         tilesToRender      = {}
         local renderBounds = gameManager.getViewport().getRenderBounds()
@@ -68,11 +75,13 @@ GameMapTilesDebug.new = function(gameManager)
         love.graphics.setColor(1, 1, 1, 1)
     end
 
+    ---@public
     function gameMapTilesDebug.drawRectangle(mode, cell, color)
         love.graphics.setColor(color.r, color.g, color.b, color.a)
         love.graphics.rectangle(mode, screenManager:ScaleValueX(cell.x), screenManager:ScaleValueY(cell.y), screenManager:ScaleValueX(gameManager.getGameLevelData().data.level.TileSize), screenManager:ScaleValueY(gameManager.getGameLevelData().data.level.TileSize))
     end
 
+    ---@public
     function gameMapTilesDebug.drawText(cell, text, offsetY)
         love.graphics.setColor(1, 1, 1, 1)
         debugText:set(text)

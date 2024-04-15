@@ -9,8 +9,14 @@ UnitsColliderDebug.new = function(gameManager)
     setmetatable(unitsColliderDebug, UnitsColliderDebug)
     UnitsColliderDebug.__index = UnitsColliderDebug
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
     local colliderBounds       = {}
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
     function unitsColliderDebug.innerUpdate(_)
         colliderBounds = {}
@@ -24,12 +30,14 @@ UnitsColliderDebug.new = function(gameManager)
         end
     end
 
+    ---@public
     function unitsColliderDebug.draw()
         for _, collider in ipairs(colliderBounds) do
             unitsColliderDebug.drawRectangle("line", collider.colliderBounds.x, collider.colliderBounds.y, collider.colliderBounds.width, collider.colliderBounds.height, { r = 0, g = 0, b = 1, a = 1 })
         end
     end
 
+    ---@public
     function unitsColliderDebug.drawRectangle(mode, x, y, w, h, color)
         love.graphics.setColor(color.r, color.g, color.b, color.a)
         love.graphics.rectangle(mode, screenManager:ScaleValueX(x), screenManager:ScaleValueY(y), screenManager:ScaleValueX(w), screenManager:ScaleValueY(h))

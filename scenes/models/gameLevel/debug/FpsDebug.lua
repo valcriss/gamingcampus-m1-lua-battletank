@@ -8,6 +8,9 @@ FpsDebug.new    = function()
     setmetatable(fpsDebug, FpsDebug)
     FpsDebug.__index = FpsDebug
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
     function fpsDebug.innerUpdate(_)
         fpsDebug.setText("FPS: " .. love.timer.getFPS())
