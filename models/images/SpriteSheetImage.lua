@@ -103,6 +103,7 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
     ---@private
     --- Fonction qui met a jour l'image affichée
     function spriteSheetImage.updateSpriteSheet(dt)
+        if quads == nil then return end
         elapsedTime = elapsedTime + dt
         if (elapsedTime < (speed / 1000)) then
 
