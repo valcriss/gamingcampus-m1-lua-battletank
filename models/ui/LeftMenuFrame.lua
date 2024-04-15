@@ -11,14 +11,19 @@ LeftMenuFrame     = {}
 ---@param height number
 ---@param moveSpeed number
 ---@param headerAssetPath string
----@param data table
 ---@param stillUpdate boolean
-LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAssetPath, data, stillUpdate)
-    local leftMenuFrame = MenuFrame.new(name, title, x, y, width, height, moveSpeed, headerAssetPath, data, stillUpdate)
+LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, headerAssetPath, stillUpdate)
+    local leftMenuFrame = MenuFrame.new(name, title, x, y, width, height, moveSpeed, headerAssetPath, stillUpdate)
 
     setmetatable(leftMenuFrame, LeftMenuFrame)
     LeftMenuFrame.__index = LeftMenuFrame
 
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
+    ---@public
+    --- Fonction qui met a jour l'animation de la frame
+    --- @param dt number
     function leftMenuFrame.animationShow(dt)
 
         if leftMenuFrame.data.animation == "show" then
@@ -31,6 +36,9 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         end
     end
 
+    ---@public
+    --- Fonction qui gère l'animation de disparition de la frame
+    ---@param dt number
     function leftMenuFrame.animationHide(dt)
 
         if leftMenuFrame.data.animation == "hide" then
@@ -44,6 +52,8 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         end
     end
 
+    ---@public
+    --- Fonction permettant de faire apparaitre la frame
     function leftMenuFrame.disappear()
         leftMenuFrame.data.animation = "hide"
         leftMenuFrame.data.offsetX   = leftMenuFrame.bounds.x
@@ -52,6 +62,8 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         leftMenuFrame.data.soundEffect.play()
     end
 
+    ---@public
+    --- Fonction permettant de faire disparaitre la frame
     function leftMenuFrame.appear()
         leftMenuFrame.data.offsetX   = -leftMenuFrame.bounds.width
         leftMenuFrame.data.animation = "show"

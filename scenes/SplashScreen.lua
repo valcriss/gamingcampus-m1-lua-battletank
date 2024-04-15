@@ -9,7 +9,7 @@ SplashScreen           = {}
 SplashScreen.new       = function(splashScreenDuration)
     splashScreenDuration = splashScreenDuration or 7
 
-    local splashScreen   = Scene.new("SplashScreen", 0, { r = 128, g = 180, b = 255 })
+    local splashScreen   = Scene.new("SplashScreen", 0, { r = 0.5, g = 0.7, b = 1 })
 
     setmetatable(splashScreen, SplashScreen)
     SplashScreen.__index = SplashScreen

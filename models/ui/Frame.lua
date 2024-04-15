@@ -10,72 +10,70 @@ Frame           = {}
 ---@param width number
 ---@param height number
 Frame.new       = function(name, assetPath, border, x, y, width, height)
-    local frame = Component.new(
-            name, {
-                assetPath   = assetPath,
-                border      = border,
-                sourceImage = nil,
-                topLeft     = nil,
-                top         = nil,
-                left        = nil,
-                right       = nil,
-                bottom      = nil,
-                topRight    = nil,
-                bottomLeft  = nil,
-                bottomRight = nil,
-                center      = nil
-            },
-            x,
-            y,
-            width,
-            height
-    )
+    local frame = Component.new(name, x, y, width, height)
 
     setmetatable(frame, Frame)
     Frame.__index = Frame
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+    local sourceImage
+    local topLeft
+    local top
+    local left
+    local right
+    local bottom
+    local topRight
+    local bottomLeft
+    local bottomRight
+    local center
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
     function frame.load()
-        frame.data.sourceImage = love.graphics.newImage(frame.data.assetPath)
-        frame.data.topLeft     = love.graphics.newQuad(0, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.top         = love.graphics.newQuad(frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.left        = love.graphics.newQuad(0, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.right       = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.bottom      = love.graphics.newQuad(frame.data.border, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.topRight    = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, 0, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.bottomLeft  = love.graphics.newQuad(0, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.bottomRight = love.graphics.newQuad(frame.data.sourceImage:getWidth() - frame.data.border, frame.data.sourceImage:getHeight() - frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
-        frame.data.center      = love.graphics.newQuad(frame.data.border, frame.data.border, frame.data.border, frame.data.border, frame.data.sourceImage)
+        sourceImage = love.graphics.newImage(assetPath)
+        topLeft     = love.graphics.newQuad(0, 0, border, border, sourceImage)
+        top         = love.graphics.newQuad(border, 0, border, border, sourceImage)
+        left        = love.graphics.newQuad(0, border, border, border, sourceImage)
+        right       = love.graphics.newQuad(sourceImage:getWidth() - border, border, border, border, sourceImage)
+        bottom      = love.graphics.newQuad(border, sourceImage:getHeight() - border, border, border, sourceImage)
+        topRight    = love.graphics.newQuad(sourceImage:getWidth() - border, 0, border, border, sourceImage)
+        bottomLeft  = love.graphics.newQuad(0, sourceImage:getHeight() - border, border, border, sourceImage)
+        bottomRight = love.graphics.newQuad(sourceImage:getWidth() - border, sourceImage:getHeight() - border, border, border, sourceImage)
+        center      = love.graphics.newQuad(border, border, border, border, sourceImage)
     end
 
     ---@public
     function frame.unload()
-        frame.data.sourceImage:release()
-        frame.data.sourceImage = nil
+        sourceImage:release()
+        sourceImage = nil
     end
 
     ---@public
     function frame.draw()
         -- Top Left
-        love.graphics.draw(frame.data.sourceImage, frame.data.topLeft, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, topLeft, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Top Right
-        love.graphics.draw(frame.data.sourceImage, frame.data.topRight, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, topRight, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Bottom Left
-        love.graphics.draw(frame.data.sourceImage, frame.data.bottomLeft, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, bottomLeft, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Bottom Right
-        love.graphics.draw(frame.data.sourceImage, frame.data.bottomRight, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, bottomRight, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Horizontal Borders
-        local horizontalScale = math.ceil(((frame.bounds.x + frame.bounds.width) - (frame.bounds.x + frame.data.border)) / frame.data.border)
-        love.graphics.draw(frame.data.sourceImage, frame.data.top, screenManager:ScaleValueX(frame.bounds.x + frame.data.border), screenManager:ScaleValueY(frame.bounds.y), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
-        love.graphics.draw(frame.data.sourceImage, frame.data.bottom, screenManager:ScaleValueX(frame.bounds.x + frame.data.border), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        local horizontalScale = math.ceil(((frame.bounds.x + frame.bounds.width) - (frame.bounds.x + border)) / border)
+        love.graphics.draw(sourceImage, top, screenManager:ScaleValueX(frame.bounds.x + border), screenManager:ScaleValueY(frame.bounds.y), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, bottom, screenManager:ScaleValueX(frame.bounds.x + border), screenManager:ScaleValueY(frame.bounds.y + frame.bounds.height), 0, horizontalScale * screenManager:getScaleX(), screenManager:getScaleY(), 0, 0)
         -- Vertical Borders
-        local verticalScale = math.ceil(((frame.bounds.y + frame.bounds.height) - (frame.bounds.y + frame.data.border)) / frame.data.border)
-        love.graphics.draw(frame.data.sourceImage, frame.data.left, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y + frame.data.border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
-        love.graphics.draw(frame.data.sourceImage, frame.data.right, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y + frame.data.border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
+        local verticalScale = math.ceil(((frame.bounds.y + frame.bounds.height) - (frame.bounds.y + border)) / border)
+        love.graphics.draw(sourceImage, left, screenManager:ScaleValueX(frame.bounds.x), screenManager:ScaleValueY(frame.bounds.y + border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
+        love.graphics.draw(sourceImage, right, screenManager:ScaleValueX(frame.bounds.x + frame.bounds.width), screenManager:ScaleValueY(frame.bounds.y + border), 0, screenManager:getScaleX(), verticalScale * screenManager:getScaleY(), 0, 0)
         -- Center
-        local centerScaleX = math.ceil(((frame.bounds.x + frame.bounds.width) - (frame.bounds.x + frame.data.border)) / frame.data.border)
-        local centerScaleY = math.ceil(((frame.bounds.y + frame.bounds.height) - (frame.bounds.y + frame.data.border)) / frame.data.border)
-        love.graphics.draw(frame.data.sourceImage, frame.data.center, screenManager:ScaleValueX(frame.bounds.x + frame.data.border), screenManager:ScaleValueY(frame.bounds.y + frame.data.border), 0, centerScaleX * screenManager:getScaleX(), centerScaleY * screenManager:getScaleY(), 0, 0)
+        local centerScaleX = math.ceil(((frame.bounds.x + frame.bounds.width) - (frame.bounds.x + border)) / border)
+        local centerScaleY = math.ceil(((frame.bounds.y + frame.bounds.height) - (frame.bounds.y + border)) / border)
+        love.graphics.draw(sourceImage, center, screenManager:ScaleValueX(frame.bounds.x + border), screenManager:ScaleValueY(frame.bounds.y + border), 0, centerScaleX * screenManager:getScaleX(), centerScaleY * screenManager:getScaleY(), 0, 0)
     end
 
     return frame
