@@ -1,40 +1,48 @@
----@class Delay
-Delay     = {}
+local Component = require "models.scenes.Component"
 
-Delay.new = function(name)
-    local delay = Component.new(
-            name,
-            {
-                action      = nil,
-                delay       = 0,
-                elapsedTime = 0
-            }
-    )
+---@class Delay
+Delay           = {}
+
+---@param name string
+Delay.new       = function(name)
+    local delay = Component.new(name)
 
     setmetatable(delay, Delay)
-    Delay.__index = Delay
+    Delay.__index     = Delay
 
+    -- ---------------------------------------------
+    -- Properties
+    -- ---------------------------------------------
+    local action
+    local duration    = 0
+    local elapsedTime = 0
+
+    -- ---------------------------------------------
+    -- Public functions
+    -- ---------------------------------------------
     ---@public
+    --- Fonction appelée automatiquement qui va lancer l'action apres une durée définie
     function delay.update(dt)
-        if (delay.data.action == nil) then
+        if (action == nil) then
             return
         end
-        delay.data.elapsedTime = delay.data.elapsedTime + dt
-        if (delay.data.elapsedTime >= delay.data.delay) then
-            delay.data.action()
-            delay.data.action      = nil
-            delay.data.elapsedTime = 0
-            delay.data.delay       = 0
+        elapsedTime = elapsedTime + dt
+        if (elapsedTime >= duration) then
+            action()
+            action      = nil
+            elapsedTime = 0
+            duration    = 0
         end
     end
 
     ---@public
-    ---@param duration number
-    ---@param action function
-    function delay.setDelay(duration, action)
-        delay.data.delay       = duration
-        delay.data.action      = action
-        delay.data.elapsedTime = 0
+    --- Permet de définir une action qui sera executé apres une durée définie
+    ---@param waitDuration number
+    ---@param completedAction function
+    function delay.setDelay(waitDuration, completedAction)
+        duration    = waitDuration
+        action      = completedAction
+        elapsedTime = 0
         return delay
     end
 
