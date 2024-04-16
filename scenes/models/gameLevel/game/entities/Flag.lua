@@ -7,7 +7,7 @@ local HealthBar = require "scenes.models.gameLevel.game.entities.HealthBar"
 Flag            = {}
 
 Flag.new        = function(gameManager, flagPosition, index)
-    local flag = Entity.new("Flag-" .. tostring(index), gameManager, "Flag", 0, 0, 0, 128, 128, 0, 0.5)
+    local flag = Entity.new("Flag-" .. tostring(index), gameManager, "Flag", 0, 0, 0, 64, 64, 0, 1)
 
     setmetatable(flag, Flag)
     Flag.__index = Flag
@@ -17,8 +17,8 @@ Flag.new        = function(gameManager, flagPosition, index)
     -- ---------------------------------------------
     flag.setMaxHealth(configuration:getFlagMaxHealth())
     local realPosition
-    local tower     = Image.new(flag.name .. "_flag", "assets/gameLevel/flag.png", 0, 0, 0, 0.5)
-    local number    = Image.new(flag.name .. "_number", "assets/gameLevel/flag-" .. tostring(index) .. ".png", 0, 0, 0, 0.4)
+    local tower     = Image.new(flag.name .. "_flag", "assets/gameLevel/flag.png", 0, 0, 0, 1)
+    local number    = Image.new(flag.name .. "_number", "assets/gameLevel/flag-" .. tostring(index) .. ".png", 0, 0, 0, 1)
     local healthBar = HealthBar.new(flag.name .. "_healthBar", flag)
 
     flag.addComponent(tower)

@@ -11,7 +11,7 @@ HelpFrame.new       = function(onClose)
     setmetatable(helpFrame, HelpFrame)
     HelpFrame.__index  = HelpFrame
 
-    local helpImage    = Image.new("helpImage", "assets/gameLevel/help.png", 0, 0, 0, 0.7)
+    local helpImage    = Image.new("helpImage", "assets/gameLevel/help.png", 0, 0, 0, 1)
     local resumeButton = Button.new(helpFrame.name .. "_resumeButton", "assets/ui/green_button00.png", "assets/ui/green_button04.png", "assets/ui/green_button03.png", 0, 0, "Reprendre", function() onClose() end)
 
     helpFrame.addComponent(helpImage)

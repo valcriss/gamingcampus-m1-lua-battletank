@@ -9,7 +9,7 @@ local SoundEffect      = require "models.audio.SoundEffect"
 Unit                   = {}
 
 Unit.new               = function(name, gameManager, body, turret, fireAnimation, x, y, group)
-    local unit = Entity.new(name, gameManager, "Tank", group, x, y, 128, 128, 0, 0.5)
+    local unit = Entity.new(name, gameManager, "Tank", group, x, y, 64, 64, 0, 1)
 
     setmetatable(unit, Unit)
     Unit.__index       = Unit
@@ -25,7 +25,7 @@ Unit.new               = function(name, gameManager, body, turret, fireAnimation
     local missile2     = UnitMissile.new("missile2", gameManager, group).hide()
     local healthBar    = HealthBar.new(unit.name .. "_healthBar", unit)
     local emoteWait    = SpriteSheetImage.new(unit.name .. "_emoteWait", "assets/emotes/emote-wait.png", 15, 1, 50, true, 0, 0, nil, nil, unit.rotation, unit.scale, unit.color)
-    local missileSound = SoundEffect.new("background", "assets/gameLevel/sound/tank-fire.mp3", "static", false, false, configuration:getSoundVolume() * 0.5)
+    local missileSound = SoundEffect.new("background", "assets/gameLevel/sound/tank-fire.mp3", "static", false, false, configuration:getSoundVolume())
 
     unit.addComponent(tankBody)
     unit.addComponent(tankTurret)
