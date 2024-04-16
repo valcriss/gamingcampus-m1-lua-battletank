@@ -28,6 +28,7 @@ Enemy.new       = function(index, enemyPosition, gameManager)
 
     function enemy.resetPosition()
         enemyRealPosition = gameManager.getGameLevelData().translateGridPositionToWorldPosition(enemyPosition.x, enemyPosition.y).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
+        enemy.setEnemyPosition(enemyRealPosition)
     end
 
     function enemy.updateUnit(dt)
