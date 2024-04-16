@@ -10,7 +10,7 @@ DebugItem        = {}
 DebugItem.new    = function(name, color, data)
     data            = data or {}
     color           = color or { r = 0, g = 0, b = 0, a = 0.75 }
-    local debugItem = Component.new(name, data)
+    local debugItem = Component.new(name, 0, 0)
 
     setmetatable(debugItem, DebugItem)
     DebugItem.__index = DebugItem

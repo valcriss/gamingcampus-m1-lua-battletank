@@ -24,10 +24,10 @@ PauseMenuFrame.new  = function(onResume, onBack, onPauseChanged)
 
     function pauseMenuFrame.update(dt)
         pauseMenuFrame.updateAnimation(dt)
-        resumeButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 20, pauseMenuFrame.bounds.y + 20)
-        backButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 20, pauseMenuFrame.bounds.y + 80)
-        debugLabel.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 25, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 30)
-        debugCheckbox.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.data.offsetX + 170, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 40)
+        resumeButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.getOffsetX() + 20, pauseMenuFrame.bounds.y + 20)
+        backButton.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.getOffsetX() + 20, pauseMenuFrame.bounds.y + 80)
+        debugLabel.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.getOffsetX() + 25, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 30)
+        debugCheckbox.setPosition(pauseMenuFrame.bounds.x + pauseMenuFrame.getOffsetX() + 170, pauseMenuFrame.bounds.y + pauseMenuFrame.bounds.height - 40)
     end
 
     function pauseMenuFrame.resume()
