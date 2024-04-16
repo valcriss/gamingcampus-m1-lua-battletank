@@ -45,7 +45,7 @@ LevelSelect.new        = function()
     local information         = InformationFrame.new("LevelSelect_information", "Information", 30, 80, 500, 50, 3000).hide()
     local mapTankMovement     = MapTankMovement.new(configuration:getLevel())
     local initialPosition     = mapTankMovement.getInitialPosition()
-    local mapTank             = MapTank.new("LevelSelect_mapTank", initialPosition.x, initialPosition.y, initialPosition.r, 0.6)
+    local mapTank             = MapTank.new("LevelSelect_mapTank", initialPosition.x, initialPosition.y, initialPosition.r, 1)
     local delay               = Delay.new("delay")
 
     levelSelect.addComponent(map)

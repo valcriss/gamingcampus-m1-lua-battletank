@@ -4,8 +4,9 @@ local SpriteSheetImage = require "models.images.SpriteSheetImage"
 ---@class UnitMissile
 UnitMissile            = {}
 
-UnitMissile.new        = function(name, gameManager, group, asset)
+UnitMissile.new        = function(name, gameManager, group, asset, speed)
     asset             = asset or "assets/gamelevel/bullet.png"
+    speed             = speed or 2000
     local unitMissile = Component.new(name)
 
     setmetatable(unitMissile, UnitMissile)
@@ -21,11 +22,10 @@ UnitMissile.new        = function(name, gameManager, group, asset)
     local rotation        = 0
     local running         = false
     local moving          = false
-    local speed           = 2000
     local drawViewPort
     local unitGroup       = group
 
-    local missile         = Image.new(unitMissile.name .. "_missile", "assets/gamelevel/bullet.png", 0, 0)
+    local missile         = Image.new(unitMissile.name .. "_missile", asset, 0, 0)
     local explosion       = SpriteSheetImage.new(unitMissile.name .. "_explosion", "assets/gamelevel/explosion2.png", 5, 4, 3, false, 0, 0, nil, nil, 0, 1, nil, function()
         unitMissile.explosionEnds()
     end)                                    .hide()

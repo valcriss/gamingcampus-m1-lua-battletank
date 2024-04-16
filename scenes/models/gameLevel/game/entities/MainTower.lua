@@ -10,7 +10,7 @@ local SoundEffect      = require "models.audio.SoundEffect"
 MainTower              = {}
 
 MainTower.new          = function(name, gameManager, group)
-    local mainTower = Entity.new(name, gameManager, "MainTower", group, 0, 0, 128, 128, 0, 0.5)
+    local mainTower = Entity.new(name, gameManager, "MainTower", group, 0, 0, 64, 64, 0, 1)
 
     setmetatable(mainTower, MainTower)
     MainTower.__index = MainTower
@@ -19,12 +19,12 @@ MainTower.new          = function(name, gameManager, group)
     -- Properties
     -- ---------------------------------------------
     mainTower.setMaxHealth(configuration:getMainTowerMaxHealth())
-    local tower             = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower.png", 0, 0, 0, 0.5)
-    local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 0.5)
-    local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 0.25)
+    local tower             = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower.png", 0, 0, 0, 1)
+    local gun               = Image.new(mainTower.name .. "_tower", "assets/gameLevel/tower-gun-" .. tostring(group) .. ".png", 0, 0, 0, 1)
+    local shield            = SpriteSheetImage.new(mainTower.name .. "_shield", "assets/gameLevel/shield.png", 12, 1, 50, true, 0, 0, nil, nil, 0, 1)
     local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
-    local missile1          = UnitMissile.new("missile1", gameManager, group).hide()
-    local missile2          = UnitMissile.new("missile2", gameManager, group).hide()
+    local missile1          = UnitMissile.new("missile1", gameManager, group, "assets/gameLevel/main-missile.png", 1500).hide()
+    local missile2          = UnitMissile.new("missile2", gameManager, group, "assets/gameLevel/main-missile.png", 1500).hide()
     local missileSound      = SoundEffect.new("background", "assets/gameLevel/sound/tower-fire.mp3", "static", false, false, configuration:getSoundVolume())
 
     local realPosition

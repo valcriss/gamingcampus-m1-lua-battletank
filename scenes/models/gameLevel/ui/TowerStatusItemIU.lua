@@ -14,7 +14,7 @@ TowerStatusItemUI.new     = function(name, flagItem, x, y)
     local owner               = 0
     local flagMarker          = Image.new(towerStatusItemUI.name .. "_towerOwner0", "assets/gameLevel/flag-marker.png", x, y, nil, 1)
     local towerStatusHeathBar = TowerStatusHeathBar.new(towerStatusItemUI.name .. "_towerStatusHeathBar", flagItem, x, y)
-    local towerNumber         = Image.new(towerStatusItemUI.name .. "_towerNumber", "assets/gameLevel/flag-" .. tostring(flagItem.getIndex()) .. ".png", x, y, nil, 0.25)
+    local towerNumber         = Image.new(towerStatusItemUI.name .. "_towerNumber", "assets/gameLevel/flag-" .. tostring(flagItem.getIndex()) .. "-small.png", x, y, nil, 1)
 
     towerStatusItemUI.addComponent(towerStatusHeathBar)
     towerStatusItemUI.addComponent(flagMarker)
