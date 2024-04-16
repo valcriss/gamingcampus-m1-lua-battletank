@@ -27,7 +27,7 @@ LevelButton.new   = function(name, enableAssetPath, disableAssetPath, hoverAsset
     local levelLocked     = Image.new(levelButton.name .. "_levelLocked", lockedAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
     local levelHover      = Image.new(levelButton.name .. "_levelHover", hoverAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
     local levelFinished   = Image.new(levelButton.name .. "_levelFinished", finishedAssetPath, levelButton.bounds.x + 32, levelButton.bounds.y + 32).hide()
-    local soundEffect     = SoundEffect.new(levelButton.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
+    local soundEffect     = SoundEffect.new(levelButton.name .. "_soundEffect", "assets/ui/switch2.mp3", "static", false, false, configuration:getSoundVolume())
     local forbiddenEffect = SoundEffect.new(levelButton.name .. "_forbiddenEffect", "assets/ui/wrong.mp3", "static", false, false, configuration:getSoundVolume())
 
     levelButton.addComponent(levelDisabled)

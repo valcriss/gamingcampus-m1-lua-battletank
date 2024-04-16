@@ -32,7 +32,7 @@ Button.new        = function(name, assetPath, assetOverPath, assetPressedPath, x
     local buttonImage        = Image.new(button.name .. "_buttonImage", assetPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
     local buttonOverImage    = Image.new(button.name .. "_buttonOverImage", assetOverPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
     local buttonPressedImage = Image.new(button.name .. "_buttonPressedImage", assetPressedPath, button.bounds.x + (button.bounds.width / 2), button.bounds.y + (button.bounds.height / 2))
-    local soundEffect        = SoundEffect.new(button.name .. "_soundEffect", "assets/ui/switch2.ogg", "stream", false, false, configuration:getSoundVolume())
+    local soundEffect        = SoundEffect.new(button.name .. "_soundEffect", "assets/ui/switch2.mp3", "stream", false, false, configuration:getSoundVolume())
 
     button.addComponent(buttonImage)
     button.addComponent(buttonOverImage)

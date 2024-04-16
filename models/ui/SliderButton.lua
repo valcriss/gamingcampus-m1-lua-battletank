@@ -27,7 +27,7 @@ SliderButton.new  = function(name, assetPath, x, y, action)
     -- ---------------------------------------------
 
     local sliderButtonImage = Image.new(sliderButton.name .. "_sliderButtonImage", assetPath, sliderButton.bounds.x + (sliderButton.bounds.width / 2), sliderButton.bounds.y + (sliderButton.bounds.height / 2))
-    local soundEffect       = SoundEffect.new(sliderButton.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
+    local soundEffect       = SoundEffect.new(sliderButton.name .. "_soundEffect", "assets/ui/switch2.mp3", "static", false, false, configuration:getSoundVolume())
 
     sliderButton.addComponent(sliderButtonImage)
     sliderButton.addComponent(soundEffect)

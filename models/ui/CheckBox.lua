@@ -29,7 +29,7 @@ CheckBox.new      = function(name, assetPath, assetCheckedPath, x, y, checked, s
     -- ---------------------------------------------
     local checkboxImage        = Image.new(checkBox.name .. "_checkboxImage", assetPath, checkBox.bounds.x + (checkBox.bounds.width / 2), checkBox.bounds.y + (checkBox.bounds.height / 2))
     local checkBoxCheckedImage = Image.new(checkBox.name .. "_checkBoxCheckedImage", assetCheckedPath, checkBox.bounds.x + (checkBox.bounds.width / 2), checkBox.bounds.y + (checkBox.bounds.height / 2))
-    local soundEffect          = SoundEffect.new(checkBox.name .. "_soundEffect", "assets/ui/switch2.ogg", "static", false, false, configuration:getSoundVolume())
+    local soundEffect          = SoundEffect.new(checkBox.name .. "_soundEffect", "assets/ui/switch2.mp3", "static", false, false, configuration:getSoundVolume())
 
     checkBox.addComponent(checkboxImage)
     checkBox.addComponent(checkBoxCheckedImage)
