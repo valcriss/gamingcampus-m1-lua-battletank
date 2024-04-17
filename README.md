@@ -31,7 +31,7 @@ Les atomes sont les composants de base, ils ne contiennent pas d'autres composan
 
 --------
 
-# Les molécules
+## Les molécules
 
 Le molécules utilisent les atomes pour créer des composants plus complexes
 
@@ -39,7 +39,7 @@ Le molécules utilisent les atomes pour créer des composants plus complexes
 
 --------
 
-# Les organismes du jeu
+## Les organismes du jeu
 
 Les organismes sont des composants plus complexes qui contiennent des molécules et des atomes
 
@@ -47,7 +47,7 @@ Les organismes sont des composants plus complexes qui contiennent des molécules
 
 --------
 
-# Les templates/scenes du jeu
+## Les templates/scenes du jeu
 
 Les templates/scenes sont des composants plus complexes qui contiennent des organismes, des molécules et des atomes
 
@@ -55,7 +55,7 @@ Les templates/scenes sont des composants plus complexes qui contiennent des orga
 
 --------
 
-# Les classes utilitaires
+## Les classes utilitaires
 
 Les classes utilitaires sont des classes qui apportent des fonctionnalités partagées par les composants du framework
 
