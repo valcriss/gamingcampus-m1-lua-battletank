@@ -48,9 +48,11 @@ sous-compopsant qu'il contient.
 ## Les composants du framework
 
 Pour la définition des composants j'ai utilisé l'atomic design adapté aux composants de jeu video.
+
 L'idée était donc de développer des composants (atomes) (images, text, sons, etc) qui peuvent être combinés pour créer
-des
-composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les combiner dans des scenes (organismes)
+des composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les combiner a nouveau dans des elements plus
+complexe du jeu (organismes) (joueur, enemi, interface, etc) pour finalement les combiner dans des scenes (templates,
+pages)
 
 <img src="./docs/atomic-design.png" width="500">
 
