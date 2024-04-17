@@ -1,0 +1,10 @@
+HelpFrame: {
+  shape: class
+
+  +new(onClose function): HelpFrame
+
+  +update(dt float): void
+}
+HelpFrame -> Image
+HelpFrame -> Button
+HelpFrame -> LeftMenuFrame: extends

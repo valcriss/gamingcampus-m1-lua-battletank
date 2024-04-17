@@ -1,0 +1,14 @@
+PauseMenuFrame: {
+  shape: class
+
+  +new(onResume function, onBack function, onPauseChanged function): PauseMenuFrame
+
+  +update(dt float): void
+  +resume(): void
+  +back(): void
+  +debugChanged(newValue): void
+}
+PauseMenuFrame -> BitmapText
+PauseMenuFrame -> Button
+PauseMenuFrame -> CheckBox
+PauseMenuFrame -> LeftMenuFrame: extends
