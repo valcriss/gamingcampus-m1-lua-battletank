@@ -1,0 +1,18 @@
+EndGameUI: {
+  shape: class
+
+  +new(onShowCompleted function): EndGameUI
+
+  -color: Color
+  -colorSpeed: float
+  -showDuration: integer
+  -isVictory: boolean
+  -animation: string
+
+  +victory(): void
+  +defeat(): void
+
+  +update(dt float): void
+}
+EndGameUI -> Image
+EndGameUI -> Component: extends

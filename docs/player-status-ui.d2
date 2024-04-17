@@ -1,0 +1,10 @@
+PlayerStatusUI: {
+  shape: class
+
+  +new(name, gameManager, position, group): PlayerStatusUI
+  +load(): void
+}
+PlayerStatusUI -> Image
+PlayerStatusUI -> BitmapText
+PlayerStatusUI -> MainTowerHeathBar
+PlayerStatusUI -> Component: extends

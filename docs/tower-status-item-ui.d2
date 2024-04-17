@@ -1,0 +1,12 @@
+TowerStatusItemUI: {
+  shape: class
+
+  +new(name string, gameManager GameManager): TowerStatusItemUI
+  -owner: integer
+  +load(): void
+  +updateUnitAttacker(fromGroup): void
+  +setOwner(newOwner): void
+}
+TowerStatusItemUI -> Image
+TowerStatusItemUI -> TowerStatusHeathBar
+TowerStatusItemUI -> Component: extends

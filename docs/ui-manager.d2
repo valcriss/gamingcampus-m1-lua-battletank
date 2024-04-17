@@ -1,0 +1,12 @@
+UIManager: {
+  shape: class
+
+  +new(gameManager GameManager): UIManager
+
+  +load(): void
+  +onFlagCaptured(unit, fromGroup): void
+  +onUnitUnderAttack(unit, damage, fromGroup): void
+}
+UIManager -> TowerStatusUI
+UIManager -> PlayerStatusUI
+UIManager -> Component: extends

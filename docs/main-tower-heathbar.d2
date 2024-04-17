@@ -1,0 +1,21 @@
+MainTowerHeathBar: {
+  shape: class
+
+  +new(name, mainTower): MainTowerHeathBar
+  -healthBarGroup: integer
+  -healthBarValue: integer
+  -healthBarMaxValue: integer
+  -width: integer
+  -height: integer
+  -renderInfo: array
+
+  +load(): void
+  +update(dt float): void
+  +draw(): void
+
+  -getBackgroundRenderColor(): Color
+  -getBorderRenderColor(): Color
+  -getBarRenderColor(): Color
+}
+
+MainTowerHeathBar -> Component: extends

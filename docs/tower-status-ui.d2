@@ -1,0 +1,13 @@
+TowerStatusUI: {
+  shape: class
+
+  +new(name string, gameManager GameManager): TowerStatusUI
+  -flagItems: array
+  +load(): void
+  +setFlagCaptured(unit, fromGroup): void
+  +setUnitUnderAttack(unit, _, fromGroup): void
+  -getUnitByName(unitName): Unit
+}
+TowerStatusUI -> Image
+TowerStatusUI -> TowerStatusItemUI
+TowerStatusUI -> Component: extends
