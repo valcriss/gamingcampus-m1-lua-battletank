@@ -1,9 +1,9 @@
 local DIRECT_TO_MAP = false
 
 -- Importation des modules
-local ScreenManager = require "models.screen.ScreenManager"
-local ScenesManager = require "models.scenes.ScenesManager"
-local Configuration = require "models.configuration.Configuration"
+local ScreenManager = require "framework.screen.ScreenManager"
+local ScenesManager = require "framework.scenes.ScenesManager"
+local Configuration = require "framework.configuration.Configuration"
 local SplashScreen  = require "scenes.SplashScreen"
 local GameLevel     = require "scenes.GameLevel"
 

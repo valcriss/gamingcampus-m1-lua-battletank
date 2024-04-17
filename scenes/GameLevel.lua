@@ -1,15 +1,15 @@
-local Scene            = require "models.scenes.Scene"
-local GameLevelData    = require "scenes.models.gameLevel.levelData.GameLevelData"
-local GameManager      = require "scenes.models.gameLevel.game.GameManager"
-local UIManager        = require "scenes.models.gameLevel.ui.UIManager"
-local DebugManager     = require "scenes.models.gameLevel.debug.DebugManager"
-local PauseMenuFrame   = require "scenes.models.gameLevel.pause.PauseMenuFrame"
-local SpriteSheetImage = require "models.images.SpriteSheetImage"
-local DialogBackground = require "models.ui.DialogBackground"
-local HelpFrame        = require "scenes.models.gameLevel.pause.HelpFrame"
-local Delay            = require "models.tools.Delay"
-local EndGameUI        = require "scenes.models.gameLevel.ui.EndGameUI"
-local SoundEffect      = require "models.audio.SoundEffect"
+local Scene            = require "framework.scenes.Scene"
+local GameLevelData    = require "models.gameLevel.levelData.GameLevelData"
+local GameManager      = require "models.gameLevel.game.GameManager"
+local UIManager        = require "models.gameLevel.ui.UIManager"
+local DebugManager     = require "models.gameLevel.debug.DebugManager"
+local PauseMenuFrame   = require "models.gameLevel.pause.PauseMenuFrame"
+local SpriteSheetImage = require "framework.images.SpriteSheetImage"
+local DialogBackground = require "framework.ui.DialogBackground"
+local HelpFrame        = require "models.gameLevel.pause.HelpFrame"
+local Delay            = require "framework.tools.Delay"
+local EndGameUI        = require "models.gameLevel.ui.EndGameUI"
+local SoundEffect      = require "framework.audio.SoundEffect"
 
 ---@class GameLevel
 GameLevel              = {}
@@ -28,7 +28,7 @@ GameLevel.new          = function()
     local uiManager        = UIManager.new(gameManager)
     local debugManager     = DebugManager.new(gameManager).hide().disable()
     local pauseMenuFrame   = PauseMenuFrame.new(function() gameLevel.resume() end, function() gameLevel.back() end, function(newValue) gameLevel.onDebugChanged(newValue) end).hide()
-    local transition       = SpriteSheetImage.new("transition", "assets/shared/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() gameLevel.returnToMap() end).hide().disable()
+    local transition       = SpriteSheetImage.new("transition", "assets/ui/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() gameLevel.returnToMap() end).hide().disable()
     local dialogBackground = DialogBackground.new().hide().disable()
     local helpFrame        = HelpFrame.new(function() gameLevel.hideHelpMenu() end).hide().disable()
     local delay            = Delay.new("showHelp").setDelay(0.2, function() gameLevel.showHelpMenu() end)

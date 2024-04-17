@@ -1,12 +1,12 @@
-local Scene             = require "models.scenes.Scene"
-local MainMenuParallax  = require "scenes.models.mainmenu.MainMenuParallax"
-local MainMenuFrame     = require "scenes.models.mainmenu.MainMenuFrame"
-local SpriteSheetImage  = require "models.images.SpriteSheetImage"
-local BitmapText        = require "models.texts.BitmapText"
-local SoundEffect       = require "models.audio.SoundEffect"
-local CreditsFrame      = require "scenes.models.mainmenu.CreditsFrame"
-local ParametersFrame   = require "scenes.models.mainmenu.ParametersFrame"
-local ConfirmationFrame = require "scenes.models.mainmenu.ConfirmationFrame"
+local Scene             = require "framework.scenes.Scene"
+local MainMenuParallax  = require "models.mainmenu.MainMenuParallax"
+local MainMenuFrame     = require "models.mainmenu.MainMenuFrame"
+local SpriteSheetImage  = require "framework.images.SpriteSheetImage"
+local BitmapText        = require "framework.texts.BitmapText"
+local SoundEffect       = require "framework.audio.SoundEffect"
+local CreditsFrame      = require "models.mainmenu.CreditsFrame"
+local ParametersFrame   = require "models.mainmenu.ParametersFrame"
+local ConfirmationFrame = require "models.mainmenu.ConfirmationFrame"
 local LevelSelect       = require "scenes.LevelSelect"
 
 ---@class MainMenu
@@ -30,7 +30,7 @@ MainMenu.new            = function()
     -- ---------------------------------------------
 
     local tank               = SpriteSheetImage.new("tank", "assets/mainmenu/tank.png", 5, 6, 65, true, 750, 600, nil, nil, nil, 1)
-    local transition         = SpriteSheetImage.new("transition", "assets/shared/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() mainMenu.startGame() end).hide().disable()
+    local transition         = SpriteSheetImage.new("transition", "assets/ui/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() mainMenu.startGame() end).hide().disable()
     local mainMenuTitle      = BitmapText.new("mainMenuTitle", "assets/fonts/mainmenu-title.fnt", "Battle Tank", "center", "center", screenManager:calculateCenterPointX(), 100, nil, nil, nil)
     local mainMenuFrame      = MainMenuFrame.new("mainMenuFrame", "Menu Principal", 75, 270, 220, 260, function(button) mainMenu.OnButtonClicked(button) end)
     local mainMenuParallax   = MainMenuParallax.new()

@@ -1,14 +1,14 @@
-local Scene            = require "models.scenes.Scene"
-local Image            = require "models.images.Image"
-local LevelButton      = require "scenes.models.levelselect.LevelButton"
-local Button           = require "models.ui.Button"
-local SpriteSheetImage = require "models.images.SpriteSheetImage"
-local InformationFrame = require "scenes.models.levelselect.InformationFrame"
-local SoundEffect      = require "models.audio.SoundEffect"
-local MapTank          = require "scenes.models.levelselect.MapTank"
-local MapTankMovement  = require "scenes.models.levelselect.MapTankMovement"
+local Scene            = require "framework.scenes.Scene"
+local Image            = require "framework.images.Image"
+local LevelButton      = require "models.levelselect.LevelButton"
+local Button           = require "framework.ui.Button"
+local SpriteSheetImage = require "framework.images.SpriteSheetImage"
+local InformationFrame = require "models.levelselect.InformationFrame"
+local SoundEffect      = require "framework.audio.SoundEffect"
+local MapTank          = require "models.levelselect.MapTank"
+local MapTankMovement  = require "models.levelselect.MapTankMovement"
 local GameLevel        = require "scenes.GameLevel"
-local Delay            = require "models.tools.Delay"
+local Delay            = require "framework.tools.Delay"
 
 ---@class LevelSelect
 LevelSelect            = {}
@@ -33,7 +33,7 @@ LevelSelect.new        = function()
     local level1              = LevelButton.new("LevelSelect_level1", "assets/levelselect/map-1.png", "assets/levelselect/map-1-disabled.png", "assets/levelselect/map-1-hover.png", "assets/levelselect/map-1-locked.png", "assets/levelselect/map-1-finished.png", 223 - 32, 543 - 32, 1, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
     local level2              = LevelButton.new("LevelSelect_level2", "assets/levelselect/map-2.png", "assets/levelselect/map-2-disabled.png", "assets/levelselect/map-2-hover.png", "assets/levelselect/map-2-locked.png", "assets/levelselect/map-2-finished.png", 671 - 32, 351 - 32, 2, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
     local level3              = LevelButton.new("LevelSelect_level3", "assets/levelselect/map-3.png", "assets/levelselect/map-3-disabled.png", "assets/levelselect/map-3-hover.png", "assets/levelselect/map-3-locked.png", "assets/levelselect/map-3-finished.png", 1120 - 32, 159 - 32, 3, function(data) levelSelect.onLevelClick(data) end, function(data) levelSelect.onLevelEnter(data) end, function(data) levelSelect.onLevelLeave(data) end)
-    local transition          = SpriteSheetImage.new("transition", "assets/shared/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() levelSelect.backToMainMenu() end).hide().disable()
+    local transition          = SpriteSheetImage.new("transition", "assets/ui/transition-100.png", 3, 8, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() levelSelect.backToMainMenu() end).hide().disable()
     local transitionEnd       = SpriteSheetImage.new("transitionEnd", "assets/levelselect/map-transition-100.png", 6, 6, 30, false, screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), nil, nil, nil, 1.01, nil, function() levelSelect.startGame() end).hide().disable()
     local transitionEffect    = SoundEffect.new("transitionEffect", "assets/sound/ascending.mp3", "static", false, false, configuration:getSoundVolume())
     local transitionEndEffect = SoundEffect.new("transitionEndEffect", "assets/sound/boom.mp3", "static", false, false, configuration:getSoundVolume())

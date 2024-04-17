@@ -1,7 +1,7 @@
-local Scene            = require "models.scenes.Scene"
-local SpriteSheetImage = require "models.images.SpriteSheetImage"
-local BitmapText       = require "models.texts.BitmapText"
-local SoundEffect      = require "models.audio.SoundEffect"
+local Scene            = require "framework.scenes.Scene"
+local SpriteSheetImage = require "framework.images.SpriteSheetImage"
+local BitmapText       = require "framework.texts.BitmapText"
+local SoundEffect      = require "framework.audio.SoundEffect"
 local MainMenu         = require "scenes.MainMenu"
 
 ---@class SplashScreen

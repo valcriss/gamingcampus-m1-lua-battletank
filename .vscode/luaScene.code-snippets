@@ -2,7 +2,7 @@
 	"luaClass": {
 		"prefix": ["luaScene"],
 	 	"body": [
-			"local Scene = require \"models.scenes.Scene\"",
+			"local Scene = require \"framework.scenes.Scene\"",
 			"",
 			"---@class ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}",
 			"${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/} = {}",
