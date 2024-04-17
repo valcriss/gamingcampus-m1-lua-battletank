@@ -1,0 +1,13 @@
+CheckBox: {
+  shape: class
+
+  +new(name string, assetPath string, assetCheckedPath string, x integer, y integer = 0, checked boolean, stateChangedCallback function): CheckBox
+
+  -mouseIsOver: boolean
+  -mouseIsPressed: boolean
+
+  +update(_ float): void
+}
+CheckBox -> Image
+CheckBox -> SoundEffect
+CheckBox -> Component

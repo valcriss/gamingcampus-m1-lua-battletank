@@ -1,0 +1,14 @@
+SliderButton: {
+  shape: class
+
+  +new(name string, assetPath string, x integer, y integer, action function): SliderButton
+
+  -mouseIsOver: boolean
+  -mouseIsPressed: boolean
+
+  +update(_ float): void
+}
+
+SliderButton -> Image
+SliderButton -> SoundEffect
+SliderButton -> Component

@@ -1,0 +1,14 @@
+Delay: {
+  shape: class
+
+  +new(name string): Delay
+
+  -action: function
+  -duration: integer = 0
+  -elapsedTime: integer = 0
+
+  +update(_ float): void
+  +setDelay(waitDuration integer, completedAction function): void
+}
+
+Delay -> Component

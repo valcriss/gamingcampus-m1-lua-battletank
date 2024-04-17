@@ -1,0 +1,14 @@
+Button: {
+  shape: class
+
+  +new(name string, assetPath string, assetOverPath string,assetPressedPath string, x integer, y integer = 0, text string, action function): Button
+
+  -mouseIsOver: boolean
+  -mouseIsPressed: boolean
+
+  +update(_ float): void
+}
+Button -> BitmapText
+Button -> Image
+Button -> SoundEffect
+Button -> Component

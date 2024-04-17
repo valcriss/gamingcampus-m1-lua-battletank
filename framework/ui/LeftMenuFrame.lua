@@ -57,7 +57,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
         leftMenuFrame.setOffsetX(leftMenuFrame.bounds.x)
         leftMenuFrame.show()
         leftMenuFrame.enable()
-        leftMenuFrame.PlaySoundEffect()
+        leftMenuFrame.playSoundEffect()
     end
 
     ---@public
@@ -65,7 +65,7 @@ LeftMenuFrame.new = function(name, title, x, y, width, height, moveSpeed, header
     function leftMenuFrame.appear()
         leftMenuFrame.setOffsetX(-leftMenuFrame.bounds.width)
         leftMenuFrame.setAnimation("show")
-        leftMenuFrame.PlaySoundEffect()
+        leftMenuFrame.playSoundEffect()
         leftMenuFrame.show()
         leftMenuFrame.enable()
     end

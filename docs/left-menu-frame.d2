@@ -1,0 +1,13 @@
+LeftMenuFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, moveSpeed integer, headerAssetPath string, stillUpdate boolean): LeftMenuFrame
+
+  -animationShow(dt float): void
+  -animationHide(dt float): void
+
+  +disappear(): void
+  +appear(): void
+}
+
+LeftMenuFrame -> MenuFrame

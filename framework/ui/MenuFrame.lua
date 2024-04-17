@@ -132,7 +132,7 @@ MenuFrame.new     = function(name, title, x, y, width, height, moveSpeed, header
         animation = animationValue
     end
 
-    function menuFrame.PlaySoundEffect()
+    function menuFrame.playSoundEffect()
         soundEffect.play()
     end
 

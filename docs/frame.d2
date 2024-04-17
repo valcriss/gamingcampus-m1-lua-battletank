@@ -1,0 +1,22 @@
+Frame: {
+  shape: class
+
+  +new(name string, assetPath string, border integer, x integer, y integer = 0, width integer = 0, height integer = 0): Frame
+
+  -sourceImage: Image
+  -topLeft: Quad
+  -top: Quad
+  -left: Quad
+  -right: Quad
+  -bottom: Quad
+  -topRight: Quad
+  -bottomLeft: Quad
+  -bottomRight: Quad
+  -center: Quad
+
+  +load(): void
+  +unload(): void
+  +draw(): void
+}
+
+Frame -> Component

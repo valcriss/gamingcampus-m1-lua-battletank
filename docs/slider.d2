@@ -1,0 +1,13 @@
+Slider: {
+  shape: class
+
+  +new(name string, x integer, y integer, value float, step float, overrideText table): Slider
+
+  +update(_ float): void
+  +getValue(): float
+  -getOverrideText(): string
+}
+Slider -> BitmapText
+Slider -> Image
+Slider -> SliderButton
+Slider -> Component

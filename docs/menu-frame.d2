@@ -1,0 +1,25 @@
+MenuFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, moveSpeed integer, headerAssetPath string, stillUpdate boolean): MenuFrame
+
+  -offsetX integer = 0
+  -animation string = "none"
+
+  -updateAnimation(dt float): void
+  -animationShow(dt float): void
+  -animationHide(dt float): void
+
+  +disappear(): void
+  +appear(): void
+  \#getOffsetX(): integer
+  \#setOffsetX(xValue integer): void
+  \#getAnimation(): string
+  \#setAnimation(animationValue string): void
+  \#playSoundEffect(): void
+}
+
+MenuFrame -> Frame
+MenuFrame -> BitmapText
+MenuFrame -> SoundEffect
+MenuFrame -> Component

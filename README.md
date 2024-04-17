@@ -104,26 +104,77 @@ Le composant Text permet d'afficher un texte en utilisant la font standard de lo
 Le composant Button permet d'afficher un bouton avec l'effet au survol, cliqué, il permet également d'executer un
 callback lors du click
 
+<img src="./docs/button.svg" width="300">
+
 ### framework/ui/CheckBox.lua
 
 Le composant CheckBox permet d'afficher une checkbox
 
+<img src="./docs/checkbox.svg" width="300">
+
+### framework/ui/DialogBackground.lua
+
+Le composant DialogBackground permet d'afficher un fond semi-transparent pour les dialogues et les menus
+
+<img src="./docs/dialog-background.svg" width="300">
+
 ### framework/ui/Frame.lua
 
 Le composant Frame permet d'afficher une fenetre en utilisant une texture compatible nine-patch
+
+<img src="./docs/frame.svg" width="300">
+
+### framework/ui/MenuFrame.lua
+
+Le composant MenuFrame permet d'afficher une fenetre qui arrive depuis la droite en utilisant une texture compatible
+nine-patch
+
+<img src="./docs/menu-frame.svg" width="300">
+
+### framework/ui/LeftMenuFrame.lua
+
+Le composant LeftMenuFrame permet d'afficher une fenetre qui arrive depuis la gauche en utilisant une texture compatible
+nine-patch
+
+<img src="./docs/left-menu-frame.svg" width="300">
 
 ### framework/ui/Slider.lua
 
 Le composant Slider permet d'afficher un slider qui permet à l'utilisateur de sélectionner une valeur comprise entre 0
 et 1
 
+<img src="./docs/slider.svg" width="300">
+
 ### framework/ui/SliderButton.lua
 
 Le composant SliderButton est utilisé dans le composant Slider afin d'afficher les boutons + et - qui permettent de
 modifier la valeur de ce-dernier.
 
+<img src="./docs/slider-button.svg" width="300">
+
+
 --------
 
-### framework/tools/Fps.lua
+### framework/tools/Delay.lua
 
-Le composant Fps permet d'afficher les FPS actuels à l'écran
+Le composant Delay permet de déclencher un callback après un certain délai
+
+<img src="./docs/delay.svg" width="300">
+
+### framework/tools/JsonAsset.lua
+
+La classe JsonAsset permet de charger un fichier json et de le parser en objet lua
+
+<img src="./docs/json-asset.svg" width="300">
+
+### framework/tools/MathHelper.lua
+
+La classe MathHelper contient des méthodes statiques pour effectuer des opérations mathématiques
+
+<img src="./docs/math-helper.svg" width="300">
+
+### framework/tools/Tables.lua
+
+La classe Tables contient des méthodes statiques pour effectuer des opérations sur les tables
+
+<img src="./docs/tables.svg" width="300">
