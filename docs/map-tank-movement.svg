@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 1212 892">
+    <svg id="d2-svg" class="d2-3956262284" width="1212" height="892" viewBox="-101 -101 1212 892">
+        <rect x="-101.000000" y="-101.000000" width="1212.000000" height="892.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-3956262284 .text-mono {
+	font-family: "d2-3956262284-font-mono";
+}
+@font-face {
+	font-family: d2-3956262284-font-mono;
+	src: url("data:application/font-woff;base64,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");
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-3956262284 .fill-N1{fill:#0A0F25;}
+		.d2-3956262284 .fill-N2{fill:#676C7E;}
+		.d2-3956262284 .fill-N3{fill:#9499AB;}
+		.d2-3956262284 .fill-N4{fill:#CFD2DD;}
+		.d2-3956262284 .fill-N5{fill:#DEE1EB;}
+		.d2-3956262284 .fill-N6{fill:#EEF1F8;}
+		.d2-3956262284 .fill-N7{fill:#FFFFFF;}
+		.d2-3956262284 .fill-B1{fill:#0A0F25;}
+		.d2-3956262284 .fill-B2{fill:#676C7E;}
+		.d2-3956262284 .fill-B3{fill:#9499AB;}
+		.d2-3956262284 .fill-B4{fill:#CFD2DD;}
+		.d2-3956262284 .fill-B5{fill:#DEE1EB;}
+		.d2-3956262284 .fill-B6{fill:#EEF1F8;}
+		.d2-3956262284 .fill-AA2{fill:#676C7E;}
+		.d2-3956262284 .fill-AA4{fill:#CFD2DD;}
+		.d2-3956262284 .fill-AA5{fill:#DEE1EB;}
+		.d2-3956262284 .fill-AB4{fill:#CFD2DD;}
+		.d2-3956262284 .fill-AB5{fill:#DEE1EB;}
+		.d2-3956262284 .stroke-N1{stroke:#0A0F25;}
+		.d2-3956262284 .stroke-N2{stroke:#676C7E;}
+		.d2-3956262284 .stroke-N3{stroke:#9499AB;}
+		.d2-3956262284 .stroke-N4{stroke:#CFD2DD;}
+		.d2-3956262284 .stroke-N5{stroke:#DEE1EB;}
+		.d2-3956262284 .stroke-N6{stroke:#EEF1F8;}
+		.d2-3956262284 .stroke-N7{stroke:#FFFFFF;}
+		.d2-3956262284 .stroke-B1{stroke:#0A0F25;}
+		.d2-3956262284 .stroke-B2{stroke:#676C7E;}
+		.d2-3956262284 .stroke-B3{stroke:#9499AB;}
+		.d2-3956262284 .stroke-B4{stroke:#CFD2DD;}
+		.d2-3956262284 .stroke-B5{stroke:#DEE1EB;}
+		.d2-3956262284 .stroke-B6{stroke:#EEF1F8;}
+		.d2-3956262284 .stroke-AA2{stroke:#676C7E;}
+		.d2-3956262284 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-3956262284 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-3956262284 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-3956262284 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-3956262284 .background-color-N1{background-color:#0A0F25;}
+		.d2-3956262284 .background-color-N2{background-color:#676C7E;}
+		.d2-3956262284 .background-color-N3{background-color:#9499AB;}
+		.d2-3956262284 .background-color-N4{background-color:#CFD2DD;}
+		.d2-3956262284 .background-color-N5{background-color:#DEE1EB;}
+		.d2-3956262284 .background-color-N6{background-color:#EEF1F8;}
+		.d2-3956262284 .background-color-N7{background-color:#FFFFFF;}
+		.d2-3956262284 .background-color-B1{background-color:#0A0F25;}
+		.d2-3956262284 .background-color-B2{background-color:#676C7E;}
+		.d2-3956262284 .background-color-B3{background-color:#9499AB;}
+		.d2-3956262284 .background-color-B4{background-color:#CFD2DD;}
+		.d2-3956262284 .background-color-B5{background-color:#DEE1EB;}
+		.d2-3956262284 .background-color-B6{background-color:#EEF1F8;}
+		.d2-3956262284 .background-color-AA2{background-color:#676C7E;}
+		.d2-3956262284 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-3956262284 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-3956262284 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-3956262284 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-3956262284 .color-N1{color:#0A0F25;}
+		.d2-3956262284 .color-N2{color:#676C7E;}
+		.d2-3956262284 .color-N3{color:#9499AB;}
+		.d2-3956262284 .color-N4{color:#CFD2DD;}
+		.d2-3956262284 .color-N5{color:#DEE1EB;}
+		.d2-3956262284 .color-N6{color:#EEF1F8;}
+		.d2-3956262284 .color-N7{color:#FFFFFF;}
+		.d2-3956262284 .color-B1{color:#0A0F25;}
+		.d2-3956262284 .color-B2{color:#676C7E;}
+		.d2-3956262284 .color-B3{color:#9499AB;}
+		.d2-3956262284 .color-B4{color:#CFD2DD;}
+		.d2-3956262284 .color-B5{color:#DEE1EB;}
+		.d2-3956262284 .color-B6{color:#EEF1F8;}
+		.d2-3956262284 .color-AA2{color:#676C7E;}
+		.d2-3956262284 .color-AA4{color:#CFD2DD;}
+		.d2-3956262284 .color-AA5{color:#DEE1EB;}
+		.d2-3956262284 .color-AB4{color:#CFD2DD;}
+		.d2-3956262284 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="MapTankMovement">
+            <g class="shape">
+                <rect x="0.000000" y="0.000000" width="1010.000000" height="690.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="0.000000" y="0.000000" width="1010.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="505.000000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
+                    MapTankMovement
+                </text>
+                <text x="10.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    level boolean = false
+                </text>
+                <text x="990.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentPath table = nil
+                </text>
+                <text x="990.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentPathIndex integer = 0
+                </text>
+                <text x="990.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentPathElapsedTime float = 0
+                </text>
+                <text x="990.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    onPathCompleted function
+                </text>
+                <text x="990.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    initialPosition table
+                </text>
+                <text x="990.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <text x="10.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    paths table
+                </text>
+                <text x="990.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px"/>
+                <line x1="0.000000" x2="1010.000000" y1="414.000000" y2="414.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="10.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    new(level integer)
+                </text>
+                <text x="990.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    MapTankMovement
+                </text>
+                <text x="10.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    runPath(levelPath table, onPathCompleted function)
+                </text>
+                <text x="990.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    startPathStep(index integer)
+                </text>
+                <text x="990.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    update(dt float)
+                </text>
+                <text x="990.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getInitialPosition()
+                </text>
+                <text x="990.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Vector2
+                </text>
+                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getRealPosition(positionX integer, positionY integer, rotation float)
+                </text>
+                <text x="990.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Vector2
+                </text>
+            </g>
+        </g>
+        <mask id="d2-3956262284" maskUnits="userSpaceOnUse" x="-101" y="-101" width="1212" height="892">
+            <rect x="-101" y="-101" width="1212" height="892" fill="white"></rect>
+
+        </mask>
+    </svg>
+</svg>

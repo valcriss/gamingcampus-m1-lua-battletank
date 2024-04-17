@@ -1,0 +1,17 @@
+LevelButton: {
+  shape: class
+
+  +new(name string, enableAssetPath string, disableAssetPath string, hoverAssetPath string, lockedAssetPath string, finishedAssetPath string, x integer, y integer, level integer, onclick function, onEnter function, onLeave function): LevelButton
+
+  -mouseIsOver boolean    = false
+  -wasOver boolean        = false
+  -mouseIsPressed boolean = false
+  -active boolean         = false
+  -finished boolean       = false
+
+  load(): void
+  update(dt float): void
+}
+LevelButton -> Image
+LevelButton -> SoundEffect
+LevelButton -> Component

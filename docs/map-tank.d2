@@ -1,0 +1,15 @@
+MapTank: {
+  shape: class
+
+  +new(name string, x integer, y integer, rotation float, scale float): MapTank
+
+  -moving boolean = false
+  -animationSpeed integer = 80
+
+  +run(): void
+  +stop(): void
+  +update(dt float): void
+}
+MapTank -> SpriteSheetImage
+MapTank -> SoundEffect
+MapTank -> Component

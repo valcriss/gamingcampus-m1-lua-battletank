@@ -1,0 +1,10 @@
+InformationFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, content string): InformationFrame
+
+  update(dt float): void
+  setContent(content string): void
+}
+InformationFrame -> BitmapText
+InformationFrame -> LeftMenuFrame

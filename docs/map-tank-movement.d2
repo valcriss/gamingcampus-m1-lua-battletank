@@ -1,0 +1,19 @@
+MapTankMovement: {
+  shape: class
+
+  +new(level integer): MapTankMovement
+
+  -level boolean = false
+  -currentPath table = nil
+  -currentPathIndex integer = 0
+  -currentPathElapsedTime float = 0
+  -onPathCompleted function
+  -initialPosition table
+  -paths table
+
+  +runPath(levelPath table, onPathCompleted function): void
+  +startPathStep(index integer): void
+  +update(dt float): void
+  -getInitialPosition(): Vector2
+  -getRealPosition(positionX integer, positionY integer, rotation float): Vector2
+}
