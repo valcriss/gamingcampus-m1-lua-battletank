@@ -1,0 +1,10 @@
+ConfirmationFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, moveSpeed integer, confirmAction function): ConfirmationFrame
+
+  +update(_ float): void
+}
+ConfirmationFrame -> BitmapText
+ConfirmationFrame -> Button
+ConfirmationFrame -> MenuFrame

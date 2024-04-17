@@ -1,0 +1,9 @@
+CreditsFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, moveSpeed integer, confirmAction function): CreditsFrame
+
+  +update(_ float): void
+}
+CreditsFrame -> BitmapText
+CreditsFrame -> MenuFrame

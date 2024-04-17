@@ -1,0 +1,11 @@
+ParametersFrame: {
+  shape: class
+
+  +new(name string, title string, x integer, y integer, width integer, height integer, moveSpeed integer, action function): ParametersFrame
+
+  +update(dt float): void
+}
+ParametersFrame -> BitmapText
+ParametersFrame -> CheckBox
+ParametersFrame -> Slider
+ParametersFrame -> MenuFrame
