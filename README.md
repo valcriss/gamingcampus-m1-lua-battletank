@@ -1,6 +1,19 @@
-## Gaming Campus Module 1 LUA BattleTank
+# Gaming Campus Module 1 LUA BattleTank
 
 --------
+
+Pour la réalisation de ce jeu, j'utilise un système de composants (Component)
+
+Pour la définition des composants j'ai utilisé l'atomic design adapté aux composants de jeu video.
+
+L'idée était donc de développer des composants (atomes) (images, text, sons, etc) qui peuvent être combinés pour créer
+des composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les combiner a nouveau dans des elements plus
+complexe du jeu (organismes) (joueur, enemi, interface, etc) pour finalement les combiner dans des scenes (templates,
+pages)
+
+<img src="./docs/atomic-design.png" width="500">
+
+# Les bases de l'architecture
 
 ### framework/configuration/Configuration.lua
 
@@ -9,8 +22,6 @@ volume de la musique, volume des effets sonores, niveau de difficulté, retourne
 jeu en fonction de la difficulté)
 
 <img src="./docs/configuration.svg" width="300">
-
---------
 
 ### framework/screen/ScreenManager.lua
 
@@ -21,9 +32,7 @@ actuelle.
 
 <img src="./docs/screenmanager.svg" width="300">
 
---------
-
-## Les bases de l'architecture
+## Le coeur de l'architecture en composants
 
 ### framework/scenes/ScenesManager.lua
 
@@ -45,35 +54,17 @@ sous-compopsant qu'il contient.
 
 --------
 
-## Les composants du framework
+# Les composants du framework
 
-Pour la définition des composants j'ai utilisé l'atomic design adapté aux composants de jeu video.
+## Les atomes
 
-L'idée était donc de développer des composants (atomes) (images, text, sons, etc) qui peuvent être combinés pour créer
-des composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les combiner a nouveau dans des elements plus
-complexe du jeu (organismes) (joueur, enemi, interface, etc) pour finalement les combiner dans des scenes (templates,
-pages)
-
-<img src="./docs/atomic-design.png" width="500">
+Les atomes sont les composants de base, ils ne contiennent pas d'autres composants
 
 ### framework/audio/SoundEffect.lua
 
 Le composant SoundEffect permet de lire un fichier audio, il possède des méthodes play, stop, pause
 
 <img src="./docs/sound-effect.svg" width="300">
-
-### framework/drawing/Rectangle.lua
-
-La classe Rectangle n'est pas un composant mais elle est utilisée par les composants pour définir la zone de dessin ou
-de collision
-
-<img src="./docs/rectangle.svg" width="300">
-
-### framework/drawing/Vector2.lua
-
-La classe Vector2 n'est pas un composant mais elle est utilisée par les composants pour définir une position
-
-<img src="./docs/vector2.svg" width="300">
 
 ### framework/images/Image.lua
 
@@ -106,7 +97,30 @@ Le composant Text permet d'afficher un texte en utilisant la font standard de lo
 
 <img src="./docs/text.svg" width="300">
 
+### framework/ui/DialogBackground.lua
+
+Le composant DialogBackground permet d'afficher un fond semi-transparent pour les dialogues et les menus
+
+<img src="./docs/dialog-background.svg" width="300">
+
+### framework/ui/Frame.lua
+
+Le composant Frame permet d'afficher une fenetre en utilisant une texture compatible nine-patch
+
+<img src="./docs/frame.svg" width="300">
+
+### framework/tools/Delay.lua
+
+Le composant Delay permet de déclencher un callback après un certain délai
+
+<img src="./docs/delay.svg" width="300">
+
+
 --------
+
+## Les molécules
+
+Le molécules utilisent les atomes pour créer des composants plus complexes
 
 ### framework/ui/Button.lua
 
@@ -120,18 +134,6 @@ callback lors du click
 Le composant CheckBox permet d'afficher une checkbox
 
 <img src="./docs/checkbox.svg" width="300">
-
-### framework/ui/DialogBackground.lua
-
-Le composant DialogBackground permet d'afficher un fond semi-transparent pour les dialogues et les menus
-
-<img src="./docs/dialog-background.svg" width="300">
-
-### framework/ui/Frame.lua
-
-Le composant Frame permet d'afficher une fenetre en utilisant une texture compatible nine-patch
-
-<img src="./docs/frame.svg" width="300">
 
 ### framework/ui/MenuFrame.lua
 
@@ -164,11 +166,19 @@ modifier la valeur de ce-dernier.
 
 --------
 
-### framework/tools/Delay.lua
+## Les classes utilitaires
 
-Le composant Delay permet de déclencher un callback après un certain délai
+### framework/drawing/Rectangle.lua
 
-<img src="./docs/delay.svg" width="300">
+La classe Rectangle est utilisée par les composants pour définir la zone de dessin ou de collision
+
+<img src="./docs/rectangle.svg" width="300">
+
+### framework/drawing/Vector2.lua
+
+La classe Vector2 est utilisée par les composants pour définir une position ou un point de la carte
+
+<img src="./docs/vector2.svg" width="300">
 
 ### framework/tools/JsonAsset.lua
 
@@ -187,3 +197,10 @@ La classe MathHelper contient des méthodes statiques pour effectuer des opérat
 La classe Tables contient des méthodes statiques pour effectuer des opérations sur les tables
 
 <img src="./docs/tables.svg" width="300">
+
+--------
+
+## Les organismes du jeu
+
+Les organismes sont des composants plus complexes qui contiennent des molécules et des atomes
+
