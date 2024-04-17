@@ -36,8 +36,8 @@ MenuFrame.new     = function(name, title, x, y, width, height, moveSpeed, header
     -- ---------------------------------------------
     local frame       = Frame.new(menuFrame.name .. "_frame", "assets/ui/grey_panel.png", 10, 0, 0, menuFrame.bounds.width, menuFrame.bounds.height)
     local titleFrame  = Frame.new(menuFrame.name .. "_titleFrame", headerAssetPath, 10, 0, 0, menuFrame.bounds.width, 50)
-    local frameTitle  = BitmapText.new(menuFrame.name .. "_frameTitle", "assets/ui/ui-18.fnt", title, "center", "center")
-    local soundEffect = SoundEffect.new("soundEffect", "assets/ui/swipe.mp3", "static", false, false, configuration:getSoundVolume())
+    local frameTitle  = BitmapText.new(menuFrame.name .. "_frameTitle", "assets/fonts/ui-18.fnt", title, "center", "center")
+    local soundEffect = SoundEffect.new("soundEffect", "assets/sound/swipe.mp3", "static", false, false, configuration:getSoundVolume())
 
     menuFrame.addComponent(titleFrame)
     menuFrame.addComponent(frame)

@@ -14,7 +14,7 @@ PauseMenuFrame.new  = function(onResume, onBack, onPauseChanged)
     local debugActive      = false
     local resumeButton     = Button.new(pauseMenuFrame.name .. "_resumeButton", "assets/ui/green_button00.png", "assets/ui/green_button04.png", "assets/ui/green_button03.png", 0, 0, "Reprendre", function() pauseMenuFrame.resume() end)
     local backButton       = Button.new(pauseMenuFrame.name .. "_backButton", "assets/ui/red_button11.png", "assets/ui/red_button01.png", "assets/ui/red_button02.png", 0, 0, "Retour", function() pauseMenuFrame.back() end)
-    local debugLabel       = BitmapText.new(pauseMenuFrame.name .. "_debugLabel", "assets/ui/roboto-bold-black.fnt", "Debug", "left")
+    local debugLabel       = BitmapText.new(pauseMenuFrame.name .. "_debugLabel", "assets/fonts/roboto-bold-black.fnt", "Debug", "left")
     local debugCheckbox    = CheckBox.new(pauseMenuFrame.name .. "_debugCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0, debugActive, function(newValue) pauseMenuFrame.debugChanged(newValue) end)
 
     pauseMenuFrame.addComponent(resumeButton)

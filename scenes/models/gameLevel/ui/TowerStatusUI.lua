@@ -11,7 +11,7 @@ TowerStatusUI.new       = function(name, gameManager)
     setmetatable(towerStatusUI, TowerStatusUI)
     TowerStatusUI.__index       = TowerStatusUI
 
-    local towerStatusBackground = Image.new(towerStatusUI.name .. "_towerStatusBackground", "assets/gameLevel/ui/statusUI.png", screenManager:calculateCenterPointX(), 25, nil, 1)
+    local towerStatusBackground = Image.new(towerStatusUI.name .. "_towerStatusBackground", "assets/ui/statusUI.png", screenManager:calculateCenterPointX(), 25, nil, 1)
 
     towerStatusUI.addComponent(towerStatusBackground)
 

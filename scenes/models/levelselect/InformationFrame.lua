@@ -13,7 +13,7 @@ InformationFrame.new = function(name, title, x, y, width, height, moveSpeed, con
     -- ---------------------------------------------
     -- Components
     -- ---------------------------------------------
-    local informationText    = BitmapText.new(informationFrame.name .. "_informationText", "assets/ui/ui-18.fnt", content, "center", "center", informationFrame.bounds.x + informationFrame.bounds.width / 2, informationFrame.bounds.y + 20)
+    local informationText    = BitmapText.new(informationFrame.name .. "_informationText", "assets/fonts/ui-18.fnt", content, "center", "center", informationFrame.bounds.x + informationFrame.bounds.width / 2, informationFrame.bounds.y + 20)
     informationFrame.addComponent(informationText)
 
     -- ---------------------------------------------

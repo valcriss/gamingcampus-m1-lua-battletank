@@ -14,7 +14,7 @@ GameMapTilesDebug.new = function(gameManager)
     -- Properties
     -- ---------------------------------------------
     local tilesToRender       = {}
-    local debugFont           = love.graphics.newFont("assets/ui/ui-18.fnt")
+    local debugFont           = love.graphics.newFont("assets/fonts/ui-18.fnt")
     local debugText           = love.graphics.newText(debugFont, "")
 
     -- ---------------------------------------------

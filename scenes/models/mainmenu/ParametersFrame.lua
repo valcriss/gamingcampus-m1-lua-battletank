@@ -24,11 +24,11 @@ ParametersFrame.new = function(name, title, x, y, width, height, moveSpeed, acti
     -- Components
     -- ---------------------------------------------
 
-    local fullScreenLabel    = BitmapText.new(parametersFrame.name .. "_fullScreenLabel", "assets/ui/roboto-bold-black.fnt", "Plein Ecran", "left")
-    local vSyncLabel         = BitmapText.new(parametersFrame.name .. "_vSyncLabel", "assets/ui/roboto-bold-black.fnt", "Vsync", "left")
-    local musicLabel         = BitmapText.new(parametersFrame.name .. "_musicLabel", "assets/ui/roboto-bold-black.fnt", "Volume Musique", "left")
-    local soundLabel         = BitmapText.new(parametersFrame.name .. "_soundLabel", "assets/ui/roboto-bold-black.fnt", "Volume Effets", "left")
-    local difficultyLabel    = BitmapText.new(parametersFrame.name .. "_difficultyLabel", "assets/ui/roboto-bold-black.fnt", "Difficulté", "left")
+    local fullScreenLabel    = BitmapText.new(parametersFrame.name .. "_fullScreenLabel", "assets/fonts/roboto-bold-black.fnt", "Plein Ecran", "left")
+    local vSyncLabel         = BitmapText.new(parametersFrame.name .. "_vSyncLabel", "assets/fonts/roboto-bold-black.fnt", "Vsync", "left")
+    local musicLabel         = BitmapText.new(parametersFrame.name .. "_musicLabel", "assets/fonts/roboto-bold-black.fnt", "Volume Musique", "left")
+    local soundLabel         = BitmapText.new(parametersFrame.name .. "_soundLabel", "assets/fonts/roboto-bold-black.fnt", "Volume Effets", "left")
+    local difficultyLabel    = BitmapText.new(parametersFrame.name .. "_difficultyLabel", "assets/fonts/roboto-bold-black.fnt", "Difficulté", "left")
     local fullScreenCheckbox = CheckBox.new(parametersFrame.name .. "_fullScreenCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0, configuration:isFullScreen())
     local vsyncCheckbox      = CheckBox.new(parametersFrame.name .. "_vsyncCheckbox", "assets/ui/checkbox_unchecked.png", "assets/ui/checkbox_checked.png", 0, 0, configuration:getVsync())
     local musicSlider        = Slider.new(parametersFrame.name .. "_musicSlider", 0, 0, configuration:getMusicVolume())

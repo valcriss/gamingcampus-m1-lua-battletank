@@ -25,9 +25,9 @@ SplashScreen.new       = function(splashScreenDuration)
     -- ---------------------------------------------
 
     local logo           = SpriteSheetImage.new("logo", "assets/splashscreen/logo.png", 6, 5, nil, true, screenManager.calculateCenterPointX(), 300, nil, nil, 0, 1)
-    local title          = BitmapText.new("title", "assets/splashscreen/title-font.fnt", "Daniel SILVESTRE", "center", "center", screenManager.calculateCenterPointX(), 500)
-    local subTitle       = BitmapText.new("subTitle", "assets/splashscreen/subtitle-font.fnt", "Programmation fondamentale LUA et Love2", "center", "center", screenManager.calculateCenterPointX(), 600)
-    local soundEffect    = SoundEffect.new("logo-sound", "assets/splashscreen/logo.mp3", nil, true, true, configuration:getSoundVolume())
+    local title          = BitmapText.new("title", "assets/fonts/title-font.fnt", "Daniel SILVESTRE", "center", "center", screenManager.calculateCenterPointX(), 500)
+    local subTitle       = BitmapText.new("subTitle", "assets/fonts/subtitle-font.fnt", "Programmation fondamentale LUA et Love2", "center", "center", screenManager.calculateCenterPointX(), 600)
+    local soundEffect    = SoundEffect.new("logo-sound", "assets/sound/logo.mp3", nil, true, true, configuration:getSoundVolume())
 
     splashScreen.addComponent(logo)
     splashScreen.addComponent(title)

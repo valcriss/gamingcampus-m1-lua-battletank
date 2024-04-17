@@ -25,7 +25,7 @@ MainTower.new          = function(name, gameManager, group)
     local healthBar         = HealthBar.new(mainTower.name .. "_healthBar", mainTower)
     local missile1          = UnitMissile.new("missile1", gameManager, group, "assets/gameLevel/main-missile.png", 1500).hide()
     local missile2          = UnitMissile.new("missile2", gameManager, group, "assets/gameLevel/main-missile.png", 1500).hide()
-    local missileSound      = SoundEffect.new("background", "assets/gameLevel/sound/tower-fire.mp3", "static", false, false, configuration:getSoundVolume())
+    local missileSound      = SoundEffect.new("background", "assets/sound/tower-fire.mp3", "static", false, false, configuration:getSoundVolume())
 
     local realPosition
     local gunRotation       = 0

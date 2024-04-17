@@ -12,7 +12,7 @@ Notification.new = function(x, y)
     Notification.__index = Notification
 
     local warningImage   = Image.new("warning", "assets/gameLevel/warning.png", 0, 0, 0, 1)
-    local warningText    = BitmapText.new(notification.name .. "_frameTitle", "assets/ui/ui-18.fnt", "L'enemie attaque la tour 2", "center", "center", x + 130, y + 20)
+    local warningText    = BitmapText.new(notification.name .. "_frameTitle", "assets/fonts/ui-18.fnt", "L'enemie attaque la tour 2", "center", "center", x + 130, y + 20)
 
     notification.addComponent(warningImage)
     notification.addComponent(warningText)

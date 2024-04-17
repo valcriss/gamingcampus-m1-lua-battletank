@@ -23,7 +23,7 @@ DebugItem.new    = function(name, color, data)
     -- ---------------------------------------------
     -- Components
     -- ---------------------------------------------
-    local debug       = BitmapText.new(debugItem.name .. "_debugText", "assets/debug/courier-12.fnt", "Not enough data", "left", "top", 0, 0, nil, nil, 0, 1)
+    local debug       = BitmapText.new(debugItem.name .. "_debugText", "assets/fonts/courier-12.fnt", "Not enough data", "left", "top", 0, 0, nil, nil, 0, 1)
     debugItem.addComponent(debug)
 
     -- ---------------------------------------------

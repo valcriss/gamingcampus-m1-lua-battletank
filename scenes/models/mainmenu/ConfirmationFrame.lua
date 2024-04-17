@@ -21,7 +21,7 @@ ConfirmationFrame.new = function(name, title, x, y, width, height, moveSpeed, co
     -- ---------------------------------------------
     -- Components
     -- ---------------------------------------------
-    local confirmationText    = BitmapText.new(confirmationFrame.name .. "_confirmationText", "assets/ui/ui-18.fnt", "Etes-vous sur de vouloir quitter ?", "center", "center", confirmationFrame.bounds.x + confirmationFrame.bounds.width / 2, confirmationFrame.bounds.y + 50)
+    local confirmationText    = BitmapText.new(confirmationFrame.name .. "_confirmationText", "assets/fonts/ui-18.fnt", "Etes-vous sur de vouloir quitter ?", "center", "center", confirmationFrame.bounds.x + confirmationFrame.bounds.width / 2, confirmationFrame.bounds.y + 50)
     local confirmButton       = Button.new("confirmButton", "assets/ui/green_button00.png", "assets/ui/green_button04.png", "assets/ui/green_button03.png", confirmationFrame.bounds.x + 40, confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60, "Oui", function() confirmAction(true) end)
     local cancelButton        = Button.new("confirmButton", "assets/ui/red_button11.png", "assets/ui/red_button01.png", "assets/ui/red_button02.png", confirmationFrame.bounds.x + confirmationFrame.bounds.width - 180, confirmationFrame.bounds.y + confirmationFrame.bounds.height - 60, "Non", function() confirmAction(false) end)
 

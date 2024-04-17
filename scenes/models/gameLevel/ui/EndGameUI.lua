@@ -18,7 +18,7 @@ EndGameUI.new   = function(onShowCompleted)
 
     local color        = { r = 1, g = 1, b = 1, a = 0 }
     local colorSpeed   = 0.5
-    local showDuration = 5
+    local showDuration = 3
     local isVictory    = false
     local animation    = "hide"
 
@@ -27,7 +27,7 @@ EndGameUI.new   = function(onShowCompleted)
         animation     = "show"
         victory.color = color
         isVictory     = true
-        showDuration  = 5
+        showDuration  = 3
         victory.enable().show()
     end
 
@@ -36,7 +36,7 @@ EndGameUI.new   = function(onShowCompleted)
         animation    = "show"
         defeat.color = color
         isVictory    = false
-        showDuration = 5
+        showDuration = 3
         defeat.enable().show()
     end
 

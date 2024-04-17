@@ -15,8 +15,8 @@ PlayerStatusUI.new      = function(name, gameManager, position, group)
     setmetatable(playerStatusUI, PlayerStatusUI)
     PlayerStatusUI.__index       = PlayerStatusUI
 
-    local playerStatusBackground = Image.new(playerStatusUI.name .. "_playerStatusBackground", "assets/gameLevel/ui/statusUI.png", 0, 0, nil, 1)
-    local title                  = BitmapText.new(playerStatusUI.name .. "_title", "assets/ui/ui-18.fnt", "--", position, "top")
+    local playerStatusBackground = Image.new(playerStatusUI.name .. "_playerStatusBackground", "assets/ui/statusUI.png", 0, 0, nil, 1)
+    local title                  = BitmapText.new(playerStatusUI.name .. "_title", "assets/fonts/ui-18.fnt", "--", position, "top")
     local mainTowerHeathBar      = MainTowerHeathBar.new(playerStatusUI.name .. "_title", gameManager.getMainTowerByGroup(group))
 
     playerStatusUI.addComponent(playerStatusBackground)

@@ -20,7 +20,7 @@ MapTank.new            = function(name, x, y, rotation, scale)
     -- ---------------------------------------------
     local tankWaiting     = SpriteSheetImage.new(mapTank.name .. "_tankWaiting", "assets/levelselect/map-tank-waiting.png", 10, nil, animationSpeed, true, mapTank.bounds.x, mapTank.bounds.y, nil, nil, mapTank.rotation, mapTank.scale)
     local tankRunning     = SpriteSheetImage.new(mapTank.name .. "_tankRunning", "assets/levelselect/map-tank-running.png", 10, nil, animationSpeed, true, mapTank.bounds.x, mapTank.bounds.y, nil, nil, mapTank.rotation, mapTank.scale).hide()
-    local tankMovingSound = SoundEffect.new(mapTank.name .. "_tankMovingSound", "assets/shared/tank-moving.mp3", "static", true, false, configuration:getSoundVolume())
+    local tankMovingSound = SoundEffect.new(mapTank.name .. "_tankMovingSound", "assets/sound/tank-moving.mp3", "static", true, false, configuration:getSoundVolume())
 
     mapTank.addComponent(tankWaiting)
     mapTank.addComponent(tankRunning)

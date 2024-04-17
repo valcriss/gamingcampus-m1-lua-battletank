@@ -38,14 +38,14 @@ CreditsFrame.new = function(name, title, x, y, width, height, moveSpeed)
     -- Components
     -- ---------------------------------------------
 
-    local graphicAssetsFont = BitmapText.new(creditsFrame.name .. "_graphicAssetsFont", "assets/ui/roboto-bold-black.fnt", "Graphics Assets")
-    local fontsAssetsFont   = BitmapText.new(creditsFrame.name .. "_fontsAssetsFont", "assets/ui/roboto-bold-black.fnt", "Fonts Assets")
-    local soundAssetsFont   = BitmapText.new(creditsFrame.name .. "_soundAssetsFont", "assets/ui/roboto-bold-black.fnt", "Sound Assets")
-    local devAssetsFont     = BitmapText.new(creditsFrame.name .. "_soundAssetsFont", "assets/ui/roboto-bold-black.fnt", "Development Libraries")
-    local graphicAssets     = BitmapText.new(creditsFrame.name .. "_graphicAssetsList", "assets/ui/roboto-regular-black.fnt", graphicAssetsList)
-    local fontAssets        = BitmapText.new(creditsFrame.name .. "_fontAssetsList", "assets/ui/roboto-regular-black.fnt", fontAssetsList)
-    local soundAssets       = BitmapText.new(creditsFrame.name .. "_soundAssetsList", "assets/ui/roboto-regular-black.fnt", soundAssetsList)
-    local devAssets         = BitmapText.new(creditsFrame.name .. "_soundAssetsList", "assets/ui/roboto-regular-black.fnt", devAssetsList)
+    local graphicAssetsFont = BitmapText.new(creditsFrame.name .. "_graphicAssetsFont", "assets/fonts/roboto-bold-black.fnt", "Graphics Assets")
+    local fontsAssetsFont   = BitmapText.new(creditsFrame.name .. "_fontsAssetsFont", "assets/fonts/roboto-bold-black.fnt", "Fonts Assets")
+    local soundAssetsFont   = BitmapText.new(creditsFrame.name .. "_soundAssetsFont", "assets/fonts/roboto-bold-black.fnt", "Sound Assets")
+    local devAssetsFont     = BitmapText.new(creditsFrame.name .. "_soundAssetsFont", "assets/fonts/roboto-bold-black.fnt", "Development Libraries")
+    local graphicAssets     = BitmapText.new(creditsFrame.name .. "_graphicAssetsList", "assets/fonts/roboto-regular-black.fnt", graphicAssetsList)
+    local fontAssets        = BitmapText.new(creditsFrame.name .. "_fontAssetsList", "assets/fonts/roboto-regular-black.fnt", fontAssetsList)
+    local soundAssets       = BitmapText.new(creditsFrame.name .. "_soundAssetsList", "assets/fonts/roboto-regular-black.fnt", soundAssetsList)
+    local devAssets         = BitmapText.new(creditsFrame.name .. "_soundAssetsList", "assets/fonts/roboto-regular-black.fnt", devAssetsList)
 
     creditsFrame.addComponent(graphicAssetsFont)
     creditsFrame.addComponent(fontsAssetsFont)

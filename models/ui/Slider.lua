@@ -30,7 +30,7 @@ Slider.new         = function(name, x, y, value, step, overrideText)
     local sliderBar         = Image.new(slider.name .. "_sliderBar", "assets/ui/sliderHorizontal.png", slider.bounds.x, slider.bounds.y)
     local sliderMark        = Image.new(slider.name .. "_sliderMark", "assets/ui/sliderMark.png", slider.bounds.x, slider.bounds.y)
     local rightSliderButton = SliderButton.new(slider.name .. "_rightSliderButton", "assets/ui/sliderButtonRight.png", slider.bounds.x + slider.bounds.width, slider.bounds.y, function() value = math.min(1, value + step) end)
-    local valueText         = BitmapText.new(slider.name .. "_valueText", "assets/ui/ui-18.fnt", value * 100, "center", "center", 0, 0, nil, nil, nil, 0.85)
+    local valueText         = BitmapText.new(slider.name .. "_valueText", "assets/fonts/ui-18.fnt", value * 100, "center", "center", 0, 0, nil, nil, nil, 0.85)
 
     slider.addComponent(leftSliderButton)
     slider.addComponent(rightSliderButton)
