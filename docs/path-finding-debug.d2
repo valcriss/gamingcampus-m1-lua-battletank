@@ -1,0 +1,12 @@
+PathFindingDebug: {
+  shape: class
+
+  +new(gameManager GameManager): PathFindingDebug
+  -pathFindingInfo array
+
+  +innerUpdate(dt float): void
+
+  +draw(): void
+  -drawLines(positions): void
+}
+PathFindingDebug -> DebugItem

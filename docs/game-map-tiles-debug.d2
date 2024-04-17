@@ -1,0 +1,15 @@
+GameMapTilesDebug: {
+  shape: class
+
+  +new(gameManager GameManager): GameMapDebug
+  -tilesToRender array
+  -debugFont Font
+  -debugText Text
+
+  +update(dt float): void
+
+  +draw(): void
+  -drawRectangle(mode, cell, color): void
+  -drawText(cell, text, offsetY)
+}
+GameMapTilesDebug -> Component

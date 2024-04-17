@@ -1,0 +1,16 @@
+DebugManager: {
+  shape: class
+
+  +new(gameManager GameManager): DebugManager
+
+  -padding integer = 10
+
+  +update(dt float): void
+}
+DebugManager -> ViewPortDebug
+DebugManager -> GameMapDebug
+DebugManager -> FpsDebug
+DebugManager -> GameMapTilesDebug
+DebugManager -> UnitsColliderDebug
+DebugManager -> PathFindingDebug
+DebugManager -> Component

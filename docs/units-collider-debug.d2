@@ -1,0 +1,12 @@
+UnitsColliderDebug: {
+  shape: class
+
+  +new(gameManager GameManager): UnitsColliderDebug
+  -colliderBounds array
+
+  +innerUpdate(dt float): void
+
+  +draw(): void
+  -drawRectangle(mode, x, y, w, h, color): void
+}
+UnitsColliderDebug -> DebugItem

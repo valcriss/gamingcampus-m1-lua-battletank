@@ -1,0 +1,14 @@
+DebugItem: {
+  shape: class
+
+  +new(name string, color, data table): DebugItem
+
+  -padding integer = 10
+
+  +updateBounds(dt float): void
+  +innerUpdate(dt float): void
+  +setText(text string): void
+  +draw(): void
+}
+DebugItem -> BitmapText
+DebugItem -> Component
