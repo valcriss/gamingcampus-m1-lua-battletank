@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" d2Version="v0.6.3" preserveAspectRatio="xMinYMin meet" viewBox="0 0 2992 1674"><svg id="d2-svg" class="d2-3938582731" width="2992" height="1674" viewBox="-101 -101 2992 1674"><rect x="-101.000000" y="-101.000000" width="2992.000000" height="1674.000000" rx="0.000000" class=" fill-N7" stroke-width="0" /><style type="text/css"><![CDATA[
-.d2-3938582731 .text-mono {
-	font-family: "d2-3938582731-font-mono";
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 2992 1628">
+    <svg id="d2-svg" class="d2-2886671748" width="2992" height="1628" viewBox="-101 -101 2992 1628">
+        <rect x="-101.000000" y="-101.000000" width="2992.000000" height="1628.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-2886671748 .text-mono {
+	font-family: "d2-2886671748-font-mono";
 }
 @font-face {
-	font-family: d2-3938582731-font-mono;
+	font-family: d2-2886671748-font-mono;
 	src: url("data:application/font-woff;base64,d09GRgABAAAAABZQAAoAAAAAJKwAAgm6AAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAAA9AAAAGAAAABgld/X+GNtYXAAAAFUAAAAwgAAAQ4F/AbwZ2x5ZgAAAhgAAAvXAAAP0AVU6JtoZWFkAAAN8AAAADYAAAA2GanOOmhoZWEAAA4oAAAAJAAAACQGMwC/aG10eAAADkwAAACXAAAA4INAEmVsb2NhAAAO5AAAAHIAAAByeGh00G1heHAAAA9YAAAAIAAAACAAbAJhbmFtZQAAD3gAAAa4AAAQztydAx9wb3N0AAAWMAAAACAAAAAg/7gAMwADAlgBkAAFAAACigJYAAAASwKKAlgAAAFeADIBIwAAAgsFCQMEAwICBCAAAvcCADgDAAAAAAAAAABBREJPAEAAIP//Au7/BgAAA9gBEWAAAZ8AAAAAAeYClAAAACAAA3ichM25SisBGEDhb5K5c10S930dE5fESdxLFSwEBYVgZ2kpNmLpW6mdIuKj+BBq+QvB3lN/cJAoS1CRJiXU5FIlubqmQtu+A4eOnTrXcenarfsIuqah0Po1R06c6bhw5cZdRHyoymTEd3zGV7zHW7zGSzzHUzzGQ/f8V4ktGzZta2nbtWNPSVnqn8x/PXr16VdRNWDQkGEjRo0ZN2HSlGkzZs2Zt2BRbklN3bIVq9Y0NK0r+AEAAP//AQAA//93fifYAAB4nIxXfWwb53l/3veOPH1QHyfySFGiSB5PPEr8EGUe706iZIoUKVKyKUuiREtW9OFYskXLVSLLs10XbuZ2TrbU3UAX3ha0bjDMxdqhSFGvgL12wDrE2aAgatGuH0gBZyjSgDXSJd00tVgx8zjckbLl7Z9CON0L8P14nt/ze36/90AHUQDchm8BAbVggBZgAASapd2sx8NRlOyxCLLMOTAdRQ+VAkJjYVK6eO3a18lDw78afv4P8a3SJyLX19Ymi4++vXT58p8W0fcBgxMA9+EC1AINYKQED897OL2eMApGzsNRjxxvOWi2iWx2/uy9pffmoh8PoRdXV+WN/v4NZR4XSpvb2wAABKwAYA4XoBms4FLjEkJmM2PSU4z24gghJIlhnuPo/cHKdxKn+/sGRidffeHSiZmx8czi+szic8fXccGZihyaaCLrjyWfX0ZXJVn0lx4PJA6LAAji5T3sxbehA0Dn4nkxLElCyGyheJ5z6fWMyWwWQpJs0evR8tRnMpmXcwMLtqB1uHtoMRxeHAqMOoKeFcPUa+fWX8v2OsV2Nn4pm70yzHNCIAQAGGYBcDcuQI2Kh5aFGr1nP+jZv751+0s3p8fOv/ji+TFc+NvbX/5G8sbVqy+DGtsWAG7BBajX6sLs/22hv1D+ETUr/4EyuJD6fvrjNCCYAMC1+3PVKgo0R7P0xAxqmZlRPsYF5SNkLG0iUXlH23sZAP2uOl8UaE5kGY4WmOU7d9AX79xJYyKVKpXSoM19BQB34ALoqnszr2TRCC6U7ld/HwXAzbgA7drvRosgG9XTw5IkcxTBER7Ojhl69MyCk3QsnpnUUZhwLw0u8JjQ63BBebS+jlpLm2jUOZuzXVMUhK/ZcrNO5e9V/M4AYAcugKHCzioL9BxHPyn8mX8Z2zh8+IXRC2ePT8/kzuJCZ250ZN6vPEaj8VRaBq0Oq9U6NILlIJuMHHFgp9WdxNrAZOKry69f3BifmhrfwAVuKplZpJX3EaP8Cp0YisXDlZwT5T1sxbchoPHGI2s8EcM87/H04GdZpJLIYrFjNW50aPRT/pB7pS951CG6lti4X35+KJrv9DuPCf0pTrItdMc9fXmD6I+4A5Eezmtr7G7wDveGJgKBTqmDDfsdXW2GruZA/FA4FwIEXgDcgwtAAbDVKiL8LibfxUdSqdI9LdaJ8p7GDabKcVqgK7yWtKFejwKx0/0znUOerqh7qn/FEN5aQq8pZ5JTnZ1TSfRFJb+0FQYEPgAcwAVoABAIwWg2WwRJko0C8fiHc+u0rYVs6Wg+m/sBLiivR05HIqcj6FRpExDUAeBj+Ca4K+vs2CJEsSwLlurIKBAcUdEJinhhdamX0JGI0NfV6WOTUaquVk9igiR65k/mY5RBR+jqamL4prLaHgiybNDfvrfX7q+M0JdLL6Iae8Ruj9iV/9ZylwCwCxfACiAYCcFSDVoWCCNX1SaKkt66v7DQ0NpMNjKG+bn7by2sNNhosrGt4RSaRoe/ZvZ3dPjNX1O+q9y92yrY7ULrXW1vHgCHcAGaAFjxmb0ZhB/OrRg7TaSJNy4ff/gh+psH7kxXV4Z/U5n/UOXjVHkPE2gXbOABsFSVR+7BnEtPeTT2MDSnRucJSbLYiBmT+beBo4H07U8ja18weMLldF+IrT6foIiuVXv3dHf+8qG4gY365DF/HSu73Exfa8/Gc8pPhx3BYd51rYY95Ox2A4bF8h624W0wAVthLkepfU8JlTNN2oFqM7g0qUUxboojqOEsQbCzvlP56Go6NhMbc47xXNrAOSS8/eaSq+uV89OXoiNr85MrHL/raFOxmSzv4Xa0+3vo6nzmk6kjV8cG5uzd9jjfl+sNzvQFjtrdXSuGwa3J7Nagt0NsswdzffJMsNMqdnZp/TxY3kP/cyCP/QMEj6pmFeBk8clpqGn5D4ZO9/tTDoLMJinCPm0bjbNDTu9Id8bw8pWJC1HWPv8Ppb6YIzAytutoC073zaoWBMnyHm5Du6AHBwBy6SmW54mnCakawj7NJTq4VI8k3bHQ2OVU6nz87EWMlc/UnM3406y9cxHdHR89ekRJDF6Ymtg6/Om1xra67IyVkVpdFU1ZA8DD+MdgVhWKE2UxLAmhfRFhBIajd2/cOLk6mjTaBWc8srOD7kR13Sc+YYs21iYH/AllseKdo2UnltAu9MIgZKroqFiIYan6UvcVGK6qpS7eo4EkVBlA7DOAMZmNVWncn4O61i9NGh12m5UTZ4Vux9sv0a2hnGj0mVpMYu/G0nPDV+aC8XiwZ3i4P3dK7ltm3M0u29TP07FoD1nPOyyHjKQx5hOP+QwJOtwRPtpVW1tvo222cDRwLIjuDoWFoSEhPKTcGHRzrSRp7Gb4ACBYBMD1eLvqAk/4qtqMxlV6Masj+Nn+49lseNCX9OHtNy90S6snlX9F3EjC71feAIByGeYB0Ot4B/MgAoAepN4K9usAOIq3wVDxOAEJlJHzUMx6lkT6pTcfLnzrAt5W7Ai+q/zsN+eva2uOaB6wDc0VjGlOVIVVCGlU+Mvx6TfKos/Xy7j6DCeOo/cTpZ+IvebDjU3a2oiq22hXZa9ACxYtHcvTnLSUnuQWGaawMeRNM4zgFfqzYStryljare4WVIy5vDOewPiY8hV0POfmlb9Cx70+9b2PGdoF04EznoEsSZH83BPIUHH6/yKm9Rm2oV1oUt39QCc/KxUqMfyxjURiI1b5n8rlUqlcrtrBg1vZya3B5Nr0TD4/M63SHBbLgrav1r+Wp9FV+chZGONBHVpMUoTrRODUWnR1wDXhJMjPxnMVGUp9D38r6vT+8fnspShrX/gK0j+jQ18AwFa0Cy0HMaj2FEV/IUkR/GaiPWg2Wjs75NN+VLwwkKytT9fWDGWUXwCCdHkPN6Jd6Pp/Pq9B8YzL73u8lL7q571nEtHDTHx46eSZ1b58Z5crG4yGEkemZtnQSUPAIdk7Aw6j3dZgSsgDE26raLF5bQ5XM+2V3J7hLo0jI+U97MKfhdYq8iInyrKgCoHarFXJ+Vw6y736+frkr38tpri+thZ2zCDMDxajutu3E7+MJw11gwYaEIyX99DvUFHlgsVVvQKoW9BVtfztbHZaOOwd6comKNI9Z1g9iXqU90YSviCaUtpyPgkQCADYjYqq/7PP+D+C701vNrU3kA3Wps2Jt1FR+Xd3muPSbmRS2ir9VQOAJ1FRVdEDdwf5iWmqdwCPascUtbWejVD1JKlrqhnMRmpaSFJfS0Uy+fU+g4E0GCRUVIquOMfFXY8fV96oTWl7JCwuCo+0s2IA2IKKmufLngO+TFmeen7s219/bryho4lstDWMzb7xnflcE9tMNtmbJh9/eM7oM5n8prP/+ZtNpocx+yyb2r6HykHsQUVoUzGsUkGWn0GiEf9Rp42us9QLsZamX0xfbnQ0kQ3thvVjP22RJn5YFyfIgUAn+qXyX84jHDfGoobSbm9G1bc0ADaiItSq93HEiiyDWCaNxpV30evK36FZP7qc8CuvJtQ4/rnsQ5+HL6mctngkSdZapkJGxqR/aIlGMVmnc/b0Ov09iz8J2yYHEOLdbs/IwNwVVQNzyIcJdBbrQdby+kF5Ev0bfqjWVVdxCYum9RZ0N3/lSj6wevLk6jenPrh584Mpb+7tl156O1ep6afKk+hPKuvUOMSw1h+MSf/VwOnl5dOB/JUr36wu8GrLq99DFP4cECoTjILMETInCtojUNrDcNrDyRz1wfWW63nr5GxLbsEimq9bRLM2tkrW61aku6Ws7fTfity/f/9+5Fb/zs6OGlMO8pjAfvW7xi1yoiBW+gXV37s3fO9e/kH0wYPoAxUD+CdMoB9jHmQ4ByoSf67l9EnoRR/hvHqfdrtFN6NjdOgj5Qa6qPwIBXpL0dLEO+Q7gOAc9KKfV+bJolt0izrmHAooP0IXe9UZE6VoBSPVb/4MFdVvJ+1+TqPB91EY3UlojYHgQ5xBL+AdNV50oIjIb+N5m43ncYbr6ODUp7JftXZAABhFlsmhbyBfVD3rfwEAAP//AQAA//+37V+BAAABAAAAAgm6cqmpM18PPPUAAwPoAAAAANwdDfcAAAAA3BxzS/8//joDGQQkAAAAAwACAAAAAAAAAAEAAAPY/u8AAAJY/z//PwMZAAEAAAAAAAAAAAAAAAAAAAA4eJwsjkEqBQAURU9nJKswMmAkZaCfCJESBj8nJQOimBnJAizAnsytwyr06w1er87pdq9xYGBsGI/GkXFrvBtXxoPxZZwbz8aTcWxsjd821o09Y9O4Me6Na2NhnBgvk1/xO+PVuDD2hy3mfxtnxqlxaewaa8ahsTPux1gav8bnbF3OfRhv0/G3Yv8AAAD//wEAAP//27omFgAAAAAqACoATgCCALIA0ADmAP4BFAEkAVIBdgGeAeIB9AIYAjQCcgKgAr4C+gMuA14DkgPIA+wEVgR6BIYEoAS+BPAFEgU+BXIFkgXQBfYGGAY2BmwGmAbGBtwG/AcEByAHOgdqB34HigeeB7IHwgfaB+gAAAABAAAAOAH4ACoAZQAGAAEAAAAAAAAAAAAAAAAAAwADeJyclktsk9kVx3/OuQG/eBlUDQhVVyOEpgiMnUnATSDgkAHCIEJJZtoKUdUkxrFI7Mh2YOhiFl1WXXVddTNdtBK0CiVqJoFCIKRqBarURTWrrrqouuiqmkVX1Xe+48RxEjqDkMjvPs7/nte9/oCLcgsh4qIRSIJxhCRJ4w4O8Y6xkOSUsSPJReNOkowabyPJD423k2LSOMphPjWOcZhfGsc5wp+NE5zgP8ZJBiNHjHfSG6kY7+Jg5FfGu+mKLBvvafEzxcHIl8Z7V3ViwEpHyjjCNzu+MO5gZ8eXxsJlccauZU8n43LVeBtH5JHxdp7J342jdLtfGMfodn81TtDVuc14h/jOnPFOuqPfCzkCu6M/NY6wO/pz4w4ORO8bC8noirEjFTX9SCep6D+Mt5GKWixB/mNR4yiHYgeMY/hYv3Gco7EfGCfIxH5inCQdWzDeQVfsn8Y7ycWbOrs4HL9mvJtT8U+M97T4nOLduOUqsrdFc9+q5v4IpOJ/M46QijfnO3g3/l9jYV/ioLHjQCJj3MmBxCXjbRxIjBtvZ1/iU+MomcTPjGO8l3huHOdo4l/GCbqT3zBOkks2NXdyKvlj411kkn8w3s3F5L+N97T4maJrxwnjvYGOzMozWZRXeAotXKKM5zCeSbw8ljm8zMqCLMmcPJZX8kTm5Ll8JvflsfweH7kkS/JA/iRP8PKwhedbeEU+kweyJA/lc1mQp3iXlQV5KUvyuSzKos6+MvtZ+aO8xnO94wtuBGfII3mgKqEvC3Jf5mVOlgMdrpPhhizLS3kmT+V3ar+ier/ByzOZldeyKLO689gWO5/Kc43xhSzLnCzJb+VFc5brHOGGvJDX8lgeylNZDE4NzpaXeHmkM7NqE85s7uOhLU6+j5c5eSKzmoUgy8vNefX3qJ7ekl+OqqdrdWvJd9taSccb895SFduxWkl+jaeLDFkyeI7ZqEtHecapcpMinhHuUadBkSnqeIaoMEaVGtP6f0HXxvG8xwQNGkzTy3GOc1f/pSmsqqXVcorjfCvwh7uUaTCB5xpF6hSpccfUzlOlQgPPFQpMBb74dxihygw1xij6/aRbx3jOUWVc6So1qqpaYoZJCtToIk2G98nRR55BBhimb51C0z60PtZmH1oNM8AHfKy+1imrl36d9gRVGhpphTt4srqWJkuWE/QxRYHbFHXXLYp8oh4HCj2kOUEPJ7QuX92z9Vkoa50KeBpan3GtXbDvNp4qt966wmWNNahYYPcRFa1fuDZCw3aGp1cY57jae410QjPmVXlGK1ujrLvTb+XNVQoav2eQNJ6Lphr01ahmN/g7o/0W+F2k8jX6s8E9pikyyoTlc60fRzSHDe5qTtcyPklZK1DRTg5yMqNZCONuZm2EIS7jGVb9yjrly+sUgkja+yyrfZTW2CY2PXet/ncoUNYOucmkrqzdt4Kem+c7yg168W3ZqTOmFZqmoTWqq1Zaa1DiOMOc53KbJ/8/R+P6N6z9TWZWuyeMLuia4JbnGdHKj/j9eAZ0PMSIZuS7DDHKRYb5iFEd57nGNfJcYZQhPlDbYa7pezDMFQbVYkg5XDuvN+AK38fzIUO6J9AuWn7CigU3c1q9r6vvYS+XmWJacx54ntZYixrh16+w55apNm3rajNGmVu602v9KnrXC5SsK6bVwynNZbM31m5d2BFTGktQ27X1ElV9X2t6cwNVzz17O4JuDX0KX4jGV6hq+q16pr6aw6L6vH5cst+Bsr6N4avT/EYZ0V+Csv5+janXgW0QUfB72T4zv2FmRWtV4yblsNdkhXPc09Mm7R55bmpsahF+mVDXKtS1RoFHP1KVavObxF6LKiV9n6Y1c2N6o+7pKOwC/SrZcm/BXr2aZv1283tkw9nBWzVp777X2EqmfogbFJg0lYq9lJ4KM/r7WdPV8K5pbGTf6E+7Ur31S2VDFY/q295ek/babrZLv2baK+Oy66q9md2KO+POun6XdwOu330b7zLtM5Tcx3iXw7u/4F0e7066jMu7HnfB9bqMO+VyLu8ySnnX63KBVeSScr9qndEdp92HwYo83HJlfsuVFT3vrMuuneCySmddzvW5PpdzF1yPrmbcMN71urMu4waCcbMH1e8LqtPrTrtzbiBUd6ddv+tzl5u96AZczp1x/e591RhsObPb9bjBwLNmL266N/TgpOtyPe6k63b9Yaaa/bilHyfdaZdxvXpOv0aVCVSbnbmFXz1WkVMaf7BnwPUEGWnttY11DvrhjTXakG+12NAdb9SZ36wz3mix8j8AAAD//wEAAP//m5W4BwADAAAAAAAA/7UAMgAAAAEAAAAAAAAAAAAAAAAAAAAA");
-}]]></style><style type="text/css"><![CDATA[.shape {
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
   shape-rendering: geometricPrecision;
   stroke-linejoin: round;
 }
@@ -18,78 +25,613 @@
   opacity: 0.5;
 }
 
-		.d2-3938582731 .fill-N1{fill:#0A0F25;}
-		.d2-3938582731 .fill-N2{fill:#676C7E;}
-		.d2-3938582731 .fill-N3{fill:#9499AB;}
-		.d2-3938582731 .fill-N4{fill:#CFD2DD;}
-		.d2-3938582731 .fill-N5{fill:#DEE1EB;}
-		.d2-3938582731 .fill-N6{fill:#EEF1F8;}
-		.d2-3938582731 .fill-N7{fill:#FFFFFF;}
-		.d2-3938582731 .fill-B1{fill:#0A0F25;}
-		.d2-3938582731 .fill-B2{fill:#676C7E;}
-		.d2-3938582731 .fill-B3{fill:#9499AB;}
-		.d2-3938582731 .fill-B4{fill:#CFD2DD;}
-		.d2-3938582731 .fill-B5{fill:#DEE1EB;}
-		.d2-3938582731 .fill-B6{fill:#EEF1F8;}
-		.d2-3938582731 .fill-AA2{fill:#676C7E;}
-		.d2-3938582731 .fill-AA4{fill:#CFD2DD;}
-		.d2-3938582731 .fill-AA5{fill:#DEE1EB;}
-		.d2-3938582731 .fill-AB4{fill:#CFD2DD;}
-		.d2-3938582731 .fill-AB5{fill:#DEE1EB;}
-		.d2-3938582731 .stroke-N1{stroke:#0A0F25;}
-		.d2-3938582731 .stroke-N2{stroke:#676C7E;}
-		.d2-3938582731 .stroke-N3{stroke:#9499AB;}
-		.d2-3938582731 .stroke-N4{stroke:#CFD2DD;}
-		.d2-3938582731 .stroke-N5{stroke:#DEE1EB;}
-		.d2-3938582731 .stroke-N6{stroke:#EEF1F8;}
-		.d2-3938582731 .stroke-N7{stroke:#FFFFFF;}
-		.d2-3938582731 .stroke-B1{stroke:#0A0F25;}
-		.d2-3938582731 .stroke-B2{stroke:#676C7E;}
-		.d2-3938582731 .stroke-B3{stroke:#9499AB;}
-		.d2-3938582731 .stroke-B4{stroke:#CFD2DD;}
-		.d2-3938582731 .stroke-B5{stroke:#DEE1EB;}
-		.d2-3938582731 .stroke-B6{stroke:#EEF1F8;}
-		.d2-3938582731 .stroke-AA2{stroke:#676C7E;}
-		.d2-3938582731 .stroke-AA4{stroke:#CFD2DD;}
-		.d2-3938582731 .stroke-AA5{stroke:#DEE1EB;}
-		.d2-3938582731 .stroke-AB4{stroke:#CFD2DD;}
-		.d2-3938582731 .stroke-AB5{stroke:#DEE1EB;}
-		.d2-3938582731 .background-color-N1{background-color:#0A0F25;}
-		.d2-3938582731 .background-color-N2{background-color:#676C7E;}
-		.d2-3938582731 .background-color-N3{background-color:#9499AB;}
-		.d2-3938582731 .background-color-N4{background-color:#CFD2DD;}
-		.d2-3938582731 .background-color-N5{background-color:#DEE1EB;}
-		.d2-3938582731 .background-color-N6{background-color:#EEF1F8;}
-		.d2-3938582731 .background-color-N7{background-color:#FFFFFF;}
-		.d2-3938582731 .background-color-B1{background-color:#0A0F25;}
-		.d2-3938582731 .background-color-B2{background-color:#676C7E;}
-		.d2-3938582731 .background-color-B3{background-color:#9499AB;}
-		.d2-3938582731 .background-color-B4{background-color:#CFD2DD;}
-		.d2-3938582731 .background-color-B5{background-color:#DEE1EB;}
-		.d2-3938582731 .background-color-B6{background-color:#EEF1F8;}
-		.d2-3938582731 .background-color-AA2{background-color:#676C7E;}
-		.d2-3938582731 .background-color-AA4{background-color:#CFD2DD;}
-		.d2-3938582731 .background-color-AA5{background-color:#DEE1EB;}
-		.d2-3938582731 .background-color-AB4{background-color:#CFD2DD;}
-		.d2-3938582731 .background-color-AB5{background-color:#DEE1EB;}
-		.d2-3938582731 .color-N1{color:#0A0F25;}
-		.d2-3938582731 .color-N2{color:#676C7E;}
-		.d2-3938582731 .color-N3{color:#9499AB;}
-		.d2-3938582731 .color-N4{color:#CFD2DD;}
-		.d2-3938582731 .color-N5{color:#DEE1EB;}
-		.d2-3938582731 .color-N6{color:#EEF1F8;}
-		.d2-3938582731 .color-N7{color:#FFFFFF;}
-		.d2-3938582731 .color-B1{color:#0A0F25;}
-		.d2-3938582731 .color-B2{color:#676C7E;}
-		.d2-3938582731 .color-B3{color:#9499AB;}
-		.d2-3938582731 .color-B4{color:#CFD2DD;}
-		.d2-3938582731 .color-B5{color:#DEE1EB;}
-		.d2-3938582731 .color-B6{color:#EEF1F8;}
-		.d2-3938582731 .color-AA2{color:#676C7E;}
-		.d2-3938582731 .color-AA4{color:#CFD2DD;}
-		.d2-3938582731 .color-AA5{color:#DEE1EB;}
-		.d2-3938582731 .color-AB4{color:#CFD2DD;}
-		.d2-3938582731 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style><g id="ScenesManager"><g class="shape" ><rect x="0.000000" y="529.000000" width="494.000000" height="414.000000" class=" stroke-N1 fill-N7" style="stroke-width:2;" /><rect x="0.000000" y="529.000000" width="494.000000" height="92.000000" class="class_header fill-N1" /><text x="247.000000" y="582.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">ScenesManager</text><text x="10.000000" y="649.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="30.000000" y="649.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">screens</text><text x="474.000000" y="649.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Array&lt;Scene&gt;</text><line x1="0.000000" x2="494.000000" y1="667.000000" y2="667.000000" class=" stroke-N1" style="stroke-width:1" /><text x="10.000000" y="695.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="30.000000" y="695.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">addScene(scene Scene)</text><text x="474.000000" y="695.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="10.000000" y="741.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="30.000000" y="741.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">removeScene(scene Scene)</text><text x="474.000000" y="741.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="10.000000" y="787.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="30.000000" y="787.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">draw()</text><text x="474.000000" y="787.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="10.000000" y="833.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="30.000000" y="833.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">update(dt float)</text><text x="474.000000" y="833.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="10.000000" y="879.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="30.000000" y="879.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">getSceneIndex(scene Scene)</text><text x="474.000000" y="879.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="10.000000" y="925.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="30.000000" y="925.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">sortScenes()</text><text x="474.000000" y="925.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text></g></g><g id="Scene"><g class="shape" ><rect x="554.000000" y="345.000000" width="950.000000" height="782.000000" class=" stroke-N1 fill-N7" style="stroke-width:2;" /><rect x="554.000000" y="345.000000" width="950.000000" height="92.000000" class="class_header fill-N1" /><text x="1029.000000" y="398.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">Scene</text><text x="564.000000" y="465.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="584.000000" y="465.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">name</text><text x="1484.000000" y="465.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">String</text><text x="564.000000" y="511.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="584.000000" y="511.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">order</text><text x="1484.000000" y="511.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="564.000000" y="557.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="584.000000" y="557.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">backgroundColor</text><text x="1484.000000" y="557.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Color</text><text x="564.000000" y="603.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="584.000000" y="603.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">components</text><text x="1484.000000" y="603.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Array&lt;Component&gt;</text><line x1="554.000000" x2="1504.000000" y1="621.000000" y2="621.000000" class=" stroke-N1" style="stroke-width:1" /><text x="564.000000" y="649.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="649.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">Scene(name string, order number = nil, backgroundColor Color = nil)</text><text x="1484.000000" y="649.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="695.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="695.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerLoad()</text><text x="1484.000000" y="695.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="741.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="741.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerUpdate(dt float)</text><text x="1484.000000" y="741.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="787.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="787.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerDraw()</text><text x="1484.000000" y="787.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="833.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="833.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerUnload()</text><text x="1484.000000" y="833.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="879.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="879.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">addComponent(component Component)</text><text x="1484.000000" y="879.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="925.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="584.000000" y="925.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">switchToScene(oldScene Scene, newScene Scene)</text><text x="1484.000000" y="925.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="971.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="584.000000" y="971.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">load()</text><text x="1484.000000" y="971.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="1017.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="584.000000" y="1017.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">update(dt float)</text><text x="1484.000000" y="1017.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="1063.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="584.000000" y="1063.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">draw()</text><text x="1484.000000" y="1063.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="564.000000" y="1109.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="584.000000" y="1109.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">unload()</text><text x="1484.000000" y="1109.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text></g></g><g id="Component"><g class="shape" ><rect x="1564.000000" y="0.000000" width="1226.000000" height="1472.000000" class=" stroke-N1 fill-N7" style="stroke-width:2;" /><rect x="1564.000000" y="0.000000" width="1226.000000" height="92.000000" class="class_header fill-N1" /><text x="2177.000000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">Component</text><text x="1574.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">name</text><text x="2770.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">string</text><text x="1574.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">bounds</text><text x="2770.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Rectangle</text><text x="1574.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">rotation</text><text x="2770.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="1574.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">scale</text><text x="2770.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">float</text><text x="1574.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">color</text><text x="2770.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Color</text><text x="1574.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">visible</text><text x="2770.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">boolean</text><text x="1574.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">enabled</text><text x="2770.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">boolean</text><text x="1574.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">data</text><text x="2770.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Table</text><text x="1574.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="1594.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">components</text><text x="2770.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">Array&lt;Component&gt;</text><line x1="1564.000000" x2="2790.000000" y1="506.000000" y2="506.000000" class=" stroke-N1" style="stroke-width:1" /><text x="1574.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerLoad()</text><text x="2770.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerUpdate(dt float)</text><text x="2770.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerDraw()</text><text x="2770.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">innerUnload()</text><text x="2770.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">isVisible()</text><text x="2770.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">boolean</text><text x="1574.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">isEnabled()</text><text x="2770.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">boolean</text><text x="1574.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">show()</text><text x="2770.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">hide()</text><text x="2770.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">disable()</text><text x="2770.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">enable()</text><text x="2770.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">toggleVisibility()</text><text x="2770.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">toggleEnabled()</text><text x="2770.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">setPosition(newPositionX integer, newPositionY integer)</text><text x="2770.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">setSize(newWidth integer, newHeight integer)</text><text x="2770.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">setBounds(newPositionX integer, newPositionY integer, newWidth integer, newHeight integer)</text><text x="2770.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">setRotation(newRotation float)</text><text x="2770.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1270.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="1594.000000" y="1270.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">addComponent(component Component)</text><text x="2770.000000" y="1270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1316.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="1594.000000" y="1316.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">load()</text><text x="2770.000000" y="1316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1362.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="1594.000000" y="1362.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">update(dt float)</text><text x="2770.000000" y="1362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1408.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="1594.000000" y="1408.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">draw()</text><text x="2770.000000" y="1408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="1574.000000" y="1454.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">#</text><text x="1594.000000" y="1454.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">unload()</text><text x="2770.000000" y="1454.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text></g></g><mask id="d2-3938582731" maskUnits="userSpaceOnUse" x="-101" y="-101" width="2992" height="1674">
-<rect x="-101" y="-101" width="2992" height="1674" fill="white"></rect>
+		.d2-2886671748 .fill-N1{fill:#0A0F25;}
+		.d2-2886671748 .fill-N2{fill:#676C7E;}
+		.d2-2886671748 .fill-N3{fill:#9499AB;}
+		.d2-2886671748 .fill-N4{fill:#CFD2DD;}
+		.d2-2886671748 .fill-N5{fill:#DEE1EB;}
+		.d2-2886671748 .fill-N6{fill:#EEF1F8;}
+		.d2-2886671748 .fill-N7{fill:#FFFFFF;}
+		.d2-2886671748 .fill-B1{fill:#0A0F25;}
+		.d2-2886671748 .fill-B2{fill:#676C7E;}
+		.d2-2886671748 .fill-B3{fill:#9499AB;}
+		.d2-2886671748 .fill-B4{fill:#CFD2DD;}
+		.d2-2886671748 .fill-B5{fill:#DEE1EB;}
+		.d2-2886671748 .fill-B6{fill:#EEF1F8;}
+		.d2-2886671748 .fill-AA2{fill:#676C7E;}
+		.d2-2886671748 .fill-AA4{fill:#CFD2DD;}
+		.d2-2886671748 .fill-AA5{fill:#DEE1EB;}
+		.d2-2886671748 .fill-AB4{fill:#CFD2DD;}
+		.d2-2886671748 .fill-AB5{fill:#DEE1EB;}
+		.d2-2886671748 .stroke-N1{stroke:#0A0F25;}
+		.d2-2886671748 .stroke-N2{stroke:#676C7E;}
+		.d2-2886671748 .stroke-N3{stroke:#9499AB;}
+		.d2-2886671748 .stroke-N4{stroke:#CFD2DD;}
+		.d2-2886671748 .stroke-N5{stroke:#DEE1EB;}
+		.d2-2886671748 .stroke-N6{stroke:#EEF1F8;}
+		.d2-2886671748 .stroke-N7{stroke:#FFFFFF;}
+		.d2-2886671748 .stroke-B1{stroke:#0A0F25;}
+		.d2-2886671748 .stroke-B2{stroke:#676C7E;}
+		.d2-2886671748 .stroke-B3{stroke:#9499AB;}
+		.d2-2886671748 .stroke-B4{stroke:#CFD2DD;}
+		.d2-2886671748 .stroke-B5{stroke:#DEE1EB;}
+		.d2-2886671748 .stroke-B6{stroke:#EEF1F8;}
+		.d2-2886671748 .stroke-AA2{stroke:#676C7E;}
+		.d2-2886671748 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-2886671748 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-2886671748 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-2886671748 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-2886671748 .background-color-N1{background-color:#0A0F25;}
+		.d2-2886671748 .background-color-N2{background-color:#676C7E;}
+		.d2-2886671748 .background-color-N3{background-color:#9499AB;}
+		.d2-2886671748 .background-color-N4{background-color:#CFD2DD;}
+		.d2-2886671748 .background-color-N5{background-color:#DEE1EB;}
+		.d2-2886671748 .background-color-N6{background-color:#EEF1F8;}
+		.d2-2886671748 .background-color-N7{background-color:#FFFFFF;}
+		.d2-2886671748 .background-color-B1{background-color:#0A0F25;}
+		.d2-2886671748 .background-color-B2{background-color:#676C7E;}
+		.d2-2886671748 .background-color-B3{background-color:#9499AB;}
+		.d2-2886671748 .background-color-B4{background-color:#CFD2DD;}
+		.d2-2886671748 .background-color-B5{background-color:#DEE1EB;}
+		.d2-2886671748 .background-color-B6{background-color:#EEF1F8;}
+		.d2-2886671748 .background-color-AA2{background-color:#676C7E;}
+		.d2-2886671748 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-2886671748 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-2886671748 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-2886671748 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-2886671748 .color-N1{color:#0A0F25;}
+		.d2-2886671748 .color-N2{color:#676C7E;}
+		.d2-2886671748 .color-N3{color:#9499AB;}
+		.d2-2886671748 .color-N4{color:#CFD2DD;}
+		.d2-2886671748 .color-N5{color:#DEE1EB;}
+		.d2-2886671748 .color-N6{color:#EEF1F8;}
+		.d2-2886671748 .color-N7{color:#FFFFFF;}
+		.d2-2886671748 .color-B1{color:#0A0F25;}
+		.d2-2886671748 .color-B2{color:#676C7E;}
+		.d2-2886671748 .color-B3{color:#9499AB;}
+		.d2-2886671748 .color-B4{color:#CFD2DD;}
+		.d2-2886671748 .color-B5{color:#DEE1EB;}
+		.d2-2886671748 .color-B6{color:#EEF1F8;}
+		.d2-2886671748 .color-AA2{color:#676C7E;}
+		.d2-2886671748 .color-AA4{color:#CFD2DD;}
+		.d2-2886671748 .color-AA5{color:#DEE1EB;}
+		.d2-2886671748 .color-AB4{color:#CFD2DD;}
+		.d2-2886671748 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="ScenesManager">
+            <g class="shape">
+                <rect x="0.000000" y="414.000000" width="494.000000" height="598.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="0.000000" y="414.000000" width="494.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="247.000000" y="467.750000" class="text-mono fill-N7"
+                      style="text-anchor:middle;font-size:24px;">ScenesManager
+                </text>
+                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    screens
+                </text>
+                <text x="474.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Array&lt;Scene&gt;
+                </text>
+                <line x1="0.000000" x2="494.000000" y1="552.000000" y2="552.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    addScene(scene Scene)
+                </text>
+                <text x="474.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    removeScene(scene Scene)
+                </text>
+                <text x="474.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    draw()
+                </text>
+                <text x="474.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    update(dt float)
+                </text>
+                <text x="474.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    pause()
+                </text>
+                <text x="474.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    unPause()
+                </text>
+                <text x="474.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isPaused()
+                </text>
+                <text x="474.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    togglePause()
+                </text>
+                <text x="474.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getSceneIndex(scene Scene)
+                </text>
+                <text x="474.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    sortScenes()
+                </text>
+                <text x="474.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <g id="Scene">
+            <g class="shape">
+                <rect x="554.000000" y="322.000000" width="950.000000" height="782.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="554.000000" y="322.000000" width="950.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="1029.000000" y="375.750000" class="text-mono fill-N7"
+                      style="text-anchor:middle;font-size:24px;">Scene
+                </text>
+                <text x="564.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="584.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    name
+                </text>
+                <text x="1484.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    String
+                </text>
+                <text x="564.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="584.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    order
+                </text>
+                <text x="1484.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="564.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="584.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    backgroundColor
+                </text>
+                <text x="1484.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Color
+                </text>
+                <text x="564.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="584.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    components
+                </text>
+                <text x="1484.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Array&lt;Component&gt;
+                </text>
+                <line x1="554.000000" x2="1504.000000" y1="598.000000" y2="598.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="564.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    Scene(name string, order number = nil, backgroundColor Color = nil)
+                </text>
+                <text x="1484.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerLoad()
+                </text>
+                <text x="1484.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerUpdate(dt float)
+                </text>
+                <text x="1484.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerDraw()
+                </text>
+                <text x="1484.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerUnload()
+                </text>
+                <text x="1484.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    addComponent(component Component)
+                </text>
+                <text x="1484.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="584.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    switchToScene(oldScene Scene, newScene Scene)
+                </text>
+                <text x="1484.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    #
+                </text>
+                <text x="584.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    load()
+                </text>
+                <text x="1484.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    #
+                </text>
+                <text x="584.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    update(dt float)
+                </text>
+                <text x="1484.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    #
+                </text>
+                <text x="584.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    draw()
+                </text>
+                <text x="1484.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="564.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    #
+                </text>
+                <text x="584.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    unload()
+                </text>
+                <text x="1484.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <g id="Component">
+            <g class="shape">
+                <rect x="1564.000000" y="0.000000" width="1226.000000" height="1426.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="1564.000000" y="0.000000" width="1226.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="2177.000000" y="53.750000" class="text-mono fill-N7"
+                      style="text-anchor:middle;font-size:24px;">Component
+                </text>
+                <text x="1574.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    name
+                </text>
+                <text x="2770.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    string
+                </text>
+                <text x="1574.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    bounds
+                </text>
+                <text x="2770.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Rectangle
+                </text>
+                <text x="1574.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    rotation
+                </text>
+                <text x="2770.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="1574.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    scale
+                </text>
+                <text x="2770.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="1574.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    color
+                </text>
+                <text x="2770.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Color
+                </text>
+                <text x="1574.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    visible
+                </text>
+                <text x="2770.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="1574.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    enabled
+                </text>
+                <text x="2770.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="1574.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1594.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    components
+                </text>
+                <text x="2770.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Array&lt;Component&gt;
+                </text>
+                <line x1="1564.000000" x2="2790.000000" y1="460.000000" y2="460.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="1574.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerLoad()
+                </text>
+                <text x="2770.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerUpdate(dt float)
+                </text>
+                <text x="2770.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerDraw()
+                </text>
+                <text x="2770.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    innerUnload()
+                </text>
+                <text x="2770.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isVisible()
+                </text>
+                <text x="2770.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="1574.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isEnabled()
+                </text>
+                <text x="2770.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="1574.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    show()
+                </text>
+                <text x="2770.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    hide()
+                </text>
+                <text x="2770.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    disable()
+                </text>
+                <text x="2770.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    enable()
+                </text>
+                <text x="2770.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    toggleVisibility()
+                </text>
+                <text x="2770.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1594.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    toggleEnabled()
+                </text>
+                <text x="2770.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1040.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">+
+                </text>
+                <text x="1594.000000" y="1040.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">setPosition(newPositionX integer, newPositionY integer)
+                </text>
+                <text x="2770.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1086.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">+
+                </text>
+                <text x="1594.000000" y="1086.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">setSize(newWidth integer, newHeight integer)
+                </text>
+                <text x="2770.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1132.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">+
+                </text>
+                <text x="1594.000000" y="1132.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">setBounds(newPositionX integer, newPositionY integer,
+                    newWidth integer, newHeight integer)
+                </text>
+                <text x="2770.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1178.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">+
+                </text>
+                <text x="1594.000000" y="1178.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">setRotation(newRotation float)
+                </text>
+                <text x="2770.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1224.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">+
+                </text>
+                <text x="1594.000000" y="1224.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">addComponent(component Component)
+                </text>
+                <text x="2770.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1270.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">#
+                </text>
+                <text x="1594.000000" y="1270.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">load()
+                </text>
+                <text x="2770.000000" y="1270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1316.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">#
+                </text>
+                <text x="1594.000000" y="1316.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">update(dt float)
+                </text>
+                <text x="2770.000000" y="1316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1362.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">#
+                </text>
+                <text x="1594.000000" y="1362.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">draw()
+                </text>
+                <text x="2770.000000" y="1362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1574.000000" y="1408.000000" class="text-mono fill-B2"
+                      style="text-anchor:start;font-size:20px">#
+                </text>
+                <text x="1594.000000" y="1408.000000" class="text-mono fill-N1"
+                      style="text-anchor:start;font-size:20px">unload()
+                </text>
+                <text x="2770.000000" y="1408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <mask id="d2-2886671748" maskUnits="userSpaceOnUse" x="-101" y="-101" width="2992" height="1628">
+            <rect x="-101" y="-101" width="2992" height="1628" fill="white"></rect>
 
-</mask></svg></svg>
+        </mask>
+    </svg>
+</svg>

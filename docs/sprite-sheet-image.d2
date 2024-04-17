@@ -1,0 +1,24 @@
+SpriteSheetImage: {
+  shape: class
+
+  +new(name string, imagePath string, columns integer, rows integer, speed, loop boolean, x integer = 0, y integer = 0, width integer = 0, height integer = 0, rotation float = 0,scale float = 1,animationEnds function): SpriteSheetImage
+
+  -sourceImage: Image
+  -itemWidth: integer
+  -itemHeight: integer
+  -index: integer
+  -running: boolean
+  -quads: table
+  -elapsedTime: float
+
+  +load(): void
+  +unload(): void
+  +update(dt float): void
+  +draw(): void
+  +show(): void
+
+  -loadDefinition(): void
+  -updateSpriteSheet(dt float): void
+}
+
+SpriteSheetImage -> Component

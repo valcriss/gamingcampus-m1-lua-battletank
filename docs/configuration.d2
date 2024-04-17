@@ -3,22 +3,59 @@ Configuration: {
 
     -data:Table
     -defaultConfiguration:Table
+
     +isFullScreen():boolean
     +setFullScreen(value boolean):void
+
     +getVsync():boolean
     +getVsyncAsInteger():integer
     +setVsync(value boolean):boolean
-    +getMusicVolume():float
+
++getMusicVolume():float
     +setMusicVolume(value float):void
-    +getSoundVolume():float
+
++getSoundVolume():float
     +setSoundVolume(value float):void
-    +getDifficulty():integer
+
++getDifficulty():integer
     +setDifficulty(value integer):void
-    +isMaximized():boolean
+
++isMaximized():boolean
     +setMaximized(value boolean):void
-    +getLevel():integer
+
++getLevel():integer
     +setLevel(value integer):void
-    +setConfiguration(data Table):void
++changeLevel(): void
+
++getEnemyRegenHealthAmount(): float
++calculateEnemyRegenHealthAmount(value float):float
++getPlayerRegenHealthAmount(): float
++calculatePlayerRegenHealthAmount(value float): float
++getPlayerFrozenDuration(): float
++calculatePlayerFrozenDuration(value float): float
++getEnemyFrozenDuration(): float
++calculateEnemyFrozenDuration(value float): float
+
++getFlagMaxHealth(): float
++calculateFlagMaxHealth(value float): float
++getMainTowerMaxHealth(): float
++calculateMainTowerMaxHealth(value float):float
++getEnemyMaxHealth(): float
++calculateEnemyMaxHealth(value float): float
++getPlayerMaxHealth(): float
++calculatePlayerMaxHealth(value float): float
++getPlayerDamage(): float
++calculatePlayerDamage(value float): float
++getEnemyDamage(): float
++calculateEnemyDamage(value float): float
++getEnemySpeed(): float
++calculateEnemySpeed(value float):float
++getPlayerSpeed(): float
++calculatePlayerSpeed(value float): float
+
++getEnemyBehavior(gameManager GameManager,enemy Enemy): Behavior
+
++setConfiguration(data Table):void
     +load():void
     -save():void
     -getFileName():string

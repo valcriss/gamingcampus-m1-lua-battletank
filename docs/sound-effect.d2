@@ -1,0 +1,22 @@
+SoundEffect: {
+  shape: class
+
+  new(name string, assetPath string, loadType string = "static", loop boolean = false, playOnStart boolean = true, volume float = 1, pitch float = 1): SoundEffect
+  -sound: SourceType
+  -started: boolean
+  -paused: boolean
+
+  +load(): void
+  +update(_ float): void
+  +unload(): void
+
+  +play(): void
+  +resume(): void
+  +isPlaying(): boolean
+  +stop(): void
+  +pause(): void
+
+  +setVolume(value float): void
+}
+
+SoundEffect -> Component

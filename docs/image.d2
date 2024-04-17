@@ -1,0 +1,15 @@
+Image: {
+  shape: class
+
+  +new(name string, assetPath string, x integer = 0, y integer = 0, rotation float = 0, scale = 1, color = white): Image
+
+  -bitmapImage: Image
+
+  +load(): void
+  +unload(): void
+  +draw(): void
+  +getWidth(): integer
+  +getHeight(): integer
+}
+
+Image -> Component

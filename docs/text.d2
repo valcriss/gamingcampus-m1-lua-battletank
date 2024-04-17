@@ -1,0 +1,18 @@
+Text: {
+  shape: class
+
+  +new(name string, content string, alignmentX string, alignmentY string, x integer = 0, y integer = 0, width integer = 0, height integer = 0, rotation float = 0,scale float = 1,color = white): Text
+
+  -font: Font
+  -textObject: Text
+
+  +load(): void
+  +unload(): void
+  +draw(): void
+  +getWidth(): integer
+  +getHeight(): integer
+
+  +setContent(newContent string): void
+}
+
+Text -> Component

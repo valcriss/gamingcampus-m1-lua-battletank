@@ -1,0 +1,15 @@
+Parallax: {
+  shape: class
+
+  +new(name string, assetPath string, speed, direction string = "left", offsetX integer = 0, y integer = 0, rotation float = 0,scale float = 1): Parallax
+
+  -parallaxImage: Image
+  -positionX: integer
+
+  +load(): void
+  +unload(): void
+  +update(dt float): void
+  +draw(): void
+}
+
+Parallax -> Component

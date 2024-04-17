@@ -1,0 +1,24 @@
+Rectangle: {
+  shape: class
+
+  +new(x float, y float, width float, height float): Rectangle
+
+  -x: float
+  -y: float
+  -width: float
+  -height: float
+
+  +containsPoint(pointX integer, pointY integer): boolean
+  +containsVector2(vector Vector2): boolean
+
+  +getPoint(): Vector2
+  +getCenter(): Vector2
+  +setPoint(positionX integer, positionY integer): Rectangle
+
+  +scale(value float): Rectangle
+
+  +offsetPosition(offsetX integer, offsetY integer): Rectangle
+  +offsetSize(offsetWidth integer, offsetHeight integer): Rectangle
+
+  +toString(): string
+}

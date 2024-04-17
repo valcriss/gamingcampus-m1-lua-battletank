@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" d2Version="v0.6.3" preserveAspectRatio="xMinYMin meet" viewBox="0 0 804 1168"><svg id="d2-svg" class="d2-429671281" width="804" height="1168" viewBox="-89 -89 804 1168"><rect x="-89.000000" y="-89.000000" width="804.000000" height="1168.000000" rx="0.000000" class=" fill-N7" stroke-width="0" /><style type="text/css"><![CDATA[
-.d2-429671281 .text-mono {
-	font-family: "d2-429671281-font-mono";
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 768 1168">
+    <svg id="d2-svg" class="d2-3271918090" width="768" height="1168" viewBox="-101 -101 768 1168">
+        <rect x="-101.000000" y="-101.000000" width="768.000000" height="1168.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-3271918090 .text-mono {
+	font-family: "d2-3271918090-font-mono";
 }
 @font-face {
-	font-family: d2-429671281-font-mono;
+	font-family: d2-3271918090-font-mono;
 	src: url("data:application/font-woff;base64,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");
-}]]></style><style type="text/css"><![CDATA[.shape {
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
   shape-rendering: geometricPrecision;
   stroke-linejoin: round;
 }
@@ -18,78 +25,264 @@
   opacity: 0.5;
 }
 
-		.d2-429671281 .fill-N1{fill:#0A0F25;}
-		.d2-429671281 .fill-N2{fill:#676C7E;}
-		.d2-429671281 .fill-N3{fill:#9499AB;}
-		.d2-429671281 .fill-N4{fill:#CFD2DD;}
-		.d2-429671281 .fill-N5{fill:#DEE1EB;}
-		.d2-429671281 .fill-N6{fill:#EEF1F8;}
-		.d2-429671281 .fill-N7{fill:#FFFFFF;}
-		.d2-429671281 .fill-B1{fill:#0A0F25;}
-		.d2-429671281 .fill-B2{fill:#676C7E;}
-		.d2-429671281 .fill-B3{fill:#9499AB;}
-		.d2-429671281 .fill-B4{fill:#CFD2DD;}
-		.d2-429671281 .fill-B5{fill:#DEE1EB;}
-		.d2-429671281 .fill-B6{fill:#EEF1F8;}
-		.d2-429671281 .fill-AA2{fill:#676C7E;}
-		.d2-429671281 .fill-AA4{fill:#CFD2DD;}
-		.d2-429671281 .fill-AA5{fill:#DEE1EB;}
-		.d2-429671281 .fill-AB4{fill:#CFD2DD;}
-		.d2-429671281 .fill-AB5{fill:#DEE1EB;}
-		.d2-429671281 .stroke-N1{stroke:#0A0F25;}
-		.d2-429671281 .stroke-N2{stroke:#676C7E;}
-		.d2-429671281 .stroke-N3{stroke:#9499AB;}
-		.d2-429671281 .stroke-N4{stroke:#CFD2DD;}
-		.d2-429671281 .stroke-N5{stroke:#DEE1EB;}
-		.d2-429671281 .stroke-N6{stroke:#EEF1F8;}
-		.d2-429671281 .stroke-N7{stroke:#FFFFFF;}
-		.d2-429671281 .stroke-B1{stroke:#0A0F25;}
-		.d2-429671281 .stroke-B2{stroke:#676C7E;}
-		.d2-429671281 .stroke-B3{stroke:#9499AB;}
-		.d2-429671281 .stroke-B4{stroke:#CFD2DD;}
-		.d2-429671281 .stroke-B5{stroke:#DEE1EB;}
-		.d2-429671281 .stroke-B6{stroke:#EEF1F8;}
-		.d2-429671281 .stroke-AA2{stroke:#676C7E;}
-		.d2-429671281 .stroke-AA4{stroke:#CFD2DD;}
-		.d2-429671281 .stroke-AA5{stroke:#DEE1EB;}
-		.d2-429671281 .stroke-AB4{stroke:#CFD2DD;}
-		.d2-429671281 .stroke-AB5{stroke:#DEE1EB;}
-		.d2-429671281 .background-color-N1{background-color:#0A0F25;}
-		.d2-429671281 .background-color-N2{background-color:#676C7E;}
-		.d2-429671281 .background-color-N3{background-color:#9499AB;}
-		.d2-429671281 .background-color-N4{background-color:#CFD2DD;}
-		.d2-429671281 .background-color-N5{background-color:#DEE1EB;}
-		.d2-429671281 .background-color-N6{background-color:#EEF1F8;}
-		.d2-429671281 .background-color-N7{background-color:#FFFFFF;}
-		.d2-429671281 .background-color-B1{background-color:#0A0F25;}
-		.d2-429671281 .background-color-B2{background-color:#676C7E;}
-		.d2-429671281 .background-color-B3{background-color:#9499AB;}
-		.d2-429671281 .background-color-B4{background-color:#CFD2DD;}
-		.d2-429671281 .background-color-B5{background-color:#DEE1EB;}
-		.d2-429671281 .background-color-B6{background-color:#EEF1F8;}
-		.d2-429671281 .background-color-AA2{background-color:#676C7E;}
-		.d2-429671281 .background-color-AA4{background-color:#CFD2DD;}
-		.d2-429671281 .background-color-AA5{background-color:#DEE1EB;}
-		.d2-429671281 .background-color-AB4{background-color:#CFD2DD;}
-		.d2-429671281 .background-color-AB5{background-color:#DEE1EB;}
-		.d2-429671281 .color-N1{color:#0A0F25;}
-		.d2-429671281 .color-N2{color:#676C7E;}
-		.d2-429671281 .color-N3{color:#9499AB;}
-		.d2-429671281 .color-N4{color:#CFD2DD;}
-		.d2-429671281 .color-N5{color:#DEE1EB;}
-		.d2-429671281 .color-N6{color:#EEF1F8;}
-		.d2-429671281 .color-N7{color:#FFFFFF;}
-		.d2-429671281 .color-B1{color:#0A0F25;}
-		.d2-429671281 .color-B2{color:#676C7E;}
-		.d2-429671281 .color-B3{color:#9499AB;}
-		.d2-429671281 .color-B4{color:#CFD2DD;}
-		.d2-429671281 .color-B5{color:#DEE1EB;}
-		.d2-429671281 .color-B6{color:#EEF1F8;}
-		.d2-429671281 .color-AA2{color:#676C7E;}
-		.d2-429671281 .color-AA4{color:#CFD2DD;}
-		.d2-429671281 .color-AA5{color:#DEE1EB;}
-		.d2-429671281 .color-AB4{color:#CFD2DD;}
-		.d2-429671281 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style><g id="ScreenManager"><g class="shape" ><rect x="12.000000" y="12.000000" width="602.000000" height="966.000000" class=" stroke-N1 fill-N7" style="stroke-width:2;" /><rect x="12.000000" y="12.000000" width="602.000000" height="92.000000" class="class_header fill-N1" /><text x="313.000000" y="65.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">ScreenManager</text><text x="22.000000" y="132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="42.000000" y="132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">windowWidth</text><text x="594.000000" y="132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="42.000000" y="178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">windowHeight</text><text x="594.000000" y="178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="42.000000" y="224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">scaleX</text><text x="594.000000" y="224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">float</text><text x="22.000000" y="270.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="42.000000" y="270.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">scaleY</text><text x="594.000000" y="270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">float</text><line x1="12.000000" x2="614.000000" y1="288.000000" y2="288.000000" class=" stroke-N1" style="stroke-width:1" /><text x="22.000000" y="316.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="316.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">init(width integer, height integer)</text><text x="594.000000" y="316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="22.000000" y="362.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="362.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">reload()</text><text x="594.000000" y="362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="22.000000" y="408.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="408.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">resize()</text><text x="594.000000" y="408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="22.000000" y="454.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="454.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">calculateCenterPointX()</text><text x="594.000000" y="454.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="500.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="500.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">calculateCenterPointY()</text><text x="594.000000" y="500.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="546.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="546.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">getWindowWidth()</text><text x="594.000000" y="546.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="592.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="592.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">getWindowHeight()</text><text x="594.000000" y="592.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="638.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="638.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">getScaleX()</text><text x="594.000000" y="638.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">float</text><text x="22.000000" y="684.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="684.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">getScaleY()</text><text x="594.000000" y="684.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">float</text><text x="22.000000" y="730.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="730.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">ScaleValueX(x integer)</text><text x="594.000000" y="730.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="776.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="776.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">ScaleValueY(y integer)</text><text x="594.000000" y="776.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="822.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="822.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">ScaleUIValueX(x integer)</text><text x="594.000000" y="822.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="868.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="868.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">ScaleUIValueY(y integer)</text><text x="594.000000" y="868.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">integer</text><text x="22.000000" y="914.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">+</text><text x="42.000000" y="914.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">clear(r integer, g integer, b integer)</text><text x="594.000000" y="914.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text><text x="22.000000" y="960.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">-</text><text x="42.000000" y="960.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">calculateScale()</text><text x="594.000000" y="960.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">void</text></g></g><mask id="d2-429671281" maskUnits="userSpaceOnUse" x="-89" y="-89" width="804" height="1168">
-<rect x="-89" y="-89" width="804" height="1168" fill="white"></rect>
+		.d2-3271918090 .fill-N1{fill:#0A0F25;}
+		.d2-3271918090 .fill-N2{fill:#676C7E;}
+		.d2-3271918090 .fill-N3{fill:#9499AB;}
+		.d2-3271918090 .fill-N4{fill:#CFD2DD;}
+		.d2-3271918090 .fill-N5{fill:#DEE1EB;}
+		.d2-3271918090 .fill-N6{fill:#EEF1F8;}
+		.d2-3271918090 .fill-N7{fill:#FFFFFF;}
+		.d2-3271918090 .fill-B1{fill:#0A0F25;}
+		.d2-3271918090 .fill-B2{fill:#676C7E;}
+		.d2-3271918090 .fill-B3{fill:#9499AB;}
+		.d2-3271918090 .fill-B4{fill:#CFD2DD;}
+		.d2-3271918090 .fill-B5{fill:#DEE1EB;}
+		.d2-3271918090 .fill-B6{fill:#EEF1F8;}
+		.d2-3271918090 .fill-AA2{fill:#676C7E;}
+		.d2-3271918090 .fill-AA4{fill:#CFD2DD;}
+		.d2-3271918090 .fill-AA5{fill:#DEE1EB;}
+		.d2-3271918090 .fill-AB4{fill:#CFD2DD;}
+		.d2-3271918090 .fill-AB5{fill:#DEE1EB;}
+		.d2-3271918090 .stroke-N1{stroke:#0A0F25;}
+		.d2-3271918090 .stroke-N2{stroke:#676C7E;}
+		.d2-3271918090 .stroke-N3{stroke:#9499AB;}
+		.d2-3271918090 .stroke-N4{stroke:#CFD2DD;}
+		.d2-3271918090 .stroke-N5{stroke:#DEE1EB;}
+		.d2-3271918090 .stroke-N6{stroke:#EEF1F8;}
+		.d2-3271918090 .stroke-N7{stroke:#FFFFFF;}
+		.d2-3271918090 .stroke-B1{stroke:#0A0F25;}
+		.d2-3271918090 .stroke-B2{stroke:#676C7E;}
+		.d2-3271918090 .stroke-B3{stroke:#9499AB;}
+		.d2-3271918090 .stroke-B4{stroke:#CFD2DD;}
+		.d2-3271918090 .stroke-B5{stroke:#DEE1EB;}
+		.d2-3271918090 .stroke-B6{stroke:#EEF1F8;}
+		.d2-3271918090 .stroke-AA2{stroke:#676C7E;}
+		.d2-3271918090 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-3271918090 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-3271918090 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-3271918090 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-3271918090 .background-color-N1{background-color:#0A0F25;}
+		.d2-3271918090 .background-color-N2{background-color:#676C7E;}
+		.d2-3271918090 .background-color-N3{background-color:#9499AB;}
+		.d2-3271918090 .background-color-N4{background-color:#CFD2DD;}
+		.d2-3271918090 .background-color-N5{background-color:#DEE1EB;}
+		.d2-3271918090 .background-color-N6{background-color:#EEF1F8;}
+		.d2-3271918090 .background-color-N7{background-color:#FFFFFF;}
+		.d2-3271918090 .background-color-B1{background-color:#0A0F25;}
+		.d2-3271918090 .background-color-B2{background-color:#676C7E;}
+		.d2-3271918090 .background-color-B3{background-color:#9499AB;}
+		.d2-3271918090 .background-color-B4{background-color:#CFD2DD;}
+		.d2-3271918090 .background-color-B5{background-color:#DEE1EB;}
+		.d2-3271918090 .background-color-B6{background-color:#EEF1F8;}
+		.d2-3271918090 .background-color-AA2{background-color:#676C7E;}
+		.d2-3271918090 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-3271918090 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-3271918090 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-3271918090 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-3271918090 .color-N1{color:#0A0F25;}
+		.d2-3271918090 .color-N2{color:#676C7E;}
+		.d2-3271918090 .color-N3{color:#9499AB;}
+		.d2-3271918090 .color-N4{color:#CFD2DD;}
+		.d2-3271918090 .color-N5{color:#DEE1EB;}
+		.d2-3271918090 .color-N6{color:#EEF1F8;}
+		.d2-3271918090 .color-N7{color:#FFFFFF;}
+		.d2-3271918090 .color-B1{color:#0A0F25;}
+		.d2-3271918090 .color-B2{color:#676C7E;}
+		.d2-3271918090 .color-B3{color:#9499AB;}
+		.d2-3271918090 .color-B4{color:#CFD2DD;}
+		.d2-3271918090 .color-B5{color:#DEE1EB;}
+		.d2-3271918090 .color-B6{color:#EEF1F8;}
+		.d2-3271918090 .color-AA2{color:#676C7E;}
+		.d2-3271918090 .color-AA4{color:#CFD2DD;}
+		.d2-3271918090 .color-AA5{color:#DEE1EB;}
+		.d2-3271918090 .color-AB4{color:#CFD2DD;}
+		.d2-3271918090 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="ScreenManager">
+            <g class="shape">
+                <rect x="0.000000" y="0.000000" width="566.000000" height="966.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="0.000000" y="0.000000" width="566.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="283.000000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
+                    ScreenManager
+                </text>
+                <text x="10.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    windowWidth
+                </text>
+                <text x="546.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    windowHeight
+                </text>
+                <text x="546.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    scaleX
+                </text>
+                <text x="546.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="10.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    scaleY
+                </text>
+                <text x="546.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <line x1="0.000000" x2="566.000000" y1="276.000000" y2="276.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="10.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    init(width integer, height integer)
+                </text>
+                <text x="546.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    reload()
+                </text>
+                <text x="546.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    resize()
+                </text>
+                <text x="546.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    calculateCenterPointX()
+                </text>
+                <text x="546.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    calculateCenterPointY()
+                </text>
+                <text x="546.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getWindowWidth()
+                </text>
+                <text x="546.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getWindowHeight()
+                </text>
+                <text x="546.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getScaleX()
+                </text>
+                <text x="546.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getScaleY()
+                </text>
+                <text x="546.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="10.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    ScaleValueX(x float)
+                </text>
+                <text x="546.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    ScaleValueY(y float)
+                </text>
+                <text x="546.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    ScaleUIValueX(x float)
+                </text>
+                <text x="546.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    ScaleUIValueY(y float)
+                </text>
+                <text x="546.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    clear(r float, g float, b float)
+                </text>
+                <text x="546.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    calculateScale()
+                </text>
+                <text x="546.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <mask id="d2-3271918090" maskUnits="userSpaceOnUse" x="-101" y="-101" width="768" height="1168">
+            <rect x="-101" y="-101" width="768" height="1168" fill="white"></rect>
 
-</mask></svg></svg>
+        </mask>
+    </svg>
+</svg>
