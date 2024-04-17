@@ -8,4 +8,4 @@ gérer les données de la scene de Niveau du jeu.
 Le composant GameLevelData est le composant qui contient l'ensemble des données de la carte du jeu (textures des
 cellules, cellules bloqués etc.)
 
-<img src="./game-level-data.svg">
+<img src="./game-level-data.svg" width="300">
