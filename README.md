@@ -47,6 +47,13 @@ sous-compopsant qu'il contient.
 
 ## Les composants du framework
 
+Pour la définition des composants j'ai utilisé l'atomic design adapté aux composants de jeu video.
+L'idée était donc de développer des composants (atomes) (images, text, sons, etc) qui peuvent être combinés pour créer
+des
+composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les combiner dans des scenes (organismes)
+
+<img src="./docs/atomic-design.png" width="500">
+
 ### framework/audio/SoundEffect.lua
 
 Le composant SoundEffect permet de lire un fichier audio, il possède des méthodes play, stop, pause
