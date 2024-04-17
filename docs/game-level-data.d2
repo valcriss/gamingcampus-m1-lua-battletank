@@ -1,0 +1,26 @@
+GameLevelData: {
+  shape: class
+
+  +new(): GameLevelData
+  - level: table
+  - tiles: table
+  +load(): void
+  +getLevel(): table
+  +getTiles(): table
+  +getNeighbors(index): table
+  +getTileIndexFromRealPosition(realX, realY): number
+  +getTileIndex(gridX, gridY): number
+  +getGridPosition(realX, realY): Vector2
+  +getImageIndexFromTileIndex(tileIndex, layer): number
+  +isTileBlocked(tileIndex): boolean
+  +isTileEnvironmentBlocked(tileIndex): boolean
+  +isTileBlockedFromGridPosition(gridPosition): boolean
+  +getMainTowerWorldPosition(group): Vector2
+  +getPlayerMainTowerWorldPosition(): Vector2
+  +getEnemyMainTowerWorldPosition(): Vector2
+  +translateGridPositionToWorldPosition(x, y): Vector2
+  +getRealPositionFromTileIndex(tileIndex): Vector2
+  +getGridPositionFromTileIndex(tileIndex): Vector2
+  +getLevelAsset(): string
+}
+GameLevelData -> Component: extends
