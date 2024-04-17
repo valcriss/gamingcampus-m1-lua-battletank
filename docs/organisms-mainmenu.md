@@ -6,28 +6,28 @@ Les organismes de la scene Menu principal sont les organismes qui composent la s
 
 Le composant ConfirmationFrame est l'écran de confirmation affichée lorsque l'utilisateur souhaites quitter le jeu
 
-<img src="./confirmation-frame.svg" width="300">
+<img src="./confirmation-frame.svg">
 
 ### models/mainmenu/CreditsFrame.lua
 
 Le composant CreditsFrame est l'écran qui s'affiche pour indiquer les crédits du jeu
 
-<img src="./credits-frame.svg" width="300">
+<img src="./credits-frame.svg">
 
 ### models/mainmenu/MainMenuFrame.lua
 
 Le composant MainMenuFrame est la frame qui contient le menu principal du jeu
 
-<img src="./main-menu-frame.svg" width="300">
+<img src="./main-menu-frame.svg">
 
 ### models/mainmenu/MainMenuParallax.lua
 
 Le composant MainMenuParallax permet d'afficher l'ensemble des parallax de la scene du menu principal
 
-<img src="./main-menu-parallax.svg" width="300">
+<img src="./main-menu-parallax.svg">
 
 ### models/mainmenu/ParametersFrame.lua
 
 Le composant ParametersFrame est l'écran qui s'affiche pour afficher les parametres du jeu
 
-<img src="./parameters-frame.svg" width="300">
+<img src="./parameters-frame.svg">

@@ -8,7 +8,7 @@ La classe configuration enregistre dans un fichier les éléments de configurati
 volume de la musique, volume des effets sonores, niveau de difficulté, retourne également les différents parametres du
 jeu en fonction de la difficulté)
 
-<img src="./configuration.svg" width="300">
+<img src="./configuration.svg">
 
 ### framework/screen/ScreenManager.lua
 
@@ -17,7 +17,7 @@ initialisé avec la résolution de développement.
 Ensuite la classe permet d'obtenir le ratio à appliquer à chaque composant du jeu afin de s'adapter à la résolution
 actuelle.
 
-<img src="./screenmanager.svg" width="300">
+<img src="./screenmanager.svg">
 
 ## Le coeur de l'architecture en composants
 

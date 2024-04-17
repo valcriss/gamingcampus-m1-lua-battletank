@@ -11,7 +11,7 @@ des composants (molécules) plus complexes (bouton, menu, etc) pour ensuite les 
 complexe du jeu (organismes) (joueur, enemi, interface, etc) pour finalement les combiner dans des scenes (templates,
 pages)
 
-<img src="./docs/atomic-design.png" width="500">
+<img src="./docs/atomic-design.png">
 
 # Les bases de l'architecture
 
