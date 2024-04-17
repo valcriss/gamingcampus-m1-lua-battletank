@@ -48,6 +48,7 @@ ScenesManager.new   = function()
     ---@public
     --- Fonction qui met à jour les scenes actuellement chargées
     function sceneManager:update(dt)
+        dt = math.min(dt, 1 / 25)
         for i = 1, #sceneManager.scenes do
             sceneManager.scenes[i].innerUpdate(dt)
         end

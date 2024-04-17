@@ -65,7 +65,6 @@ SpriteSheetImage.new = function(name, imagePath, columns, rows, speed --[[option
     --- Fonction appelée automatiquement qui met a jour l'image affichée
     function spriteSheetImage.update(dt)
         if (running == false) then
-            print("animation not running")
             return
         end
         spriteSheetImage.updateSpriteSheet(dt)
