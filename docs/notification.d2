@@ -1,0 +1,17 @@
+Notification: {
+  shape: class
+
+  +new(gameManager GameManager): Notification
+  -minX: integer        = -500
+  -offsetX: integer     = -500
+  -animation: string   = "none"
+  -speed: integer       = 3000
+  -visibleTime: integer = 1
+
+  +appear(content): void
+  +disappear(): void
+  +update(dt float): void
+}
+Notification -> Image
+Notification -> BitmapText
+Notification -> Component: extends

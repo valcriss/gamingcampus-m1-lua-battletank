@@ -1,0 +1,16 @@
+GameNotification: {
+  shape: class
+
+  +new(gameManager GameManager): GameNotification
+
+  -notificationDuration: integer = 2
+  -activeNotifications: array
+
+  +load(): void
+  +update(): void
+  +onUnitUnderAttack(unit, _, fromGroup): void
+  +onFlagCaptured(unit, fromGroup): void
+  +onTowerEvent(tower, status): void
+}
+GameNotification -> Notification
+GameNotification -> Component: extends
