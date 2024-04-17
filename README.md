@@ -66,32 +66,32 @@ La classe Vector2 n'est pas un composant mais elle est utilisée par les composa
 
 <img src="./docs/vector2.svg" width="300">
 
-### models/images/Image.lua
+### framework/images/Image.lua
 
 Le composant Image permet d'afficher une image, il possède des propriétés permettant de changer l'orientation, la taille
 
 <img src="./docs/image.svg" width="300">
 
-### models/images/Parallax.lua
+### framework/images/Parallax.lua
 
 Le composant Parallax permet d'afficher une image en appliquant un effet de mouvement sur l'axe X
 
 <img src="./docs/parallax.svg" width="300">
 
-### models/images/SpriteSheetImage.lua
+### framework/images/SpriteSheetImage.lua
 
 Le composant SpriteSheetImage permet d'afficher un sprite sheet animé en définissant le nombre de colonnes, de lignes,
 la vitesse de lecture
 
 <img src="./docs/sprite-sheet-image.svg" width="300">
 
-### models/texts/BitmapText.lua
+### framework/texts/BitmapText.lua
 
 Le composant BitmapText permet d'afficher un texte en utilisant une bitmap font
 
 <img src="./docs/bitmap-text.svg" width="300">
 
-### models/texts/Text.lua
+### framework/texts/Text.lua
 
 Le composant Text permet d'afficher un texte en utilisant la font standard de love
 
@@ -99,31 +99,31 @@ Le composant Text permet d'afficher un texte en utilisant la font standard de lo
 
 --------
 
-### models/ui/Button.lua
+### framework/ui/Button.lua
 
 Le composant Button permet d'afficher un bouton avec l'effet au survol, cliqué, il permet également d'executer un
 callback lors du click
 
-### models/ui/CheckBox.lua
+### framework/ui/CheckBox.lua
 
 Le composant CheckBox permet d'afficher une checkbox
 
-### models/ui/Frame.lua
+### framework/ui/Frame.lua
 
 Le composant Frame permet d'afficher une fenetre en utilisant une texture compatible nine-patch
 
-### models/ui/Slider.lua
+### framework/ui/Slider.lua
 
 Le composant Slider permet d'afficher un slider qui permet à l'utilisateur de sélectionner une valeur comprise entre 0
 et 1
 
-### models/ui/SliderButton.lua
+### framework/ui/SliderButton.lua
 
 Le composant SliderButton est utilisé dans le composant Slider afin d'afficher les boutons + et - qui permettent de
 modifier la valeur de ce-dernier.
 
 --------
 
-### models/tools/Fps.lua
+### framework/tools/Fps.lua
 
 Le composant Fps permet d'afficher les FPS actuels à l'écran
