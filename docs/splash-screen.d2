@@ -1,0 +1,11 @@
+SplashScreen: {
+  shape: class
+
+  -elapsedTime: integer
+
+  +update(dt float): void
+}
+SplashScreen -> SpriteSheetImage
+SplashScreen -> SoundEffect
+SplashScreen -> BitmapText
+SplashScreen -> Scene: extends

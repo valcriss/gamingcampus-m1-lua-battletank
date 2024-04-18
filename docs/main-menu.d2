@@ -1,0 +1,26 @@
+MainMenu: {
+  shape: class
+
+  -confirmationWith: integer
+  -confirmationHeight: integer
+
+  +new(): MainMenu
+  -startGame(): void
+  -backToMainMenu(): void
+  -startGame(): void
+  -showFrameQuit(): void
+  -quitConfirm(result): void
+  -showFrameParameters(): void
+  -showFrameCredits(): void
+  -OnButtonClicked(button): void
+  -saveParameters(data): void
+}
+MainMenu -> SpriteSheetImage
+MainMenu -> BitmapText
+MainMenu -> MainMenuFrame
+MainMenu -> MainMenuParallax
+MainMenu -> CreditsFrame
+MainMenu -> ParametersFrame
+MainMenu -> ConfirmationFrame
+MainMenu -> SoundEffect
+MainMenu -> Scene: extends

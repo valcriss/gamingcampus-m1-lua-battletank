@@ -1,0 +1,21 @@
+SelectLevel: {
+  shape: class
+
+  -informationText: string
+  -moving: boolean
+
+  +new(): SelectLevel
+  +update(dt float): void
+  -backToMainMenu(): void
+  -startGame(): void
+  -onLevelClick(data): void
+  -startTransitionEnd(): void
+  -onLevelEnter(data): void
+  -onLevelLeave(_): void
+}
+SelectLevel -> Image
+SelectLevel -> LevelButton
+SelectLevel -> SpriteSheetImage
+SelectLevel -> SoundEffect
+SelectLevel -> Button
+SelectLevel -> Scene: extends

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 2513 1217">
+    <svg id="d2-svg" class="d2-3518494427" width="2513" height="1217" viewBox="-101 -101 2513 1217">
+        <rect x="-101.000000" y="-101.000000" width="2513.000000" height="1217.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-3518494427 .text-bold {
+	font-family: "d2-3518494427-font-bold";
+}
+@font-face {
+	font-family: d2-3518494427-font-bold;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-3518494427 .text-italic {
+	font-family: "d2-3518494427-font-italic";
+}
+@font-face {
+	font-family: d2-3518494427-font-italic;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-3518494427 .text-mono {
+	font-family: "d2-3518494427-font-mono";
+}
+@font-face {
+	font-family: d2-3518494427-font-mono;
+	src: url("data:application/font-woff;base64,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");
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-3518494427 .fill-N1{fill:#0A0F25;}
+		.d2-3518494427 .fill-N2{fill:#676C7E;}
+		.d2-3518494427 .fill-N3{fill:#9499AB;}
+		.d2-3518494427 .fill-N4{fill:#CFD2DD;}
+		.d2-3518494427 .fill-N5{fill:#DEE1EB;}
+		.d2-3518494427 .fill-N6{fill:#EEF1F8;}
+		.d2-3518494427 .fill-N7{fill:#FFFFFF;}
+		.d2-3518494427 .fill-B1{fill:#0A0F25;}
+		.d2-3518494427 .fill-B2{fill:#676C7E;}
+		.d2-3518494427 .fill-B3{fill:#9499AB;}
+		.d2-3518494427 .fill-B4{fill:#CFD2DD;}
+		.d2-3518494427 .fill-B5{fill:#DEE1EB;}
+		.d2-3518494427 .fill-B6{fill:#EEF1F8;}
+		.d2-3518494427 .fill-AA2{fill:#676C7E;}
+		.d2-3518494427 .fill-AA4{fill:#CFD2DD;}
+		.d2-3518494427 .fill-AA5{fill:#DEE1EB;}
+		.d2-3518494427 .fill-AB4{fill:#CFD2DD;}
+		.d2-3518494427 .fill-AB5{fill:#DEE1EB;}
+		.d2-3518494427 .stroke-N1{stroke:#0A0F25;}
+		.d2-3518494427 .stroke-N2{stroke:#676C7E;}
+		.d2-3518494427 .stroke-N3{stroke:#9499AB;}
+		.d2-3518494427 .stroke-N4{stroke:#CFD2DD;}
+		.d2-3518494427 .stroke-N5{stroke:#DEE1EB;}
+		.d2-3518494427 .stroke-N6{stroke:#EEF1F8;}
+		.d2-3518494427 .stroke-N7{stroke:#FFFFFF;}
+		.d2-3518494427 .stroke-B1{stroke:#0A0F25;}
+		.d2-3518494427 .stroke-B2{stroke:#676C7E;}
+		.d2-3518494427 .stroke-B3{stroke:#9499AB;}
+		.d2-3518494427 .stroke-B4{stroke:#CFD2DD;}
+		.d2-3518494427 .stroke-B5{stroke:#DEE1EB;}
+		.d2-3518494427 .stroke-B6{stroke:#EEF1F8;}
+		.d2-3518494427 .stroke-AA2{stroke:#676C7E;}
+		.d2-3518494427 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-3518494427 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-3518494427 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-3518494427 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-3518494427 .background-color-N1{background-color:#0A0F25;}
+		.d2-3518494427 .background-color-N2{background-color:#676C7E;}
+		.d2-3518494427 .background-color-N3{background-color:#9499AB;}
+		.d2-3518494427 .background-color-N4{background-color:#CFD2DD;}
+		.d2-3518494427 .background-color-N5{background-color:#DEE1EB;}
+		.d2-3518494427 .background-color-N6{background-color:#EEF1F8;}
+		.d2-3518494427 .background-color-N7{background-color:#FFFFFF;}
+		.d2-3518494427 .background-color-B1{background-color:#0A0F25;}
+		.d2-3518494427 .background-color-B2{background-color:#676C7E;}
+		.d2-3518494427 .background-color-B3{background-color:#9499AB;}
+		.d2-3518494427 .background-color-B4{background-color:#CFD2DD;}
+		.d2-3518494427 .background-color-B5{background-color:#DEE1EB;}
+		.d2-3518494427 .background-color-B6{background-color:#EEF1F8;}
+		.d2-3518494427 .background-color-AA2{background-color:#676C7E;}
+		.d2-3518494427 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-3518494427 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-3518494427 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-3518494427 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-3518494427 .color-N1{color:#0A0F25;}
+		.d2-3518494427 .color-N2{color:#676C7E;}
+		.d2-3518494427 .color-N3{color:#9499AB;}
+		.d2-3518494427 .color-N4{color:#CFD2DD;}
+		.d2-3518494427 .color-N5{color:#DEE1EB;}
+		.d2-3518494427 .color-N6{color:#EEF1F8;}
+		.d2-3518494427 .color-N7{color:#FFFFFF;}
+		.d2-3518494427 .color-B1{color:#0A0F25;}
+		.d2-3518494427 .color-B2{color:#676C7E;}
+		.d2-3518494427 .color-B3{color:#9499AB;}
+		.d2-3518494427 .color-B4{color:#CFD2DD;}
+		.d2-3518494427 .color-B5{color:#DEE1EB;}
+		.d2-3518494427 .color-B6{color:#EEF1F8;}
+		.d2-3518494427 .color-AA2{color:#676C7E;}
+		.d2-3518494427 .color-AA4{color:#CFD2DD;}
+		.d2-3518494427 .color-AA5{color:#DEE1EB;}
+		.d2-3518494427 .color-AB4{color:#CFD2DD;}
+		.d2-3518494427 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="GameLevel">
+            <g class="shape">
+                <rect x="1067.000000" y="0.000000" width="374.000000" height="828.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="1067.000000" y="0.000000" width="374.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="1254.000000" y="53.750000" class="text-mono fill-N7"
+                      style="text-anchor:middle;font-size:24px;">GameLevel
+                </text>
+                <line x1="1067.000000" x2="1441.000000" y1="92.000000" y2="92.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="1077.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1097.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    new()
+                </text>
+                <text x="1421.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    GameLevel
+                </text>
+                <text x="1077.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1097.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    pause()
+                </text>
+                <text x="1421.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="1097.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    unPause()
+                </text>
+                <text x="1421.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    disableGameUpdate()
+                </text>
+                <text x="1421.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    enableGameUpdate()
+                </text>
+                <text x="1421.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    showPauseMenu()
+                </text>
+                <text x="1421.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    hidePauseMenu()
+                </text>
+                <text x="1421.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    showHelpMenu()
+                </text>
+                <text x="1421.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    hideHelpMenu()
+                </text>
+                <text x="1421.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    resume()
+                </text>
+                <text x="1421.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    back()
+                </text>
+                <text x="1421.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    returnToMap()
+                </text>
+                <text x="1421.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    onDebugChanged()
+                </text>
+                <text x="1421.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    onVictory()
+                </text>
+                <text x="1421.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    onDefeat()
+                </text>
+                <text x="1421.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="1077.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="1097.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    endGame(isVictory)
+                </text>
+                <text x="1421.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <g id="GameLevelData">
+            <g class="shape">
+                <rect x="0.000000" y="949.000000" width="157.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="78.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                GameLevelData
+            </text>
+        </g>
+        <g id="GameManager">
+            <g class="shape">
+                <rect x="217.000000" y="949.000000" width="148.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="291.000000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                GameManager
+            </text>
+        </g>
+        <g id="UIManager">
+            <g class="shape">
+                <rect x="425.000000" y="949.000000" width="122.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="486.000000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                UIManager
+            </text>
+        </g>
+        <g id="DebugManager">
+            <g class="shape">
+                <rect x="607.000000" y="949.000000" width="152.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="683.000000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                DebugManager
+            </text>
+        </g>
+        <g id="PauseMenuFrame">
+            <g class="shape">
+                <rect x="819.000000" y="949.000000" width="171.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="904.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                PauseMenuFrame
+            </text>
+        </g>
+        <g id="SpriteSheetImage">
+            <g class="shape">
+                <rect x="1050.000000" y="949.000000" width="173.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1136.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                SpriteSheetImage
+            </text>
+        </g>
+        <g id="DialogBackground">
+            <g class="shape">
+                <rect x="1283.000000" y="949.000000" width="175.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1370.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                DialogBackground
+            </text>
+        </g>
+        <g id="HelpFrame">
+            <g class="shape">
+                <rect x="1518.000000" y="949.000000" width="122.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1579.000000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                HelpFrame
+            </text>
+        </g>
+        <g id="Delay">
+            <g class="shape">
+                <rect x="1700.000000" y="949.000000" width="85.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1742.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Delay
+            </text>
+        </g>
+        <g id="EndGameUI">
+            <g class="shape">
+                <rect x="1845.000000" y="949.000000" width="127.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1908.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                EndGameUI
+            </text>
+        </g>
+        <g id="SoundEffect">
+            <g class="shape">
+                <rect x="2032.000000" y="949.000000" width="132.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="2098.000000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                SoundEffect
+            </text>
+        </g>
+        <g id="Scene">
+            <g class="shape">
+                <rect x="2224.000000" y="949.000000" width="87.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="2267.500000" y="987.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Scene
+            </text>
+        </g>
+        <g id="(GameLevel -&gt; GameLevelData)[0]">
+            <marker id="mk-3488378134" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000"
+                    viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse">
+                <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" class="connection fill-B1"
+                         stroke-width="2"/>
+            </marker>
+            <path d="M 1064.645505 490.264890 C 276.098999 808.703003 78.500000 900.700012 78.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; GameManager)[0]">
+            <path d="M 1064.706141 507.072336 C 446.098999 812.036987 291.000000 900.700012 291.000000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; UIManager)[0]">
+            <path d="M 1064.798855 530.662738 C 602.098999 816.721985 486.000000 900.700012 486.000000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; DebugManager)[0]">
+            <path d="M 1064.962344 570.810893 C 759.700012 824.705994 683.000000 900.700012 683.000000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; PauseMenuFrame)[0]">
+            <path d="M 1065.314992 669.855154 C 936.900024 844.447998 904.500000 900.700012 904.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; SpriteSheetImage)[0]">
+            <path d="M 1151.022424 829.442143 C 1139.500000 876.299988 1136.500000 900.700012 1136.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; DialogBackground)[0]">
+            <path d="M 1355.977576 829.442143 C 1367.500000 876.299988 1370.500000 900.700012 1370.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; HelpFrame)[0]">
+            <path d="M 1442.629603 689.250429 C 1551.500000 848.320007 1579.000000 900.700012 1579.000000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; Delay)[0]">
+            <path d="M 1442.933023 596.850167 C 1682.300049 829.890991 1742.500000 900.700012 1742.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; EndGameUI)[0]">
+            <path d="M 1443.118467 550.641954 C 1815.099976 820.692993 1908.500000 900.700012 1908.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; SoundEffect)[0]">
+            <path d="M 1442.743789 520.479388 C 1966.599976 814.700012 2098.000000 900.700012 2098.000000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+        </g>
+        <g id="(GameLevel -&gt; Scene)[0]">
+            <path d="M 1443.311081 502.354531 C 2102.300049 811.101013 2267.500000 900.700012 2267.500000 945.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-3518494427)"/>
+            <text x="1879.000000" y="712.000000" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">
+                extends
+            </text>
+        </g>
+        <mask id="d2-3518494427" maskUnits="userSpaceOnUse" x="-101" y="-101" width="2513" height="1217">
+            <rect x="-101" y="-101" width="2513" height="1217" fill="white"></rect>
+            <rect x="22.500000" y="971.500000" width="112" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="239.500000" y="971.500000" width="103" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="447.500000" y="971.500000" width="77" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="629.500000" y="971.500000" width="107" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="841.500000" y="971.500000" width="126" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1072.500000" y="971.500000" width="128" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1305.500000" y="971.500000" width="130" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1540.500000" y="971.500000" width="77" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1722.500000" y="971.500000" width="40" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1867.500000" y="971.500000" width="82" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="2054.500000" y="971.500000" width="87" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="2246.500000" y="971.500000" width="42" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1853.000000" y="696.000000" width="52" height="21" fill="black"></rect>
+        </mask>
+    </svg>
+</svg>

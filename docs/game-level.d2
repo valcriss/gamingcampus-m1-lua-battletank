@@ -1,0 +1,33 @@
+GameLevel: {
+  shape: class
+
+  +new(): GameLevel
+  +pause(): void
+  +unPause(): void
+
+  -disableGameUpdate(): void
+  -enableGameUpdate(): void
+  -showPauseMenu(): void
+  -hidePauseMenu(): void
+  -showHelpMenu(): void
+  -hideHelpMenu(): void
+  -resume(): void
+  -back(): void
+  -returnToMap(): void
+  -onDebugChanged(): void
+  -onVictory(): void
+  -onDefeat(): void
+  -endGame(isVictory): void
+}
+GameLevel -> GameLevelData
+GameLevel -> GameManager
+GameLevel -> UIManager
+GameLevel -> DebugManager
+GameLevel -> PauseMenuFrame
+GameLevel -> SpriteSheetImage
+GameLevel -> DialogBackground
+GameLevel -> HelpFrame
+GameLevel -> Delay
+GameLevel -> EndGameUI
+GameLevel -> SoundEffect
+GameLevel -> Scene: extends
