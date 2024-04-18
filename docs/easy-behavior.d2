@@ -1,0 +1,11 @@
+EasyBehavior: {
+  shape: class
+
+  -searchRange: integer
+
+  +new(gameManager, enemy): EasyBehavior
+
+  +update(dt float): void
+}
+
+EasyBehavior -> Behavior

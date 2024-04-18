@@ -1,0 +1,15 @@
+Order: {
+  shape: class
+
+  -currentPath: table
+  -pathIndex: integer
+
+  +new(): Order
+
+  +update(dt float): void
+  +clearCurrentPath(): void
+  +setCurrentPath(path): void
+  +getPathNode(): Integer
+  +nextNode(): void
+  +getCurrentPath(): table
+}

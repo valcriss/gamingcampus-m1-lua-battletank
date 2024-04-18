@@ -1,0 +1,20 @@
+Behavior: {
+  shape: class
+
+  -currentOrder: Order
+  -seenTiles: table
+  -ignoredTiles: table
+
+  +new(gameManager, enemy): Behavior
+
+  +update(dt float): void
+  +getFirstUnSeenTilePosition(): Vector2
+  +setCurrentOrder(order): void
+  +resetCurrentOrder(): void
+  +getCurrentOrder(): Order
+  -getSeenTiles(): table
+  -updateTilesSeen(sight): void
+  \#getClosestEmptyTileFromPoint(destination, position): Vector2
+  \#searchPlayerInRange(range): Player
+  \#searchFlagInRange(range): Flag
+}

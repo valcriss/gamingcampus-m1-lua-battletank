@@ -2,6 +2,10 @@
 
 Les organismes de la scene Niveau du jeu element de jeu entités sont les éléments qui gère les entités du jeu.
 
+J'ai placé les élements spécifiques a l'attitude des enemis dans ce document :
+
+- [Attitude des enemis](./organisms-gamelevel-game-entities-behavior.md)
+
 ### models/gameLevel/entities/Entity.lua
 
 Le composant Entity est l'élément de base des entités du jeu.
