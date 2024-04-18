@@ -1,0 +1,16 @@
+Flag: {
+  shape: class
+
+  +new(gameManager, flagPosition, index): Flag
+
+  -realPosition: Vector2
+
+  +load(): void
+  +entityUpdate(dt float): void
+  +updateAssetsPosition(): void
+  +getIndex(): integer
+  -getNumberColor(): Color
+}
+Flag -> Image
+Flag -> HealthBar
+Flag -> Entity: extends

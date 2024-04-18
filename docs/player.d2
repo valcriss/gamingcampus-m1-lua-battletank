@@ -1,0 +1,10 @@
+Player: {
+  shape: class
+
+  +new(gameManager): Player
+
+  +updateUnit(dt float): void
+  +playerInputs(_, top, left, bottom, right): void
+}
+
+Player -> Unit: extends

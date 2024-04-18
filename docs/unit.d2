@@ -1,0 +1,26 @@
+Unit: {
+  shape: class
+
+  +new(name, gameManager, body, turret, fireAnimation, x, y, group): Unit
+
+  -turretRotation: integer
+  -startRealPosition: Vector2
+  -destinationRealPosition: Vector2
+
+  +load(): void
+  +entityUpdate(dt float): void
+  +updateTankPosition(): void
+  +targetPosition(targetX, targetY): void
+  +targetRealPosition(realTargetX, realTargetY): void
+  +fireStarts(): void
+  +fireEnds(): void
+  +updateUnitVisibility(dt float): void
+  +setStartRealPosition(newStartRealPosition): void
+  +setDestinationRealPosition(newDestinationRealPosition): void
+}
+Unit -> Image
+Unit -> SpriteSheetImage
+Unit -> HealthBar
+Unit -> UnitMissile
+Unit -> SoundEffect
+Unit -> Entity: extends

@@ -1,0 +1,42 @@
+Entity: {
+  shape: class
+
+  +new(name, gameManager, unitType, unitGroup, x, y, width, height, rotation, scale): Entity
+
+  -type: string
+  -group: integer
+  -maxHealth: integer
+  -canBeDamaged: boolean
+  -isFrozen: boolean
+  -canRegenHealth: boolean
+  -isDead: boolean
+  -regenHealthAmount: integer
+  -regenTimer: integer
+  -frozenDuration: integer
+  -currentHealth: integer
+  -collider: Rectangle
+
+  +draw(): void
+  +update(dt float): void
+
+  +getType(): string
+  +getGroup(): integer
+  +setGroup(group): void
+  +getCollider(): Rectangle
+  +setRotation(newRotation): void
+  +setCollider(newCollider): void
+  +setCanRegenHealth(newCanRegenHealth): void
+  +setRegenHealthAmount(newRegenHealthAmount): void
+  +setHealth(newHealth): void
+  +getHealthPercentage(): float
+  +getMaxHealth(): integer
+  +canBeDamaged(): boolean
+  +isFrozen(): boolean
+  +setFrozen(duration): void
+  +setCanBeDamaged(newCanBeDamaged): void
+  +setMaxHealth(newMaxHealth): void
+  +takeDamage(damage, fromGroup): void
+  +fullHealth(): void
+}
+
+Entity -> Component: extends

@@ -1,0 +1,19 @@
+Enemy: {
+  shape: class
+
+  +new(index, enemyPosition, gameManager): Enemy
+
+  -enemyRealPosition: Vector2
+  -behavior: Behavior
+
+  +load(): void
+  +resetPosition(): void
+  +updateUnit(dt float): void
+  +lookAtPosition(position): void
+  +moveToPoint(destination, dt): void
+  +getEnemyBehavior(): Behavior
+  +getEnemyPosition(): Vector2
+  +setEnemyPosition(position): void
+}
+
+Enemy -> Unit: extends

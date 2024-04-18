@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 1223 1631">
+    <svg id="d2-svg" class="d2-2446191569" width="1223" height="1631" viewBox="-101 -101 1223 1631">
+        <rect x="-101.000000" y="-101.000000" width="1223.000000" height="1631.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-2446191569 .text-bold {
+	font-family: "d2-2446191569-font-bold";
+}
+@font-face {
+	font-family: d2-2446191569-font-bold;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-2446191569 .text-italic {
+	font-family: "d2-2446191569-font-italic";
+}
+@font-face {
+	font-family: d2-2446191569-font-italic;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-2446191569 .text-mono {
+	font-family: "d2-2446191569-font-mono";
+}
+@font-face {
+	font-family: d2-2446191569-font-mono;
+	src: url("data:application/font-woff;base64,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");
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-2446191569 .fill-N1{fill:#0A0F25;}
+		.d2-2446191569 .fill-N2{fill:#676C7E;}
+		.d2-2446191569 .fill-N3{fill:#9499AB;}
+		.d2-2446191569 .fill-N4{fill:#CFD2DD;}
+		.d2-2446191569 .fill-N5{fill:#DEE1EB;}
+		.d2-2446191569 .fill-N6{fill:#EEF1F8;}
+		.d2-2446191569 .fill-N7{fill:#FFFFFF;}
+		.d2-2446191569 .fill-B1{fill:#0A0F25;}
+		.d2-2446191569 .fill-B2{fill:#676C7E;}
+		.d2-2446191569 .fill-B3{fill:#9499AB;}
+		.d2-2446191569 .fill-B4{fill:#CFD2DD;}
+		.d2-2446191569 .fill-B5{fill:#DEE1EB;}
+		.d2-2446191569 .fill-B6{fill:#EEF1F8;}
+		.d2-2446191569 .fill-AA2{fill:#676C7E;}
+		.d2-2446191569 .fill-AA4{fill:#CFD2DD;}
+		.d2-2446191569 .fill-AA5{fill:#DEE1EB;}
+		.d2-2446191569 .fill-AB4{fill:#CFD2DD;}
+		.d2-2446191569 .fill-AB5{fill:#DEE1EB;}
+		.d2-2446191569 .stroke-N1{stroke:#0A0F25;}
+		.d2-2446191569 .stroke-N2{stroke:#676C7E;}
+		.d2-2446191569 .stroke-N3{stroke:#9499AB;}
+		.d2-2446191569 .stroke-N4{stroke:#CFD2DD;}
+		.d2-2446191569 .stroke-N5{stroke:#DEE1EB;}
+		.d2-2446191569 .stroke-N6{stroke:#EEF1F8;}
+		.d2-2446191569 .stroke-N7{stroke:#FFFFFF;}
+		.d2-2446191569 .stroke-B1{stroke:#0A0F25;}
+		.d2-2446191569 .stroke-B2{stroke:#676C7E;}
+		.d2-2446191569 .stroke-B3{stroke:#9499AB;}
+		.d2-2446191569 .stroke-B4{stroke:#CFD2DD;}
+		.d2-2446191569 .stroke-B5{stroke:#DEE1EB;}
+		.d2-2446191569 .stroke-B6{stroke:#EEF1F8;}
+		.d2-2446191569 .stroke-AA2{stroke:#676C7E;}
+		.d2-2446191569 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-2446191569 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-2446191569 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-2446191569 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-2446191569 .background-color-N1{background-color:#0A0F25;}
+		.d2-2446191569 .background-color-N2{background-color:#676C7E;}
+		.d2-2446191569 .background-color-N3{background-color:#9499AB;}
+		.d2-2446191569 .background-color-N4{background-color:#CFD2DD;}
+		.d2-2446191569 .background-color-N5{background-color:#DEE1EB;}
+		.d2-2446191569 .background-color-N6{background-color:#EEF1F8;}
+		.d2-2446191569 .background-color-N7{background-color:#FFFFFF;}
+		.d2-2446191569 .background-color-B1{background-color:#0A0F25;}
+		.d2-2446191569 .background-color-B2{background-color:#676C7E;}
+		.d2-2446191569 .background-color-B3{background-color:#9499AB;}
+		.d2-2446191569 .background-color-B4{background-color:#CFD2DD;}
+		.d2-2446191569 .background-color-B5{background-color:#DEE1EB;}
+		.d2-2446191569 .background-color-B6{background-color:#EEF1F8;}
+		.d2-2446191569 .background-color-AA2{background-color:#676C7E;}
+		.d2-2446191569 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-2446191569 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-2446191569 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-2446191569 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-2446191569 .color-N1{color:#0A0F25;}
+		.d2-2446191569 .color-N2{color:#676C7E;}
+		.d2-2446191569 .color-N3{color:#9499AB;}
+		.d2-2446191569 .color-N4{color:#CFD2DD;}
+		.d2-2446191569 .color-N5{color:#DEE1EB;}
+		.d2-2446191569 .color-N6{color:#EEF1F8;}
+		.d2-2446191569 .color-N7{color:#FFFFFF;}
+		.d2-2446191569 .color-B1{color:#0A0F25;}
+		.d2-2446191569 .color-B2{color:#676C7E;}
+		.d2-2446191569 .color-B3{color:#9499AB;}
+		.d2-2446191569 .color-B4{color:#CFD2DD;}
+		.d2-2446191569 .color-B5{color:#DEE1EB;}
+		.d2-2446191569 .color-B6{color:#EEF1F8;}
+		.d2-2446191569 .color-AA2{color:#676C7E;}
+		.d2-2446191569 .color-AA4{color:#CFD2DD;}
+		.d2-2446191569 .color-AA5{color:#DEE1EB;}
+		.d2-2446191569 .color-AB4{color:#CFD2DD;}
+		.d2-2446191569 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="UnitMissile">
+            <g class="shape">
+                <rect x="0.000000" y="0.000000" width="1021.000000" height="1242.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="0.000000" y="0.000000" width="1021.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="510.500000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
+                    UnitMissile
+                </text>
+                <text x="10.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    startX
+                </text>
+                <text x="1001.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    startY
+                </text>
+                <text x="1001.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentX
+                </text>
+                <text x="1001.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentY
+                </text>
+                <text x="1001.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentRotation
+                </text>
+                <text x="1001.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    destinationX
+                </text>
+                <text x="1001.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    destinationY
+                </text>
+                <text x="1001.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    rotation
+                </text>
+                <text x="1001.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    running
+                </text>
+                <text x="1001.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    moving
+                </text>
+                <text x="1001.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    drawViewPort
+                </text>
+                <text x="1001.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    ViewPort
+                </text>
+                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    unitGroup
+                </text>
+                <text x="1001.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <line x1="0.000000" x2="1021.000000" y1="644.000000" y2="644.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    new(name, gameManager, group, asset, speed)
+                </text>
+                <text x="1001.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    UnitMissile
+                </text>
+                <text x="10.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    load()
+                </text>
+                <text x="1001.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    update(dt float)
+                </text>
+                <text x="1001.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    updateMissileMovement(dt float)
+                </text>
+                <text x="1001.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    fire(newStartX, newStartY, newDestinationX, newDestinationY, newRotation)
+                </text>
+                <text x="1001.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isRunning()
+                </text>
+                <text x="1001.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setDrawViewPort(drawViewPortObj)
+                </text>
+                <text x="1001.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    explosionEnds()
+                </text>
+                <text x="1001.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    translateRealPositionToScreenPosition(realX, realY)
+                </text>
+                <text x="1001.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Vector2
+                </text>
+                <text x="10.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    distanceToDestination()
+                </text>
+                <text x="1001.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="10.000000" y="1132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="1132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getNormalizedMovementVector()
+                </text>
+                <text x="1001.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Vector2
+                </text>
+                <text x="10.000000" y="1178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="1178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isBlockedByUnit(x, y)
+                </text>
+                <text x="1001.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="1224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="1224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    blockMissile()
+                </text>
+                <text x="1001.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <g id="Image">
+            <g class="shape">
+                <rect x="276.000000" y="1363.000000" width="88.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="320.000000" y="1401.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Image
+            </text>
+        </g>
+        <g id="SpriteSheetImage">
+            <g class="shape">
+                <rect x="424.000000" y="1363.000000" width="173.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="510.500000" y="1401.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                SpriteSheetImage
+            </text>
+        </g>
+        <g id="Component">
+            <g class="shape">
+                <rect x="657.000000" y="1363.000000" width="128.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="721.000000" y="1401.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Component
+            </text>
+        </g>
+        <g id="(UnitMissile -&gt; Image)[0]">
+            <marker id="mk-3488378134" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000"
+                    viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse">
+                <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" class="connection fill-B1"
+                         stroke-width="2"/>
+            </marker>
+            <path d="M 336.463084 1243.426583 C 323.399994 1290.300049 320.000000 1314.699951 320.000000 1359.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-2446191569)"/>
+        </g>
+        <g id="(UnitMissile -&gt; SpriteSheetImage)[0]">
+            <path d="M 510.500000 1243.500000 C 510.500000 1290.300049 510.500000 1314.699951 510.500000 1359.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-2446191569)"/>
+        </g>
+        <g id="(UnitMissile -&gt; Component)[0]">
+            <path d="M 702.594767 1243.409516 C 717.200012 1290.300049 721.000000 1314.699951 721.000000 1359.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-2446191569)"/>
+            <text x="719.000000" y="1307.000000" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">
+                extends
+            </text>
+        </g>
+        <mask id="d2-2446191569" maskUnits="userSpaceOnUse" x="-101" y="-101" width="1223" height="1631">
+            <rect x="-101" y="-101" width="1223" height="1631" fill="white"></rect>
+            <rect x="298.500000" y="1385.500000" width="43" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="446.500000" y="1385.500000" width="128" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="679.500000" y="1385.500000" width="83" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="693.000000" y="1291.000000" width="52" height="21" fill="black"></rect>
+        </mask>
+    </svg>
+</svg>

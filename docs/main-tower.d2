@@ -1,0 +1,27 @@
+MainTower: {
+  shape: class
+
+  +new(gameManager, flagPosition, index): MainTower
+
+  -realPosition: Vector2
+  -gunRotation: integer
+  -shieldActive: boolean
+  -idleRotationSpeed: integer
+  -fastRotationSpeed: integer
+  -distanceThreshold: integer
+  -fireThreshold: integer
+
+  +load(): void
+  +entityUpdate(dt float): void
+  +updateGunRotation(dt float): void
+  +updateMainTower(dt float): void
+  +setShieldOff(): void
+  +setShieldOn(): void
+  +isShieldActive(): boolean
+}
+MainTower -> Image
+MainTower -> SpriteSheetImage
+MainTower -> HealthBar
+MainTower -> UnitMissile
+MainTower -> SoundEffect
+MainTower -> Entity: extends

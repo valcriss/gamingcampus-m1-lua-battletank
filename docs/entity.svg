@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 1345 1999">
+    <svg id="d2-svg" class="d2-4025293605" width="1345" height="1999" viewBox="-101 -101 1345 1999">
+        <rect x="-101.000000" y="-101.000000" width="1345.000000" height="1999.000000" rx="0.000000" class=" fill-N7"
+              stroke-width="0"/>
+        <style type="text/css"><![CDATA[
+.d2-4025293605 .text-bold {
+	font-family: "d2-4025293605-font-bold";
+}
+@font-face {
+	font-family: d2-4025293605-font-bold;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-4025293605 .text-italic {
+	font-family: "d2-4025293605-font-italic";
+}
+@font-face {
+	font-family: d2-4025293605-font-italic;
+	src: url("data:application/font-woff;base64,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");
+}
+.d2-4025293605 .text-mono {
+	font-family: "d2-4025293605-font-mono";
+}
+@font-face {
+	font-family: d2-4025293605-font-mono;
+	src: url("data:application/font-woff;base64,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");
+}]]></style>
+        <style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-4025293605 .fill-N1{fill:#0A0F25;}
+		.d2-4025293605 .fill-N2{fill:#676C7E;}
+		.d2-4025293605 .fill-N3{fill:#9499AB;}
+		.d2-4025293605 .fill-N4{fill:#CFD2DD;}
+		.d2-4025293605 .fill-N5{fill:#DEE1EB;}
+		.d2-4025293605 .fill-N6{fill:#EEF1F8;}
+		.d2-4025293605 .fill-N7{fill:#FFFFFF;}
+		.d2-4025293605 .fill-B1{fill:#0A0F25;}
+		.d2-4025293605 .fill-B2{fill:#676C7E;}
+		.d2-4025293605 .fill-B3{fill:#9499AB;}
+		.d2-4025293605 .fill-B4{fill:#CFD2DD;}
+		.d2-4025293605 .fill-B5{fill:#DEE1EB;}
+		.d2-4025293605 .fill-B6{fill:#EEF1F8;}
+		.d2-4025293605 .fill-AA2{fill:#676C7E;}
+		.d2-4025293605 .fill-AA4{fill:#CFD2DD;}
+		.d2-4025293605 .fill-AA5{fill:#DEE1EB;}
+		.d2-4025293605 .fill-AB4{fill:#CFD2DD;}
+		.d2-4025293605 .fill-AB5{fill:#DEE1EB;}
+		.d2-4025293605 .stroke-N1{stroke:#0A0F25;}
+		.d2-4025293605 .stroke-N2{stroke:#676C7E;}
+		.d2-4025293605 .stroke-N3{stroke:#9499AB;}
+		.d2-4025293605 .stroke-N4{stroke:#CFD2DD;}
+		.d2-4025293605 .stroke-N5{stroke:#DEE1EB;}
+		.d2-4025293605 .stroke-N6{stroke:#EEF1F8;}
+		.d2-4025293605 .stroke-N7{stroke:#FFFFFF;}
+		.d2-4025293605 .stroke-B1{stroke:#0A0F25;}
+		.d2-4025293605 .stroke-B2{stroke:#676C7E;}
+		.d2-4025293605 .stroke-B3{stroke:#9499AB;}
+		.d2-4025293605 .stroke-B4{stroke:#CFD2DD;}
+		.d2-4025293605 .stroke-B5{stroke:#DEE1EB;}
+		.d2-4025293605 .stroke-B6{stroke:#EEF1F8;}
+		.d2-4025293605 .stroke-AA2{stroke:#676C7E;}
+		.d2-4025293605 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-4025293605 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-4025293605 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-4025293605 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-4025293605 .background-color-N1{background-color:#0A0F25;}
+		.d2-4025293605 .background-color-N2{background-color:#676C7E;}
+		.d2-4025293605 .background-color-N3{background-color:#9499AB;}
+		.d2-4025293605 .background-color-N4{background-color:#CFD2DD;}
+		.d2-4025293605 .background-color-N5{background-color:#DEE1EB;}
+		.d2-4025293605 .background-color-N6{background-color:#EEF1F8;}
+		.d2-4025293605 .background-color-N7{background-color:#FFFFFF;}
+		.d2-4025293605 .background-color-B1{background-color:#0A0F25;}
+		.d2-4025293605 .background-color-B2{background-color:#676C7E;}
+		.d2-4025293605 .background-color-B3{background-color:#9499AB;}
+		.d2-4025293605 .background-color-B4{background-color:#CFD2DD;}
+		.d2-4025293605 .background-color-B5{background-color:#DEE1EB;}
+		.d2-4025293605 .background-color-B6{background-color:#EEF1F8;}
+		.d2-4025293605 .background-color-AA2{background-color:#676C7E;}
+		.d2-4025293605 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-4025293605 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-4025293605 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-4025293605 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-4025293605 .color-N1{color:#0A0F25;}
+		.d2-4025293605 .color-N2{color:#676C7E;}
+		.d2-4025293605 .color-N3{color:#9499AB;}
+		.d2-4025293605 .color-N4{color:#CFD2DD;}
+		.d2-4025293605 .color-N5{color:#DEE1EB;}
+		.d2-4025293605 .color-N6{color:#EEF1F8;}
+		.d2-4025293605 .color-N7{color:#FFFFFF;}
+		.d2-4025293605 .color-B1{color:#0A0F25;}
+		.d2-4025293605 .color-B2{color:#676C7E;}
+		.d2-4025293605 .color-B3{color:#9499AB;}
+		.d2-4025293605 .color-B4{color:#CFD2DD;}
+		.d2-4025293605 .color-B5{color:#DEE1EB;}
+		.d2-4025293605 .color-B6{color:#EEF1F8;}
+		.d2-4025293605 .color-AA2{color:#676C7E;}
+		.d2-4025293605 .color-AA4{color:#CFD2DD;}
+		.d2-4025293605 .color-AA5{color:#DEE1EB;}
+		.d2-4025293605 .color-AB4{color:#CFD2DD;}
+		.d2-4025293605 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+        <g id="Entity">
+            <g class="shape">
+                <rect x="0.000000" y="0.000000" width="1143.000000" height="1610.000000" class=" stroke-N1 fill-N7"
+                      style="stroke-width:2;"/>
+                <rect x="0.000000" y="0.000000" width="1143.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="571.500000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
+                    Entity
+                </text>
+                <text x="10.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    type
+                </text>
+                <text x="1123.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    string
+                </text>
+                <text x="10.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    group
+                </text>
+                <text x="1123.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    maxHealth
+                </text>
+                <text x="1123.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    canBeDamaged
+                </text>
+                <text x="1123.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isFrozen
+                </text>
+                <text x="1123.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    canRegenHealth
+                </text>
+                <text x="1123.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isDead
+                </text>
+                <text x="1123.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    regenHealthAmount
+                </text>
+                <text x="1123.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    regenTimer
+                </text>
+                <text x="1123.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    frozenDuration
+                </text>
+                <text x="1123.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    currentHealth
+                </text>
+                <text x="1123.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    -
+                </text>
+                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    collider
+                </text>
+                <text x="1123.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Rectangle
+                </text>
+                <line x1="0.000000" x2="1143.000000" y1="644.000000" y2="644.000000" class=" stroke-N1"
+                      style="stroke-width:1"/>
+                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    new(name, gameManager, unitType, unitGroup, x, y, width, height, rotation, scale)
+                </text>
+                <text x="1123.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Entity
+                </text>
+                <text x="10.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    draw()
+                </text>
+                <text x="1123.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    update(dt float)
+                </text>
+                <text x="1123.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getType()
+                </text>
+                <text x="1123.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    string
+                </text>
+                <text x="10.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getGroup()
+                </text>
+                <text x="1123.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setGroup(group)
+                </text>
+                <text x="1123.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getCollider()
+                </text>
+                <text x="1123.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    Rectangle
+                </text>
+                <text x="10.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setRotation(newRotation)
+                </text>
+                <text x="1123.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setCollider(newCollider)
+                </text>
+                <text x="1123.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setCanRegenHealth(newCanRegenHealth)
+                </text>
+                <text x="1123.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setRegenHealthAmount(newRegenHealthAmount)
+                </text>
+                <text x="1123.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setHealth(newHealth)
+                </text>
+                <text x="1123.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getHealthPercentage()
+                </text>
+                <text x="1123.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    float
+                </text>
+                <text x="10.000000" y="1270.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1270.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    getMaxHealth()
+                </text>
+                <text x="1123.000000" y="1270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    integer
+                </text>
+                <text x="10.000000" y="1316.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1316.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    canBeDamaged()
+                </text>
+                <text x="1123.000000" y="1316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="1362.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1362.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    isFrozen()
+                </text>
+                <text x="1123.000000" y="1362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    boolean
+                </text>
+                <text x="10.000000" y="1408.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1408.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setFrozen(duration)
+                </text>
+                <text x="1123.000000" y="1408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1454.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1454.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setCanBeDamaged(newCanBeDamaged)
+                </text>
+                <text x="1123.000000" y="1454.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1500.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1500.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    setMaxHealth(newMaxHealth)
+                </text>
+                <text x="1123.000000" y="1500.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1546.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1546.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    takeDamage(damage, fromGroup)
+                </text>
+                <text x="1123.000000" y="1546.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+                <text x="10.000000" y="1592.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                    +
+                </text>
+                <text x="30.000000" y="1592.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                    fullHealth()
+                </text>
+                <text x="1123.000000" y="1592.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                    void
+                </text>
+            </g>
+        </g>
+        <g id="Component">
+            <g class="shape">
+                <rect x="508.000000" y="1731.000000" width="128.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="572.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Component
+            </text>
+        </g>
+        <g id="(Entity -&gt; Component)[0]">
+            <marker id="mk-3488378134" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000"
+                    viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse">
+                <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" class="connection fill-B1"
+                         stroke-width="2"/>
+            </marker>
+            <path d="M 571.500000 1611.500000 C 571.500000 1658.300049 571.500000 1682.699951 571.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-4025293605)"/>
+            <text x="572.000000" y="1676.000000" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">
+                extends
+            </text>
+        </g>
+        <mask id="d2-4025293605" maskUnits="userSpaceOnUse" x="-101" y="-101" width="1345" height="1999">
+            <rect x="-101" y="-101" width="1345" height="1999" fill="white"></rect>
+            <rect x="530.500000" y="1753.500000" width="83" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="546.000000" y="1660.000000" width="52" height="21" fill="black"></rect>
+        </mask>
+    </svg>
+</svg>

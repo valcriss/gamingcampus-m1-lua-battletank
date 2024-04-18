@@ -1,0 +1,35 @@
+UnitMissile: {
+  shape: class
+
+  +new(name, gameManager, group, asset, speed): UnitMissile
+
+  -startX: integer
+  -startY: integer
+  -currentX: integer
+  -currentY: integer
+  -currentRotation: integer
+  -destinationX: integer
+  -destinationY: integer
+  -rotation: integer
+  -running: boolean
+  -moving: boolean
+  -drawViewPort: ViewPort
+  -unitGroup: integer
+
+  +load(): void
+  +update(dt float): void
+  +updateMissileMovement(dt float): void
+  +fire(newStartX, newStartY, newDestinationX, newDestinationY, newRotation): void
+  +isRunning(): boolean
+  +setDrawViewPort(drawViewPortObj): void
+  -explosionEnds(): void
+  -translateRealPositionToScreenPosition(realX, realY): Vector2
+  -distanceToDestination(): float
+  -getNormalizedMovementVector(): Vector2
+  -isBlockedByUnit(x, y): boolean
+  -blockMissile(): void
+}
+
+UnitMissile -> Image
+UnitMissile -> SpriteSheetImage
+UnitMissile -> Component: extends

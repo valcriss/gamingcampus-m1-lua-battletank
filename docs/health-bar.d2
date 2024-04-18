@@ -1,0 +1,19 @@
+HealthBar: {
+  shape: class
+
+  +new(name, entity, width, height, offsetY): HealthBar
+
+  -healthBarGroup: integer
+  -healthBarValue: integer
+  -healthBarMaxValue: integer
+  -renderInfo: table
+
+  +update(dt float): void
+  +draw(): void
+
+  -getBackgroundRenderColor(): Color
+  -getBorderRenderColor(): Color
+  -getBarRenderColor(): Color
+}
+
+HealthBar -> Component: extends
