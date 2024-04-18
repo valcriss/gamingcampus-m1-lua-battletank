@@ -25,6 +25,8 @@ Les classes de bases de l'architecture sont 5 classes qui gèrent les interracti
 
 ## Les atomes
 
+Les atomes de base du framework se trouvent dans le répertoire /framework/...
+
 Les atomes sont les composants de base, ils ne contiennent pas d'autres composants
 
 [Voir une description plus détaillée](./docs/atoms.md)
@@ -32,6 +34,8 @@ Les atomes sont les composants de base, ils ne contiennent pas d'autres composan
 --------
 
 ## Les molécules
+
+Les molécules de base du framework se trouvent dans le répertoire /framework/...
 
 Le molécules utilisent les atomes pour créer des composants plus complexes
 
@@ -41,6 +45,8 @@ Le molécules utilisent les atomes pour créer des composants plus complexes
 
 ## Les organismes du jeu
 
+Les molécules de base du framework se trouvent dans le répertoire /models/...
+
 Les organismes sont des composants plus complexes qui contiennent des molécules et des atomes
 
 [Voir une description plus détaillée](./docs/organisms.md)
@@ -49,6 +55,8 @@ Les organismes sont des composants plus complexes qui contiennent des molécules
 
 ## Les templates/scenes du jeu
 
+Les templates/scenes de base du framework se trouvent dans le répertoire /scenes/...
+
 Les templates/scenes sont des composants plus complexes qui contiennent des organismes, des molécules et des atomes
 
 [Voir une description plus détaillée](./docs/templates.md)
@@ -56,6 +64,8 @@ Les templates/scenes sont des composants plus complexes qui contiennent des orga
 --------
 
 ## Les classes utilitaires
+
+Les classes de base du framework se trouvent dans le répertoire /framework/tools et /framework/drawing
 
 Les classes utilitaires sont des classes qui apportent des fonctionnalités partagées par les composants du framework
 
