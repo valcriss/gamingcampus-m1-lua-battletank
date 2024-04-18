@@ -1,0 +1,44 @@
+GameManager: {
+  shape: class
+
+  +new(gameManager GameManager): GameMapDebug
+
+  -units: table
+  -onUnitUnderAttackEventHandlers: table
+  -onUnitDeadEventHandlers: table
+  -onFlagCapturedEventHandlers: table
+  -onTowerFlagEventHandlers: table
+
+  +load(): void
+  +update(dt float): void
+  +getViewport(): Viewport
+  +getGameLevelData(): GameLevelData
+  +getGameMap(): GameMap
+  +getFogOfWar(): FogOfWar
+  +getPlayer(): Player
+  +getPathFinding(): PathFinding
+
+  +getUnits(): table
+  +getMainTowerByGroup(group): MainTower
+  +getEnemyUnits(): table
+  +getEnemyFlags(): table
+  +getPlayerFlags(): table
+  +getPlayerOrNeutralFlags(): table
+  +getNeutralFlags(): table
+  +getFlags(): table
+  +getEnemyTower(): MainTower
+  +getPlayerTower(): MainTower
+  +getFilteredUnits(filter): table
+
+  +tileContainsUnit(tileIndex, excludeUnit): boolean
+
+  +onUnitTakeDamage(unit, damage, fromGroup): void
+  +onUnitDead(unit, fromGroup): void
+  +onFlagCaptured(unit, fromGroup): void
+
+  +registerOnUnitDeadEventHandler(handler): void
+  +registerOnFlagCapturedEventHandler(handler): void
+  +registerOnUnitUnderAttackEventHandler(handler): void
+  +registerOnTowerFlagEventHandler(handler): void
+}
+GameManager -> Component: extends
