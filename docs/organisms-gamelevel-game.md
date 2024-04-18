@@ -12,4 +12,4 @@ Outre l'élément GameManager (élément principal du jeu), les organismes sont 
 
 Le composant GameManager est l'élément central du jeu. Il gère l'ensemble des éléments du jeu.
 
-<img src="./game-manager.svg" width="500">
+<img src="./game-manager.svg">
