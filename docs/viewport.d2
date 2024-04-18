@@ -1,0 +1,28 @@
+ViewPort: {
+  shape: class
+
+  +new(gameManager GameManager): ViewPort
+
+  -maxBounds: Rectangle
+  -realBounds: Rectangle
+  -renderBounds: Rectangle
+
+  +load(): void
+
+  +resetPosition(): void
+  +update(dt float): void
+  +getRealBounds(): Rectangle
+  +getRenderBounds(): Rectangle
+  +getMaxBounds(): Rectangle
+  +verticalMove(value): void
+  +horizontalMove(value): void
+  +playerInputs(dt, top, left, bottom, right): void
+  +newPositionIsInvalid(): boolean
+  +transformRectangleWorldToViewport(position): Rectangle
+  +transformPointWorldToViewport(position): Vector2
+  +restrictViewPortPosition(): void
+  +updateRealBounds(): void
+  +updateRenderBounds(): void
+}
+
+ViewPort -> Component: extends

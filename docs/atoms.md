@@ -43,7 +43,7 @@ Le composant Text permet d'afficher un texte en utilisant la font standard de lo
 
 Le composant DialogBackground permet d'afficher un fond semi-transparent pour les dialogues et les menus
 
-<img src="./dialog-background.svg">
+<img src="./dialog-background.svg" width="500">
 
 ### framework/ui/Frame.lua
 

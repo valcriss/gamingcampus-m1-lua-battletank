@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" d2Version="v0.6.3"
-     preserveAspectRatio="xMinYMin meet" viewBox="0 0 899 1999">
-    <svg id="d2-svg" class="d2-958448669" width="899" height="1999" viewBox="-101 -101 899 1999">
-        <rect x="-101.000000" y="-101.000000" width="899.000000" height="1999.000000" rx="0.000000" class=" fill-N7"
+     preserveAspectRatio="xMinYMin meet" viewBox="0 0 2059 1999">
+    <svg id="d2-svg" class="d2-349279748" width="2059" height="1999" viewBox="-101 -101 2059 1999">
+        <rect x="-101.000000" y="-101.000000" width="2059.000000" height="1999.000000" rx="0.000000" class=" fill-N7"
               stroke-width="0"/>
         <style type="text/css"><![CDATA[
-.d2-958448669 .text-bold {
-	font-family: "d2-958448669-font-bold";
+.d2-349279748 .text-bold {
+	font-family: "d2-349279748-font-bold";
 }
 @font-face {
-	font-family: d2-958448669-font-bold;
+	font-family: d2-349279748-font-bold;
 	src: url("data:application/font-woff;base64,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");
 }
-.d2-958448669 .text-italic {
-	font-family: "d2-958448669-font-italic";
+.d2-349279748 .text-italic {
+	font-family: "d2-349279748-font-italic";
 }
 @font-face {
-	font-family: d2-958448669-font-italic;
+	font-family: d2-349279748-font-italic;
 	src: url("data:application/font-woff;base64,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");
 }
-.d2-958448669 .text-mono {
-	font-family: "d2-958448669-font-mono";
+.d2-349279748 .text-mono {
+	font-family: "d2-349279748-font-mono";
 }
 @font-face {
-	font-family: d2-958448669-font-mono;
+	font-family: d2-349279748-font-mono;
 	src: url("data:application/font-woff;base64,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");
 }]]></style>
         <style type="text/css"><![CDATA[.shape {
@@ -39,413 +39,563 @@
   opacity: 0.5;
 }
 
-		.d2-958448669 .fill-N1{fill:#0A0F25;}
-		.d2-958448669 .fill-N2{fill:#676C7E;}
-		.d2-958448669 .fill-N3{fill:#9499AB;}
-		.d2-958448669 .fill-N4{fill:#CFD2DD;}
-		.d2-958448669 .fill-N5{fill:#DEE1EB;}
-		.d2-958448669 .fill-N6{fill:#EEF1F8;}
-		.d2-958448669 .fill-N7{fill:#FFFFFF;}
-		.d2-958448669 .fill-B1{fill:#0A0F25;}
-		.d2-958448669 .fill-B2{fill:#676C7E;}
-		.d2-958448669 .fill-B3{fill:#9499AB;}
-		.d2-958448669 .fill-B4{fill:#CFD2DD;}
-		.d2-958448669 .fill-B5{fill:#DEE1EB;}
-		.d2-958448669 .fill-B6{fill:#EEF1F8;}
-		.d2-958448669 .fill-AA2{fill:#676C7E;}
-		.d2-958448669 .fill-AA4{fill:#CFD2DD;}
-		.d2-958448669 .fill-AA5{fill:#DEE1EB;}
-		.d2-958448669 .fill-AB4{fill:#CFD2DD;}
-		.d2-958448669 .fill-AB5{fill:#DEE1EB;}
-		.d2-958448669 .stroke-N1{stroke:#0A0F25;}
-		.d2-958448669 .stroke-N2{stroke:#676C7E;}
-		.d2-958448669 .stroke-N3{stroke:#9499AB;}
-		.d2-958448669 .stroke-N4{stroke:#CFD2DD;}
-		.d2-958448669 .stroke-N5{stroke:#DEE1EB;}
-		.d2-958448669 .stroke-N6{stroke:#EEF1F8;}
-		.d2-958448669 .stroke-N7{stroke:#FFFFFF;}
-		.d2-958448669 .stroke-B1{stroke:#0A0F25;}
-		.d2-958448669 .stroke-B2{stroke:#676C7E;}
-		.d2-958448669 .stroke-B3{stroke:#9499AB;}
-		.d2-958448669 .stroke-B4{stroke:#CFD2DD;}
-		.d2-958448669 .stroke-B5{stroke:#DEE1EB;}
-		.d2-958448669 .stroke-B6{stroke:#EEF1F8;}
-		.d2-958448669 .stroke-AA2{stroke:#676C7E;}
-		.d2-958448669 .stroke-AA4{stroke:#CFD2DD;}
-		.d2-958448669 .stroke-AA5{stroke:#DEE1EB;}
-		.d2-958448669 .stroke-AB4{stroke:#CFD2DD;}
-		.d2-958448669 .stroke-AB5{stroke:#DEE1EB;}
-		.d2-958448669 .background-color-N1{background-color:#0A0F25;}
-		.d2-958448669 .background-color-N2{background-color:#676C7E;}
-		.d2-958448669 .background-color-N3{background-color:#9499AB;}
-		.d2-958448669 .background-color-N4{background-color:#CFD2DD;}
-		.d2-958448669 .background-color-N5{background-color:#DEE1EB;}
-		.d2-958448669 .background-color-N6{background-color:#EEF1F8;}
-		.d2-958448669 .background-color-N7{background-color:#FFFFFF;}
-		.d2-958448669 .background-color-B1{background-color:#0A0F25;}
-		.d2-958448669 .background-color-B2{background-color:#676C7E;}
-		.d2-958448669 .background-color-B3{background-color:#9499AB;}
-		.d2-958448669 .background-color-B4{background-color:#CFD2DD;}
-		.d2-958448669 .background-color-B5{background-color:#DEE1EB;}
-		.d2-958448669 .background-color-B6{background-color:#EEF1F8;}
-		.d2-958448669 .background-color-AA2{background-color:#676C7E;}
-		.d2-958448669 .background-color-AA4{background-color:#CFD2DD;}
-		.d2-958448669 .background-color-AA5{background-color:#DEE1EB;}
-		.d2-958448669 .background-color-AB4{background-color:#CFD2DD;}
-		.d2-958448669 .background-color-AB5{background-color:#DEE1EB;}
-		.d2-958448669 .color-N1{color:#0A0F25;}
-		.d2-958448669 .color-N2{color:#676C7E;}
-		.d2-958448669 .color-N3{color:#9499AB;}
-		.d2-958448669 .color-N4{color:#CFD2DD;}
-		.d2-958448669 .color-N5{color:#DEE1EB;}
-		.d2-958448669 .color-N6{color:#EEF1F8;}
-		.d2-958448669 .color-N7{color:#FFFFFF;}
-		.d2-958448669 .color-B1{color:#0A0F25;}
-		.d2-958448669 .color-B2{color:#676C7E;}
-		.d2-958448669 .color-B3{color:#9499AB;}
-		.d2-958448669 .color-B4{color:#CFD2DD;}
-		.d2-958448669 .color-B5{color:#DEE1EB;}
-		.d2-958448669 .color-B6{color:#EEF1F8;}
-		.d2-958448669 .color-AA2{color:#676C7E;}
-		.d2-958448669 .color-AA4{color:#CFD2DD;}
-		.d2-958448669 .color-AA5{color:#DEE1EB;}
-		.d2-958448669 .color-AB4{color:#CFD2DD;}
-		.d2-958448669 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
+		.d2-349279748 .fill-N1{fill:#0A0F25;}
+		.d2-349279748 .fill-N2{fill:#676C7E;}
+		.d2-349279748 .fill-N3{fill:#9499AB;}
+		.d2-349279748 .fill-N4{fill:#CFD2DD;}
+		.d2-349279748 .fill-N5{fill:#DEE1EB;}
+		.d2-349279748 .fill-N6{fill:#EEF1F8;}
+		.d2-349279748 .fill-N7{fill:#FFFFFF;}
+		.d2-349279748 .fill-B1{fill:#0A0F25;}
+		.d2-349279748 .fill-B2{fill:#676C7E;}
+		.d2-349279748 .fill-B3{fill:#9499AB;}
+		.d2-349279748 .fill-B4{fill:#CFD2DD;}
+		.d2-349279748 .fill-B5{fill:#DEE1EB;}
+		.d2-349279748 .fill-B6{fill:#EEF1F8;}
+		.d2-349279748 .fill-AA2{fill:#676C7E;}
+		.d2-349279748 .fill-AA4{fill:#CFD2DD;}
+		.d2-349279748 .fill-AA5{fill:#DEE1EB;}
+		.d2-349279748 .fill-AB4{fill:#CFD2DD;}
+		.d2-349279748 .fill-AB5{fill:#DEE1EB;}
+		.d2-349279748 .stroke-N1{stroke:#0A0F25;}
+		.d2-349279748 .stroke-N2{stroke:#676C7E;}
+		.d2-349279748 .stroke-N3{stroke:#9499AB;}
+		.d2-349279748 .stroke-N4{stroke:#CFD2DD;}
+		.d2-349279748 .stroke-N5{stroke:#DEE1EB;}
+		.d2-349279748 .stroke-N6{stroke:#EEF1F8;}
+		.d2-349279748 .stroke-N7{stroke:#FFFFFF;}
+		.d2-349279748 .stroke-B1{stroke:#0A0F25;}
+		.d2-349279748 .stroke-B2{stroke:#676C7E;}
+		.d2-349279748 .stroke-B3{stroke:#9499AB;}
+		.d2-349279748 .stroke-B4{stroke:#CFD2DD;}
+		.d2-349279748 .stroke-B5{stroke:#DEE1EB;}
+		.d2-349279748 .stroke-B6{stroke:#EEF1F8;}
+		.d2-349279748 .stroke-AA2{stroke:#676C7E;}
+		.d2-349279748 .stroke-AA4{stroke:#CFD2DD;}
+		.d2-349279748 .stroke-AA5{stroke:#DEE1EB;}
+		.d2-349279748 .stroke-AB4{stroke:#CFD2DD;}
+		.d2-349279748 .stroke-AB5{stroke:#DEE1EB;}
+		.d2-349279748 .background-color-N1{background-color:#0A0F25;}
+		.d2-349279748 .background-color-N2{background-color:#676C7E;}
+		.d2-349279748 .background-color-N3{background-color:#9499AB;}
+		.d2-349279748 .background-color-N4{background-color:#CFD2DD;}
+		.d2-349279748 .background-color-N5{background-color:#DEE1EB;}
+		.d2-349279748 .background-color-N6{background-color:#EEF1F8;}
+		.d2-349279748 .background-color-N7{background-color:#FFFFFF;}
+		.d2-349279748 .background-color-B1{background-color:#0A0F25;}
+		.d2-349279748 .background-color-B2{background-color:#676C7E;}
+		.d2-349279748 .background-color-B3{background-color:#9499AB;}
+		.d2-349279748 .background-color-B4{background-color:#CFD2DD;}
+		.d2-349279748 .background-color-B5{background-color:#DEE1EB;}
+		.d2-349279748 .background-color-B6{background-color:#EEF1F8;}
+		.d2-349279748 .background-color-AA2{background-color:#676C7E;}
+		.d2-349279748 .background-color-AA4{background-color:#CFD2DD;}
+		.d2-349279748 .background-color-AA5{background-color:#DEE1EB;}
+		.d2-349279748 .background-color-AB4{background-color:#CFD2DD;}
+		.d2-349279748 .background-color-AB5{background-color:#DEE1EB;}
+		.d2-349279748 .color-N1{color:#0A0F25;}
+		.d2-349279748 .color-N2{color:#676C7E;}
+		.d2-349279748 .color-N3{color:#9499AB;}
+		.d2-349279748 .color-N4{color:#CFD2DD;}
+		.d2-349279748 .color-N5{color:#DEE1EB;}
+		.d2-349279748 .color-N6{color:#EEF1F8;}
+		.d2-349279748 .color-N7{color:#FFFFFF;}
+		.d2-349279748 .color-B1{color:#0A0F25;}
+		.d2-349279748 .color-B2{color:#676C7E;}
+		.d2-349279748 .color-B3{color:#9499AB;}
+		.d2-349279748 .color-B4{color:#CFD2DD;}
+		.d2-349279748 .color-B5{color:#DEE1EB;}
+		.d2-349279748 .color-B6{color:#EEF1F8;}
+		.d2-349279748 .color-AA2{color:#676C7E;}
+		.d2-349279748 .color-AA4{color:#CFD2DD;}
+		.d2-349279748 .color-AA5{color:#DEE1EB;}
+		.d2-349279748 .color-AB4{color:#CFD2DD;}
+		.d2-349279748 .color-AB5{color:#DEE1EB;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0A0F25;--color-border-muted:#676C7E;--color-neutral-muted:#EEF1F8;--color-accent-fg:#676C7E;--color-accent-emphasis:#676C7E;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-B3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-B5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AA5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-AB5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}]]></style>
         <g id="GameManager">
             <g class="shape">
-                <rect x="0.000000" y="0.000000" width="697.000000" height="1610.000000" class=" stroke-N1 fill-N7"
+                <rect x="554.000000" y="0.000000" width="697.000000" height="1610.000000" class=" stroke-N1 fill-N7"
                       style="stroke-width:2;"/>
-                <rect x="0.000000" y="0.000000" width="697.000000" height="92.000000" class="class_header fill-N1"/>
-                <text x="348.500000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
+                <rect x="554.000000" y="0.000000" width="697.000000" height="92.000000" class="class_header fill-N1"/>
+                <text x="902.500000" y="53.750000" class="text-mono fill-N7" style="text-anchor:middle;font-size:24px;">
                     GameManager
                 </text>
-                <text x="10.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="120.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     -
                 </text>
-                <text x="30.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="120.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     units
                 </text>
-                <text x="677.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="120.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="166.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     -
                 </text>
-                <text x="30.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="166.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onUnitUnderAttackEventHandlers
                 </text>
-                <text x="677.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="166.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="212.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     -
                 </text>
-                <text x="30.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="212.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onUnitDeadEventHandlers
                 </text>
-                <text x="677.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="212.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="258.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     -
                 </text>
-                <text x="30.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="258.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onFlagCapturedEventHandlers
                 </text>
-                <text x="677.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="258.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="304.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     -
                 </text>
-                <text x="30.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="304.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onTowerFlagEventHandlers
                 </text>
-                <text x="677.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="304.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <line x1="0.000000" x2="697.000000" y1="322.000000" y2="322.000000" class=" stroke-N1"
+                <line x1="554.000000" x2="1251.000000" y1="322.000000" y2="322.000000" class=" stroke-N1"
                       style="stroke-width:1"/>
-                <text x="10.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="350.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="350.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     new(gameManager GameManager)
                 </text>
-                <text x="677.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="350.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     GameMapDebug
                 </text>
-                <text x="10.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="396.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="396.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     load()
                 </text>
-                <text x="677.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="396.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="442.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="442.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     update(dt float)
                 </text>
-                <text x="677.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="442.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="488.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="488.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getViewport()
                 </text>
-                <text x="677.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="488.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     Viewport
                 </text>
-                <text x="10.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="534.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="534.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getGameLevelData()
                 </text>
-                <text x="677.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="534.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     GameLevelData
                 </text>
-                <text x="10.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="580.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="580.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getGameMap()
                 </text>
-                <text x="677.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="580.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     GameMap
                 </text>
-                <text x="10.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="626.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="626.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getFogOfWar()
                 </text>
-                <text x="677.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="626.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     FogOfWar
                 </text>
-                <text x="10.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="672.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="672.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getPlayer()
                 </text>
-                <text x="677.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="672.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     Player
                 </text>
-                <text x="10.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="718.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="718.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getPathFinding()
                 </text>
-                <text x="677.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="718.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     PathFinding
                 </text>
-                <text x="10.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="764.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="764.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getUnits()
                 </text>
-                <text x="677.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="764.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="810.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="810.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getMainTowerByGroup(group)
                 </text>
-                <text x="677.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="810.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     MainTower
                 </text>
-                <text x="10.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="856.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="856.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getEnemyUnits()
                 </text>
-                <text x="677.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="856.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="902.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="902.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getEnemyFlags()
                 </text>
-                <text x="677.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="902.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="948.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="948.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getPlayerFlags()
                 </text>
-                <text x="677.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="948.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="994.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="994.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getPlayerOrNeutralFlags()
                 </text>
-                <text x="677.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="994.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1040.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1040.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getNeutralFlags()
                 </text>
-                <text x="677.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1040.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1086.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1086.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getFlags()
                 </text>
-                <text x="677.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1086.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="1132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1132.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1132.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getEnemyTower()
                 </text>
-                <text x="677.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1132.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     MainTower
                 </text>
-                <text x="10.000000" y="1178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1178.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1178.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getPlayerTower()
                 </text>
-                <text x="677.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1178.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     MainTower
                 </text>
-                <text x="10.000000" y="1224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1224.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1224.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     getFilteredUnits(filter)
                 </text>
-                <text x="677.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1224.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     table
                 </text>
-                <text x="10.000000" y="1270.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1270.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1270.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1270.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     tileContainsUnit(tileIndex, excludeUnit)
                 </text>
-                <text x="677.000000" y="1270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1270.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     boolean
                 </text>
-                <text x="10.000000" y="1316.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1316.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1316.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1316.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onUnitTakeDamage(unit, damage, fromGroup)
                 </text>
-                <text x="677.000000" y="1316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1316.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1362.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1362.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1362.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1362.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onUnitDead(unit, fromGroup)
                 </text>
-                <text x="677.000000" y="1362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1362.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1408.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1408.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1408.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1408.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     onFlagCaptured(unit, fromGroup)
                 </text>
-                <text x="677.000000" y="1408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1408.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1454.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1454.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1454.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1454.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     registerOnUnitDeadEventHandler(handler)
                 </text>
-                <text x="677.000000" y="1454.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1454.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1500.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1500.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1500.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1500.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     registerOnFlagCapturedEventHandler(handler)
                 </text>
-                <text x="677.000000" y="1500.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1500.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1546.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1546.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1546.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1546.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     registerOnUnitUnderAttackEventHandler(handler)
                 </text>
-                <text x="677.000000" y="1546.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1546.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
-                <text x="10.000000" y="1592.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
+                <text x="564.000000" y="1592.000000" class="text-mono fill-B2" style="text-anchor:start;font-size:20px">
                     +
                 </text>
-                <text x="30.000000" y="1592.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
+                <text x="584.000000" y="1592.000000" class="text-mono fill-N1" style="text-anchor:start;font-size:20px">
                     registerOnTowerFlagEventHandler(handler)
                 </text>
-                <text x="677.000000" y="1592.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
+                <text x="1231.000000" y="1592.000000" class="text-mono fill-AA2" style="text-anchor:end;font-size:20px">
                     void
                 </text>
             </g>
+        </g>
+        <g id="Parallax">
+            <g class="shape">
+                <rect x="0.000000" y="1731.000000" width="103.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="51.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Parallax
+            </text>
+        </g>
+        <g id="ViewPort">
+            <g class="shape">
+                <rect x="163.000000" y="1731.000000" width="111.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="218.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                ViewPort
+            </text>
+        </g>
+        <g id="GameMap">
+            <g class="shape">
+                <rect x="334.000000" y="1731.000000" width="116.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="392.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                GameMap
+            </text>
+        </g>
+        <g id="Player">
+            <g class="shape">
+                <rect x="510.000000" y="1731.000000" width="91.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="555.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Player
+            </text>
+        </g>
+        <g id="MainTower">
+            <g class="shape">
+                <rect x="661.000000" y="1731.000000" width="124.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="723.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                MainTower
+            </text>
+        </g>
+        <g id="FogOfWar">
+            <g class="shape">
+                <rect x="845.000000" y="1731.000000" width="115.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="902.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                FogOfWar
+            </text>
+        </g>
+        <g id="PathFinding">
+            <g class="shape">
+                <rect x="1020.000000" y="1731.000000" width="131.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1085.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                PathFinding
+            </text>
+        </g>
+        <g id="GameNotification">
+            <g class="shape">
+                <rect x="1211.000000" y="1731.000000" width="170.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1296.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                GameNotification
+            </text>
+        </g>
+        <g id="Enemy">
+            <g class="shape">
+                <rect x="1441.000000" y="1731.000000" width="93.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1487.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Enemy
+            </text>
+        </g>
+        <g id="Flag">
+            <g class="shape">
+                <rect x="1594.000000" y="1731.000000" width="75.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                      style="stroke-width:2;"/>
+            </g>
+            <text x="1631.500000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+                Flag
+            </text>
         </g>
         <g id="Component">
             <g class="shape">
-                <rect x="285.000000" y="1731.000000" width="128.000000" height="66.000000" class=" stroke-B1 fill-B6"
+                <rect x="1729.000000" y="1731.000000" width="128.000000" height="66.000000" class=" stroke-B1 fill-B6"
                       style="stroke-width:2;"/>
             </g>
-            <text x="349.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
+            <text x="1793.000000" y="1769.500000" class="text-bold fill-N1" style="text-anchor:middle;font-size:16px">
                 Component
             </text>
         </g>
-        <g id="(GameManager -&gt; Component)[0]">
+        <g id="(GameManager -&gt; Parallax)[0]">
             <marker id="mk-3488378134" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000"
                     viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse">
                 <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" class="connection fill-B1"
                          stroke-width="2"/>
             </marker>
-            <path d="M 348.500000 1611.500000 C 348.500000 1658.300049 348.500000 1682.699951 348.500000 1727.500000"
+            <path d="M 553.096986 1160.925325 C 152.098999 1568.300049 51.500000 1682.699951 51.500000 1727.500000"
                   fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
-                  mask="url(#d2-958448669)"/>
-            <text x="349.000000" y="1676.000000" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; ViewPort)[0]">
+            <path d="M 553.259635 1247.068915 C 285.700012 1585.500000 218.500000 1682.699951 218.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; GameMap)[0]">
+            <path d="M 552.984865 1397.223224 C 424.399994 1615.500000 392.000000 1682.699951 392.000000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; Player)[0]">
+            <path d="M 578.767752 1611.361132 C 560.299988 1658.300049 555.500000 1682.699951 555.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; MainTower)[0]">
+            <path d="M 735.583131 1611.456073 C 725.599976 1658.300049 723.000000 1682.699951 723.000000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; FogOfWar)[0]">
+            <path d="M 902.500000 1611.500000 C 902.500000 1658.300049 902.500000 1682.699951 902.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; PathFinding)[0]">
+            <path d="M 1072.916869 1611.456073 C 1082.900024 1658.300049 1085.500000 1682.699951 1085.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; GameNotification)[0]">
+            <path d="M 1251.827606 1573.320733 C 1287.000000 1650.699951 1296.000000 1682.699951 1296.000000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; Enemy)[0]">
+            <path d="M 1251.621382 1322.156050 C 1440.099976 1600.500000 1487.500000 1682.699951 1487.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; Flag)[0]">
+            <path d="M 1251.789001 1220.029208 C 1555.300049 1580.099976 1631.500000 1682.699951 1631.500000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+        </g>
+        <g id="(GameManager -&gt; Component)[0]">
+            <path d="M 1252.433916 1144.894232 C 1684.599976 1565.099976 1793.000000 1682.699951 1793.000000 1727.500000"
+                  fill="none" class="connection stroke-B1" style="stroke-width:2;" marker-end="url(#mk-3488378134)"
+                  mask="url(#d2-349279748)"/>
+            <text x="1543.000000" y="1433.000000" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">
                 extends
             </text>
         </g>
-        <mask id="d2-958448669" maskUnits="userSpaceOnUse" x="-101" y="-101" width="899" height="1999">
-            <rect x="-101" y="-101" width="899" height="1999" fill="white"></rect>
-            <rect x="307.500000" y="1753.500000" width="83" height="21" fill="rgba(0,0,0,0.75)"></rect>
-            <rect x="323.000000" y="1660.000000" width="52" height="21" fill="black"></rect>
+        <mask id="d2-349279748" maskUnits="userSpaceOnUse" x="-101" y="-101" width="2059" height="1999">
+            <rect x="-101" y="-101" width="2059" height="1999" fill="white"></rect>
+            <rect x="22.500000" y="1753.500000" width="58" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="185.500000" y="1753.500000" width="66" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="356.500000" y="1753.500000" width="71" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="532.500000" y="1753.500000" width="46" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="683.500000" y="1753.500000" width="79" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="867.500000" y="1753.500000" width="70" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1042.500000" y="1753.500000" width="86" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1233.500000" y="1753.500000" width="125" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1463.500000" y="1753.500000" width="48" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1616.500000" y="1753.500000" width="30" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1751.500000" y="1753.500000" width="83" height="21" fill="rgba(0,0,0,0.75)"></rect>
+            <rect x="1517.000000" y="1417.000000" width="52" height="21" fill="black"></rect>
         </mask>
     </svg>
 </svg>

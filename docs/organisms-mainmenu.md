@@ -24,7 +24,7 @@ Le composant MainMenuFrame est la frame qui contient le menu principal du jeu
 
 Le composant MainMenuParallax permet d'afficher l'ensemble des parallax de la scene du menu principal
 
-<img src="./main-menu-parallax.svg">
+<img src="./main-menu-parallax.svg" width="500">
 
 ### models/mainmenu/ParametersFrame.lua
 
