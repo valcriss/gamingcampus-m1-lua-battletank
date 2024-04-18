@@ -19,5 +19,5 @@ copy ..\redistributable\*.* .\
 copy /b love.exe+battle-tank.love battle-tank.exe
 del battle-tank.love
 del love.exe
-tar -a -cf battle-tank.zip *.*
+tar -a --exclude *.zip -cf  battle-tank.zip *.*
 for /R %%i in (*) do if not %%~xi==.zip del "%%i"
