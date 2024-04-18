@@ -1,0 +1,27 @@
+FogOfWar: {
+  shape: class
+
+  +new(gameManager GameManager,forgetTilesSeen boolean): FogOfWar
+
+  -sight: integer
+  -inSight: table
+  -seen: table
+  -seenDuration: integer
+  -clipTop: Rectangle
+  -clipRight: Rectangle
+  -clipBottom: Rectangle
+  -clipLeft: Rectangle
+
+  +draw(): void
+  +update(dt float): void
+
+  +drawClip(): void
+  +drawTile(x, y, tilePosition): void
+  +updateClipBounds(position): void
+  +isTileSeen(tilePosition): boolean
+  +isTileSeenByIndex(tileIndex): boolean
+  +isTileInSight(tilePosition): boolean
+  +isTileInSightByIndex(tileIndex): boolean
+}
+
+FogOfWar -> Component: extends

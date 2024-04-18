@@ -1,0 +1,16 @@
+GameMap: {
+  shape: class
+
+  +new(gameManager GameManager): GameMap
+
+  -tilesToRenderLayout0: table
+  -tilesToRenderLayout1: table
+
+  +update(dt float): void
+  +draw(): void
+
+  +getTilesToRenderLayout0(): table
+  +getTilesToRenderLayout1(): table
+}
+
+GameMap -> Component: extends

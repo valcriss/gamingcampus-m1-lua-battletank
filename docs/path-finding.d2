@@ -1,0 +1,16 @@
+PathFinding: {
+  shape: class
+
+  +new(gameManager GameManager): PathFinding
+
+  -gameLevelData: table
+  -neighborsCache: table
+
+  +load(): void
+
+  +getTileContainsUnit(tileIndex, sourceEnemy): boolean
+  +getNeighbors(destination, tileIndex, done): table
+  -shallowCopy(orig): table
+}
+
+PathFinding -> Component: extends
