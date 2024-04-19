@@ -5,14 +5,10 @@ MoveOrder     = {}
 ---@param gameManager GameManager
 ---@param enemy Enemy
 MoveOrder.new = function(target, gameManager, enemy, behavior)
-    local moveOrder = Order.new()
+    local moveOrder = Order.new(enemy, target, gameManager)
 
     setmetatable(moveOrder, MoveOrder)
     MoveOrder.__index = MoveOrder
-
-    -- ---------------------------------------------
-    -- Properties
-    -- ---------------------------------------------
 
     -- ---------------------------------------------
     -- Public Functions
@@ -36,12 +32,6 @@ MoveOrder.new = function(target, gameManager, enemy, behavior)
             else
                 behavior.resetCurrentOrder()
             end
-        end
-    end
-
-    function moveOrder.lookAtPosition(targetPosition)
-        if targetPosition ~= nil then
-            enemy.lookAtPosition(targetPosition)
         end
     end
 

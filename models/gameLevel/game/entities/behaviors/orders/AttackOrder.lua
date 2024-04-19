@@ -5,7 +5,7 @@ AttackOrder     = {}
 ---@param gameManager GameManager
 ---@param enemy Enemy
 AttackOrder.new = function(target, gameManager, enemy, behavior)
-    local attackOrder = Order.new()
+    local attackOrder = Order.new(enemy, target, gameManager)
 
     setmetatable(attackOrder, AttackOrder)
     AttackOrder.__index = AttackOrder
@@ -38,33 +38,6 @@ AttackOrder.new = function(target, gameManager, enemy, behavior)
             if target.isFrozen() or target.getGroup() == enemy.getGroup() then
                 behavior.resetCurrentOrder()
             end
-        end
-    end
-
-    function attackOrder.moveCloseToTarget(dt)
-        if attackOrder.getCurrentPath() == nil then
-            local path = gameManager.getPathFinding().findPath(enemy.getCollider().getPoint(), target.getCollider().getPoint())
-            attackOrder.setCurrentPath(path)
-        else
-            local nextTile = attackOrder.getPathNode()
-            if nextTile ~= nil then
-                local nextTilePosition = gameManager.getGameLevelData().getRealPositionFromTileIndex(nextTile).offsetPosition(gameManager.getGameLevelData().getLevel().TileSize / 2, gameManager.getGameLevelData().getLevel().TileSize / 2)
-                attackOrder.lookAtPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
-                if nextTilePosition.distance(enemy.getEnemyPosition().x, enemy.getEnemyPosition().y) < gameManager.getGameLevelData().getLevel().TileSize / 4 then
-                    enemy.setEnemyPosition({ x = nextTilePosition.x, y = nextTilePosition.y })
-                    attackOrder.nextNode()
-                else
-                    enemy.moveToPoint({ x = nextTilePosition.x, y = nextTilePosition.y }, dt)
-                end
-            else
-                attackOrder.clearCurrentPath()
-            end
-        end
-    end
-
-    function attackOrder.lookAtPosition(targetPosition)
-        if targetPosition ~= nil then
-            enemy.lookAtPosition(targetPosition)
         end
     end
 
