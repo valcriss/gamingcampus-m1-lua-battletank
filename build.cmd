@@ -23,6 +23,7 @@ ResourceHacker.exe -open battle-tank-preicon.exe -save battle-tank.exe -action a
 del battle-tank.ico
 del battle-tank-preicon.exe
 del ResourceHacker.exe
+del ResourceHacker.ini
 tar -a --exclude *.zip -cf  battle-tank.zip *.*
 for /R %%i in (*) do if not %%~xi==.zip del "%%i"
 cd ..
