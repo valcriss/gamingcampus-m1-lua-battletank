@@ -16,8 +16,13 @@ rd /s /q models
 rd /s /q scenes
 del main.lua
 copy ..\redistributable\*.* .\
-copy /b love.exe+battle-tank.love battle-tank.exe
+copy /b love.exe+battle-tank.love battle-tank-preicon.exe
 del battle-tank.love
 del love.exe
+ResourceHacker.exe -open battle-tank-preicon.exe -save battle-tank.exe -action addskip -res battle-tank.ico -mask ICONGROUP,MAINICON,
+del battle-tank.ico
+del battle-tank-preicon.exe
+del ResourceHacker.exe
 tar -a --exclude *.zip -cf  battle-tank.zip *.*
 for /R %%i in (*) do if not %%~xi==.zip del "%%i"
+cd ..
