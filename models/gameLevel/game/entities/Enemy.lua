@@ -7,7 +7,7 @@ Enemy           = {}
 
 --- @param gameManager GameManager
 Enemy.new       = function(index, enemyPosition, gameManager)
-    local enemy = Unit.new("Enemy-" .. index, gameManager, "assets/gamelevel/tank-body-blue.png", "assets/gamelevel/tank-turret-blue.png", "assets/gamelevel/tank-turret-fire-blue.png", 0, 0, 2)
+    local enemy = Unit.new("Enemy-" .. index, gameManager, "assets/gameLevel/tank-body-blue.png", "assets/gameLevel/tank-turret-blue.png", "assets/gameLevel/tank-turret-fire-blue.png", 0, 0, 2)
 
     setmetatable(enemy, Enemy)
     Enemy.__index = Enemy

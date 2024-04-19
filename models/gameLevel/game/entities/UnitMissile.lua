@@ -5,7 +5,7 @@ local SpriteSheetImage = require "framework.images.SpriteSheetImage"
 UnitMissile            = {}
 
 UnitMissile.new        = function(name, gameManager, group, asset, speed)
-    asset             = asset or "assets/gamelevel/bullet.png"
+    asset             = asset or "assets/gameLevel/bullet.png"
     speed             = speed or 2000
     local unitMissile = Component.new(name)
 
@@ -26,7 +26,7 @@ UnitMissile.new        = function(name, gameManager, group, asset, speed)
     local unitGroup       = group
 
     local missile         = Image.new(unitMissile.name .. "_missile", asset, 0, 0)
-    local explosion       = SpriteSheetImage.new(unitMissile.name .. "_explosion", "assets/gamelevel/explosion2.png", 5, 4, 3, false, 0, 0, nil, nil, 0, 1, nil, function()
+    local explosion       = SpriteSheetImage.new(unitMissile.name .. "_explosion", "assets/gameLevel/explosion2.png", 5, 4, 3, false, 0, 0, nil, nil, 0, 1, nil, function()
         unitMissile.explosionEnds()
     end)                                    .hide()
 

@@ -6,7 +6,7 @@ Player          = {}
 
 --- @param gameManager GameManager
 Player.new      = function(gameManager)
-    local player = Unit.new("Player", gameManager, "assets/gamelevel/tank-body.png", "assets/gamelevel/tank-turret.png", "assets/gamelevel/tank-turret-fire.png", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), 1)
+    local player = Unit.new("Player", gameManager, "assets/gameLevel/tank-body.png", "assets/gameLevel/tank-turret.png", "assets/gameLevel/tank-turret-fire.png", screenManager:calculateCenterPointX(), screenManager:calculateCenterPointY(), 1)
 
     setmetatable(player, Player)
     Player.__index = Player
