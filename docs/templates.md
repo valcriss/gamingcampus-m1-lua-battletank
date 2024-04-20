@@ -1,11 +1,11 @@
-# Les templates/scenes du jeu
+# Les templates/scènes du jeu
 
-Les templates/scenes sont des composants plus complexes qui contiennent des organismes, des molécules et des atomes il
-représente les scenes du jeu
+Les templates/scènes sont des composants plus complexes qui contiennent des organismes, des molécules et des atomes il
+représente les scènes du jeu
 
 ### scenes/SplashScreen.lua
 
-Le composant SplashScreen affiche la scene de démarrage du jeu.
+Le composant SplashScreen affiche la scène de démarrage du jeu.
 
 <img src="./splash-screen.svg" width="500">
 

@@ -1,6 +1,6 @@
-# Les organismes de la scene : Niveau du jeu - Element de jeu - Carte
+# Les organismes de la scène : Niveau du jeu - Element de jeu - Carte
 
-Les organismes de la scene Niveau du jeu element de jeu carte sont les éléments qui gère l'affichage de la carte.
+Les organismes de la scène Niveau du jeu élément de jeu carte sont les éléments qui gère l'affichage de la carte.
 
 ### models/gameLevel/game/map/GameMap.lua
 

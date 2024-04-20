@@ -1,17 +1,17 @@
-# Les organismes de la scene : Niveau du jeu - Debuggage
+# Les organismes de la scène : Niveau du jeu - Débogage
 
-Les organismes de la scene Niveau du jeu debuggage sont l'ensemble des organismes qui permettent de debugguer la scene
+Les organismes de la scène Niveau du jeu débogage sont l'ensemble des organismes qui permettent de debugger la scène
 de Niveau du jeu.
 
 ### models/gameLevel/debug/DebugItem.lua
 
-Le composant DebugItem est le composant de base de chaque composant de debuggage de la scene de Niveau du jeu.
+Le composant DebugItem est le composant de base de chaque composant de débogage de la scène de Niveau du jeu.
 
 <img src="./debug-item.svg">
 
 ### models/gameLevel/debug/DebugManager.lua
 
-Le composant DebugManager gère la collection d'elements de debuggage de la scene de niveau de jeu.
+Le composant DebugManager gère la collection d'elements de débogage de la scène de niveau de jeu.
 
 <img src="./debug-manager.svg">
 
@@ -23,20 +23,20 @@ Le composant FpsDebug permet d'afficher les fps du jeu en cours.
 
 ### models/gameLevel/debug/GameMapDebug.lua
 
-Le composant GameMapDebug permet d'afficher les informations de debuggage de la carte (nombre de cellules affichées,
-etc.
+Le composant GameMapDebug permet d'afficher les informations de débogage de la carte (nombre de cellules affichées,
+etc.)
 
 <img src="./game-map-debug.svg">
 
 ### models/gameLevel/debug/GameMapTilesDebug.lua
 
-Le composant GameMapTilesDebug permet d'afficher les informations de debuggage de la carte (index des tuiles, etc.)
+Le composant GameMapTilesDebug permet d'afficher les informations de débogage de la carte (index des tuiles, etc.)
 
 <img src="./game-map-tiles-debug.svg">
 
 ### models/gameLevel/debug/PathFindingDebug.lua
 
-Le composant PathFindingDebug permet d'afficher a l'écran les informations de debuggage du pathfinding.
+Le composant PathFindingDebug permet d'afficher a l'écran les informations de débogage du pathfinding.
 
 <img src="./path-finding-debug.svg">
 
@@ -48,7 +48,7 @@ Le composant UnitsColliderDebug permet d'afficher a l'écran les informations de
 
 ### models/gameLevel/debug/ViewPortDebug.lua
 
-Le composant ViewPortDebug permet d'afficher a l'écran les informations sur le viewport de la scene (position de la
+Le composant ViewPortDebug permet d'afficher a l'écran les informations sur le viewport de la scène (position de la
 camera, etc.)
 
 <img src="./viewport-debug.svg">

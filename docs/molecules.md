@@ -4,7 +4,7 @@ Le molécules utilisent les atomes pour créer des composants plus complexes
 
 ### framework/ui/Button.lua
 
-Le composant Button permet d'afficher un bouton avec l'effet au survol, cliqué, il permet également d'executer un
+Le composant Button permet d'afficher un bouton avec l'effet au survol, cliqué, il permet également d’exécuter un
 callback lors du click
 
 <img src="./button.svg">
@@ -17,14 +17,14 @@ Le composant CheckBox permet d'afficher une checkbox
 
 ### framework/ui/MenuFrame.lua
 
-Le composant MenuFrame permet d'afficher une fenetre qui arrive depuis la droite en utilisant une texture compatible
+Le composant MenuFrame permet d'afficher une fenêtre qui arrive depuis la droite en utilisant une texture compatible
 nine-patch
 
 <img src="./menu-frame.svg">
 
 ### framework/ui/LeftMenuFrame.lua
 
-Le composant LeftMenuFrame permet d'afficher une fenetre qui arrive depuis la gauche en utilisant une texture compatible
+Le composant LeftMenuFrame permet d'afficher une fenêtre qui arrive depuis la gauche en utilisant une texture compatible
 nine-patch
 
 <img src="./left-menu-frame.svg">
@@ -42,4 +42,3 @@ Le composant SliderButton est utilisé dans le composant Slider afin d'afficher 
 modifier la valeur de ce-dernier.
 
 <img src="./slider-button.svg">
-

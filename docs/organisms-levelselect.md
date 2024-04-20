@@ -1,6 +1,6 @@
-# Les organismes de la scene : Selection de niveau
+# Les organismes de la scène : Selection de niveau
 
-Les organismes de la scene Selection de niveau sont les organismes qui composent la scene de selection du niveau de jeu.
+Les organismes de la scène Selection de niveau sont les organismes qui composent la scène de selection du niveau de jeu.
 
 ### models/levelselect/InformationFrame.lua
 
@@ -10,7 +10,7 @@ Le composant InformationFrame est l'écran qui affiche les informations du nivea
 
 ### models/levelselect/LevelButton.lua
 
-Le composant LevelButton est le bouton qui permet de selectionner un niveau
+Le composant LevelButton est le bouton qui permet de sélectionner un niveau
 
 <img src="./level-button.svg">
 
@@ -22,6 +22,6 @@ Le composant MapTank est le composant qui affiche le tank sur la map
 
 ### models/levelselect/MapTankMovement.lua
 
-La class MapTankMovement est la classe qui contient les parametres de déplacement du tank sur la carte
+La class MapTankMovement est la classe qui contient les paramètres de déplacement du tank sur la carte
 
 <img src="./map-tank-movement.svg">

@@ -1,6 +1,6 @@
-# Les organismes de la scene : Niveau du jeu - Pause
+# Les organismes de la scène : Niveau du jeu - Pause
 
-Les organismes de la scene Niveau du jeu pause regroupent les organismes qui seront utilisés pour gérer la pause du jeu.
+Les organismes de la scène Niveau du jeu pause regroupent les organismes qui seront utilisés pour gérer la pause du jeu.
 
 ### models/gameLevel/pause/HelpFrame.lua
 

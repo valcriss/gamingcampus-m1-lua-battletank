@@ -1,6 +1,6 @@
-# Les organismes de la scene : Niveau du jeu - Element de jeu
+# Les organismes de la scène : Niveau du jeu - Element de jeu
 
-Les organismes de la scene Niveau du jeu element de jeu sont l'ensemble des organismes qui donne vie au jeu.
+Les organismes de la scène Niveau du jeu élément de jeu sont l'ensemble des organismes qui donne vie au jeu.
 
 Outre l'élément GameManager (élément principal du jeu), les organismes sont décomposés en 3 catégories:
 

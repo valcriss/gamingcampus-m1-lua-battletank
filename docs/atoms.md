@@ -47,7 +47,7 @@ Le composant DialogBackground permet d'afficher un fond semi-transparent pour le
 
 ### framework/ui/Frame.lua
 
-Le composant Frame permet d'afficher une fenetre en utilisant une texture compatible nine-patch
+Le composant Frame permet d'afficher une fenêtre en utilisant une texture compatible nine-patch
 
 <img src="./frame.svg">
 

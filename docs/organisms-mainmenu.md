@@ -1,6 +1,6 @@
-# Les organismes de la scene : Menu principal
+# Les organismes de la scène : Menu principal
 
-Les organismes de la scene Menu principal sont les organismes qui composent la scene du menu principal du jeu.
+Les organismes de la scène Menu principal sont les organismes qui composent la scène du menu principal du jeu.
 
 ### models/mainmenu/ConfirmationFrame.lua
 
@@ -22,12 +22,12 @@ Le composant MainMenuFrame est la frame qui contient le menu principal du jeu
 
 ### models/mainmenu/MainMenuParallax.lua
 
-Le composant MainMenuParallax permet d'afficher l'ensemble des parallax de la scene du menu principal
+Le composant MainMenuParallax permet d'afficher l'ensemble des parallax de la scène du menu principal
 
 <img src="./main-menu-parallax.svg" width="500">
 
 ### models/mainmenu/ParametersFrame.lua
 
-Le composant ParametersFrame est l'écran qui s'affiche pour afficher les parametres du jeu
+Le composant ParametersFrame est l'écran qui s'affiche pour afficher les paramètres du jeu
 
 <img src="./parameters-frame.svg">

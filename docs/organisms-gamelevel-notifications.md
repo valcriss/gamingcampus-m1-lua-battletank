@@ -1,6 +1,6 @@
-# Les organismes de la scene : Niveau du jeu - Notifications
+# Les organismes de la scène : Niveau du jeu - Notifications
 
-Les organismes de la scene Niveau du jeu notifications regroupent les organismes qui permettent d'afficher au joueur les
+Les organismes de la scène Niveau du jeu notifications regroupent les organismes qui permettent d'afficher au joueur les
 notifications en jeu.
 
 ### models/gameLevel/notifications/Notification.lua

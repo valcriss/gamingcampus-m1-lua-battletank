@@ -1,6 +1,6 @@
-# Les organismes de la scene : Niveau du jeu - Interface utilisateur
+# Les organismes de la scène : Niveau du jeu - Interface utilisateur
 
-Les organismes de la scene Niveau du jeu interface utilisateur regroupent les organismes qui seront utilisés pour
+Les organismes de la scène Niveau du jeu interface utilisateur regroupent les organismes qui seront utilisés pour
 afficher l'interface utilisateur du jeu.
 
 ### models/gameLevel/ui/UIManager.lua
@@ -29,18 +29,18 @@ Le composant TowerStatusHeathBar affiche le barre de vie d'une tour en haut de l
 
 ### models/gameLevel/ui/PlayerStatusUI.lua
 
-Le composant PlayerStatusUI affiche les informations sur les tours principales en haut de l'écran (joueur ou enemi).
+Le composant PlayerStatusUI affiche les informations sur les tours principales en haut de l'écran (joueur ou ennemi).
 
 <img src="./player-status-ui.svg">
 
 ### models/gameLevel/ui/MainTowerHeathBar.lua
 
-Le composant MainTowerHeathBar affiche la barre de vie des tours principales en haut de l'écran (joueur ou enemi).
+Le composant MainTowerHeathBar affiche la barre de vie des tours principales en haut de l'écran (joueur ou ennemi).
 
 <img src="./main-tower-heathbar.svg">
 
 ### models/gameLevel/ui/EndGameUI.lua
 
-Le composant EndGameUI affiche au joueur le message victoire ou defaite.
+Le composant EndGameUI affiche au joueur le message victoire ou défaite.
 
 <img src="./end-game-ui.svg">

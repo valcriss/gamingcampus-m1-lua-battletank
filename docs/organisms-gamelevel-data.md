@@ -1,7 +1,7 @@
-# Les organismes de la scene : Niveau du jeu - Données de jeu
+# Les organismes de la scène : Niveau du jeu - Données de jeu
 
-Les organismes de la scene Niveau du jeu données de jeu sont l'ensemble des organismes qui permettent de stocker et
-gérer les données de la scene de Niveau du jeu.
+Les organismes de la scène Niveau du jeu données de jeu sont l'ensemble des organismes qui permettent de stocker et
+gérer les données de la scène de Niveau du jeu.
 
 ### models/gameLevel/levelData/GameLevelData.lua
 
